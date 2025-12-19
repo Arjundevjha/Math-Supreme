@@ -4,7 +4,7 @@ This repository contains a growing collection of mathematics-related Python
 scripts and \LaTeX{} notes. Content is organized by topic, allowing you to easily
 explore concepts or add new material.
 
-## Contributors
+## Ownswership
 - **Arjun Dev Jha** – Owner of repository
 - **Aarav Rastogi** – Joined 9 July 2025
 
