@@ -72,7 +72,7 @@ the repository.
   - [x] `binomial_theorem_general_term.py`
   - [x] `trinomial_theorem.py`
   - [x] `trinomial_theorem_general_term.py`
-- [x] `Number_Theory/`
+- [ ] `Number_Theory/`
   - [x] `partitions_approximation.py`
   - [x] `prime_factorisation.py`
   - [x] `gcd.py`
@@ -110,7 +110,7 @@ the repository.
 ## ✅ Geometry
 
 - [x] `Euclidean_Geometry/`
-  - [x] `Area/`
+  - [ ] `Area/`
     - [x] `square.py`
     - [x] `rectangle.py`
     - [x] `triangle.py`
@@ -126,7 +126,7 @@ the repository.
   - [x] `pythagoras_theorem.py`
   - [ ] `congruence_theorems.tex`
   - [ ] `similarity_theorems.tex`
-- [x] `Analytic_Geometry/`
+- [ ] `Analytic_Geometry/`
   - [x] `distance_formula.py`
   - [x] `midpoint_formula.py`
   - [x] `line_equations/`
@@ -143,7 +143,7 @@ the repository.
     - [ ] `reflect.py`
     - [ ] `rotate.py`
   - [ ] `area_collinearity.py`
-- [x] `Trigonometry/`
+- [ ] `Trigonometry/`
   - [x] `Trig_Functions/`
     - [x] `sine.py`
     - [x] `cosine.py`
@@ -181,7 +181,7 @@ the repository.
 
 ## ✅ Numerical Methods
 
-- [x] `Constants/`
+- [ ] `Constants/`
   - [x] `Eulers_number.py`
   - [x] `Pi_Algorithms/`
     - [x] `Chudnovsky_algo.py`
@@ -237,7 +237,7 @@ the repository.
   - [ ] `binary_logic.py`
   - [ ] `truth_table_generator.py`
   - [ ] `boolean_simplifier.py`
-- [x] `Finance/`
+- [ ] `Finance/`
   - [x] `Simple_Intrest.py`
   - [x] `Compund_intrest.py`
   - [ ] `annuities.py`
