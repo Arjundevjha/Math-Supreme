@@ -1,3 +1,5 @@
+from polynomial import Polynomial
+
 class RemainderTheorem:
     def check_remainder(self):
         poly = Polynomial()

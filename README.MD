@@ -4,7 +4,7 @@ This repository contains a growing collection of mathematics-related Python
 scripts and \LaTeX{} notes. Content is organized by topic, allowing you to easily
 explore concepts or add new material.
 
-## Contributors
+## Ownswership
 - **Arjun Dev Jha** – Owner of repository
 - **Aarav Rastogi** – Joined 9 July 2025
 
@@ -45,6 +45,11 @@ the repository.
   - [x] `chain_rule.py`
   - [x] `quotient_rule.py`
   - [x] `second_derivatives.py`
+  - [ ] `implicit_differentiation.py`
+- [ ] `Applications_of_Derivatives/`
+  - [ ] `curve_sketching.py`
+  - [ ] `optimization_problems.py`
+  - [ ] `related_rates.py`
 - [x] `Integration/`
   - [x] `NumIntegration.py`
   - [x] `TrigIntegration.py`
@@ -67,8 +72,8 @@ the repository.
   - [x] `binomial_theorem_general_term.py`
   - [x] `trinomial_theorem.py`
   - [x] `trinomial_theorem_general_term.py`
-- [x] `Number_Theory/`
-  - [x] `partitions.py`
+- [ ] `Number_Theory/`
+  - [x] `partitions_approximation.py`
   - [x] `prime_factorisation.py`
   - [x] `gcd.py`
   - [x] `lcm.py`
@@ -78,6 +83,17 @@ the repository.
     - [ ] `fermat_little_theorem.py`
     - [ ] `euclids_algorithm.py`
     - [ ] `eulers_totient_function.py`
+  - [ ] `Sequences_and_Series/`
+    - [ ] `arithmetic_sequence.py`
+    - [ ] `geometric_sequence.py`
+    - [ ] `arithmetic_series.py`
+    - [ ] `geometric_series.py`
+    - [ ] `fibonacci_sequence.py`
+  -[ ] `Inequalities/`
+    - [ ] `linear_inequalities.py`
+    - [ ] `quadratic_inequalities.py`
+    - [ ] `absolute_value_inequalities.py`
+    - [ ] `cauchy_schwarz_inequality.tex`
 - [ ] `Set_Theory/`
   - [ ] `union_intersection.py`
   - [ ] `venn_diagram.tex`
@@ -94,7 +110,7 @@ the repository.
 ## ✅ Geometry
 
 - [x] `Euclidean_Geometry/`
-  - [x] `Area/`
+  - [ ] `Area/`
     - [x] `square.py`
     - [x] `rectangle.py`
     - [x] `triangle.py`
@@ -110,7 +126,7 @@ the repository.
   - [x] `pythagoras_theorem.py`
   - [ ] `congruence_theorems.tex`
   - [ ] `similarity_theorems.tex`
-- [x] `Analytic_Geometry/`
+- [ ] `Analytic_Geometry/`
   - [x] `distance_formula.py`
   - [x] `midpoint_formula.py`
   - [x] `line_equations/`
@@ -127,7 +143,7 @@ the repository.
     - [ ] `reflect.py`
     - [ ] `rotate.py`
   - [ ] `area_collinearity.py`
-- [x] `Trigonometry/`
+- [ ] `Trigonometry/`
   - [x] `Trig_Functions/`
     - [x] `sine.py`
     - [x] `cosine.py`
@@ -165,7 +181,7 @@ the repository.
 
 ## ✅ Numerical Methods
 
-- [x] `Constants/`
+- [ ] `Constants/`
   - [x] `Eulers_number.py`
   - [x] `Pi_Algorithms/`
     - [x] `Chudnovsky_algo.py`
@@ -185,9 +201,11 @@ the repository.
 - [x] `Functions/`
   - [x] `Factorial/`
     - [x] `factorial.py`
-  - [ ] `hexation/`
+  - [x] `hexation/`
+      -[x] `hexation.py`
   - [ ] `square_root/`
-  - [ ] `tetration/`
+  - [x]  `tetration/`
+    - [x] `tetration.py`
 
 ---
 
@@ -219,7 +237,7 @@ the repository.
   - [ ] `binary_logic.py`
   - [ ] `truth_table_generator.py`
   - [ ] `boolean_simplifier.py`
-- [x] `Finance/`
+- [ ] `Finance/`
   - [x] `Simple_Intrest.py`
   - [x] `Compund_intrest.py`
   - [ ] `annuities.py`
