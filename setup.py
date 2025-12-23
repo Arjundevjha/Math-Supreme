@@ -7,7 +7,7 @@ setup(
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Aarav Rastogi, Arjun Dev Jha',
-    author_email='aarav.rastogi24@gmail.com, arjundevjha111@gmail.com',
+    author_email='arjundevjha111@gmail.com, aarav.rastogi24@gmail.com',
     packages=find_packages(),
     install_requires=[
         "pytest"
