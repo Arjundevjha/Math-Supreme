@@ -1,6 +1,6 @@
 # Finnding an equation of a line given two points
 
-from typing import List, Union
+from typing import Union
 
 
 def linear_eqn(x1: Union[int, float], y1:  Union[int, float], x2: Union[int, float], y2: Union[int, float]) -> str:
