@@ -1,4 +1,5 @@
 #binomial theorem class
+from typing import Union
 
 class BinomialTheorem:
     def __init__(self, a, b, n):
