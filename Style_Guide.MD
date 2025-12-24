@@ -4,7 +4,7 @@ This style guide outlines the coding conventions and best practices to be follow
 
 ## General Principles
 - **File Name**: Use descriptive and concise names for files and directories. Use underscores (_) to separate words (e.g., `polynomial_solver.py`).
-- **Documentation**: Each script should include a header comment that describes its purpose, author, and date of creation. Additionally, use docstrings for functions and classes to explain their functionality.
+- **Documentation**: Each script should include a header comment at the top that briefly describes its purpose (e.g., `# Finding an equation of a line given two points`). Additionally, use docstrings for functions and classes to explain their functionality.
 - **Modularity**: Break down code into functions and classes to promote reusability and maintainability.
 - **Version Control**: Use meaningful commit messages that describe the changes made. Follow the repository's branching strategy for feature development and bug fixes.
 - **Testing**: Include tests for new features and bug fixes to ensure code reliability.
@@ -13,40 +13,50 @@ This style guide outlines the coding conventions and best practices to be follow
 ## Python Coding Conventions
 - **PEP 8 Compliance**: Follow the PEP 8 style guide for Python code. This includes indentation, line length (maximum 79 characters), and spacing.
 - **Imports**: Group imports into three sections: standard library imports, related third-party imports, and local application/library-specific imports. Each group should be separated by a blank line.
+- **Type Hints**: Always use type hints for function parameters and return values. Use `Union[int, float]` for numeric parameters that can accept both integers and floats. Import `Union` from the `typing` module.
 - **Variable Naming**: Use lowercase words separated by underscores for variable names (e.g., `total_sum`).
 - **Function and Class Naming**: Use lowercase with underscores for function names (e.g., `calculate_area`) and CapitalizedWords for class names (e.g., `PolynomialSolver`).
-- **Comments**: Use comments to explain complex logic. Avoid obvious comments that do not add value.
-- **Error Handling**: Use exceptions to handle errors gracefully. Provide informative error messages.
+- **Comments**: Use inline comments to explain calculations and complex logic (e.g., `# Calculate slope (m)`). Avoid obvious comments that do not add value.
+- **Error Handling**: Use exceptions to handle errors gracefully. Provide informative error messages using `ValueError` or appropriate exception types.
+- **String Formatting**: Use f-strings for string formatting and interpolation (e.g., `f"y = {m}x + {b}"`).
 
 ## Class and Function Documentation
 - **Docstrings**: Use triple quotes for docstrings. The first line should be a brief summary, followed by a more detailed description if necessary.
-- **Parameters and Returns**: Clearly document function parameters and return values in the docstring.
+- **Parameters and Returns**: Use the following format for documenting parameters and return values:
+  - `Parameters:` section listing each parameter with its description
+  - `Returns:` section describing the return value with its type
 - **Examples**: Include usage examples in docstrings where applicable.
+- **Indentation**: Maintain consistent indentation within docstrings (use 8 spaces or 2 tabs for content within the docstring).
 
-## Example of a Well-Documented class and function
+## Example of a Well-Documented Function
 
 ```python
+from typing import Union
 
-class Factorial:
-    """Class to compute factorials.
 
-    Usage:
-        - `Factorial.factorial(n)` for a direct static call
-        - `Factorial()(n)` via an instance (calls `__call__`)
+def linear_eqn(x1: Union[int, float], y1: Union[int, float], x2: Union[int, float], y2: Union[int, float]) -> str:
     """
+    Calculate the equation of a line given two points (x1, y1) and (x2, y2).
 
-    @staticmethod
-    def factorial(num: int) -> int:
-        if num < 0:
-            raise ValueError("Factorial is not defined for negative numbers.")
-        result = 1
-        for idx in range(1, num + 1):
-            result *= idx
-        return result
+    Parameters:
+    x1, y1: Coordinates of the first point.
+    x2, y2: Coordinates of the second point.
 
-    def __call__(self, num: int) -> int:
-        return self.factorial(num)
+    Returns:
+    str: The equation of the line in the form "y = mx + b".
+    """
+    if x1 == x2:
+        raise ValueError("The x-coordinates cannot be the same (vertical line).")
+
+    # Calculate slope (m)
+    m = (y2 - y1) / (x2 - x1)
+
+    # Calculate y-intercept (b)
+    b = y1 - m * x1
+
+    return f"y = {m}x + {b}"
 ```
+
 
 ## Math Implementation Guidelines
 - **Clarity**: Ensure that mathematical operations are clearly defined and easy to follow.
@@ -64,55 +74,24 @@ class Factorial:
 - For complex mathematical expressions, consider breaking them down into smaller, manageable parts for better readability.
 ###Example
 
-Implementation of Sigma Function(Sumation)
+Implementation of Sigma Function(Summation)
 
 ```python
 def sigma(n: int) -> int:
-    """Calculate the sum of the first n natural numbers.
-    return sum(range(1, n + 1))
+    """
+    Calculate the sum of the first n natural numbers.
 
-    Args:
-        n (int): The upper limit of the summation.
+    Parameters:
+    n (int): The upper limit of the summation.
+
     Returns:
-        int: The sum of the first n natural numbers.
-
+    int: The sum of the first n natural numbers.
     """
-    just use a for loop to calculate the sum, its not worth to make a brand new function for it
-    """
-
     total = 0
     for i in range(1, n + 1):
         total += i
     return total
 ```
-```python
-# Example implementation of factorial
-
-
-class Factorial:
-    """Class to compute factorials.
-
-    Usage:
-        - `Factorial.factorial(n)` for a direct static call
-        - `Factorial()(n)` via an instance (calls `__call__`)
-    """
-
-    @staticmethod
-    def factorial(num: int) -> int:
-        if num < 0:
-            raise ValueError("Factorial is not defined for negative numbers.")
-        result = 1
-        for idx in range(1, num + 1):
-            result *= idx
-        return result
-
-    def __call__(self, num: int) -> int:
-        return self.factorial(num)
-
-
-```
-
-
 
 ## Acknowledgments
 This style guide is inspired by widely accepted coding standards and best practices in the software development community. We encourage contributors to stay updated with the latest developments in coding standards and continuously improve their coding practices.
