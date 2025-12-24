@@ -1,30 +1,53 @@
-from prime_factorisation import PrimeFactorisation
+# Greatest Common Divisor (GCD) calculation
+from typing import List
 
-class GCD:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
 
-    def compute_gcd(self):
-        pf_a = PrimeFactorisation(self.a)
-        pf_b = PrimeFactorisation(self.b)
+def prime_factorization_for_gcd(n: int) -> List[int]:
+    """
+    Get prime factors of a number for GCD calculation.
 
-        factors_a = pf_a.get_factors()
-        factors_b = pf_b.get_factors()
+    Parameters:
+    n (int): The number to factorize.
 
-        common_factors = set(factors_a) & set(factors_b)
-        gcd = 1
-        for factor in common_factors:
-            gcd *= factor ** min(factors_a.count(factor), factors_b.count(factor))
-        
-        return gcd
+    Returns:
+    List[int]: List of prime factors.
+    """
+    factors = []
+    d = 2
+    while d * d <= n:
+        while n % d == 0:
+            factors.append(d)
+            n //= d
+        d += 1
+    if n > 1:
+        factors.append(n)
+    return factors
+
+
+def compute_gcd(a: int, b: int) -> int:
+    """
+    Compute the Greatest Common Divisor (GCD) of two numbers using prime factorization.
+
+    Parameters:
+    a (int): The first number.
+    b (int): The second number.
+
+    Returns:
+    int: The GCD of a and b.
+    """
+    if a <= 0 or b <= 0:
+        raise ValueError("Both numbers must be positive.")
     
-def main():
-    a = int(input("Enter the first number: "))
-    b = int(input("Enter the second number: "))
-    gcd_calculator = GCD(a, b)
-    gcd = gcd_calculator.compute_gcd()
-    print(f"The GCD of {a} and {b} is: {gcd}")
+    # Get prime factors for both numbers
+    factors_a = prime_factorization_for_gcd(a)
+    factors_b = prime_factorization_for_gcd(b)
 
-if __name__ == "__main__":
-    main()
+    # Find common factors
+    common_factors = set(factors_a) & set(factors_b)
+    
+    # Calculate GCD by taking minimum power of each common prime factor
+    gcd = 1
+    for factor in common_factors:
+        gcd *= factor ** min(factors_a.count(factor), factors_b.count(factor))
+    
+    return gcd

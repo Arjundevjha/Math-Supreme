@@ -1,46 +1,76 @@
-import sys
-sys.path.append('../..')
-from Algebra.Polynomials.polynomial import Polynomial
+# Chain rule for differentiation of composite functions
+from typing import List, Union, Tuple
 
-from simple_diffrentiation_function import SimpleDifferentiation
 
-# Class for Differentiation using Chain Rule (ax+b)^n
-# Inherits from SimpleDifferentiation to use Polynomial class
-class ChainRuleDifferentiation:
-    def __init__(self):
-        self.inner_poly = Polynomial()
-        self.inner_poly.polynomial()
-        self.inner_poly.input_terms()
-        self.exponent = int(input("Enter the power to which the polynomial is raised (n in [g(x)]^n): "))
+def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> str:
+    """
+    Format a polynomial as a string.
 
-    def format_polynomial(self):
-        terms = []
-        for i in range(self.inner_poly.terms):
-            coeff = self.inner_poly.coefficients[i]
-            power = self.inner_poly.powers[i]
-            term = f"{coeff}x^{int(power)}"
-            terms.append(term)
-        return " + ".join(terms)
+    Parameters:
+    coefficients (List[Union[int, float]]): List of coefficients.
+    powers (List[Union[int, float]]): List of powers.
 
-    def differentiate(self):
-        print("\nUsing Chain Rule:")
-        g_x = self.format_polynomial()
-        print(f"f(x) = ({g_x})^{self.exponent}")
+    Returns:
+    str: String representation of the polynomial.
+    """
+    terms = []
+    for coeff, power in zip(coefficients, powers):
+        term = f"{coeff}x^{int(power)}"
+        terms.append(term)
+    return " + ".join(terms)
 
-        # Compute derivative of the inner polynomial
-        derivative_terms = []
-        for i in range(self.inner_poly.terms):
-            if self.inner_poly.powers[i] == 0:
-                continue
-            coeff = self.inner_poly.coefficients[i] * self.inner_poly.powers[i]
-            power = self.inner_poly.powers[i] - 1
-            derivative_terms.append(f"{coeff}x^{int(power)}")
 
-        g_prime = " + ".join(derivative_terms)
+def compute_polynomial_derivative(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> Tuple[List[float], List[float]]:
+    """
+    Compute the derivative of a polynomial.
 
-        # Final output
-        print(f"f'(x) = {self.exponent}({g_x})^{self.exponent - 1} * ({g_prime})")
+    Parameters:
+    coefficients (List[Union[int, float]]): List of coefficients.
+    powers (List[Union[int, float]]): List of powers.
 
-if __name__ == "__main__":
-    crd = ChainRuleDifferentiation()
-    crd.differentiate()
+    Returns:
+    Tuple[List[float], List[float]]: Lists of derivative coefficients and powers.
+    """
+    derivative_coeffs = []
+    derivative_powers = []
+    
+    # Apply power rule: d/dx(ax^n) = n×a×x^(n-1)
+    for coeff, power in zip(coefficients, powers):
+        if power == 0:
+            continue
+        derivative_coeffs.append(coeff * power)
+        derivative_powers.append(power - 1)
+    
+    return derivative_coeffs, derivative_powers
+
+
+def chain_rule_derivative(inner_coeffs: List[Union[int, float]], inner_powers: List[Union[int, float]], exponent: int) -> str:
+    """
+    Apply the chain rule to find the derivative of [g(x)]^n.
+
+    Parameters:
+    inner_coeffs (List[Union[int, float]]): Coefficients of the inner function g(x).
+    inner_powers (List[Union[int, float]]): Powers of the inner function g(x).
+    exponent (int): The power n to which g(x) is raised.
+
+    Returns:
+    str: A string representation of the derivative.
+    """
+    if exponent < 0:
+        raise ValueError("Exponent must be non-negative.")
+    
+    # Format inner polynomial g(x)
+    g_x = format_polynomial(inner_coeffs, inner_powers)
+    
+    # Compute derivative of inner function g'(x)
+    g_prime_coeffs, g_prime_powers = compute_polynomial_derivative(inner_coeffs, inner_powers)
+    
+    derivative_terms = []
+    for coeff, power in zip(g_prime_coeffs, g_prime_powers):
+        derivative_terms.append(f"{coeff}x^{int(power)}")
+    g_prime = " + ".join(derivative_terms)
+    
+    # Apply chain rule: d/dx[g(x)]^n = n×[g(x)]^(n-1) × g'(x)
+    result = f"{exponent}({g_x})^{exponent - 1} * ({g_prime})"
+    
+    return result

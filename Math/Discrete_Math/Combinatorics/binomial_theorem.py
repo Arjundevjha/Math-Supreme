@@ -1,31 +1,44 @@
-#binomial theorem class
-from typing import Union
+# Binomial theorem expansion
+import sys
+sys.path.append('..')
+from combination import factorial, n_choose_r
+from typing import List
 
-class BinomialTheorem:
-    def __init__(self, a, b, n):
-        self.a = a
-        self.b = b
-        self.n = n
 
-    def coefficient(self, r):
-        if r < 0 or r > self.n:
-            return 0
-        from math import comb
-        return comb(self.n, r)
+def binomial_coefficient(n: int, r: int) -> int:
+    """
+    Calculate the binomial coefficient C(n, r).
 
-    def expand(self):
-        result = []
-        for r in range(self.n + 1):
-            coeff = self.coefficient(r)
-            term = f"{coeff}*{self.a}^{self.n - r}*{self.b}^{r}"
-            result.append(term)
-        return " + ".join(result)
+    Parameters:
+    n (int): The power to which the binomial is raised.
+    r (int): The term index.
+
+    Returns:
+    int: The binomial coefficient.
+    """
+    return n_choose_r(n, r)
+
+
+def expand_binomial(a: str, b: str, n: int) -> str:
+    """
+    Expand the binomial (a + b)^n using the binomial theorem.
+
+    Parameters:
+    a (str): The first term of the binomial.
+    b (str): The second term of the binomial.
+    n (int): The power to which the binomial is raised.
+
+    Returns:
+    str: The expanded form of the binomial.
+    """
+    if n < 0:
+        raise ValueError("Power n must be non-negative.")
     
-if __name__ == "__main__":
-    a = input("Enter the value of a: ")
-    b = input("Enter the value of b: ")
-    n = int(input("Enter the value of n: "))
+    result = []
+    # Expand using binomial theorem: (a+b)ⁿ = Σ C(n,r) × aⁿ⁻ʳ × bʳ
+    for r in range(n + 1):
+        coeff = binomial_coefficient(n, r)
+        term = f"{coeff}*{a}^{n - r}*{b}^{r}"
+        result.append(term)
     
-    binomial = BinomialTheorem(a, b, n)
-    expansion = binomial.expand()
-    print(f"The expansion of ({a} + {b})^{n} is: {expansion}")
+    return " + ".join(result)

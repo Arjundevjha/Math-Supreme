@@ -1,28 +1,31 @@
-class PrimeFactorisation:
-    def __init__(self, number):
-        self.number = number
-        self.factors = []
+# Prime factorization of a number
+from typing import List
 
-    def factorize(self):
-        n = self.number
-        factor = 2
-        while n > 1:
-            while n % factor == 0:
-                self.factors.append(factor)
-                n //= factor
-            factor += 1
-        return self.factors
 
-    def get_factors(self):
-        if not self.factors:
-            self.factorize()
-        return self.factors
+def prime_factorization(number: int) -> List[int]:
+    """
+    Find the prime factorization of a number.
+
+    Parameters:
+    number (int): The number to factorize (must be positive).
+
+    Returns:
+    List[int]: A list of prime factors.
+    """
+    if number <= 0:
+        raise ValueError("Number must be positive.")
+    if number == 1:
+        return []
     
-def main():
-    number = int(input("Enter a number to factorize: "))
-    pf = PrimeFactorisation(number)
-    factors = pf.get_factors()
-    print(f"Prime factors of {number} are: {factors}")
+    factors = []
+    n = number
+    factor = 2
     
-if __name__ == "__main__":
-    main()
+    # Find all prime factors by trial division
+    while n > 1:
+        while n % factor == 0:
+            factors.append(factor)
+            n //= factor
+        factor += 1
+    
+    return factors

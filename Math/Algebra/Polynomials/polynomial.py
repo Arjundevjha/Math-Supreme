@@ -1,25 +1,42 @@
-#Class to input a polynomial
+# Polynomial representation (simplified version)
+from typing import List, Union
 
-def polynomial(self):
-        self.terms = int(input("Enter the number of terms in the polynomial: "))
-        self.coefficients = []
-        self.powers = []
 
-def input_terms(self):
-        for i in range(self.terms):
-            coeff = float(input(f"Enter coefficient for term {i+1}: "))
-            power = float(input(f"Enter power for term {i+1}: "))
-            self.coefficients.append(coeff)
-            self.powers.append(power)
+def evaluate_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]], x: Union[int, float]) -> float:
+    """
+    Evaluate a polynomial at a given value of x.
 
-def main(self):
-        self.polynomial()
-        self.input_terms()
-        print("The polynomial is:")
-        for i in range(self.terms):
-            if i == 0:
-                print(f"{self.coefficients[i]}x^{self.powers[i]}", end="")
-            else:
-                print(f" + {self.coefficients[i]}x^{self.powers[i]}", end="")
-        print()
-        
+    Parameters:
+    coefficients (List[Union[int, float]]): List of coefficients for each term.
+    powers (List[Union[int, float]]): List of powers for each term.
+    x (Union[int, float]): The value at which to evaluate the polynomial.
+
+    Returns:
+    float: The value of the polynomial at x.
+    """
+    # Calculate polynomial value: P(x) = Σ(coefficient × x^power)
+    result = sum(coeff * (x ** power) for coeff, power in zip(coefficients, powers))
+    return result
+
+
+def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> str:
+    """
+    Format a polynomial as a string.
+
+    Parameters:
+    coefficients (List[Union[int, float]]): List of coefficients for each term.
+    powers (List[Union[int, float]]): List of powers for each term.
+
+    Returns:
+    str: String representation of the polynomial.
+    """
+    terms = []
+    for coeff, power in zip(coefficients, powers):
+        if power == 0:
+            terms.append(f"{coeff}")
+        elif power == 1:
+            terms.append(f"{coeff}x")
+        else:
+            terms.append(f"{coeff}x^{power}")
+    
+    return " + ".join(terms)

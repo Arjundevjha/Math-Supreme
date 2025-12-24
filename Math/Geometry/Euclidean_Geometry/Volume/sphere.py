@@ -1,26 +1,22 @@
-class Sphere:
-    @staticmethod
-    def volume_of_sphere(radius):
-        """
-        Calculate the volume of a sphere given its radius.
+# Volume of sphere
+from typing import Union
 
-        Parameters:
-        radius (float): The radius of the sphere.
 
-        Returns:
-        float: The volume of the sphere.
-        """
-        if radius < 0:
-            raise ValueError("Radius cannot be negative.")
+def volume_of_sphere(radius: Union[int, float]) -> float:
+    """
+    Calculate the volume of a sphere given its radius.
 
-        return (4/3) * Sphere.volume_of_circle(radius)
+    Parameters:
+    radius (Union[int, float]): The radius of the sphere.
 
-if __name__ == "__main__":
-    try:
-        radius = float(input("Enter the radius of the sphere: "))
-        volume = Sphere.volume_of_sphere(radius)
-        print(f"The volume of the sphere with radius {radius} is {volume}.")
-    except ValueError as e:
-        print(f"Error: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+    Returns:
+    float: The volume of the sphere.
+    """
+    if radius < 0:
+        raise ValueError("Radius cannot be negative.")
+
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+    
+    # Calculate volume using formula: V = (4/3)πr³
+    return (4 / 3) * pi * (radius ** 3)

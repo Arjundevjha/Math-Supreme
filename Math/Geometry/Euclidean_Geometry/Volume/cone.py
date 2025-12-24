@@ -1,34 +1,23 @@
-import sys
-sys.path.append("..")  # Adjust the path as necessary to import Circle
+# Volume of cone
+from typing import Union
 
-from Area.circle import Circle
 
-# volume of cone
-class Cone:
-    @staticmethod
-    def volume_of_cone(radius, height):
-        """
-        Calculate the volume of a cone given its radius and height.
+def volume_of_cone(radius: Union[int, float], height: Union[int, float]) -> float:
+    """
+    Calculate the volume of a cone given its radius and height.
 
-        Parameters:
-        radius (float): The radius of the base of the cone.
-        height (float): The height of the cone.
+    Parameters:
+    radius (Union[int, float]): The radius of the base of the cone.
+    height (Union[int, float]): The height of the cone.
 
-        Returns:
-        float: The volume of the cone.
-        """
-        if radius < 0 or height < 0:
-            raise ValueError("Radius and height cannot be negative.")
-        
-        return (1/3) * Circle.area_of_circle(radius) * height
+    Returns:
+    float: The volume of the cone.
+    """
+    if radius < 0 or height < 0:
+        raise ValueError("Radius and height cannot be negative.")
     
-if __name__ == "__main__":
-    try:
-        radius = float(input("Enter the radius of the cone: "))
-        height = float(input("Enter the height of the cone: "))
-        volume = Cone.volume_of_cone(radius, height)
-        print(f"The volume of the cone with radius {radius} and height {height} is {volume}.")
-    except ValueError as e:
-        print(f"Error: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+    
+    # Calculate volume using formula: V = (1/3)πr²h
+    return (1 / 3) * pi * (radius ** 2) * height

@@ -1,4 +1,6 @@
+# Calculate the mode (most frequent value) of a list of numbers
 from typing import List, Union
+
 
 def mode(data: List[Union[int, float]]) -> Union[int, float, List[Union[int, float]]]:
     """
@@ -10,17 +12,16 @@ def mode(data: List[Union[int, float]]) -> Union[int, float, List[Union[int, flo
     Returns:
     Union[int, float, List[Union[int, float]]]: The mode of the provided numbers. 
     If there are multiple modes, a list of modes is returned.
-
-    Raises:
-    ValueError: If the input list is empty.
     """
     if not data:
-        return 0.0  # Return 0.0 for empty list as per specification
+        return 0.0
     
+    # Count frequency of each number
     frequency = {}
     for number in data:
         frequency[number] = frequency.get(number, 0) + 1
 
+    # Find the maximum frequency and all numbers with that frequency
     max_freq = max(frequency.values())
     modes = [num for num, freq in frequency.items() if freq == max_freq]
 

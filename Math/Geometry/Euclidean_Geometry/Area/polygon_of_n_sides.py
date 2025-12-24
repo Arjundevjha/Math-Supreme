@@ -1,18 +1,32 @@
-# Area of a polyogon with n sides
-# Formula: Area = (n * s^2) / (4 * tan(π / n))
-# where n is the number of sides and s is the length of each side.
-from math import tan, pi
+# Area of a polygon with n sides
+from typing import Union
 
-class Polygon:
 
-    def area_of_polygon(n, s):
-        
-        area_of_polygon = (n * s**2) / (4 * tan(pi / n))
-        return area_of_polygon
+def area_of_polygon(n: int, s: Union[int, float]) -> float:
+    """
+    Calculate the area of a regular polygon with n sides.
 
-if __name__ == "__main__":
-    n = int(input("Enter the number of sides of the polygon: "))
-    s = float(input("Enter the length of each side: "))
+    Parameters:
+    n (int): The number of sides of the polygon.
+    s (Union[int, float]): The length of each side.
+
+    Returns:
+    float: The area of the polygon.
+    """
+    if n < 3:
+        raise ValueError("A polygon must have at least 3 sides.")
+    if s < 0:
+        raise ValueError("Side length cannot be negative.")
     
-    area = Polygon.area_of_polygon(n, s)
-    print(f"The area of the polygon with {n} sides, each of length {s}, is: {area}")
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+    
+    # Calculate tan(π/n) using Taylor series approximation
+    angle = pi / n
+    
+    # Taylor series for tan(x): tan(x) ≈ x + x³/3 + 2x⁵/15 + ...
+    x = angle
+    tan_value = x + (x**3)/3 + (2*x**5)/15 + (17*x**7)/315
+    
+    # Calculate area using formula: A = (n × s²) / (4 × tan(π/n))
+    return (n * s**2) / (4 * tan_value)

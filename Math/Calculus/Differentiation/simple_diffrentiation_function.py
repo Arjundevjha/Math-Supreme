@@ -1,26 +1,25 @@
-# Class for Simple Differentiation of a Polynomial with Two or More Terms
-import sys
-sys.path.append('../..')
-from Algebra.Polynomials.polynomial import Polynomial
+# Simple differentiation function
+from typing import List, Union, Tuple
 
-class SimpleDifferentiation:
-    def __init__(self):
-        self.poly = Polynomial()
-        self.poly.polynomial()
-        self.poly.input_terms()
 
-    def differentiate(self):
-        print("The derivative is:")
-        for i in range(self.poly.terms):
-            if self.poly.powers[i] == 0:
-                continue
-            coeff, power = self.poly.coefficients[i] * self.poly.powers[i], self.poly.powers[i] - 1
-            if i == 0:
-                print(f"{coeff}x^{power}", end="")
-            else:
-                print(f" + {coeff}x^{power}", end="")
-        print()
+def differentiate_polynomial(coeffs: List[Union[int, float]], powers: List[Union[int, float]]) -> List[Tuple[float, float]]:
+    """
+    Differentiate a polynomial using the power rule.
 
-if __name__ == "__main__":
-    differentiation = SimpleDifferentiation()
-    differentiation.differentiate()
+    Parameters:
+    coeffs (List[Union[int, float]]): Coefficients of the polynomial terms.
+    powers (List[Union[int, float]]): Powers of the polynomial terms.
+
+    Returns:
+    List[Tuple[float, float]]: List of tuples (coefficient, power) for the derivative.
+    """
+    derivative = []
+    
+    # Apply power rule: d/dx(ax^n) = n×a×x^(n-1)
+    for coeff, power in zip(coeffs, powers):
+        if power > 0:
+            new_coeff = coeff * power
+            new_power = power - 1
+            derivative.append((new_coeff, new_power))
+    
+    return derivative

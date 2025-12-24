@@ -1,35 +1,31 @@
-import sys
+# Second derivatives
+from typing import List, Union
 
-sys.path.append('../..')
-from Algebra.Polynomials.polynomial import Polynomial
-from simple_diffrentiation_function import SimpleDifferentiation
 
-class SecondDerivatives(SimpleDifferentiation):
-    def __init__(self):
-        super().__init__()
+def second_derivative(coeffs: List[Union[int, float]], powers: List[Union[int, float]]) -> List[tuple]:
+    """
+    Calculate the second derivative of a polynomial.
 
-    def differentiate(self):
-        print("Calculating Second Derivative:")
-        first_derivative = self.compute_derivative(self.poly)
-        print(f"First Derivative: {first_derivative}")
+    Parameters:
+    coeffs (List[Union[int, float]]): Coefficients of the polynomial.
+    powers (List[Union[int, float]]): Powers of the polynomial.
 
-        # Compute second derivative
-        second_derivative = self.compute_derivative_from_string(first_derivative)
-        print(f"Second Derivative: {second_derivative}")
-
-    def compute_derivative_from_string(self, derivative_str):
-        terms = derivative_str.split(" + ")
-        derivative_terms = []
-        for term in terms:
-            coeff, power = term.split("x^")
-            coeff = int(coeff)
-            power = int(power)
-            if power > 0:
-                new_coeff = coeff * power
-                new_power = power - 1
-                derivative_terms.append(f"{new_coeff}x^{new_power}")
-        return " + ".join(derivative_terms)
+    Returns:
+    List[tuple]: List of tuples (coefficient, power) for the second derivative.
+    """
+    # First derivative: d/dx(ax^n) = n×a×x^(n-1)
+    first_deriv_coeffs = []
+    first_deriv_powers = []
     
-if __name__ == "__main__":
-    second_derivative = SecondDerivatives()
-    second_derivative.differentiate()
+    for coeff, power in zip(coeffs, powers):
+        if power > 0:
+            first_deriv_coeffs.append(coeff * power)
+            first_deriv_powers.append(power - 1)
+    
+    # Second derivative: apply derivative again
+    second_deriv = []
+    for coeff, power in zip(first_deriv_coeffs, first_deriv_powers):
+        if power > 0:
+            second_deriv.append((coeff * power, power - 1))
+    
+    return second_deriv

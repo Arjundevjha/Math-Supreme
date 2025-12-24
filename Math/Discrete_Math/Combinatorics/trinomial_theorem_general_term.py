@@ -1,41 +1,37 @@
-#class for trinomial theorem general term
+# General term of the trinomial expansion
 import sys
-sys.path.append("../..")
+sys.path.append('..')
+from combination import factorial
+from typing import Union
 
-from Numerical_Methods.Functions.Factorial.factorial import Factorial
-class TrinomialTheorem:
+
+def trinomial_general_term(n: int, i: int, j: int, a: Union[int, float], b: Union[int, float], c: Union[int, float]) -> Union[int, float]:
     """
-    Class to calculate the general term in the trinomial expansion of (a + b + c)^n.
-    The general term T_(i, j, k) is given by:
-    T_(i, j, k) = n! / (i! * j! * k!) * a^i * b^j * c^k
-    where n = i + j + k and i, j, k are non-negative integers.
+    Calculate the general term in the trinomial expansion of (a + b + c)^n.
+
+    Parameters:
+    n (int): The exponent in the trinomial expansion.
+    i (int): The power of the first term (a).
+    j (int): The power of the second term (b).
+    a (Union[int, float]): The first term in the trinomial.
+    b (Union[int, float]): The second term in the trinomial.
+    c (Union[int, float]): The third term in the trinomial.
+
+    Returns:
+    Union[int, float]: The term T_(i,j,k) in the expansion where k = n - i - j.
     """
-
-    @staticmethod
-    def general_term(n, i, j, a, b, c):
-        """Calculate the general term in the trinomial expansion."""
-        if i < 0 or j < 0 or i + j > n:
-            raise ValueError("Invalid values for n, i, and j.")
-        k = n - i - j
-        if k < 0:
-            raise ValueError("Invalid value for k.")
-        n_factorial = Factorial.factorial(n)
-        i_factorial = Factorial.factorial(i)
-        j_factorial = Factorial.factorial(j)
-        k_factorial = Factorial.factorial(k)
-        return (n_factorial // (i_factorial * j_factorial * k_factorial)) * (a ** i) * (b ** j) * (c ** k)
-
-if __name__ == "__main__":
-    # Example usage
-    n = int(input("Enter the exponent n for (a + b + c)^n: "))
-    i = int(input("Enter the value of i (for a^i): "))
-    j = int(input("Enter the value of j (for b^j): "))
-    a = float(input("Enter the value of a: "))
-    b = float(input("Enter the value of b: "))
-    c = float(input("Enter the value of c: "))
+    if i < 0 or j < 0 or i + j > n:
+        raise ValueError("Invalid values for n, i, and j.")
     
-    try:
-        term = TrinomialTheorem.general_term(n, i, j, a, b, c)
-        print(f"The general term T_({i}, {j}, {n - i - j}) in the expansion of (a + b + c)^{n} is: {term}")
-    except ValueError as e:
-        print(e)
+    k = n - i - j
+    if k < 0:
+        raise ValueError("Invalid value for k.")
+    
+    # Calculate general term using formula: T_(i,j,k) = n!/(i!×j!×k!) × aⁱ × bʲ × cᵏ
+    n_factorial = factorial(n)
+    i_factorial = factorial(i)
+    j_factorial = factorial(j)
+    k_factorial = factorial(k)
+    
+    coefficient = n_factorial // (i_factorial * j_factorial * k_factorial)
+    return coefficient * (a ** i) * (b ** j) * (c ** k)

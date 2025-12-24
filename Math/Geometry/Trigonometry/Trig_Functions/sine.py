@@ -1,24 +1,38 @@
-import sys as s
-s.path.append("../..")
-from Numerical_Methods.Functions.Factorial.factorial import Factorial
-from Numerical_Methods.Constants.Pi_Algorithms.Machin_algo import MachinAlgorithm
+# Sine function using Taylor series
+from typing import Union
 
-def Sine(radians): 
-    sine = 0
+
+def factorial(n: int) -> int:
+    """Calculate factorial of n."""
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers.")
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+def sine(radians: Union[int, float]) -> float:
+    """
+    Calculate the sine of an angle using Taylor series expansion.
+
+    Parameters:
+    radians (Union[int, float]): The angle in radians.
+
+    Returns:
+    float: The sine of the angle.
+    """
+    sine_value = 0
     sign = 0
-        
-    for idx in range(1,100,2):
-        if sign % 2 == 0:   
-            sine += radians**idx/Factorial.factorial(idx)
-        else:
-            sine -= radians**idx/Factorial.factorial(idx)
-        sign += 1 
     
-    return sine 
-
-if __name__ == "__main__":
-    precision = 10
-    degree = float(input("Please input angle in degrees: "))
-    radians = degree/180 * float(MachinAlgorithm.calculate_pi(precision))
-    sine = Sine(radians)
-    print(f'The value of sine is {sine:.2f}')
+    # Calculate sine using Taylor series: sin(x) = Σ((-1)ⁿ × x^(2n+1)) / (2n+1)!
+    for idx in range(1, 100, 2):
+        fact = factorial(idx)
+        
+        if sign % 2 == 0:
+            sine_value += radians**idx / fact
+        else:
+            sine_value -= radians**idx / fact
+        sign += 1
+    
+    return sine_value

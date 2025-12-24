@@ -1,6 +1,8 @@
+# Calculate the median of a list of numbers
 from typing import List, Union
 
-def median(data: List[Union[int, float]]) -> float: 
+
+def median(data: List[Union[int, float]]) -> float:
     """
     Calculate the median of a list of numbers.
 
@@ -9,13 +11,11 @@ def median(data: List[Union[int, float]]) -> float:
 
     Returns:
     float: The median of the provided numbers.
-
-    Raises:
-    ValueError: If the input list is empty.
     """
     if not data:
-        return 0.0  # Return 0.0 for empty list as per specification
+        return 0.0
     
+    # Sort the data to find the middle value(s)
     sorted_data = sorted(data)
     n = len(sorted_data)
     mid = n // 2

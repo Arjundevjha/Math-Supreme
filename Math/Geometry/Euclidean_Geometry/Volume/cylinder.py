@@ -1,34 +1,23 @@
-import sys
-sys.path.append("..")  # Adjust the path as necessary to import Circle
+# Volume of cylinder
+from typing import Union
 
-from Area.circle import Circle
 
-# volume of cylinder
-class Cylinder:
-    @staticmethod
-    def volume_of_cylinder(radius, height):
-        """
-        Calculate the volume of a cylinder given its radius and height.
+def volume_of_cylinder(radius: Union[int, float], height: Union[int, float]) -> float:
+    """
+    Calculate the volume of a cylinder given its radius and height.
 
-        Parameters:
-        radius (float): The radius of the base of the cylinder.
-        height (float): The height of the cylinder.
+    Parameters:
+    radius (Union[int, float]): The radius of the base of the cylinder.
+    height (Union[int, float]): The height of the cylinder.
 
-        Returns:
-        float: The volume of the cylinder.
-        """
-        if radius < 0 or height < 0:
-            raise ValueError("Radius and height cannot be negative.")
-        
-        return Circle.area_of_circle(radius) * height
+    Returns:
+    float: The volume of the cylinder.
+    """
+    if radius < 0 or height < 0:
+        raise ValueError("Radius and height cannot be negative.")
     
-if __name__ == "__main__":
-    try:
-        radius = float(input("Enter the radius of the cylinder: "))
-        height = float(input("Enter the height of the cylinder: "))
-        volume = Cylinder.volume_of_cylinder(radius, height)
-        print(f"The volume of the cylinder with radius {radius} and height {height} is {volume}.")
-    except ValueError as e:
-        print(f"Error: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+    
+    # Calculate volume using formula: V = πr²h
+    return pi * (radius ** 2) * height

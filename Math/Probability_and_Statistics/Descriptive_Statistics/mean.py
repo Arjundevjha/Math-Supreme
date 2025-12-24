@@ -1,4 +1,6 @@
-from typing import List, Union 
+# Calculate the mean (average) of a list of numbers
+from typing import List, Union
+
 
 def mean(data: List[Union[int, float]]) -> float:
     """
@@ -9,13 +11,11 @@ def mean(data: List[Union[int, float]]) -> float:
 
     Returns:
     float: The mean of the provided numbers.
-
-    Raises:
-    ValueError: If the input list is empty.
     """
     if not data:
-        return 0.0  # Return 0.0 for empty list as per specification
+        return 0.0
     
+    # Calculate mean using formula: mean = sum / count
     total = sum(data)
     count = len(data)
     

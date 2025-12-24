@@ -1,29 +1,22 @@
-#area of circle
-import math
+# Area of circle
+from typing import Union
 
-class Circle:
 
-    def area_of_circle(radius):
-        """
-        Calculate the area of a circle given its radius.
+def area_of_circle(radius: Union[int, float]) -> float:
+    """
+    Calculate the area of a circle given its radius.
 
-        Parameters:
-        radius (float): The radius of the circle.
+    Parameters:
+    radius (Union[int, float]): The radius of the circle.
 
-        Returns:
-        float: The area of the circle.
-        """
-        if radius < 0:
-            raise ValueError("Radius cannot be negative.")
-        
-        return math.pi * (radius ** 2)
-
-if __name__ == "__main__":
-    try:
-        radius = float(input("Enter the radius of the circle: "))
-        area = Circle.area_of_circle(radius)
-        print(f"The area of the circle with radius {radius} is {area}.")
-    except ValueError as e:
-        print(f"Error: {e}")
-    except Exception as e:
-        print(f"An unexpected error occurred: {e}")
+    Returns:
+    float: The area of the circle.
+    """
+    if radius < 0:
+        raise ValueError("Radius cannot be negative.")
+    
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+    
+    # Calculate area using formula: A = πr²
+    return pi * (radius ** 2)

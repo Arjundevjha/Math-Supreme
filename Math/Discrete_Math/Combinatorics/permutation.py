@@ -1,27 +1,37 @@
-class Permutation:
-    def __init__(self, n, r):
-        self.n = n
-        self.r = r
+# Permutation formula: for nPr where n and r are non-negative integers
+from typing import Union
 
-    def factorial(self, num):
-        if num == 0:
-            return 1
-        else:
-            return num * self.factorial(num-1)
 
-    def calculate(self):
-        return self.factorial(self.n) / self.factorial(self.n - self.r)
+def factorial(n: int) -> int:
+    """
+    Calculate factorial of n using recursion.
 
-if __name__ == "__main__":
-    n = int(input("Enter the total number of items (n): "))
-    r = int(input("Enter the number of items to arrange (r): "))
-    
+    Parameters:
+    n (int): The number to calculate factorial for.
+
+    Returns:
+    int: The factorial of n (n!).
+    """
+    if n == 0:
+        return 1
+    else:
+        # Calculate factorial recursively
+        return n * factorial(n - 1)
+
+
+def n_permute_r(n: int, r: int) -> Union[int, float]:
+    """
+    Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.
+
+    Parameters:
+    n (int): The total number of items.
+    r (int): The number of items to arrange.
+
+    Returns:
+    Union[int, float]: The number of permutations (n permute r).
+    """
     if n < r:
-        print("Note: n should be greater than or equal to r for permutations to be valid.")
-        exit()
-
-    permutation_calculator = Permutation(n, r)
+        raise ValueError("n should be greater than or equal to r for permutations to be valid.")
     
-    result = permutation_calculator.calculate()
-    
-    print(f"The number of permutations of {n} items taken {r} at a time is: {result}")
+    # Calculate permutations using factorial formula
+    return factorial(n) / factorial(n - r)

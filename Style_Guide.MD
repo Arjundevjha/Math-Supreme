@@ -2,6 +2,11 @@
 
 This style guide outlines the coding conventions and best practices to be followed when contributing to this repository. Adhering to these guidelines will help maintain code quality, readability, and consistency across all contributions.
 
+# Number One Principle
+
+- Usage of the math module is not allowed, unless it is necessary for the implementation of the algorithm, and theat section has not been implemented yet. Example: math.sqrt() is not allowed, unless squareroot has not been implemented.
+- Import internally whereever possible.
+
 ## General Principles
 - **File Name**: Use descriptive and concise names for files and directories. Use underscores (_) to separate words (e.g., `polynomial_solver.py`).
 - **Documentation**: Each script should include a header comment at the top that briefly describes its purpose (e.g., `# Finding an equation of a line given two points`). Additionally, use docstrings for functions and classes to explain their functionality.

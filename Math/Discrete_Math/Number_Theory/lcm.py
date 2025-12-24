@@ -1,30 +1,53 @@
-from prime_factorisation import PrimeFactorisation
+# Least Common Multiple (LCM) calculation
+from typing import List
 
-class LCM:
-    def __init__(self, a, b):
-        self.a = a
-        self.b = b
 
-    def compute_lcm(self):
-        pf_a = PrimeFactorisation(self.a)
-        pf_b = PrimeFactorisation(self.b)
+def prime_factorization_simple(n: int) -> List[int]:
+    """
+    Get prime factors of a number.
 
-        factors_a = pf_a.get_factors()
-        factors_b = pf_b.get_factors()
+    Parameters:
+    n (int): The number to factorize.
 
-        all_factors = set(factors_a) | set(factors_b)
-        lcm = 1
-        for factor in all_factors:
-            lcm *= factor ** max(factors_a.count(factor), factors_b.count(factor))
-        
-        return lcm 
+    Returns:
+    List[int]: List of prime factors.
+    """
+    factors = []
+    d = 2
+    while d * d <= n:
+        while n % d == 0:
+            factors.append(d)
+            n //= d
+        d += 1
+    if n > 1:
+        factors.append(n)
+    return factors
 
-def main():
-    a = int(input("Enter the first number: "))
-    b = int(input("Enter the second number: "))
-    lcm_calculator = LCM(a, b)
-    lcm = lcm_calculator.compute_lcm()
-    print(f"The LCM of {a} and {b} is: {lcm}")
+
+def compute_lcm(a: int, b: int) -> int:
+    """
+    Compute the Least Common Multiple (LCM) of two numbers.
+
+    Parameters:
+    a (int): The first number.
+    b (int): The second number.
+
+    Returns:
+    int: The LCM of a and b.
+    """
+    if a <= 0 or b <= 0:
+        raise ValueError("Both numbers must be positive.")
     
-if __name__ == "__main__":
-    main()
+    # Get prime factors for both numbers
+    factors_a = prime_factorization_simple(a)
+    factors_b = prime_factorization_simple(b)
+
+    # Find all unique factors
+    all_factors = set(factors_a) | set(factors_b)
+    
+    # Calculate LCM by taking maximum power of each prime factor
+    lcm = 1
+    for factor in all_factors:
+        lcm *= factor ** max(factors_a.count(factor), factors_b.count(factor))
+    
+    return lcm

@@ -1,47 +1,50 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sun Jul 4313 11:39:18 2025
+# Numerical integration using polynomial integration
+from typing import List, Union, Tuple
 
-@author: aarav
-"""
-import pandas as pd
 
-def NumIntergration(count, coeff):
-    ranges = range(0,100)
-    ranges = [str(i) for i in ranges]
+def integrate_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> Tuple[List[float], List[float]]:
+    """
+    Integrate a polynomial term by term.
+
+    Parameters:
+    coefficients (List[Union[int, float]]): List of coefficients for each term.
+    powers (List[Union[int, float]]): List of powers for each term.
+
+    Returns:
+    Tuple[List[float], List[float]]: Lists of integrated coefficients and powers.
+    """
+    integrated_coeffs = []
+    integrated_powers = []
     
-    while count not in ranges: 
-        count = input('Please input the highest power in the equation: ')
-        print('')
+    # Apply integration rule: ∫(ax^n)dx = (a/(n+1))×x^(n+1) + C
+    for coeff, power in zip(coefficients, powers):
+        new_power = power + 1
+        new_coeff = coeff / new_power
+        integrated_coeffs.append(new_coeff)
+        integrated_powers.append(new_power)
     
-    count = int(count) 
+    return integrated_coeffs, integrated_powers
 
-    for power in reversed(range(0,count +1)):  
-        while coeff not in ranges : 
-            coeff = input(f'Please enter the coefficent for the term with {power} power: ')
-            print('')
-        power += 1
-        coeff = int(coeff)/power
-        powerlist.append(power -1)
-        coefflist.append(coeff)
+
+def format_polynomial_integration(coefficients: List[float], powers: List[float]) -> str:
+    """
+    Format an integrated polynomial as a string.
+
+    Parameters:
+    coefficients (List[float]): List of coefficients.
+    powers (List[float]): List of powers.
+
+    Returns:
+    str: String representation of the integrated polynomial.
+    """
+    terms = []
+    for coeff, power in zip(coefficients, powers):
+        if power == 0:
+            terms.append(f"{coeff}")
+        elif power == 1:
+            terms.append(f"{coeff}x")
+        else:
+            terms.append(f"{coeff}x^{int(power)}")
     
-    table = pd.DataFrame({'Power': powerlist, 'Coeff':coefflist})
-    print(table)
- 
-        
-if __name__ == "__Main__":
-    count = 'a'
-    coefflist = []
-    powerlist = []
-    coeff = 'a'
-    coeffA = 'a'
-    choice = 'a'
-    countT = 'a'
-    func = 0 
-    funclist = []
-    NumIntergration(count, coeff)
-    print('')
-    TrigoIntergration(countT, func, coeff, funclist, coeffA)
-    print('')
-
-        
+    result = " + ".join(terms)
+    return result + " + C"
