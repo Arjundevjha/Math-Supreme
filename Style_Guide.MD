@@ -9,13 +9,15 @@ This style guide outlines the coding conventions and best practices to be follow
 - **Version Control**: Use meaningful commit messages that describe the changes made. Follow the repository's branching strategy for feature development and bug fixes.
 - **Testing**: Include tests for new features and bug fixes to ensure code reliability.
 - **Code Reviews**: Collaborators must participate in code reviews to provide feedback on contributions.
+- **PRs**: Use pull requests to merge code into the main branch. Ensure that PRs are well-documented and include a description of the changes made.
+- **Branching**: Use feature branches for new features and bug fixes. Merge feature branches into the main branch using pull requests.
 
 ## Python Coding Conventions
 - **PEP 8 Compliance**: Follow the PEP 8 style guide for Python code. This includes indentation, line length (maximum 79 characters), and spacing.
 - **Imports**: Group imports into three sections: standard library imports, related third-party imports, and local application/library-specific imports. Each group should be separated by a blank line.
 - **Type Hints**: Always use type hints for function parameters and return values. Use `Union[int, float]` for numeric parameters that can accept both integers and floats. Import `Union` from the `typing` module.
 - **Variable Naming**: Use lowercase words separated by underscores for variable names (e.g., `total_sum`).
-- **Function and Class Naming**: Use lowercase with underscores for function names (e.g., `calculate_area`) and CapitalizedWords for class names (e.g., `PolynomialSolver`).
+- **Function Naming**: Use lowercase with underscores for function names (e.g., `calculate_area`).
 - **Comments**: Use inline comments to explain calculations and complex logic (e.g., `# Calculate slope (m)`). Avoid obvious comments that do not add value.
 - **Error Handling**: Use exceptions to handle errors gracefully. Provide informative error messages using `ValueError` or appropriate exception types.
 - **String Formatting**: Use f-strings for string formatting and interpolation (e.g., `f"y = {m}x + {b}"`).
