@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='Math',
+    name='Math-Supreme',
     version='0.0.1',
     description='Deep Library of mathematical operations',
     long_description=open('README.md').read(),
