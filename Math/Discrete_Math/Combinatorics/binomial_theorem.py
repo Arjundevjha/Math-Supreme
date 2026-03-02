@@ -1,7 +1,9 @@
 # Binomial theorem expansion
 import sys
 sys.path.append('..')
-from combination import factorial, n_choose_r
+from combination import nCr
+sys.path.append('../../..')
+from Numerical_Methods.Functions.Factorial.factorial import factorial
 from typing import List
 
 
@@ -16,7 +18,7 @@ def binomial_coefficient(n: int, r: int) -> int:
     Returns:
     int: The binomial coefficient.
     """
-    return n_choose_r(n, r)
+    return nCr(n, r)
 
 
 def expand_binomial(a: str, b: str, n: int) -> str:

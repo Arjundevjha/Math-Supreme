@@ -1,7 +1,7 @@
 # General term of the binomial expansion
 import sys
 sys.path.append('..')
-from combination import n_choose_r
+from combination import nCr
 from typing import Union
 
 
@@ -22,5 +22,5 @@ def binomial_general_term(n: int, r: int, a: Union[int, float], b: Union[int, fl
         raise ValueError("Invalid values for n and r. r must be between 0 and n.")
     
     # Calculate general term using formula: T_(r+1) = C(n,r) × a^(n-r) × b^r
-    nCr = n_choose_r(n, r)
+    nCr = nCr(n, r)
     return nCr * (a ** (n - r)) * (b ** r)

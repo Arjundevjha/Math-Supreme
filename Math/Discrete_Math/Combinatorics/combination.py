@@ -1,29 +1,10 @@
 # Combination formula: for nCr where n and r are non-negative integers
 
+import sys
+sys.path.append('../..')
+from Numerical_Methods.Functions.Factorial.factorial import factorial
 
-def factorial(n: int) -> int:
-    """
-    Calculate factorial of n.
-
-    Parameters:
-    n (int): The number to calculate factorial for.
-
-    Returns:
-    int: The factorial of n (n!).
-    """
-    if n < 0:
-        raise ValueError("Factorial is not defined for negative numbers.")
-    if n == 0 or n == 1:
-        return 1
-    
-    # Calculate factorial using iterative approach
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-    return result
-
-
-def n_choose_r(n: int, r: int) -> int:
+def nCr(n: int, r: int) -> int:
     """
     Calculate combinations (nCr) using the formula: nCr = n! / (r! * (n - r)!).
 
