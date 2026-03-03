@@ -22,8 +22,8 @@ def cubic_formula(a: Union[float, int], b: Union[float, int], c: Union[float, in
     # Calculate intermediate terms
     term_1 = -(b / (3 * a))
     
-    inner_term_1 = 2 * (b**3) - 9 * a * b * c + 27 * (a**2) * d
-    inner_term_2 = 4 * ((b**2 - 3 * a * c)**3)
+    inner_term_1 = 2 * (b**3) - (9 * a * b * c) + (27 * (a**2) * d)
+    inner_term_2 = inner_term_1**2 - 4 * ((b**2 - 3 * a * c)**3)
     
     # Calculate cube roots
     cubed_value_1 = 0.5 * (inner_term_1 + cmath.sqrt(inner_term_2))
