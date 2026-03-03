@@ -1,7 +1,7 @@
 # Trinomial theorem expansion
 import sys
 sys.path.append('..')
-from combination import n_choose_r
+from combination import nCr
 from typing import List
 
 
@@ -22,7 +22,7 @@ def trinomial_coefficient(n: int, i: int, j: int) -> int:
     
     # Calculate coefficient using formula: C(n,i) × C(n-i,j)
     k = n - i - j
-    return n_choose_r(n, i) * n_choose_r(n - i, j)
+    return nCr(n, i) * nCr(n - i, j)
 
 
 def expand_trinomial(a: str, b: str, c: str, n: int) -> str:

@@ -3,7 +3,6 @@ import sys
 sys.path.append('..')
 from combination import nCr
 sys.path.append('../../..')
-from Numerical_Methods.Functions.Factorial.factorial import factorial
 from typing import List
 
 
