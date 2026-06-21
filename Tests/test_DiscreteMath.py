@@ -20,6 +20,7 @@ combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Com
 if combinatorics_dir not in sys.path:
     sys.path.insert(0, combinatorics_dir)
 
+from Math.Discrete_Math.Combinatorics.combination import nCr
 from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
@@ -494,6 +495,35 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
+
+
+@pytest.mark.parametrize("n, r, expected", [
+    (5, 0, 1),
+    (5, 1, 5),
+    (5, 2, 10),
+    (5, 3, 10),
+    (5, 4, 5),
+    (5, 5, 1),
+    (10, 5, 252),
+    (0, 0, 1),
+    (1, 0, 1),
+    (1, 1, 1),
+])
+def test_nCr_happy_path(n, r, expected):
+    """Test nCr with valid inputs."""
+    assert nCr(n, r) == expected
+
+
+@pytest.mark.parametrize("n, r", [
+    (5, 6),   # r > n
+    (5, -1),  # r < 0
+    (-1, -1), # both negative, r < 0 triggers first or both
+    (-1, 0),  # r > n (-1 < 0)
+])
+def test_nCr_invalid_inputs(n, r):
+    """Test nCr raises ValueError for invalid inputs."""
+    with pytest.raises(ValueError):
+        nCr(n, r)
 
 
 if __name__ == '__main__':
