@@ -12,8 +12,10 @@ def generate_pascals_triangle(n: int) -> List[List[int]]:
     Returns:
     List[List[int]]: A list of lists representing Pascal's triangle.
     """
-    if n <= 0:
-        raise ValueError("Number of rows must be positive.")
+    if n < 0:
+        raise ValueError("Number of rows cannot be negative.")
+    if n == 0:
+        return []
     
     triangle = []
     # Generate each row of Pascal's triangle
@@ -37,6 +39,8 @@ def print_pascals_triangle(triangle: List[List[int]]) -> None:
     Returns:
     None
     """
+    if not triangle:
+        return
     max_length = len(" ".join(map(str, triangle[-1])))
     for row in triangle:
         print(" ".join(map(str, row)).center(max_length))
