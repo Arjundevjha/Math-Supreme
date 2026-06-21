@@ -15,7 +15,7 @@ if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
 # E.g. trinomial_theorem.py has `sys.path.append('..')` and `from combination import nCr`
-# The internal code inside Math directory assumes sys.path has `Math/Discrete_Math/Combinatorics`
+# The internal code assumes sys.path has `Math/Discrete_Math/Combinatorics`
 combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Combinatorics'))
 if combinatorics_dir not in sys.path:
     sys.path.insert(0, combinatorics_dir)
@@ -25,7 +25,7 @@ from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, b
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
-from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial
+from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
 from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
 from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
@@ -524,6 +524,23 @@ def test_nCr_invalid_inputs(n, r):
     """Test nCr raises ValueError for invalid inputs."""
     with pytest.raises(ValueError):
         nCr(n, r)
+
+
+def test_trinomial_coefficient():
+    # Test cases with positive values for n, i, j
+    assert trinomial_coefficient(2, 1, 1) == 2
+    assert trinomial_coefficient(3, 1, 1) == 6
+    assert trinomial_coefficient(3, 2, 1) == 3
+    assert trinomial_coefficient(3, 3, 0) == 1
+    assert trinomial_coefficient(0, 0, 0) == 1
+
+    # Test cases where i + j > n
+    assert trinomial_coefficient(2, 2, 1) == 0
+    assert trinomial_coefficient(3, 2, 2) == 0
+
+    # Test cases with negative indices
+    assert trinomial_coefficient(2, -1, 1) == 0
+    assert trinomial_coefficient(2, 1, -1) == 0
 
 
 if __name__ == '__main__':
