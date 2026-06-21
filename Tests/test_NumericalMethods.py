@@ -2,6 +2,7 @@ import pytest
 import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import calculate_pi_nilakantha
+from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
 
 class TestNilakanthaAlgorithm:
     def test_calculate_pi_nilakantha_basic(self):
@@ -44,3 +45,21 @@ class TestNilakanthaAlgorithm:
 
         with pytest.raises(ValueError, match="Number of terms must be a positive integer."):
             calculate_pi_nilakantha(-5)
+
+
+def test_factorial_zero():
+    assert factorial(0) == 1
+
+
+def test_factorial_one():
+    assert factorial(1) == 1
+
+
+def test_factorial_positive():
+    assert factorial(5) == 120
+    assert factorial(10) == 3628800
+
+
+def test_factorial_negative():
+    with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
+        factorial(-1)
