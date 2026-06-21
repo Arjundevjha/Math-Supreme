@@ -1,1 +1,4 @@
-.DS_Store
+.DS_Store__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
