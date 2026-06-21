@@ -1,10 +1,10 @@
-# 📘 Math Repository
+# Math Repository
 
 This repository contains a growing collection of mathematics-related Python
 scripts and \LaTeX{} notes. Content is organized by topic, allowing you to easily
 explore concepts or add new material.
 
-## Ownswership
+## Ownership
 - **Arjun Dev Jha** – Owner of repository
 - **Aarav Rastogi** – Joined 9 July 2025
 
@@ -17,16 +17,16 @@ the repository.
 
 ---
 
-## ✅ Algebra
+## Algebra
 
 - [x] `Polynomials/`
   - [x] `polynomial.py`
   - [x] `cubic_formula.py`
   - [x] `quadratic_formula.py`
   - [x] `factor_theorem.py`
-  - [x] `remainder_theorem.py`
+  - [x] `remainnder_theorem.py`
 - [x] `Linear_Equations/`
-  - [x] `eqn_from_2_points.py`
+  - [x] `linear_eqn.py`
   - [ ] `matrix_method_solver.py`
 - [ ] `Abstract_Algebra_Intro/`
   - [ ] `group_axioms.tex`
@@ -34,7 +34,7 @@ the repository.
 
 ---
 
-## ✅ Calculus
+## Calculus
 
 - [ ] `Limits/`
   - [ ] `evaluate_limit_rational.py`
@@ -62,7 +62,7 @@ the repository.
 
 ---
 
-## ✅ Discrete Math
+## Discrete Math
 
 - [x] `Combinatorics/`
   - [x] `pascals_triangle.py`
@@ -73,10 +73,11 @@ the repository.
   - [x] `trinomial_theorem.py`
   - [x] `trinomial_theorem_general_term.py`
 - [ ] `Number_Theory/`
-  - [x] `partitions_approximation.py`
-  - [x] `prime_factorisation.py`
   - [x] `gcd.py`
   - [x] `lcm.py`
+  - [x] `partitions.py`
+  - [x] `partitions_approximation.py`
+  - [x] `prime_factorisation.py`
   - [ ] `Modulo_Arithmatic/`
     - [ ] `modular_exponentiation.py`
     - [ ] `chinese_remainder_theorem.py`
@@ -89,7 +90,7 @@ the repository.
     - [ ] `arithmetic_series.py`
     - [ ] `geometric_series.py`
     - [ ] `fibonacci_sequence.py`
-  -[ ] `Inequalities/`
+  - [ ] `Inequalities/`
     - [ ] `linear_inequalities.py`
     - [ ] `quadratic_inequalities.py`
     - [ ] `absolute_value_inequalities.py`
@@ -107,22 +108,22 @@ the repository.
 
 ---
 
-## ✅ Geometry
+## Geometry
 
 - [x] `Euclidean_Geometry/`
   - [ ] `Area/`
-    - [x] `square.py`
-    - [x] `rectangle.py`
-    - [x] `triangle.py`
-    - [x] `heron's_area_of_triangle_formula.py`
     - [x] `circle.py`
+    - [x] `heron's_area_of_triangle_formula.py`
     - [x] `polygon_of_n_sides.py`
+    - [x] `rectangle.py`
+    - [x] `square.py`
+    - [x] `triangle.py`
   - [x] `Volume/`
-    - [x] `cylinder.py`
     - [x] `cone.py`
-    - [x] `sphere.py`
-    - [x] `prism.py`
     - [x] `cuboid.py`
+    - [x] `cylinder.py`
+    - [x] `prism.py`
+    - [x] `sphere.py`
   - [x] `pythagoras_theorem.py`
   - [ ] `congruence_theorems.tex`
   - [ ] `similarity_theorems.tex`
@@ -158,11 +159,11 @@ the repository.
   - [ ] `cot.py`
   - [ ] `arccos.py`
   - [ ] `sine_cosine_rule.py`
-  - [ ] `trig_graphs.tex` 
+  - [ ] `trig_graphs.tex`
 
 ---
 
-## ✅ Linear Algebra
+## Linear Algebra
 
 - [ ] `Vectors/`
   - [ ] `magnitude.py`
@@ -179,7 +180,7 @@ the repository.
 
 ---
 
-## ✅ Numerical Methods
+## Numerical Methods
 
 - [ ] `Constants/`
   - [x] `Eulers_number.py`
@@ -202,14 +203,14 @@ the repository.
   - [x] `Factorial/`
     - [x] `factorial.py`
   - [x] `hexation/`
-      -[x] `hexation.py`
+    - [x] `hexation.py`
   - [ ] `square_root/`
-  - [x]  `tetration/`
+  - [x] `tetration/`
     - [x] `tetration.py`
 
 ---
 
-## ✅ Probability and Statistics
+## Probability and Statistics
 
 - [ ] `Probability_Axioms/`
   - [ ] `addition_rule.py`
@@ -227,7 +228,7 @@ the repository.
 
 ---
 
-## ✅ Applied Math
+## Applied Math
 
 - [ ] `Physics/`
   - [ ] `kinematics_solver.py`
