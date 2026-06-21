@@ -20,7 +20,7 @@ combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Com
 if combinatorics_dir not in sys.path:
     sys.path.insert(0, combinatorics_dir)
 
-from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial
+from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
@@ -362,6 +362,25 @@ def test_expand_binomial_n_3():
 def test_expand_binomial_negative_n():
     with pytest.raises(ValueError, match="Power n must be non-negative."):
         expand_binomial('x', 'y', -1)
+
+
+def test_binomial_coefficient_normal():
+    assert binomial_coefficient(5, 2) == 10
+    assert binomial_coefficient(10, 3) == 120
+    assert binomial_coefficient(6, 3) == 20
+
+
+def test_binomial_coefficient_edge_cases():
+    assert binomial_coefficient(5, 0) == 1
+    assert binomial_coefficient(5, 5) == 1
+    assert binomial_coefficient(0, 0) == 1
+
+
+def test_binomial_coefficient_error_handling():
+    with pytest.raises(ValueError, match="Invalid values for n and r"):
+        binomial_coefficient(5, 6)
+    with pytest.raises(ValueError, match="Invalid values for n and r"):
+        binomial_coefficient(5, -1)
 
 
 if __name__ == '__main__':
