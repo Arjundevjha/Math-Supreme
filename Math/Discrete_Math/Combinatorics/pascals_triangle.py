@@ -37,6 +37,8 @@ def print_pascals_triangle(triangle: List[List[int]]) -> None:
     Returns:
     None
     """
+    if not triangle:
+        return
     max_length = len(" ".join(map(str, triangle[-1])))
     for row in triangle:
         print(" ".join(map(str, row)).center(max_length))
