@@ -1,7 +1,7 @@
 # General term of the trinomial expansion
 import sys
 sys.path.append('../..')
-from Numerical_Methods.Functions.Factorial import factorial
+from Numerical_Methods.Functions.Factorial.factorial import factorial
 from typing import Union
 
 
