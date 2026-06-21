@@ -22,5 +22,5 @@ def binomial_general_term(n: int, r: int, a: Union[int, float], b: Union[int, fl
         raise ValueError("Invalid values for n and r. r must be between 0 and n.")
     
     # Calculate general term using formula: T_(r+1) = C(n,r) × a^(n-r) × b^r
-    nCr = nCr(n, r)
-    return nCr * (a ** (n - r)) * (b ** r)
+    c = nCr(n, r)
+    return c * (a ** (n - r)) * (b ** r)
