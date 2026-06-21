@@ -24,7 +24,7 @@ from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_tria
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
-from Math.Discrete_Math.Number_Theory.gcd import compute_gcd
+from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
 from Math.Discrete_Math.Number_Theory.lcm import compute_lcm
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
 
@@ -275,6 +275,26 @@ class TestDiscreteMath(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             expand_trinomial('a', 'b', 'c', -1)
         self.assertTrue("Power n must be non-negative." in str(context.exception))
+
+
+@pytest.mark.parametrize("n, expected", [
+    # Test composite numbers
+    (12, [2, 2, 3]),
+    (60, [2, 2, 3, 5]),
+    (100, [2, 2, 5, 5]),
+
+    # Test prime numbers
+    (2, [2]),
+    (7, [7]),
+    (13, [13]),
+
+    # Test edge cases
+    (1, []),
+    (0, []),
+    (-5, [])
+])
+def test_prime_factorization_for_gcd(n, expected):
+    assert prime_factorization_for_gcd(n) == expected
 
 
 if __name__ == '__main__':
