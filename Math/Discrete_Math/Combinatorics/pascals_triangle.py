@@ -12,8 +12,10 @@ def generate_pascals_triangle(n: int) -> List[List[int]]:
     Returns:
     List[List[int]]: A list of lists representing Pascal's triangle.
     """
-    if n <= 0:
-        raise ValueError("Number of rows must be positive.")
+    if n < 0:
+        raise ValueError("Number of rows cannot be negative.")
+    if n == 0:
+        return []
     
     triangle = []
     # Generate each row of Pascal's triangle

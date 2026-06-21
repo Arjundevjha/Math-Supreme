@@ -205,17 +205,18 @@ class TestPascalsTriangle:
 
     def test_generate_pascals_triangle_valid(self):
         """Test generating a valid Pascal's triangle."""
+        assert generate_pascals_triangle(0) == []
         assert generate_pascals_triangle(1) == [[1]]
+        assert generate_pascals_triangle(2) == [[1], [1, 1]]
         assert generate_pascals_triangle(3) == [[1], [1, 1], [1, 2, 1]]
         assert generate_pascals_triangle(5) == [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
 
     def test_generate_pascals_triangle_invalid(self):
         """Test generating an invalid Pascal's triangle."""
-        with pytest.raises(ValueError, match="Number of rows must be positive."):
-            generate_pascals_triangle(0)
-
-        with pytest.raises(ValueError, match="Number of rows must be positive."):
+        with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-1)
+        with pytest.raises(ValueError, match="Number of rows cannot be negative."):
+            generate_pascals_triangle(-5)
 
 
 def test_prime_factorization_edge_case():
