@@ -27,7 +27,7 @@ from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
 from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
-from Math.Discrete_Math.Number_Theory.lcm import compute_lcm
+from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
 from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation
 from Math.Discrete_Math.Number_Theory.partitions import partition
@@ -449,6 +449,24 @@ def test_partition_approximation_relative_error():
 
     # And at n=100, the relative error should be < 5%
     assert errors[-1] < 0.05
+
+
+def test_prime_factorization_simple():
+    # Edge cases
+    assert prime_factorization_simple(1) == []
+    assert prime_factorization_simple(0) == []
+    assert prime_factorization_simple(-1) == []
+
+    # Prime numbers
+    assert prime_factorization_simple(2) == [2]
+    assert prime_factorization_simple(3) == [3]
+    assert prime_factorization_simple(13) == [13]
+
+    # Composite numbers
+    assert prime_factorization_simple(4) == [2, 2]
+    assert prime_factorization_simple(12) == [2, 2, 3]
+    assert prime_factorization_simple(100) == [2, 2, 5, 5]
+    assert prime_factorization_simple(315) == [3, 3, 5, 7]
 
 
 if __name__ == '__main__':
