@@ -1,8 +1,9 @@
 # Combination formula: for nCr where n and r are non-negative integers
 
 import sys
-sys.path.append('../..')
-from Numerical_Methods.Functions.Factorial.factorial import factorial
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..')))
+from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
 
 def nCr(n: int, r: int) -> int:
     """

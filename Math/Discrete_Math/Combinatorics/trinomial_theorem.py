@@ -1,6 +1,7 @@
 # Trinomial theorem expansion
 import sys
-sys.path.append('..')
+import os
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from combination import nCr
 from typing import List
 
