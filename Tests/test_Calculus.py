@@ -9,6 +9,7 @@ if root_dir not in sys.path:
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str
+from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 
 def test_second_derivative_quadratic():
     # 3x^2 + 2x + 1 -> y'' = 6
@@ -61,4 +62,54 @@ def test_compute_polynomial_derivative_str_empty():
 
 def test_compute_polynomial_derivative_str_negative_powers_and_floats():
     assert compute_polynomial_derivative_str([2.5, 3], [-2, 0]) == "-5.0x^-3"
+
+def test_integrate_polynomial_basic():
+    # ∫(3x^2 + 2x + 1)dx = x^3 + x^2 + x + C
+    coeffs = [3, 2, 1]
+    powers = [2, 1, 0]
+    expected_coeffs = [1.0, 1.0, 1.0]
+    expected_powers = [3, 2, 1]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_negative_powers():
+    # ∫(x^-2)dx = -x^-1
+    coeffs = [1]
+    powers = [-2]
+    expected_coeffs = [-1.0]
+    expected_powers = [-1]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_fractional_powers():
+    # ∫(x^0.5)dx = (2/3)x^1.5
+    coeffs = [1]
+    powers = [0.5]
+    expected_coeffs = [1 / 1.5]
+    expected_powers = [1.5]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_zero_coefficients():
+    # ∫(0x^2)dx = 0
+    coeffs = [0]
+    powers = [2]
+    expected_coeffs = [0.0]
+    expected_powers = [3]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_format_polynomial_integration_basic():
+    # x^3 + x^2 + x + C
+    coeffs = [1.0, 1.0, 1.0]
+    powers = [3, 2, 1]
+
+    assert format_polynomial_integration(coeffs, powers) == "1.0x^3 + 1.0x^2 + 1.0x + C"
+
+def test_format_polynomial_integration_zero_power():
+    # 5
+    coeffs = [5.0]
+    powers = [0]
+
+    assert format_polynomial_integration(coeffs, powers) == "5.0 + C"
 
