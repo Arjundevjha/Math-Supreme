@@ -1,6 +1,7 @@
 import os
 import sys
 import pytest
+import math
 
 # Add root directory to path to allow "Math.Calculus..." imports
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -12,6 +13,7 @@ from Math.Calculus.Differentiation.product_rule import compute_polynomial_deriva
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative
+from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
 
 def test_second_derivative_quadratic():
     # 3x^2 + 2x + 1 -> y'' = 6
@@ -199,3 +201,42 @@ def test_chain_rule_derivative_negative_exponent():
     # Negative exponent should raise ValueError
     with pytest.raises(ValueError, match="Exponent must be non-negative."):
         chain_rule_derivative([1, 2], [2, 0], -1)
+def test_integrate_cos_basic():
+    # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
+    result = integrate_cos(0, math.pi / 2)
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+def test_integrate_cos_full_period():
+    # Integral of cos(x) from 0 to 2*pi should be 0
+    result = integrate_cos(0, 2 * math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+def test_integrate_cos_negative_bounds():
+    # Integral of cos(x) from -pi/2 to 0 should be sin(0) - sin(-pi/2) = 0 - (-1) = 1
+    result = integrate_cos(-math.pi / 2, 0)
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+def test_integrate_cos_same_bounds():
+    # Integral of cos(x) from a to a should be 0
+    result = integrate_cos(math.pi, math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+def test_integrate_sin_basic():
+    # Integral of sin(x) from 0 to pi/2 should be -cos(pi/2) - (-cos(0)) = 0 + 1 = 1
+    result = integrate_sin(0, math.pi / 2)
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+def test_integrate_sin_full_period():
+    # Integral of sin(x) from 0 to 2*pi should be 0
+    result = integrate_sin(0, 2 * math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+def test_integrate_sin_negative_bounds():
+    # Integral of sin(x) from -pi/2 to 0 should be -cos(0) - (-cos(-pi/2)) = -1 - 0 = -1
+    result = integrate_sin(-math.pi / 2, 0)
+    assert math.isclose(result, -1.0, rel_tol=1e-5)
+
+def test_integrate_sin_same_bounds():
+    # Integral of sin(x) from a to a should be 0
+    result = integrate_sin(math.pi, math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
