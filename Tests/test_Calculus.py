@@ -366,3 +366,28 @@ def test_format_polynomial_chain_rule_mixed():
     assert "-2x^3" in terms
     assert "4.5x^0" in terms
     assert len(terms) == 2
+class TestQuotientRule(unittest.TestCase):
+    def test_compute_polynomial_derivative_str_basic(self):
+        self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
+
+    def test_compute_polynomial_derivative_str_multiple_terms(self):
+        self.assertEqual(compute_polynomial_derivative_str([3, 2, 1], [2, 1, 0]), "6x^1 + 2x^0")
+
+    def test_compute_polynomial_derivative_str_constant(self):
+        self.assertEqual(compute_polynomial_derivative_str([5], [0]), "0")
+
+    def test_compute_polynomial_derivative_str_zero_coefficient(self):
+        self.assertEqual(compute_polynomial_derivative_str([0], [2]), "0x^1")
+
+    def test_compute_polynomial_derivative_str_float(self):
+        self.assertEqual(compute_polynomial_derivative_str([1.5, 2.5], [2, 1]), "3.0x^1 + 2.5x^0")
+
+    def test_compute_polynomial_derivative_str_negative_powers(self):
+        self.assertEqual(compute_polynomial_derivative_str([3], [-2]), "-6x^-3")
+
+    def test_compute_polynomial_derivative_str_empty(self):
+        self.assertEqual(compute_polynomial_derivative_str([], []), "0")
+
+
+if __name__ == '__main__':
+    unittest.main()
