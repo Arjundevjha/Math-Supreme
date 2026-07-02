@@ -8,7 +8,7 @@ if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
-from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative
+from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
@@ -495,3 +495,21 @@ class TestComputePolynomialDerivative:
         expected_coeffs = []
         expected_powers = []
         assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
+class TestCalculusDifferentiation(unittest.TestCase):
+    def test_format_polynomial_product_rule_basic(self):
+        self.assertEqual(format_polynomial_product_rule([2, 3], [1, 2]), "2x^1 + 3x^2")
+
+    def test_format_polynomial_product_rule_empty(self):
+        self.assertEqual(format_polynomial_product_rule([], []), "")
+
+    def test_format_polynomial_product_rule_single_term(self):
+        self.assertEqual(format_polynomial_product_rule([5], [0]), "5x^0")
+
+    def test_format_polynomial_product_rule_floats(self):
+        self.assertEqual(format_polynomial_product_rule([2.5, 3.1], [1.0, 2.0]), "2.5x^1 + 3.1x^2")
+
+    def test_format_polynomial_product_rule_zero_coeff(self):
+        self.assertEqual(format_polynomial_product_rule([0, 1], [2, 1]), "0x^2 + 1x^1")
+
+if __name__ == "__main__":
+    unittest.main()
