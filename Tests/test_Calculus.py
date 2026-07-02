@@ -418,5 +418,17 @@ def test_format_polynomial_integration_empty():
     result = format_polynomial_integration([], [])
     assert result.strip() == "+ C" or result.strip() == "C"
 
-if __name__ == '__main__':
-    unittest.main()
+def test_format_polynomial_chain_rule_2_basic():
+    assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
+
+def test_format_polynomial_chain_rule_2_floats():
+    assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
+
+def test_format_polynomial_chain_rule_2_empty():
+    assert format_polynomial_chain_rule([], []) == ""
+
+def test_format_polynomial_chain_rule_2_negative_powers():
+    assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
+
+def test_format_polynomial_chain_rule_2_negative_coeffs():
+    assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
