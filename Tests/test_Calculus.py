@@ -8,7 +8,7 @@ if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
-from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str
+from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial
 
@@ -142,3 +142,26 @@ def test_format_polynomial_empty():
     powers = []
     result = format_polynomial(coeffs, powers)
     assert result.strip() == ""
+def test_product_rule_derivative_basic():
+    # u(x) = x, v(x) = x
+    # u'v + uv' = (1x^0) * (1x^1) + (1x^1) * (1x^0)
+    result = product_rule_derivative([1], [1], [1], [1])
+    assert result == "(1x^0) * (1x^1) + (1x^1) * (1x^0)"
+
+def test_product_rule_derivative_complex():
+    # u(x) = 2x^2 + 3x, v(x) = 4x^3
+    result = product_rule_derivative([2, 3], [2, 1], [4], [3])
+    assert "(4x^1 + 3x^0) * (4x^3) + (2x^2 + 3x^1) * (12x^2)" == result
+
+def test_product_rule_derivative_constant():
+    # u(x) = 5, v(x) = x
+    result = product_rule_derivative([5], [0], [1], [1])
+    assert result == "(0) * (1x^1) + (5x^0) * (1x^0)"
+
+def test_product_rule_derivative_multiple_terms():
+    # u(x) = 3x^3 + 2x^2 + x, v(x) = 5x^2 + 4
+    # u_prime = 9x^2 + 4x^1 + 1x^0
+    # v_prime = 10x^1
+    result = product_rule_derivative([3, 2, 1], [3, 2, 1], [5, 4], [2, 0])
+    expected = "(9x^2 + 4x^1 + 1x^0) * (5x^2 + 4x^0) + (3x^3 + 2x^2 + 1x^1) * (10x^1)"
+    assert result == expected
