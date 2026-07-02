@@ -199,14 +199,14 @@ the repository.
 - [ ] `Optimisation/`
   - [ ] `gradient_descent.py`
   - [ ] `extrema_finder.py`
-- [x] `Functions/`
+- [ ] `Functions/`
   - [x] `Factorial/`
     - [x] `factorial.py`
-  - [x] `hexation/`
-    - [x] `hexation.py`
+  - [ ] `hexation/`
+    - [ ] `hexation.py`
   - [ ] `square_root/`
-  - [x] `tetration/`
-    - [x] `tetration.py`
+  - [ ] `tetration/`
+    - [ ] `tetration.py`
 
 ---
 
