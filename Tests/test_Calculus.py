@@ -511,5 +511,36 @@ class TestCalculusDifferentiation(unittest.TestCase):
     def test_format_polynomial_product_rule_zero_coeff(self):
         self.assertEqual(format_polynomial_product_rule([0, 1], [2, 1]), "0x^2 + 1x^1")
 
-if __name__ == "__main__":
+class TestTrigIntegration:
+    def test_integrate_sin_basic(self):
+        """Test integral of sin(x) from 0 to pi = 2"""
+        result = integrate_sin(0, math.pi)
+        assert math.isclose(result, 2.0, rel_tol=1e-5)
+
+    def test_integrate_sin_zero(self):
+        """Test integral of sin(x) from 0 to 0 = 0"""
+        result = integrate_sin(0, 0)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_sin_full_period(self):
+        """Test integral of sin(x) from 0 to 2pi = 0"""
+        result = integrate_sin(0, 2 * math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_sin_negative_bounds(self):
+        """Test integral of sin(x) from -pi to 0 = -2"""
+        result = integrate_sin(-math.pi, 0)
+        assert math.isclose(result, -2.0, rel_tol=1e-5)
+
+    def test_integrate_cos_basic(self):
+        """Test integral of cos(x) from 0 to pi/2 = 1"""
+        result = integrate_cos(0, math.pi / 2)
+        assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+    def test_integrate_cos_zero(self):
+        """Test integral of cos(x) from 0 to 0 = 0"""
+        result = integrate_cos(0, 0)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+if __name__ == '__main__':
     unittest.main()
