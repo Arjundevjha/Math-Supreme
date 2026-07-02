@@ -7,7 +7,7 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
-from Math.Algebra.Polynomials.polynomial import format_polynomial
+from Math.Algebra.Polynomials.polynomial import format_polynomial, evaluate_polynomial as evaluate_polynomial_poly
 from Math.Algebra.Linear_Equations.linear_eqn import linear_eqn
 from Math.Algebra.Polynomials.factor_theorem import evaluate_polynomial, check_factor
 
@@ -140,3 +140,31 @@ def test_check_factor_float():
     assert check_factor(coefficients, powers, -0.5) is True
     assert check_factor(coefficients, powers, 1.0) is True
     assert check_factor(coefficients, powers, 0.5) is False
+def test_evaluate_polynomial_poly_basic():
+    # P(x) = 2x^2 + 3x + 1
+    # P(2) = 2(2^2) + 3(2) + 1 = 8 + 6 + 1 = 15
+    assert evaluate_polynomial_poly([2, 3, 1], [2, 1, 0], 2) == 15
+
+def test_evaluate_polynomial_poly_zero_x():
+    # P(x) = 5x^3 - 2x^2 + 4
+    # P(0) = 4
+    assert evaluate_polynomial_poly([5, -2, 4], [3, 2, 0], 0) == 4
+
+def test_evaluate_polynomial_poly_negative_x():
+    # P(x) = x^3 - x^2 + x - 1
+    # P(-2) = (-2)^3 - (-2)^2 + (-2) - 1 = -8 - 4 - 2 - 1 = -15
+    assert evaluate_polynomial_poly([1, -1, 1, -1], [3, 2, 1, 0], -2) == -15
+
+def test_evaluate_polynomial_poly_floating_point():
+    # P(x) = 1.5x^2 + 2.5x
+    # P(2.0) = 1.5(2.0^2) + 2.5(2.0) = 6.0 + 5.0 = 11.0
+    assert evaluate_polynomial_poly([1.5, 2.5], [2, 1], 2.0) == 11.0
+
+def test_evaluate_polynomial_poly_empty():
+    # Empty polynomial
+    assert evaluate_polynomial_poly([], [], 5) == 0
+
+def test_evaluate_polynomial_poly_negative_powers():
+    # P(x) = 2x^-1 + 3
+    # P(2) = 2(2^-1) + 3 = 1 + 3 = 4
+    assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
