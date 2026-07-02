@@ -11,7 +11,7 @@ from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative
-from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative
+from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule
 from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
 from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
 
@@ -347,3 +347,22 @@ def test_quotient_rule_derivative_float_coefficients():
     # Expected: ((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2
     result = quotient_rule_derivative([1.5], [2], [2.5], [3])
     assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
+def test_format_polynomial_chain_rule_basic():
+    coeffs = [3, 5]
+    powers = [2, 1]
+    result = format_polynomial_chain_rule(coeffs, powers)
+    terms = [t.strip() for t in result.split("+")]
+    assert "3x^2" in terms
+    assert "5x^1" in terms
+    assert len(terms) == 2
+
+def test_format_polynomial_chain_rule_empty():
+    result = format_polynomial_chain_rule([], [])
+    assert result == ""
+
+def test_format_polynomial_chain_rule_mixed():
+    result = format_polynomial_chain_rule([-2, 4.5], [3, 0])
+    terms = [t.strip() for t in result.split("+")]
+    assert "-2x^3" in terms
+    assert "4.5x^0" in terms
+    assert len(terms) == 2
