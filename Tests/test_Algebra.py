@@ -9,6 +9,7 @@ if root_dir not in sys.path:
 
 from Math.Algebra.Polynomials.polynomial import format_polynomial
 from Math.Algebra.Linear_Equations.linear_eqn import linear_eqn
+from Math.Algebra.Polynomials.factor_theorem import evaluate_polynomial
 
 def test_format_polynomial_basic():
     result = format_polynomial([2, 3, 4], [2, 1, 0])
@@ -67,4 +68,37 @@ def test_linear_eqn_vertical_line():
     # x1 == x2, expects ValueError
     with pytest.raises(ValueError, match="The x-coordinates cannot be the same \\(vertical line\\)."):
         linear_eqn(2, 3, 2, 7)
+class TestEvaluatePolynomial:
+    def test_evaluate_polynomial_basic(self):
+        """Test with a simple quadratic polynomial: x^2 + 2x + 1 at x=2"""
+        # (2)^2 + 2*(2) + 1 = 4 + 4 + 1 = 9
+        assert evaluate_polynomial([1, 2, 1], [2, 1, 0], 2) == 9
 
+    def test_evaluate_polynomial_zero_x(self):
+        """Test polynomial at x=0"""
+        # (0)^2 + 2*(0) + 1 = 1
+        assert evaluate_polynomial([1, 2, 1], [2, 1, 0], 0) == 1
+
+    def test_evaluate_polynomial_negative_x(self):
+        """Test polynomial at x=-1"""
+        # (-1)^2 + 2*(-1) + 1 = 1 - 2 + 1 = 0
+        assert evaluate_polynomial([1, 2, 1], [2, 1, 0], -1) == 0
+
+    def test_evaluate_polynomial_fractional_powers(self):
+        """Test with fractional powers (square root)"""
+        # 1 * (4)^0.5 = 2.0
+        assert evaluate_polynomial([1], [0.5], 4) == 2.0
+
+    def test_evaluate_polynomial_float_coefficients(self):
+        """Test with float coefficients and float x"""
+        # 1.5 * (2.0)^2 + 0.5 * (2.0)^0 = 1.5*4 + 0.5 = 6.0 + 0.5 = 6.5
+        assert evaluate_polynomial([1.5, 0.5], [2, 0], 2.0) == 6.5
+
+    def test_evaluate_polynomial_empty(self):
+        """Test with empty coefficients and powers"""
+        assert evaluate_polynomial([], [], 5) == 0
+
+    def test_evaluate_polynomial_negative_powers(self):
+        """Test with negative powers"""
+        # 4 * (2)^-1 + 2 * (2)^-2 = 4/2 + 2/4 = 2 + 0.5 = 2.5
+        assert evaluate_polynomial([4, 2], [-1, -2], 2) == 2.5
