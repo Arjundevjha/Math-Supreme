@@ -2,8 +2,7 @@ import os
 import sys
 import pytest
 import math
-
-# Add root directory to path to allow "Math.Calculus..." imports
+import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
@@ -14,6 +13,7 @@ from Math.Calculus.Integration.NumIntegration import integrate_polynomial, forma
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative
 from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
+from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
 
 def test_second_derivative_quadratic():
     # 3x^2 + 2x + 1 -> y'' = 6
@@ -116,6 +116,7 @@ def test_format_polynomial_integration_zero_power():
     powers = [0]
 
     assert format_polynomial_integration(coeffs, powers) == "5.0 + C"
+
 def test_format_polynomial_basic():
     coeffs = [2, 3]
     powers = [2, 1]
@@ -145,6 +146,7 @@ def test_format_polynomial_empty():
     powers = []
     result = format_polynomial(coeffs, powers)
     assert result.strip() == ""
+
 def test_product_rule_derivative_basic():
     # u(x) = x, v(x) = x
     # u'v + uv' = (1x^0) * (1x^1) + (1x^1) * (1x^0)
@@ -201,6 +203,7 @@ def test_chain_rule_derivative_negative_exponent():
     # Negative exponent should raise ValueError
     with pytest.raises(ValueError, match="Exponent must be non-negative."):
         chain_rule_derivative([1, 2], [2, 0], -1)
+
 def test_integrate_cos_basic():
     # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
     result = integrate_cos(0, math.pi / 2)
@@ -240,3 +243,59 @@ def test_integrate_sin_same_bounds():
     # Integral of sin(x) from a to a should be 0
     result = integrate_sin(math.pi, math.pi)
     assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+class TestDifferentiatePolynomial(unittest.TestCase):
+    def test_basic_polynomial(self):
+        # d/dx(3x^2 + 2x + 1) = 6x + 2
+        # coeffs = [3, 2, 1], powers = [2, 1, 0]
+        # derivative coeffs = [6, 2], powers = [1, 0]
+        self.assertEqual(
+            differentiate_polynomial([3, 2, 1], [2, 1, 0]),
+            [(6, 1), (2, 0)]
+        )
+
+    def test_single_term(self):
+        # d/dx(5x^3) = 15x^2
+        self.assertEqual(
+            differentiate_polynomial([5], [3]),
+            [(15, 2)]
+        )
+
+    def test_constant_value(self):
+        # d/dx(7) = 0
+        self.assertEqual(
+            differentiate_polynomial([7], [0]),
+            []
+        )
+
+    def test_empty_lists(self):
+        # d/dx() = 0
+        self.assertEqual(
+            differentiate_polynomial([], []),
+            []
+        )
+
+    def test_floating_point(self):
+        # d/dx(2.5x^2.0 + 1.5x^0.5) = 5.0x^1.0 + 0.75x^-0.5
+        self.assertEqual(
+            differentiate_polynomial([2.5, 1.5], [2.0, 0.5]),
+            [(5.0, 1.0), (0.75, -0.5)]
+        )
+
+    def test_negative_power(self):
+        # Based on the current implementation, powers <= 0 are ignored
+        # d/dx(4x^-2) -> empty list since power is not > 0
+        self.assertEqual(
+            differentiate_polynomial([4], [-2]),
+            []
+        )
+
+    def test_mixed_skipped_and_kept(self):
+        # d/dx(2x^3 + 5 + 4x^-1) -> only 2x^3 is differentiated -> 6x^2
+        self.assertEqual(
+            differentiate_polynomial([2, 5, 4], [3, 0, -1]),
+            [(6, 2)]
+        )
+
+if __name__ == '__main__':
+    unittest.main()
