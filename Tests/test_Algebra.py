@@ -102,6 +102,31 @@ class TestEvaluatePolynomial:
         """Test with negative powers"""
         # 4 * (2)^-1 + 2 * (2)^-2 = 4/2 + 2/4 = 2 + 0.5 = 2.5
         assert evaluate_polynomial([4, 2], [-1, -2], 2) == 2.5
+
+    def test_evaluate_polynomial_zero_to_zero_power(self):
+        """Test zero to the power of zero (should be 1 in Python)"""
+        # 5 * (0)^0 = 5 * 1 = 5
+        assert evaluate_polynomial([5], [0], 0) == 5
+
+    def test_evaluate_polynomial_zero_division(self):
+        """Test evaluating at x=0 with negative power"""
+        with pytest.raises(ZeroDivisionError):
+            evaluate_polynomial([1], [-1], 0)
+
+    def test_evaluate_polynomial_mismatched_lengths(self):
+        """Test with mismatched lengths (zip will stop at shortest length)"""
+        # [2, 3, 4] and [2, 1] -> 2*x^2 + 3*x^1, ignoring the '4'
+        # At x=2: 2*(4) + 3*(2) = 8 + 6 = 14
+        assert evaluate_polynomial([2, 3, 4], [2, 1], 2) == 14
+
+    def test_evaluate_polynomial_all_zero_coeffs(self):
+        """Test with all zero coefficients"""
+        assert evaluate_polynomial([0, 0, 0], [2, 1, 0], 5) == 0
+
+    def test_evaluate_polynomial_large_numbers(self):
+        """Test with large numbers"""
+        assert evaluate_polynomial([1000], [3], 10) == 1000 * 10**3
+
 def test_check_factor_true():
     # P(x) = x^2 - 4x + 4, check if (x - 2) is a factor
     # P(2) = 2^2 - 4*2 + 4 = 4 - 8 + 4 = 0 -> True
