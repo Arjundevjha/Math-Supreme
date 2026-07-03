@@ -6,6 +6,10 @@ import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
@@ -47,6 +51,37 @@ def test_second_derivative_floats():
     coeffs = [2.5]
     powers = [4.0]
     assert second_derivative(coeffs, powers) == [(30.0, 2.0)]
+
+def test_second_derivative_zero_coeffs():
+    # 0x^3 + 0x^2 -> y'' = 0x
+    coeffs = [0, 0]
+    powers = [3, 2]
+    assert second_derivative(coeffs, powers) == [(0, 1), (0, 0)]
+
+def test_second_derivative_unordered_powers():
+    # x + 4x^3 - 2x^2 - 5 -> y'' = 24x - 4
+    coeffs = [1, 4, -2, -5]
+    powers = [1, 3, 2, 0]
+    assert second_derivative(coeffs, powers) == [(24, 1), (-4, 0)]
+
+def test_second_derivative_mismatched_lengths():
+    # zip() behavior
+    coeffs = [4, -2]
+    powers = [3]
+    assert second_derivative(coeffs, powers) == [(24, 1)]
+
+def test_second_derivative_negative_powers():
+    # Currently code ignores powers <= 0 for derivatives
+    # Let's verify this behavior
+    coeffs = [3, 2]
+    powers = [-2, -1]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_large_numbers():
+    # 1000x^1000 -> y'' = 1000 * 1000 * 999 x^998 = 999000000x^998
+    coeffs = [1000]
+    powers = [1000]
+    assert second_derivative(coeffs, powers) == [(999000000, 998)]
 
 def test_compute_polynomial_derivative_str_single_term():
     assert compute_polynomial_derivative_str([3], [2]) == "6x^1"
