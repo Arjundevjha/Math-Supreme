@@ -432,6 +432,19 @@ def test_format_polynomial_chain_rule_2_negative_powers():
 
 def test_format_polynomial_chain_rule_2_negative_coeffs():
     assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
+
+def test_format_polynomial_chain_rule_zero_coeff():
+    assert format_polynomial_chain_rule([0], [2]) == "0x^2"
+
+def test_format_polynomial_chain_rule_single_term():
+    assert format_polynomial_chain_rule([5], [3]) == "5x^3"
+
+def test_format_polynomial_chain_rule_float_power_cast():
+    assert format_polynomial_chain_rule([2], [3.9]) == "2x^3"
+
+def test_format_polynomial_chain_rule_zero_power():
+    assert format_polynomial_chain_rule([7], [0]) == "7x^0"
+
 class TestComputePolynomialDerivative:
     def test_basic_polynomial(self):
         # f(x) = 3x^2 + 2x^1
