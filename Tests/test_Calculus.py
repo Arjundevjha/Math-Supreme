@@ -511,6 +511,17 @@ class TestCalculusDifferentiation(unittest.TestCase):
     def test_format_polynomial_product_rule_zero_coeff(self):
         self.assertEqual(format_polynomial_product_rule([0, 1], [2, 1]), "0x^2 + 1x^1")
 
+    def test_format_polynomial_product_rule_negative_coeff(self):
+        self.assertEqual(format_polynomial_product_rule([-2, -3], [1, 2]), "-2x^1 + -3x^2")
+
+    def test_format_polynomial_product_rule_negative_powers(self):
+        self.assertEqual(format_polynomial_product_rule([2, 3], [-1, -2]), "2x^-1 + 3x^-2")
+
+    def test_format_polynomial_product_rule_mismatched_lengths(self):
+        # zip behavior will stop at the shortest list
+        self.assertEqual(format_polynomial_product_rule([2, 3, 4], [1, 2]), "2x^1 + 3x^2")
+        self.assertEqual(format_polynomial_product_rule([2, 3], [1, 2, 3]), "2x^1 + 3x^2")
+
 class TestTrigIntegration:
     def test_integrate_sin_basic(self):
         """Test integral of sin(x) from 0 to pi = 2"""
