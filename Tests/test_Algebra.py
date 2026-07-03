@@ -168,3 +168,26 @@ def test_evaluate_polynomial_poly_negative_powers():
     # P(x) = 2x^-1 + 3
     # P(2) = 2(2^-1) + 3 = 1 + 3 = 4
     assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
+
+def test_evaluate_polynomial_poly_fractional_powers():
+    # P(x) = x^0.5 + 2
+    # P(4) = 4^0.5 + 2 = 2 + 2 = 4.0
+    assert evaluate_polynomial_poly([1, 2], [0.5, 0], 4) == 4.0
+
+def test_evaluate_polynomial_poly_large_numbers():
+    # P(x) = x^10
+    # P(2) = 2^10 = 1024
+    assert evaluate_polynomial_poly([1], [10], 2) == 1024
+
+def test_evaluate_polynomial_poly_zero_division_error():
+    # P(x) = x^-1
+    # P(0) should raise ZeroDivisionError
+    with pytest.raises(ZeroDivisionError):
+        evaluate_polynomial_poly([1], [-1], 0)
+
+def test_evaluate_polynomial_poly_mismatched_lengths():
+    # Evaluate polynomial with mismatched lengths of coefficients and powers
+    # P(x) = 2x^2 + 3x
+    # Should zip up to the shortest list (coefficients has 2, powers has 1)
+    # result = 2*(2^2) = 8
+    assert evaluate_polynomial_poly([2, 3], [2], 2) == 8
