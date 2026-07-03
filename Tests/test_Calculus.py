@@ -367,6 +367,21 @@ def test_format_polynomial_chain_rule_mixed():
     assert "4.5x^0" in terms
     assert len(terms) == 2
 class TestQuotientRule(unittest.TestCase):
+    def test_format_polynomial_quotient_rule_basic(self):
+        self.assertEqual(format_polynomial([3], [2]), "3x^2")
+
+    def test_format_polynomial_quotient_rule_multiple_terms(self):
+        self.assertEqual(format_polynomial([3, 2, 1], [2, 1, 0]), "3x^2 + 2x^1 + 1x^0")
+
+    def test_format_polynomial_quotient_rule_floats(self):
+        self.assertEqual(format_polynomial([1.5, 2.5], [2, 1]), "1.5x^2 + 2.5x^1")
+
+    def test_format_polynomial_quotient_rule_negative_powers(self):
+        self.assertEqual(format_polynomial([3], [-2]), "3x^-2")
+
+    def test_format_polynomial_quotient_rule_empty(self):
+        self.assertEqual(format_polynomial([], []), "")
+
     def test_compute_polynomial_derivative_str_basic(self):
         self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
 
