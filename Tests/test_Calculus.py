@@ -347,6 +347,36 @@ def test_quotient_rule_derivative_float_coefficients():
     # Expected: ((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2
     result = quotient_rule_derivative([1.5], [2], [2.5], [3])
     assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
+
+def test_quotient_rule_derivative_zero_coefficients():
+    # u(x) = 0x^2, v(x) = 1x^1
+    # u' = 0x^1, v' = 1x^0
+    # Expected: ((0x^1) * (1x^1) - (0x^2) * (1x^0)) / (1x^1)^2
+    result = quotient_rule_derivative([0], [2], [1], [1])
+    assert result == "((0x^1) * (1x^1) - (0x^2) * (1x^0)) / (1x^1)^2"
+
+def test_quotient_rule_derivative_empty_lists():
+    # u(x) = empty, v(x) = empty
+    # u' = 0, v' = 0
+    # Expected: ((0) * () - () * (0)) / ()^2
+    result = quotient_rule_derivative([], [], [], [])
+    assert result == "((0) * () - () * (0)) / ()^2"
+
+def test_quotient_rule_derivative_fractional_powers():
+    # u(x) = 1x^2.5 -> format converts power to int, so 1x^2
+    # compute derivative converts new power to int: 2.5 * 1 = 2.5, power = 1.5 -> int is 1
+    # u' = 2.5x^1
+    # v(x) = 2x^0.5 -> format converts power to int, so 2x^0
+    # v' = 0.5 * 2 = 1.0, power = -0.5 -> int is 0
+    # v' = 1.0x^0
+    result = quotient_rule_derivative([1], [2.5], [2], [0.5])
+    assert result == "((2.5x^1) * (2x^0) - (1x^2) * (1.0x^0)) / (2x^0)^2"
+
+def test_quotient_rule_derivative_zero_power_numerator_and_denominator():
+    # u(x) = 1x^0, v(x) = 1x^0
+    # u' = 0, v' = 0
+    result = quotient_rule_derivative([1], [0], [1], [0])
+    assert result == "((0) * (1x^0) - (1x^0) * (0)) / (1x^0)^2"
 def test_format_polynomial_chain_rule_basic():
     coeffs = [3, 5]
     powers = [2, 1]
