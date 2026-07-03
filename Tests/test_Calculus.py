@@ -366,6 +366,19 @@ def test_format_polynomial_chain_rule_mixed():
     assert "-2x^3" in terms
     assert "4.5x^0" in terms
     assert len(terms) == 2
+
+def test_format_polynomial_chain_rule_zero_coeffs():
+    assert format_polynomial_chain_rule([0, 0], [2, 1]) == "0x^2 + 0x^1"
+
+def test_format_polynomial_chain_rule_float_powers():
+    assert format_polynomial_chain_rule([2, 3], [2.5, 1.2]) == "2x^2 + 3x^1"
+
+def test_format_polynomial_chain_rule_zero_power():
+    assert format_polynomial_chain_rule([4], [0]) == "4x^0"
+
+def test_format_polynomial_chain_rule_mixed_types():
+    assert format_polynomial_chain_rule([1.5, 2], [3.8, 0]) == "1.5x^3 + 2x^0"
+
 class TestQuotientRule(unittest.TestCase):
     def test_compute_polynomial_derivative_str_basic(self):
         self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
