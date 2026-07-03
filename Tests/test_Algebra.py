@@ -1,3 +1,4 @@
+import math
 import os
 import sys
 import pytest
@@ -69,6 +70,21 @@ def test_linear_eqn_vertical_line():
     with pytest.raises(ValueError, match="The x-coordinates cannot be the same \\(vertical line\\)."):
         linear_eqn(2, 3, 2, 7)
 class TestEvaluatePolynomial:
+    def test_evaluate_polynomial_zero_division(self):
+        """Test evaluating at x=0 with negative powers, expecting ZeroDivisionError"""
+        with pytest.raises(ZeroDivisionError):
+            evaluate_polynomial([1], [-1], 0)
+
+    def test_evaluate_polynomial_mismatched_lengths(self):
+        """Test that zip handles mismatched list lengths by truncating to the shortest"""
+        # [1, 2], [2] -> only evaluates 1 * x^2
+        assert evaluate_polynomial([1, 2], [2], 3) == 9
+
+    def test_evaluate_polynomial_complex_floats(self):
+        """Test with floating point values that might cause precision issues"""
+        # 0.1 * (0.1)^2 + 0.2 * (0.1)^1 = 0.001 + 0.02 = 0.021
+        assert math.isclose(evaluate_polynomial([0.1, 0.2], [2, 1], 0.1), 0.021)
+
     def test_evaluate_polynomial_basic(self):
         """Test with a simple quadratic polynomial: x^2 + 2x + 1 at x=2"""
         # (2)^2 + 2*(2) + 1 = 4 + 4 + 1 = 9
@@ -87,12 +103,12 @@ class TestEvaluatePolynomial:
     def test_evaluate_polynomial_fractional_powers(self):
         """Test with fractional powers (square root)"""
         # 1 * (4)^0.5 = 2.0
-        assert evaluate_polynomial([1], [0.5], 4) == 2.0
+        assert math.isclose(evaluate_polynomial([1], [0.5], 4), 2.0)
 
     def test_evaluate_polynomial_float_coefficients(self):
         """Test with float coefficients and float x"""
         # 1.5 * (2.0)^2 + 0.5 * (2.0)^0 = 1.5*4 + 0.5 = 6.0 + 0.5 = 6.5
-        assert evaluate_polynomial([1.5, 0.5], [2, 0], 2.0) == 6.5
+        assert math.isclose(evaluate_polynomial([1.5, 0.5], [2, 0], 2.0), 6.5)
 
     def test_evaluate_polynomial_empty(self):
         """Test with empty coefficients and powers"""
@@ -101,7 +117,7 @@ class TestEvaluatePolynomial:
     def test_evaluate_polynomial_negative_powers(self):
         """Test with negative powers"""
         # 4 * (2)^-1 + 2 * (2)^-2 = 4/2 + 2/4 = 2 + 0.5 = 2.5
-        assert evaluate_polynomial([4, 2], [-1, -2], 2) == 2.5
+        assert math.isclose(evaluate_polynomial([4, 2], [-1, -2], 2), 2.5)
 def test_check_factor_true():
     # P(x) = x^2 - 4x + 4, check if (x - 2) is a factor
     # P(2) = 2^2 - 4*2 + 4 = 4 - 8 + 4 = 0 -> True
@@ -158,7 +174,7 @@ def test_evaluate_polynomial_poly_negative_x():
 def test_evaluate_polynomial_poly_floating_point():
     # P(x) = 1.5x^2 + 2.5x
     # P(2.0) = 1.5(2.0^2) + 2.5(2.0) = 6.0 + 5.0 = 11.0
-    assert evaluate_polynomial_poly([1.5, 2.5], [2, 1], 2.0) == 11.0
+    assert math.isclose(evaluate_polynomial_poly([1.5, 2.5], [2, 1], 2.0), 11.0)
 
 def test_evaluate_polynomial_poly_empty():
     # Empty polynomial
@@ -167,4 +183,4 @@ def test_evaluate_polynomial_poly_empty():
 def test_evaluate_polynomial_poly_negative_powers():
     # P(x) = 2x^-1 + 3
     # P(2) = 2(2^-1) + 3 = 1 + 3 = 4
-    assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
+    assert math.isclose(evaluate_polynomial_poly([2, 3], [-1, 0], 2), 4.0)
