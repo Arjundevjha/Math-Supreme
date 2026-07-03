@@ -168,3 +168,30 @@ def test_evaluate_polynomial_poly_negative_powers():
     # P(x) = 2x^-1 + 3
     # P(2) = 2(2^-1) + 3 = 1 + 3 = 4
     assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
+
+def test_evaluate_polynomial_poly_fractional_powers():
+    # P(x) = 1x^0.5
+    # P(4) = 1 * 4^0.5 = 2.0
+    assert evaluate_polynomial_poly([1], [0.5], 4) == 2.0
+
+def test_evaluate_polynomial_poly_precision():
+    import math
+    # P(x) = 0.1x + 0.2x
+    # P(1) = 0.1(1) + 0.2(1) = 0.3
+    # Direct equality might fail due to floating point precision: 0.1 + 0.2 = 0.30000000000000004
+    result = evaluate_polynomial_poly([0.1, 0.2], [1, 1], 1)
+    assert math.isclose(result, 0.3, rel_tol=1e-9, abs_tol=1e-9)
+
+def test_evaluate_polynomial_poly_zero_coef():
+    # P(x) = 0x^2 + 0x + 0
+    assert evaluate_polynomial_poly([0, 0, 0], [2, 1, 0], 100) == 0
+
+def test_evaluate_polynomial_poly_large_numbers():
+    # P(x) = 1x^10
+    # P(10) = 10^10 = 10000000000
+    assert evaluate_polynomial_poly([1], [10], 10) == 10000000000
+
+def test_evaluate_polynomial_poly_zero_to_zero():
+    # P(x) = 1x^0
+    # P(0) = 1(0^0) = 1.0 (in python, 0**0 is 1)
+    assert evaluate_polynomial_poly([1], [0], 0) == 1
