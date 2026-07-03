@@ -8,6 +8,9 @@ if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
+math_dir = os.path.join(root_dir, "Math")
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative
@@ -531,6 +534,22 @@ class TestTrigIntegration:
         """Test integral of sin(x) from -pi to 0 = -2"""
         result = integrate_sin(-math.pi, 0)
         assert math.isclose(result, -2.0, rel_tol=1e-5)
+
+    def test_integrate_sin_reversed_bounds(self):
+        """Test integral of sin(x) from pi to 0 = -2"""
+        result = integrate_sin(math.pi, 0)
+        assert math.isclose(result, -2.0, rel_tol=1e-5)
+
+    def test_integrate_sin_fractional_pi(self):
+        """Test integral of sin(x) from 0 to pi/3 = 0.5"""
+        result = integrate_sin(0, math.pi / 3)
+        assert math.isclose(result, 0.5, rel_tol=1e-5)
+
+    def test_integrate_sin_float_bounds(self):
+        """Test integral of sin(x) from 0.5 to 1.5"""
+        result = integrate_sin(0.5, 1.5)
+        expected = -math.cos(1.5) + math.cos(0.5)
+        assert math.isclose(result, expected, rel_tol=1e-5)
 
     def test_integrate_cos_basic(self):
         """Test integral of cos(x) from 0 to pi/2 = 1"""
