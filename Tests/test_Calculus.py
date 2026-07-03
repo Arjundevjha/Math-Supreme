@@ -204,6 +204,27 @@ def test_chain_rule_derivative_negative_exponent():
     with pytest.raises(ValueError, match="Exponent must be non-negative."):
         chain_rule_derivative([1, 2], [2, 0], -1)
 
+def test_chain_rule_derivative_float_coefficients():
+    # g(x) = 1.5x^2, n = 2 => derivative is 2(1.5x^2)^1 * (3.0x^1)
+    result = chain_rule_derivative([1.5], [2], 2)
+    assert "2(" in result
+    assert "1.5x^2" in result
+    assert ")^1" in result
+    assert "* (3.0x^1)" in result
+
+def test_chain_rule_derivative_negative_powers_and_coeffs():
+    # g(x) = -2x^-3, n = 4 => derivative is 4(-2x^-3)^3 * (6x^-4)
+    result = chain_rule_derivative([-2], [-3], 4)
+    assert "4(" in result
+    assert "-2x^-3" in result
+    assert ")^3" in result
+    assert "* (6x^-4)" in result
+
+def test_chain_rule_derivative_empty_inner():
+    # g(x) = empty, n = 3 => derivative is 3()^2 * ()
+    result = chain_rule_derivative([], [], 3)
+    assert result == "3()^2 * ()"
+
 def test_integrate_cos_basic():
     # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
     result = integrate_cos(0, math.pi / 2)
