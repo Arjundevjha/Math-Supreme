@@ -4,8 +4,11 @@ import pytest
 import math
 import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+math_dir = os.path.join(root_dir, 'Math')
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
@@ -541,6 +544,16 @@ class TestTrigIntegration:
         """Test integral of cos(x) from 0 to 0 = 0"""
         result = integrate_cos(0, 0)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_full_period(self):
+        """Test integral of cos(x) from 0 to 2pi = 0"""
+        result = integrate_cos(0, 2 * math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_negative_bounds(self):
+        """Test integral of cos(x) from -pi/2 to 0 = 1"""
+        result = integrate_cos(-math.pi / 2, 0)
+        assert math.isclose(result, 1.0, rel_tol=1e-5)
 
 if __name__ == '__main__':
     unittest.main()
