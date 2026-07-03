@@ -67,6 +67,8 @@ def product_rule_derivative(u_coeffs: List[Union[int, float]], u_powers: List[Un
     v_prime = compute_polynomial_derivative_str(v_coeffs, v_powers)
     
     # Apply product rule: (u×v)' = u'×v + u×v'
+    if not u_coeffs and not v_coeffs:
+        return "0"
     result = f"({u_prime}) * ({poly2}) + ({poly1}) * ({v_prime})"
     
     return result
