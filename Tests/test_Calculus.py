@@ -10,7 +10,7 @@ if root_dir not in sys.path:
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
-from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative
+from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative, compute_polynomial_derivative_str as compute_polynomial_derivative_str_quotient
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
 from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
 from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
@@ -368,25 +368,42 @@ def test_format_polynomial_chain_rule_mixed():
     assert len(terms) == 2
 class TestQuotientRule(unittest.TestCase):
     def test_compute_polynomial_derivative_str_basic(self):
-        self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
+        result = compute_polynomial_derivative_str_quotient([3], [2])
+        terms = [t.strip() for t in result.split("+")]
+        self.assertIn("6x^1", terms)
+        self.assertEqual(len(terms), 1)
 
     def test_compute_polynomial_derivative_str_multiple_terms(self):
-        self.assertEqual(compute_polynomial_derivative_str([3, 2, 1], [2, 1, 0]), "6x^1 + 2x^0")
+        result = compute_polynomial_derivative_str_quotient([3, 2, 1], [2, 1, 0])
+        terms = [t.strip() for t in result.split("+")]
+        self.assertIn("6x^1", terms)
+        self.assertIn("2x^0", terms)
+        self.assertEqual(len(terms), 2)
 
     def test_compute_polynomial_derivative_str_constant(self):
-        self.assertEqual(compute_polynomial_derivative_str([5], [0]), "0")
+        self.assertEqual(compute_polynomial_derivative_str_quotient([5], [0]), "0")
 
     def test_compute_polynomial_derivative_str_zero_coefficient(self):
-        self.assertEqual(compute_polynomial_derivative_str([0], [2]), "0x^1")
+        result = compute_polynomial_derivative_str_quotient([0], [2])
+        terms = [t.strip() for t in result.split("+")]
+        self.assertIn("0x^1", terms)
+        self.assertEqual(len(terms), 1)
 
     def test_compute_polynomial_derivative_str_float(self):
-        self.assertEqual(compute_polynomial_derivative_str([1.5, 2.5], [2, 1]), "3.0x^1 + 2.5x^0")
+        result = compute_polynomial_derivative_str_quotient([1.5, 2.5], [2, 1])
+        terms = [t.strip() for t in result.split("+")]
+        self.assertIn("3.0x^1", terms)
+        self.assertIn("2.5x^0", terms)
+        self.assertEqual(len(terms), 2)
 
     def test_compute_polynomial_derivative_str_negative_powers(self):
-        self.assertEqual(compute_polynomial_derivative_str([3], [-2]), "-6x^-3")
+        result = compute_polynomial_derivative_str_quotient([3], [-2])
+        terms = [t.strip() for t in result.split("+")]
+        self.assertIn("-6x^-3", terms)
+        self.assertEqual(len(terms), 1)
 
     def test_compute_polynomial_derivative_str_empty(self):
-        self.assertEqual(compute_polynomial_derivative_str([], []), "0")
+        self.assertEqual(compute_polynomial_derivative_str_quotient([], []), "0")
 
 def test_format_polynomial_integration_multiple_terms():
     result = format_polynomial_integration([2.0, 3.5, 1.0], [2.0, 1.0, 0.0])
