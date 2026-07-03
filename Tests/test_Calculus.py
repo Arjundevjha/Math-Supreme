@@ -6,6 +6,7 @@ import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
+    sys.path.insert(0, os.path.join(root_dir, "Math"))
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
@@ -297,8 +298,6 @@ class TestDifferentiatePolynomial(unittest.TestCase):
             [(6, 2)]
         )
 
-if __name__ == '__main__':
-    unittest.main()
 def test_quotient_rule_derivative_basic():
     # u(x) = x, v(x) = x
     # u' = 1x^0, v' = 1x^0
@@ -542,5 +541,33 @@ class TestTrigIntegration:
         result = integrate_cos(0, 0)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
 
+
+class TestFormatPolynomialChainRule(unittest.TestCase):
+    def test_single_term(self):
+        self.assertEqual(format_polynomial_chain_rule([5], [2]), "5x^2")
+
+    def test_zero_coefficient(self):
+        self.assertEqual(format_polynomial_chain_rule([0], [3]), "0x^3")
+
+    def test_zero_power(self):
+        self.assertEqual(format_polynomial_chain_rule([4], [0]), "4x^0")
+
+    def test_float_power_truncation(self):
+        # int() truncates floats towards zero
+        self.assertEqual(format_polynomial_chain_rule([2], [3.9]), "2x^3")
+
+    def test_negative_power(self):
+        self.assertEqual(format_polynomial_chain_rule([7], [-2]), "7x^-2")
+
+    def test_multiple_terms(self):
+        self.assertEqual(format_polynomial_chain_rule([3, -2, 4.5], [2, 1, 0]), "3x^2 + -2x^1 + 4.5x^0")
+
+    def test_empty_lists(self):
+        self.assertEqual(format_polynomial_chain_rule([], []), "")
+
+    def test_mismatched_list_lengths(self):
+        # zip() truncates to the shortest list
+        self.assertEqual(format_polynomial_chain_rule([1, 2], [3]), "1x^3")
+        self.assertEqual(format_polynomial_chain_rule([1], [3, 2]), "1x^3")
 if __name__ == '__main__':
     unittest.main()
