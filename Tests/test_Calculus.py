@@ -4,8 +4,11 @@ import pytest
 import math
 import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+math_dir = os.path.join(root_dir, "Math")
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
@@ -510,6 +513,12 @@ class TestCalculusDifferentiation(unittest.TestCase):
 
     def test_format_polynomial_product_rule_zero_coeff(self):
         self.assertEqual(format_polynomial_product_rule([0, 1], [2, 1]), "0x^2 + 1x^1")
+
+    def test_format_polynomial_product_rule_negative_powers_and_coeffs(self):
+        self.assertEqual(format_polynomial_product_rule([-1, -2], [-1, -2]), "-1x^-1 + -2x^-2")
+
+    def test_format_polynomial_product_rule_mixed_signs(self):
+        self.assertEqual(format_polynomial_product_rule([-3, 4], [2, -1]), "-3x^2 + 4x^-1")
 
 class TestTrigIntegration:
     def test_integrate_sin_basic(self):
