@@ -542,5 +542,20 @@ class TestTrigIntegration:
         result = integrate_cos(0, 0)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
 
+    def test_integrate_cos_full_period(self):
+        """Test integral of cos(x) from 0 to 2pi = 0"""
+        result = integrate_cos(0, 2 * math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_negative_bounds(self):
+        """Test integral of cos(x) from -pi/2 to 0 = 1"""
+        result = integrate_cos(-math.pi / 2, 0)
+        assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+    def test_integrate_cos_half_period(self):
+        """Test integral of cos(x) from -pi/2 to pi/2 = 2"""
+        result = integrate_cos(-math.pi / 2, math.pi / 2)
+        assert math.isclose(result, 2.0, rel_tol=1e-5)
+
 if __name__ == '__main__':
     unittest.main()
