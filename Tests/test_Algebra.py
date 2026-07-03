@@ -102,44 +102,58 @@ class TestEvaluatePolynomial:
         """Test with negative powers"""
         # 4 * (2)^-1 + 2 * (2)^-2 = 4/2 + 2/4 = 2 + 0.5 = 2.5
         assert evaluate_polynomial([4, 2], [-1, -2], 2) == 2.5
-def test_check_factor_true():
-    # P(x) = x^2 - 4x + 4, check if (x - 2) is a factor
-    # P(2) = 2^2 - 4*2 + 4 = 4 - 8 + 4 = 0 -> True
-    assert check_factor([1, -4, 4], [2, 1, 0], 2) is True
+class TestCheckFactor:
+    def test_check_factor_true(self):
+        # P(x) = x^2 - 4x + 4, check if (x - 2) is a factor
+        # P(2) = 2^2 - 4*2 + 4 = 4 - 8 + 4 = 0 -> True
+        assert check_factor([1, -4, 4], [2, 1, 0], 2) is True
 
-def test_check_factor_false():
-    # P(x) = x^2 - 4x + 4, check if (x - 3) is a factor
-    # P(3) = 3^2 - 4*3 + 4 = 9 - 12 + 4 = 1 -> False
-    assert check_factor([1, -4, 4], [2, 1, 0], 3) is False
+    def test_check_factor_false(self):
+        # P(x) = x^2 - 4x + 4, check if (x - 3) is a factor
+        # P(3) = 3^2 - 4*3 + 4 = 9 - 12 + 4 = 1 -> False
+        assert check_factor([1, -4, 4], [2, 1, 0], 3) is False
 
-def test_check_factor_linear():
-    # P(x) = 2x - 6, check if (x - 3) is a factor
-    # P(3) = 2*3 - 6 = 0 -> True
-    assert check_factor([2, -6], [1, 0], 3) is True
+    def test_check_factor_linear(self):
+        # P(x) = 2x - 6, check if (x - 3) is a factor
+        # P(3) = 2*3 - 6 = 0 -> True
+        assert check_factor([2, -6], [1, 0], 3) is True
 
-def test_check_factor_linear_false():
-    # P(x) = 2x - 6, check if (x - 2) is a factor
-    # P(2) = 2*2 - 6 = -2 -> False
-    assert check_factor([2, -6], [1, 0], 2) is False
+    def test_check_factor_linear_false(self):
+        # P(x) = 2x - 6, check if (x - 2) is a factor
+        # P(2) = 2*2 - 6 = -2 -> False
+        assert check_factor([2, -6], [1, 0], 2) is False
 
-def test_check_factor_cubic():
-    # P(x) = x^3 - 6x^2 + 11x - 6
-    # Factors are (x-1)(x-2)(x-3)
-    coefficients = [1, -6, 11, -6]
-    powers = [3, 2, 1, 0]
-    assert check_factor(coefficients, powers, 1) is True
-    assert check_factor(coefficients, powers, 2) is True
-    assert check_factor(coefficients, powers, 3) is True
-    assert check_factor(coefficients, powers, 4) is False
+    def test_check_factor_cubic(self):
+        # P(x) = x^3 - 6x^2 + 11x - 6
+        # Factors are (x-1)(x-2)(x-3)
+        coefficients = [1, -6, 11, -6]
+        powers = [3, 2, 1, 0]
+        assert check_factor(coefficients, powers, 1) is True
+        assert check_factor(coefficients, powers, 2) is True
+        assert check_factor(coefficients, powers, 3) is True
+        assert check_factor(coefficients, powers, 4) is False
 
-def test_check_factor_float():
-    # P(x) = 2x^2 - x - 1
-    # Factors are (2x+1)(x-1) => x = -0.5, x = 1
-    coefficients = [2, -1, -1]
-    powers = [2, 1, 0]
-    assert check_factor(coefficients, powers, -0.5) is True
-    assert check_factor(coefficients, powers, 1.0) is True
-    assert check_factor(coefficients, powers, 0.5) is False
+    def test_check_factor_float(self):
+        # P(x) = 2x^2 - x - 1
+        # Factors are (2x+1)(x-1) => x = -0.5, x = 1
+        coefficients = [2, -1, -1]
+        powers = [2, 1, 0]
+        assert check_factor(coefficients, powers, -0.5) is True
+        assert check_factor(coefficients, powers, 1.0) is True
+        assert check_factor(coefficients, powers, 0.5) is False
+
+    def test_check_factor_float_precision(self):
+        # P(x) = x^2 - 0.2x + 0.01
+        # Factor is (x - 0.1)^2
+        coefficients = [1, -0.2, 0.01]
+        powers = [2, 1, 0]
+        # Evaluates to a very small floating point number (e.g. 1.7e-18), checking if it properly approximates to True
+        assert check_factor(coefficients, powers, 0.1) is True
+
+    def test_check_factor_empty(self):
+        # Empty polynomial P(x) = 0
+        # For any x, P(x) = 0, so any (x - a) is a factor
+        assert check_factor([], [], 5) is True
 def test_evaluate_polynomial_poly_basic():
     # P(x) = 2x^2 + 3x + 1
     # P(2) = 2(2^2) + 3(2) + 1 = 8 + 6 + 1 = 15

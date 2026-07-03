@@ -1,4 +1,5 @@
 # Factor theorem: check if (x - a) is a factor of a polynomial
+import math
 from typing import List, Union
 
 
@@ -34,4 +35,4 @@ def check_factor(coefficients: List[Union[int, float]], powers: List[Union[int, 
     # According to Factor Theorem: (x - a) is a factor if P(a) = 0
     result = evaluate_polynomial(coefficients, powers, x)
     
-    return result == 0
+    return math.isclose(result, 0, abs_tol=1e-9)
