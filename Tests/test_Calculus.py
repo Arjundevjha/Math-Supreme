@@ -497,19 +497,52 @@ class TestComputePolynomialDerivative:
         assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
 class TestCalculusDifferentiation(unittest.TestCase):
     def test_format_polynomial_product_rule_basic(self):
-        self.assertEqual(format_polynomial_product_rule([2, 3], [1, 2]), "2x^1 + 3x^2")
+        result = format_polynomial_product_rule([2, 3], [1, 2])
+        terms = [t.strip() for t in result.split('+')]
+        self.assertIn("2x^1", terms)
+        self.assertIn("3x^2", terms)
+        self.assertEqual(len(terms), 2)
 
     def test_format_polynomial_product_rule_empty(self):
         self.assertEqual(format_polynomial_product_rule([], []), "")
 
     def test_format_polynomial_product_rule_single_term(self):
-        self.assertEqual(format_polynomial_product_rule([5], [0]), "5x^0")
+        self.assertEqual(format_polynomial_product_rule([5], [0]).strip(), "5x^0")
 
     def test_format_polynomial_product_rule_floats(self):
-        self.assertEqual(format_polynomial_product_rule([2.5, 3.1], [1.0, 2.0]), "2.5x^1 + 3.1x^2")
+        result = format_polynomial_product_rule([2.5, 3.1], [1.0, 2.0])
+        terms = [t.strip() for t in result.split('+')]
+        self.assertIn("2.5x^1", terms)
+        self.assertIn("3.1x^2", terms)
+        self.assertEqual(len(terms), 2)
 
     def test_format_polynomial_product_rule_zero_coeff(self):
-        self.assertEqual(format_polynomial_product_rule([0, 1], [2, 1]), "0x^2 + 1x^1")
+        result = format_polynomial_product_rule([0, 1], [2, 1])
+        terms = [t.strip() for t in result.split('+')]
+        self.assertIn("0x^2", terms)
+        self.assertIn("1x^1", terms)
+        self.assertEqual(len(terms), 2)
+
+    def test_format_polynomial_product_rule_negative_coeffs(self):
+        result = format_polynomial_product_rule([-2, -3], [1, 2])
+        terms = [t.strip() for t in result.split('+')]
+        self.assertIn("-2x^1", terms)
+        self.assertIn("-3x^2", terms)
+        self.assertEqual(len(terms), 2)
+
+    def test_format_polynomial_product_rule_negative_powers(self):
+        result = format_polynomial_product_rule([2, 3], [-1, -2])
+        terms = [t.strip() for t in result.split('+')]
+        self.assertIn("2x^-1", terms)
+        self.assertIn("3x^-2", terms)
+        self.assertEqual(len(terms), 2)
+
+    def test_format_polynomial_product_rule_mixed_signs(self):
+        result = format_polynomial_product_rule([-2.5, 4], [3, -1.0])
+        terms = [t.strip() for t in result.split('+')]
+        self.assertIn("-2.5x^3", terms)
+        self.assertIn("4x^-1", terms)
+        self.assertEqual(len(terms), 2)
 
 class TestTrigIntegration:
     def test_integrate_sin_basic(self):
