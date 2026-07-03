@@ -1,6 +1,7 @@
 import os
 import sys
 import pytest
+import math
 
 # Add root directory to path
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -72,36 +73,66 @@ class TestEvaluatePolynomial:
     def test_evaluate_polynomial_basic(self):
         """Test with a simple quadratic polynomial: x^2 + 2x + 1 at x=2"""
         # (2)^2 + 2*(2) + 1 = 4 + 4 + 1 = 9
-        assert evaluate_polynomial([1, 2, 1], [2, 1, 0], 2) == 9
+        assert math.isclose(evaluate_polynomial([1, 2, 1], [2, 1, 0], 2), 9, rel_tol=1e-9)
 
     def test_evaluate_polynomial_zero_x(self):
         """Test polynomial at x=0"""
         # (0)^2 + 2*(0) + 1 = 1
-        assert evaluate_polynomial([1, 2, 1], [2, 1, 0], 0) == 1
+        assert math.isclose(evaluate_polynomial([1, 2, 1], [2, 1, 0], 0), 1, rel_tol=1e-9)
 
     def test_evaluate_polynomial_negative_x(self):
         """Test polynomial at x=-1"""
         # (-1)^2 + 2*(-1) + 1 = 1 - 2 + 1 = 0
-        assert evaluate_polynomial([1, 2, 1], [2, 1, 0], -1) == 0
+        assert math.isclose(evaluate_polynomial([1, 2, 1], [2, 1, 0], -1), 0, abs_tol=1e-9)
 
     def test_evaluate_polynomial_fractional_powers(self):
         """Test with fractional powers (square root)"""
         # 1 * (4)^0.5 = 2.0
-        assert evaluate_polynomial([1], [0.5], 4) == 2.0
+        assert math.isclose(evaluate_polynomial([1], [0.5], 4), 2.0, rel_tol=1e-9)
 
     def test_evaluate_polynomial_float_coefficients(self):
         """Test with float coefficients and float x"""
         # 1.5 * (2.0)^2 + 0.5 * (2.0)^0 = 1.5*4 + 0.5 = 6.0 + 0.5 = 6.5
-        assert evaluate_polynomial([1.5, 0.5], [2, 0], 2.0) == 6.5
+        assert math.isclose(evaluate_polynomial([1.5, 0.5], [2, 0], 2.0), 6.5, rel_tol=1e-9)
 
     def test_evaluate_polynomial_empty(self):
         """Test with empty coefficients and powers"""
-        assert evaluate_polynomial([], [], 5) == 0
+        assert math.isclose(evaluate_polynomial([], [], 5), 0, abs_tol=1e-9)
 
     def test_evaluate_polynomial_negative_powers(self):
         """Test with negative powers"""
         # 4 * (2)^-1 + 2 * (2)^-2 = 4/2 + 2/4 = 2 + 0.5 = 2.5
-        assert evaluate_polynomial([4, 2], [-1, -2], 2) == 2.5
+        assert math.isclose(evaluate_polynomial([4, 2], [-1, -2], 2), 2.5, rel_tol=1e-9)
+
+    def test_evaluate_polynomial_precision_variance(self):
+        """Test that known floating point precision issues are handled correctly."""
+        # Evaluating 0.1x + 0.2 at x=1 should yield 0.3 (but floats often give 0.30000000000000004)
+        assert math.isclose(evaluate_polynomial([0.1, 0.2], [1, 0], 1), 0.3, rel_tol=1e-9)
+
+    def test_evaluate_polynomial_zero_x_negative_power(self):
+        """Test evaluating at x=0 with negative powers expects ZeroDivisionError."""
+        with pytest.raises(ZeroDivisionError):
+            evaluate_polynomial([1], [-1], 0)
+
+    def test_evaluate_polynomial_zero_coefficient(self):
+        """Test evaluating polynomial where a coefficient is zero."""
+        # 0*x^3 + 2*x^2 + 0*x^1 = 2*(3^2) = 18 at x=3
+        assert math.isclose(evaluate_polynomial([0, 2, 0], [3, 2, 1], 3), 18, rel_tol=1e-9)
+
+    def test_evaluate_polynomial_large_inputs(self):
+        """Test evaluating polynomials with large inputs/powers."""
+        # 1 * 10^10 = 10000000000
+        assert math.isclose(evaluate_polynomial([1], [10], 10), 10**10, rel_tol=1e-9)
+
+    def test_evaluate_polynomial_multiple_terms_same_power(self):
+        """Test that multiple terms with the same power sum correctly."""
+        # 2x^2 + 3x^2 = 5x^2 => 5*(2^2) = 20 at x=2
+        assert math.isclose(evaluate_polynomial([2, 3], [2, 2], 2), 20, rel_tol=1e-9)
+
+    def test_evaluate_polynomial_unsorted_powers(self):
+        """Test evaluating polynomial with unsorted powers."""
+        # 3x^1 + 2x^2 + 1x^0 = 3(2) + 2(4) + 1 = 6 + 8 + 1 = 15 at x=2
+        assert math.isclose(evaluate_polynomial([3, 2, 1], [1, 2, 0], 2), 15, rel_tol=1e-9)
 def test_check_factor_true():
     # P(x) = x^2 - 4x + 4, check if (x - 2) is a factor
     # P(2) = 2^2 - 4*2 + 4 = 4 - 8 + 4 = 0 -> True
