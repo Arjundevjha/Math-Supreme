@@ -347,25 +347,6 @@ def test_quotient_rule_derivative_float_coefficients():
     # Expected: ((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2
     result = quotient_rule_derivative([1.5], [2], [2.5], [3])
     assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
-def test_format_polynomial_chain_rule_basic():
-    coeffs = [3, 5]
-    powers = [2, 1]
-    result = format_polynomial_chain_rule(coeffs, powers)
-    terms = [t.strip() for t in result.split("+")]
-    assert "3x^2" in terms
-    assert "5x^1" in terms
-    assert len(terms) == 2
-
-def test_format_polynomial_chain_rule_empty():
-    result = format_polynomial_chain_rule([], [])
-    assert result == ""
-
-def test_format_polynomial_chain_rule_mixed():
-    result = format_polynomial_chain_rule([-2, 4.5], [3, 0])
-    terms = [t.strip() for t in result.split("+")]
-    assert "-2x^3" in terms
-    assert "4.5x^0" in terms
-    assert len(terms) == 2
 class TestQuotientRule(unittest.TestCase):
     def test_compute_polynomial_derivative_str_basic(self):
         self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
@@ -418,20 +399,6 @@ def test_format_polynomial_integration_empty():
     result = format_polynomial_integration([], [])
     assert result.strip() == "+ C" or result.strip() == "C"
 
-def test_format_polynomial_chain_rule_2_basic():
-    assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
-
-def test_format_polynomial_chain_rule_2_floats():
-    assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
-
-def test_format_polynomial_chain_rule_2_empty():
-    assert format_polynomial_chain_rule([], []) == ""
-
-def test_format_polynomial_chain_rule_2_negative_powers():
-    assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
-
-def test_format_polynomial_chain_rule_2_negative_coeffs():
-    assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
 class TestComputePolynomialDerivative:
     def test_basic_polynomial(self):
         # f(x) = 3x^2 + 2x^1
@@ -544,3 +511,37 @@ class TestTrigIntegration:
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class TestFormatPolynomialChainRule(unittest.TestCase):
+    def test_basic_positive_powers(self):
+        result = format_polynomial_chain_rule([1, 2, 3], [2, 1, 0])
+        self.assertEqual(result, "1x^2 + 2x^1 + 3x^0")
+
+    def test_zero_coefficients(self):
+        result = format_polynomial_chain_rule([0, 0], [2, 1])
+        self.assertEqual(result, "0x^2 + 0x^1")
+
+    def test_zero_powers(self):
+        result = format_polynomial_chain_rule([5, 4], [0, 0])
+        self.assertEqual(result, "5x^0 + 4x^0")
+
+    def test_negative_powers(self):
+        result = format_polynomial_chain_rule([5, -2], [-2, -3])
+        self.assertEqual(result, "5x^-2 + -2x^-3")
+
+    def test_negative_coefficients(self):
+        result = format_polynomial_chain_rule([-3, -4], [2, 1])
+        self.assertEqual(result, "-3x^2 + -4x^1")
+
+    def test_floating_point_coefficients(self):
+        result = format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0])
+        self.assertEqual(result, "1.5x^2 + 2.5x^1")
+
+    def test_empty_lists(self):
+        result = format_polynomial_chain_rule([], [])
+        self.assertEqual(result, "")
+
+    def test_single_element(self):
+        result = format_polynomial_chain_rule([7], [3])
+        self.assertEqual(result, "7x^3")
