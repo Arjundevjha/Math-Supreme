@@ -103,6 +103,23 @@ def test_integrate_polynomial_zero_coefficients():
 
     assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
 
+def test_integrate_polynomial_empty():
+    assert integrate_polynomial([], []) == ([], [])
+
+def test_integrate_polynomial_power_negative_one():
+    # ∫(x^-1)dx requires ln|x|, the power rule fails with ZeroDivisionError
+    coeffs = [1]
+    powers = [-1]
+    with pytest.raises(ZeroDivisionError):
+        integrate_polynomial(coeffs, powers)
+
+def test_integrate_polynomial_mixed_terms():
+    coeffs = [3, -2, 1.5, 0]
+    powers = [2, -3, 0.5, 1]
+    expected_coeffs = [1.0, 1.0, 1.0, 0.0]
+    expected_powers = [3, -2, 1.5, 2]
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
 def test_format_polynomial_integration_basic():
     # x^3 + x^2 + x + C
     coeffs = [1.0, 1.0, 1.0]
