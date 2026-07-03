@@ -168,3 +168,33 @@ def test_evaluate_polynomial_poly_negative_powers():
     # P(x) = 2x^-1 + 3
     # P(2) = 2(2^-1) + 3 = 1 + 3 = 4
     assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
+
+def test_evaluate_polynomial_poly_precision():
+    import math
+    # P(x) = 0.1x + 0.2
+    # P(1.0) = 0.1(1.0) + 0.2 = 0.3
+    # Use math.isclose to account for floating point precision issues (0.1 + 0.2 = 0.30000000000000004)
+    assert math.isclose(evaluate_polynomial_poly([0.1, 0.2], [1, 0], 1.0), 0.3)
+
+def test_evaluate_polynomial_poly_zero_power_zero_x():
+    # x=0, power=0 -> 0**0 = 1 in Python
+    # P(x) = 3x^0
+    # P(0) = 3 * 0^0 = 3
+    assert evaluate_polynomial_poly([3], [0], 0) == 3
+
+def test_evaluate_polynomial_poly_unequal_lists():
+    # zip truncates to shortest list
+    # P(x) = 2x^2 + 3x
+    # with extra power or extra coeff
+    assert evaluate_polynomial_poly([2, 3, 4], [2, 1], 2) == 14
+    assert evaluate_polynomial_poly([2, 3], [2, 1, 0], 2) == 14
+
+def test_evaluate_polynomial_poly_zero_division():
+    # x=0 with negative power raises ZeroDivisionError
+    # P(x) = 2x^-1
+    with pytest.raises(ZeroDivisionError):
+        evaluate_polynomial_poly([2], [-1], 0)
+
+def test_evaluate_polynomial_poly_all_zero_coeffs():
+    # P(x) = 0x^2 + 0x + 0
+    assert evaluate_polynomial_poly([0, 0, 0], [2, 1, 0], 5) == 0
