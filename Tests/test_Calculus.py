@@ -297,6 +297,29 @@ class TestDifferentiatePolynomial(unittest.TestCase):
             [(6, 2)]
         )
 
+
+from Math.Calculus.Differentiation.chain_rule import format_polynomial as direct_format_polynomial_chain_rule
+class TestChainRuleFormatPolynomial(unittest.TestCase):
+    def test_format_polynomial_single_term(self):
+        self.assertEqual(direct_format_polynomial_chain_rule([4], [2]), "4x^2")
+
+    def test_format_polynomial_zero_coefficient(self):
+        self.assertEqual(direct_format_polynomial_chain_rule([0, 5], [2, 1]), "0x^2 + 5x^1")
+
+    def test_format_polynomial_fractional_power_cast_to_int(self):
+        self.assertEqual(direct_format_polynomial_chain_rule([3], [2.9]), "3x^2")
+
+    def test_format_polynomial_zero_power(self):
+        self.assertEqual(direct_format_polynomial_chain_rule([7], [0]), "7x^0")
+
+    def test_format_polynomial_mismatched_lengths(self):
+        # zip will truncate to the shorter list
+        self.assertEqual(direct_format_polynomial_chain_rule([1, 2], [3]), "1x^3")
+        self.assertEqual(direct_format_polynomial_chain_rule([1], [3, 2]), "1x^3")
+
+    def test_format_polynomial_all_zeros(self):
+        self.assertEqual(direct_format_polynomial_chain_rule([0, 0], [0, 0]), "0x^0 + 0x^0")
+
 if __name__ == '__main__':
     unittest.main()
 def test_quotient_rule_derivative_basic():
@@ -541,6 +564,8 @@ class TestTrigIntegration:
         """Test integral of cos(x) from 0 to 0 = 0"""
         result = integrate_cos(0, 0)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+
 
 if __name__ == '__main__':
     unittest.main()
