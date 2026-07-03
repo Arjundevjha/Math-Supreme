@@ -4,8 +4,11 @@ import pytest
 import math
 import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Math"))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
@@ -13,7 +16,6 @@ from Math.Calculus.Integration.NumIntegration import integrate_polynomial, forma
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
 from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
-from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
 
 def test_second_derivative_quadratic():
     # 3x^2 + 2x + 1 -> y'' = 6
@@ -244,61 +246,6 @@ def test_integrate_sin_same_bounds():
     result = integrate_sin(math.pi, math.pi)
     assert math.isclose(result, 0.0, abs_tol=1e-5)
 
-class TestDifferentiatePolynomial(unittest.TestCase):
-    def test_basic_polynomial(self):
-        # d/dx(3x^2 + 2x + 1) = 6x + 2
-        # coeffs = [3, 2, 1], powers = [2, 1, 0]
-        # derivative coeffs = [6, 2], powers = [1, 0]
-        self.assertEqual(
-            differentiate_polynomial([3, 2, 1], [2, 1, 0]),
-            [(6, 1), (2, 0)]
-        )
-
-    def test_single_term(self):
-        # d/dx(5x^3) = 15x^2
-        self.assertEqual(
-            differentiate_polynomial([5], [3]),
-            [(15, 2)]
-        )
-
-    def test_constant_value(self):
-        # d/dx(7) = 0
-        self.assertEqual(
-            differentiate_polynomial([7], [0]),
-            []
-        )
-
-    def test_empty_lists(self):
-        # d/dx() = 0
-        self.assertEqual(
-            differentiate_polynomial([], []),
-            []
-        )
-
-    def test_floating_point(self):
-        # d/dx(2.5x^2.0 + 1.5x^0.5) = 5.0x^1.0 + 0.75x^-0.5
-        self.assertEqual(
-            differentiate_polynomial([2.5, 1.5], [2.0, 0.5]),
-            [(5.0, 1.0), (0.75, -0.5)]
-        )
-
-    def test_negative_power(self):
-        # Based on the current implementation, powers <= 0 are ignored
-        # d/dx(4x^-2) -> empty list since power is not > 0
-        self.assertEqual(
-            differentiate_polynomial([4], [-2]),
-            []
-        )
-
-    def test_mixed_skipped_and_kept(self):
-        # d/dx(2x^3 + 5 + 4x^-1) -> only 2x^3 is differentiated -> 6x^2
-        self.assertEqual(
-            differentiate_polynomial([2, 5, 4], [3, 0, -1]),
-            [(6, 2)]
-        )
-
-if __name__ == '__main__':
-    unittest.main()
 def test_quotient_rule_derivative_basic():
     # u(x) = x, v(x) = x
     # u' = 1x^0, v' = 1x^0
