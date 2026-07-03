@@ -418,6 +418,15 @@ def test_format_polynomial_integration_empty():
     result = format_polynomial_integration([], [])
     assert result.strip() == "+ C" or result.strip() == "C"
 
+def test_format_polynomial_chain_rule_zero_coeff():
+    assert format_polynomial_chain_rule([0, 2], [2, 1]) == "0x^2 + 2x^1"
+
+def test_format_polynomial_chain_rule_float_power():
+    assert format_polynomial_chain_rule([3], [2.5]) == "3x^2"
+
+def test_format_polynomial_chain_rule_unequal_lengths():
+    assert format_polynomial_chain_rule([3, 2, 1], [2, 1]) == "3x^2 + 2x^1"
+
 def test_format_polynomial_chain_rule_2_basic():
     assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
 
