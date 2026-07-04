@@ -7,6 +7,10 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
@@ -486,6 +490,47 @@ class TestComputePolynomialDerivative:
         expected_coeffs = [3.0]
         expected_powers = [1]
         assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
+
+
+    def test_zero_coefficients(self):
+        # f(x) = 0x^2
+        # f'(x) = 0x^1
+        coeffs = [0]
+        powers = [2]
+        expected_coeffs = [0]
+        expected_powers = [1]
+        assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
+
+    def test_negative_coefficients(self):
+        # f(x) = -3x^2 - 2x^1
+        # f'(x) = -6x^1 - 2x^0
+        coeffs = [-3, -2]
+        powers = [2, 1]
+        expected_coeffs = [-6, -2]
+        expected_powers = [1, 0]
+        assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
+
+    def test_multiple_zero_powers(self):
+        # f(x) = 5 + 3
+        # f'(x) = 0
+        coeffs = [5, 3]
+        powers = [0, 0]
+        expected_coeffs = []
+        expected_powers = []
+        assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
+
+    def test_mismatched_lengths(self):
+        # f(x) = 3x^2 + 2x^1 (powers list has an extra element)
+        coeffs = [3, 2]
+        powers = [2, 1, 0]
+        expected_coeffs = [6, 2]
+        expected_powers = [1, 0]
+        assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
+
+        # coeffs list has an extra element
+        coeffs2 = [3, 2, 1]
+        powers2 = [2, 1]
+        assert compute_polynomial_derivative(coeffs2, powers2) == (expected_coeffs, expected_powers)
 
     def test_empty_polynomial(self):
         # f(x) = 0
