@@ -558,6 +558,27 @@ def test_format_polynomial_integration_empty():
     result = format_polynomial_integration([], [])
     assert result.strip() == "+ C" or result.strip() == "C"
 
+def test_format_polynomial_integration_negative_coefficients():
+    result = format_polynomial_integration([-2.0, -3.5], [2.0, 1.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "-2.0x^2" in terms
+    assert "-3.5x" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_negative_powers():
+    result = format_polynomial_integration([4.0, 5.0], [-2.0, -3.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "4.0x^-2" in terms
+    assert "5.0x^-3" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_zero_coefficients():
+    result = format_polynomial_integration([0.0, 0.0], [2.0, 1.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "0.0x^2" in terms
+    assert "0.0x" in terms
+    assert "C" in terms
+
 def test_format_polynomial_chain_rule_2_basic():
     assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
 
