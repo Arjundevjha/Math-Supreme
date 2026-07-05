@@ -7,6 +7,10 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
+math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
@@ -203,6 +207,28 @@ def test_chain_rule_derivative_negative_exponent():
     # Negative exponent should raise ValueError
     with pytest.raises(ValueError, match="Exponent must be non-negative."):
         chain_rule_derivative([1, 2], [2, 0], -1)
+
+
+def test_chain_rule_derivative_float_coefficients():
+    # g(x) = 1.5x^2.5, n = 2 => 2(1.5x^2.5)^1 * (3.75x^1.5)
+    result = chain_rule_derivative([1.5], [2.5], 2)
+    assert "2(" in result
+    assert "1.5x^2" in result
+    assert ")^1" in result
+    assert "* (3.75x^1)" in result
+
+def test_chain_rule_derivative_empty():
+    # g(x) = 0 (empty), n = 3 => 3()^2 * ()
+    result = chain_rule_derivative([], [], 3)
+    assert "3()^2 * ()" == result
+
+def test_chain_rule_derivative_exponent_one():
+    # g(x) = x^3, n = 1 => 1(1x^3)^0 * (3x^2)
+    result = chain_rule_derivative([1], [3], 1)
+    assert "1(" in result
+    assert "1x^3" in result
+    assert ")^0" in result
+    assert "* (3x^2)" in result
 
 def test_integrate_cos_basic():
     # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
