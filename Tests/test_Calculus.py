@@ -55,6 +55,25 @@ def test_second_derivative_floats():
     powers = [4.0]
     assert second_derivative(coeffs, powers) == [(30.0, 2.0)]
 
+def test_second_derivative_negative_powers():
+    # Based on the current implementation, powers <= 0 are ignored
+    # d/dx(3x^-2) -> empty list since power is not > 0
+    coeffs = [3]
+    powers = [-2]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_zero_coefficients():
+    # d/dx(0x^3) -> 0x^2 -> 0x^1
+    coeffs = [0]
+    powers = [3]
+    assert second_derivative(coeffs, powers) == [(0, 1)]
+
+def test_second_derivative_mixed():
+    # 3x^3 + 2x^2 + 5x - 4x^-2 -> y'' = 18x + 4
+    coeffs = [3, 2, 5, -4]
+    powers = [3, 2, 1, -2]
+    assert second_derivative(coeffs, powers) == [(18, 1), (4, 0)]
+
 def test_compute_polynomial_derivative_str_single_term():
     assert compute_polynomial_derivative_str([3], [2]) == "6x^1"
 
