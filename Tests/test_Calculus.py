@@ -52,6 +52,10 @@ math_dir = os.path.join(root_dir, 'Math')
 if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 math_dir = os.path.join(root_dir, "Math")
 if math_dir not in sys.path:
@@ -103,8 +107,20 @@ def test_second_derivative_negative_powers():
     powers = [-2]
     assert second_derivative(coeffs, powers) == []
 
-def test_second_derivative_zero_coefficients():
-    # d/dx(0x^3) -> 0x^2 -> 0x^1
+def test_second_derivative_negative_coeffs():
+    # -3x^4 -> y'' = -36x^2
+    coeffs = [-3]
+    powers = [4]
+    assert second_derivative(coeffs, powers) == [(-36, 2)]
+
+def test_second_derivative_fractional_powers():
+    # x^2.5 -> y'' = 3.75x^0.5
+    coeffs = [1]
+    powers = [2.5]
+    assert second_derivative(coeffs, powers) == [(3.75, 0.5)]
+
+def test_second_derivative_zero_coeffs():
+    # 0x^3 -> y'' = 0x^1
     coeffs = [0]
     powers = [3]
     assert second_derivative(coeffs, powers) == [(0, 1)]
@@ -166,6 +182,18 @@ def test_second_derivative_zero_coefficients():
 def test_second_derivative_mismatched_lengths():
     # zip handles mismatched lengths by stopping at the shortest
     assert second_derivative([1, 2], [3]) == [(6, 1)]
+def test_second_derivative_negative_powers():
+    # The current function ignores negative powers: if power > 0:
+    # So x^-2 -> y'' = []
+    coeffs = [1]
+    powers = [-2]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_mixed_terms():
+    # 2x^3 + 5x^0 + 4x^-1 -> y'' = 12x
+    coeffs = [2, 5, 4]
+    powers = [3, 0, -1]
+    assert second_derivative(coeffs, powers) == [(12, 1)]
 
 def test_compute_polynomial_derivative_str_single_term():
     assert compute_polynomial_derivative_str([3], [2]) == "6x^1"
