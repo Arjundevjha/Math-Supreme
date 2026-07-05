@@ -1,5 +1,13 @@
 import os
 import sys
+
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 import pytest
 import math
 import unittest
@@ -1143,6 +1151,20 @@ class TestFormatPolynomialChainRule(unittest.TestCase):
         result = integrate_cos(math.pi / 6, math.pi / 3)
         expected = math.sin(math.pi / 3) - math.sin(math.pi / 6)
         assert math.isclose(result, expected, rel_tol=1e-5)
+    def test_integrate_cos_same_bounds(self):
+        """Test integral of cos(x) from pi to pi = 0"""
+        result = integrate_cos(math.pi, math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_half_period(self):
+        """Test integral of cos(x) from 0 to pi = 0"""
+        result = integrate_cos(0, math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_multiple_periods(self):
+        """Test integral of cos(x) over multiple periods"""
+        result = integrate_cos(-2 * math.pi, 4 * math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
 
 if __name__ == '__main__':
     unittest.main()
