@@ -526,6 +526,32 @@ def test_format_polynomial_integration_empty():
     result = format_polynomial_integration([], [])
     assert result.strip() == "+ C" or result.strip() == "C"
 
+def test_format_polynomial_chain_rule_2_basic():
+    assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
+
+def test_format_polynomial_chain_rule_2_floats():
+    assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
+
+def test_format_polynomial_chain_rule_2_empty():
+    assert format_polynomial_chain_rule([], []) == ""
+
+def test_format_polynomial_chain_rule_2_negative_powers():
+    assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
+
+def test_format_polynomial_chain_rule_2_negative_coeffs():
+    assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
+
+def test_format_polynomial_chain_rule_zero_coeff():
+    assert format_polynomial_chain_rule([0, 2], [2, 1]) == "0x^2 + 2x^1"
+
+def test_format_polynomial_chain_rule_zero_power():
+    assert format_polynomial_chain_rule([3], [0]) == "3x^0"
+
+def test_format_polynomial_chain_rule_mismatched_lengths():
+    # zip should truncate to the shortest list
+    assert format_polynomial_chain_rule([1, 2, 3], [2, 1]) == "1x^2 + 2x^1"
+    assert format_polynomial_chain_rule([1, 2], [2, 1, 0]) == "1x^2 + 2x^1"
+
 class TestComputePolynomialDerivative:
     def test_basic_polynomial(self):
         # f(x) = 3x^2 + 2x^1
