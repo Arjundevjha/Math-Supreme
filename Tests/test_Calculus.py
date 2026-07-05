@@ -110,6 +110,23 @@ def test_integrate_polynomial_zero_coefficients():
 
     assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
 
+def test_integrate_polynomial_empty():
+    # ∫(0)dx = C
+    coeffs = []
+    powers = []
+    expected_coeffs = []
+    expected_powers = []
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_power_minus_one():
+    # ∫(x^-1)dx raises ZeroDivisionError in this naive implementation
+    coeffs = [1]
+    powers = [-1]
+
+    with pytest.raises(ZeroDivisionError):
+        integrate_polynomial(coeffs, powers)
+
 def test_format_polynomial_integration_basic():
     # x^3 + x^2 + x + C
     coeffs = [1.0, 1.0, 1.0]
