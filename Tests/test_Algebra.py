@@ -92,6 +92,39 @@ def test_linear_eqn_vertical_line():
     # x1 == x2, expects ValueError
     with pytest.raises(ValueError, match="The x-coordinates cannot be the same \\(vertical line\\)."):
         linear_eqn(2, 3, 2, 7)
+
+def test_linear_eqn_identical_points():
+    # Points: (2, 3) and (2, 3)
+    # x1 == x2, expects ValueError
+    with pytest.raises(ValueError, match="The x-coordinates cannot be the same \\(vertical line\\)."):
+        linear_eqn(2, 3, 2, 3)
+
+def test_linear_eqn_origin():
+    # Points: (0, 0) and (2, 4)
+    # m = (4 - 0) / (2 - 0) = 2.0
+    # b = 0 - 2.0 * 0 = 0.0
+    assert linear_eqn(0, 0, 2, 4) == "y = 2.0x + 0.0"
+
+def test_linear_eqn_all_negative():
+    # Points: (-2, -3) and (-4, -7)
+    # m = (-7 - -3) / (-4 - -2) = -4 / -2 = 2.0
+    # b = -3 - 2.0 * (-2) = -3 + 4 = 1.0
+    assert linear_eqn(-2, -3, -4, -7) == "y = 2.0x + 1.0"
+
+def test_linear_eqn_fractional_slope():
+    # Points: (1, 1) and (4, 2)
+    # m = (2 - 1) / (4 - 1) = 1 / 3
+    # b = 1 - (1/3) * 1 = 2 / 3
+    # Since python uses floats, computing m and b explicitly and then doing format
+    m = (2.0 - 1.0) / (4.0 - 1.0)
+    b = 1.0 - m * 1.0
+    assert linear_eqn(1, 1, 4, 2) == f"y = {m}x + {b}"
+
+def test_linear_eqn_large_coordinates():
+    # Points: (1000000, 2000000) and (3000000, 6000000)
+    # m = 4000000 / 2000000 = 2.0
+    # b = 2000000 - 2.0 * 1000000 = 0.0
+    assert linear_eqn(1000000, 2000000, 3000000, 6000000) == "y = 2.0x + 0.0"
 class TestEvaluatePolynomial:
     def test_evaluate_polynomial_basic(self):
         """Test with a simple quadratic polynomial: x^2 + 2x + 1 at x=2"""
