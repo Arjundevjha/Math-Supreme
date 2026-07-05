@@ -1,4 +1,5 @@
 # Factor theorem: check if (x - a) is a factor of a polynomial
+import math
 from typing import List, Union
 import math
 

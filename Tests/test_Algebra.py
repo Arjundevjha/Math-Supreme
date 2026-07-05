@@ -245,6 +245,22 @@ def test_check_factor_empty():
 def test_check_factor_zero_polynomial():
     # Zero polynomial P(x) = 0
     assert check_factor([0], [2], 10) is True
+    # P(x) = 0.1x^2 + 0.2x - 0.3
+    # P(1.0) = 0.1 + 0.2 - 0.3 = 0 (but floating point arithmetic gives 5.55e-17)
+    assert check_factor([0.1, 0.2, -0.3], [2, 1, 0], 1.0) is True
+
+def test_check_factor_empty():
+    # Empty polynomial evaluates to 0, so any x should be a factor
+    assert check_factor([], [], 5) is True
+
+def test_check_factor_zero_coefficients():
+    # P(x) = 0x^2 + 0x + 0 = 0
+    assert check_factor([0, 0, 0], [2, 1, 0], 100) is True
+
+def test_check_factor_negative_powers():
+    # P(x) = x^-1 - 0.5
+    # P(2) = 0.5 - 0.5 = 0
+    assert check_factor([1, -0.5], [-1, 0], 2) is True
 
 def test_evaluate_polynomial_poly_basic():
     # P(x) = 2x^2 + 3x + 1
