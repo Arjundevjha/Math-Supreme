@@ -351,6 +351,28 @@ def test_chain_rule_derivative_exponent_one():
     assert "4x^3 + 1x^0" in result
     assert ")^0" in result
     assert "* (12x^2)" in result
+def test_chain_rule_derivative_empty():
+    # g(x) = 0, n = 2 => (0)^2 => derivative is 2()^1 * ()
+    result = chain_rule_derivative([], [], 2)
+    assert result == "2()^1 * ()"
+
+def test_chain_rule_derivative_floats():
+    # g(x) = 1.5x^2 + 2.5x, n = 2
+    result = chain_rule_derivative([1.5, 2.5], [2.0, 1.0], 2)
+    assert "2(" in result
+    assert "1.5x^2 + 2.5x^1" in result
+    assert ")^1" in result
+    assert "* (3.0x^1 + 2.5x^0)" in result
+
+def test_chain_rule_derivative_negative_coeffs_powers():
+    # g(x) = -3x^-2, n = 4
+    result = chain_rule_derivative([-3], [-2], 4)
+    assert "4(-3x^-2)^3 * (6x^-3)" in result
+
+def test_chain_rule_derivative_exponent_one():
+    # g(x) = x^2 + 2x, n = 1
+    result = chain_rule_derivative([1, 2], [2, 1], 1)
+    assert "1(1x^2 + 2x^1)^0 * (2x^1 + 2x^0)" in result
 
 def test_integrate_cos_basic():
     # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
