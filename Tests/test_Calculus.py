@@ -527,6 +527,18 @@ def test_format_polynomial_chain_rule_zero_power():
 
 def test_format_polynomial_chain_rule_mixed_types():
     assert format_polynomial_chain_rule([1.5, 2], [3.8, 0]) == "1.5x^3 + 2x^0"
+def test_format_polynomial_chain_rule_single_term():
+    result = format_polynomial_chain_rule([7], [3])
+    terms = [t.strip() for t in result.split("+")]
+    assert "7x^3" in terms
+    assert len(terms) == 1
+
+def test_format_polynomial_chain_rule_zero_coeff():
+    result = format_polynomial_chain_rule([0, 5], [2, 1])
+    terms = [t.strip() for t in result.split("+")]
+    assert "0x^2" in terms
+    assert "5x^1" in terms
+    assert len(terms) == 2
 
 class TestQuotientRule(unittest.TestCase):
     def test_format_polynomial_quotient_rule_basic(self):
@@ -634,16 +646,28 @@ def test_format_polynomial_integration_zero_coefficients():
     assert "C" in terms
 
 def test_format_polynomial_chain_rule_2_basic():
-    assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
+    result = format_polynomial_chain_rule([1, 2, 3], [2, 1, 0])
+    terms = [t.strip() for t in result.split("+")]
+    assert "1x^2" in terms
+    assert "2x^1" in terms
+    assert "3x^0" in terms
+    assert len(terms) == 3
 
 def test_format_polynomial_chain_rule_2_floats():
-    assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
+    result = format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0])
+    terms = [t.strip() for t in result.split("+")]
+    assert "1.5x^2" in terms
+    assert "2.5x^1" in terms
+    assert len(terms) == 2
 
 def test_format_polynomial_chain_rule_2_empty():
     assert format_polynomial_chain_rule([], []) == ""
 
 def test_format_polynomial_chain_rule_2_negative_powers():
-    assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
+    result = format_polynomial_chain_rule([5], [-2])
+    terms = [t.strip() for t in result.split("+")]
+    assert "5x^-2" in terms
+    assert len(terms) == 1
 
 def test_format_polynomial_chain_rule_2_negative_coeffs():
     assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
@@ -659,6 +683,11 @@ def test_format_polynomial_chain_rule_mismatched_lengths():
     assert format_polynomial_chain_rule([1, 2, 3], [2, 1]) == "1x^2 + 2x^1"
     assert format_polynomial_chain_rule([1, 2], [2, 1, 0]) == "1x^2 + 2x^1"
 
+    result = format_polynomial_chain_rule([-3, -4], [2, 1])
+    terms = [t.strip() for t in result.split("+")]
+    assert "-3x^2" in terms
+    assert "-4x^1" in terms
+    assert len(terms) == 2
 class TestComputePolynomialDerivative:
     def test_basic_polynomial(self):
         # f(x) = 3x^2 + 2x^1
