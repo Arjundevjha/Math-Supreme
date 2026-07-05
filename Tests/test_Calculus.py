@@ -19,6 +19,7 @@ if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
 math_dir = os.path.join(root_dir, 'Math')
+math_dir = os.path.join(root_dir, "Math")
 if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
@@ -834,6 +835,10 @@ class TestTrigIntegration:
         """Test integral of cos(x) from -pi/2 to pi/2 = 2"""
         result = integrate_cos(-math.pi / 2, math.pi / 2)
         assert math.isclose(result, 2.0, rel_tol=1e-5)
+    def test_integrate_cos_same_bounds(self):
+        """Test integral of cos(x) from a to a = 0"""
+        result = integrate_cos(math.pi, math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
 
 if __name__ == '__main__':
     unittest.main()
