@@ -273,6 +273,28 @@ def test_check_factor_empty():
 def test_check_factor_zero():
     # P(x) = 0x^2
     assert check_factor([0], [2], 10) is True
+def test_check_factor_irrational():
+    # P(x) = x^2 - 2
+    # Factors are (x - sqrt(2))(x + sqrt(2))
+    coefficients = [1, -2]
+    powers = [2, 0]
+    assert check_factor(coefficients, powers, math.sqrt(2)) is True
+    assert check_factor(coefficients, powers, -math.sqrt(2)) is True
+
+def test_check_factor_empty():
+    # P(x) = 0
+    # Empty polynomial evaluates to 0, so any (x - a) divides 0
+    assert check_factor([], [], 5) is True
+
+def test_check_factor_zero_value():
+    # P(x) = x^2 - x
+    # Factors are x(x - 1), so (x - 0) is a factor
+    coefficients = [1, -1]
+    powers = [2, 1]
+    assert check_factor(coefficients, powers, 0) is True
+    assert check_factor(coefficients, powers, 1) is True
+    assert check_factor(coefficients, powers, 2) is False
+
 def test_evaluate_polynomial_poly_basic():
     # P(x) = 2x^2 + 3x + 1
     # P(2) = 2(2^2) + 3(2) + 1 = 8 + 6 + 1 = 15
