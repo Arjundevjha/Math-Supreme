@@ -128,6 +128,7 @@ def test_compute_polynomial_derivative_str_negative_powers_and_floats():
     assert compute_polynomial_derivative_str([2.5, 3], [-2, 0]) == "-5.0x^-3"
 
 def test_integrate_polynomial_basic():
+
     # ∫(3x^2 + 2x + 1)dx = x^3 + x^2 + x + C
     coeffs = [3, 2, 1]
     powers = [2, 1, 0]
@@ -1169,6 +1170,32 @@ class TestFormatPolynomialChainRule(unittest.TestCase):
         result = integrate_cos(-math.pi / 2, math.pi / 2)
         assert math.isclose(result, 2.0, rel_tol=1e-5)
 
+
+class TestProductRuleComputePolynomialDerivativeStr(unittest.TestCase):
+    def test_compute_polynomial_derivative_str_single_term(self):
+        self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
+
+    def test_compute_polynomial_derivative_str_multiple_terms(self):
+        self.assertEqual(compute_polynomial_derivative_str([3, 4], [2, 1]), "6x^1 + 4x^0")
+
+    def test_compute_polynomial_derivative_str_constant_term(self):
+        self.assertEqual(compute_polynomial_derivative_str([5], [0]), "0")
+
+    def test_compute_polynomial_derivative_str_zero_coefficient(self):
+        self.assertEqual(compute_polynomial_derivative_str([0], [2]), "0x^1")
+
+    def test_compute_polynomial_derivative_str_float(self):
+        self.assertEqual(compute_polynomial_derivative_str([1.5, 2.5], [2, 1]), "3.0x^1 + 2.5x^0")
+
+    def test_compute_polynomial_derivative_str_negative_powers(self):
+        self.assertEqual(compute_polynomial_derivative_str([3], [-2]), "-6x^-3")
+
+    def test_compute_polynomial_derivative_str_empty(self):
+        self.assertEqual(compute_polynomial_derivative_str([], []), "0")
+
+    def test_compute_polynomial_derivative_str_mixed_terms(self):
+        # 2x^3 + 5x^0 + 1x^1 -> derivative is 6x^2 + 1x^0
+        self.assertEqual(compute_polynomial_derivative_str([2, 5, 1], [3, 0, 1]), "6x^2 + 1x^0")
 if __name__ == '__main__':
     unittest.main()
 
