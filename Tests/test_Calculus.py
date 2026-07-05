@@ -442,6 +442,38 @@ def test_quotient_rule_derivative_float_coefficients():
     # Expected: ((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2
     result = quotient_rule_derivative([1.5], [2], [2.5], [3])
     assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
+def test_format_polynomial_chain_rule_basic():
+    coeffs = [3, 5]
+    powers = [2, 1]
+    result = format_polynomial_chain_rule(coeffs, powers)
+    terms = [t.strip() for t in result.split("+")]
+    assert "3x^2" in terms
+    assert "5x^1" in terms
+    assert len(terms) == 2
+
+def test_format_polynomial_chain_rule_empty():
+    result = format_polynomial_chain_rule([], [])
+    assert result == ""
+
+def test_format_polynomial_chain_rule_mixed():
+    result = format_polynomial_chain_rule([-2, 4.5], [3, 0])
+    terms = [t.strip() for t in result.split("+")]
+    assert "-2x^3" in terms
+    assert "4.5x^0" in terms
+    assert len(terms) == 2
+
+def test_format_polynomial_chain_rule_zero_coeffs():
+    assert format_polynomial_chain_rule([0, 0], [2, 1]) == "0x^2 + 0x^1"
+
+def test_format_polynomial_chain_rule_float_powers():
+    assert format_polynomial_chain_rule([2, 3], [2.5, 1.2]) == "2x^2 + 3x^1"
+
+def test_format_polynomial_chain_rule_zero_power():
+    assert format_polynomial_chain_rule([4], [0]) == "4x^0"
+
+def test_format_polynomial_chain_rule_mixed_types():
+    assert format_polynomial_chain_rule([1.5, 2], [3.8, 0]) == "1.5x^3 + 2x^0"
+
 class TestQuotientRule(unittest.TestCase):
     def test_format_polynomial_quotient_rule_basic(self):
         self.assertEqual(format_polynomial([3], [2]), "3x^2")
