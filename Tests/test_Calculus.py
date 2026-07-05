@@ -18,6 +18,10 @@ math_dir = os.path.join(root_dir, 'Math')
 if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 math_dir = os.path.join(root_dir, "Math")
 if math_dir not in sys.path:
