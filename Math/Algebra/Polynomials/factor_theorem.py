@@ -3,6 +3,7 @@ import math
 from typing import List, Union
 import math
 
+
 def evaluate_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]], x: Union[int, float]) -> float:
     """
     Evaluate a polynomial at a given value of x.
@@ -37,4 +38,5 @@ def check_factor(coefficients: List[Union[int, float]], powers: List[Union[int, 
     
     # Use math.isclose to account for floating-point precision issues
     # Use math.isclose to handle floating-point precision issues
+    # Use math.isclose to handle potential floating-point inaccuracies
     return math.isclose(result, 0.0, abs_tol=1e-9)
