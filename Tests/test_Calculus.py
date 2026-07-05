@@ -976,6 +976,34 @@ class TestTrigIntegration:
         """Test integral of cos(x) from a to a = 0"""
         result = integrate_cos(math.pi, math.pi)
         assert math.isclose(result, 0.0, abs_tol=1e-5)
+def test_quotient_rule_derivative_happy_path():
+    # Normal polynomial differentiation: u(x) = 2x^2, v(x) = 3x^1
+    # u' = 4x^1, v' = 3x^0
+    result = quotient_rule_derivative([2], [2], [3], [1])
+    assert result == "((4x^1) * (3x^1) - (2x^2) * (3x^0)) / (3x^1)^2"
+
+def test_quotient_rule_derivative_empty_numerator_edge():
+    # u(x) = 0 (empty), v(x) = x
+    result = quotient_rule_derivative([], [], [1], [1])
+    assert result == "((0) * (1x^1) - () * (1x^0)) / (1x^1)^2"
+
+def test_quotient_rule_derivative_empty_denominator_edge():
+    # u(x) = x, v(x) = 0 (empty)
+    result = quotient_rule_derivative([1], [1], [], [])
+    assert result == "((1x^0) * () - (1x^1) * (0)) / ()^2"
+
+def test_quotient_rule_derivative_both_empty_edge():
+    # u(x) = 0 (empty), v(x) = 0 (empty)
+    result = quotient_rule_derivative([], [], [], [])
+    assert result == "((0) * () - () * (0)) / ()^2"
+
+def test_quotient_rule_derivative_fractional_powers_edge():
+    result = quotient_rule_derivative([1], [0.5], [1], [1.5])
+    assert result == "((0.5x^0) * (1x^1) - (1x^0) * (1.5x^0)) / (1x^1)^2"
+
+def test_quotient_rule_derivative_zero_polynomials_edge():
+    result = quotient_rule_derivative([0], [0], [1], [1])
+    assert result == "((0) * (1x^1) - (0x^0) * (1x^0)) / (1x^1)^2"
 
 if __name__ == '__main__':
     unittest.main()
