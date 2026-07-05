@@ -726,6 +726,16 @@ def test_format_polynomial_chain_rule_unequal_lengths():
     # zip should truncate to the shorter list
     assert format_polynomial_chain_rule([1, 2, 3], [1, 0]) == "1x^1 + 2x^0"
     assert format_polynomial_chain_rule([1, 2], [2, 1, 0]) == "1x^2 + 2x^1"
+    assert format_polynomial_chain_rule([0], [2]) == "0x^2"
+
+def test_format_polynomial_chain_rule_single_term():
+    assert format_polynomial_chain_rule([5], [3]) == "5x^3"
+
+def test_format_polynomial_chain_rule_float_power_cast():
+    assert format_polynomial_chain_rule([2], [3.9]) == "2x^3"
+
+def test_format_polynomial_chain_rule_zero_power():
+    assert format_polynomial_chain_rule([7], [0]) == "7x^0"
 
 class TestComputePolynomialDerivative:
     def test_basic_polynomial(self):
