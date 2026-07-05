@@ -436,6 +436,21 @@ def test_quotient_rule_derivative_float_coefficients():
     result = quotient_rule_derivative([1.5], [2], [2.5], [3])
     assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
 class TestQuotientRule(unittest.TestCase):
+    def test_format_polynomial_quotient_rule_basic(self):
+        self.assertEqual(format_polynomial([3], [2]), "3x^2")
+
+    def test_format_polynomial_quotient_rule_multiple_terms(self):
+        self.assertEqual(format_polynomial([3, 2, 1], [2, 1, 0]), "3x^2 + 2x^1 + 1x^0")
+
+    def test_format_polynomial_quotient_rule_floats(self):
+        self.assertEqual(format_polynomial([1.5, 2.5], [2, 1]), "1.5x^2 + 2.5x^1")
+
+    def test_format_polynomial_quotient_rule_negative_powers(self):
+        self.assertEqual(format_polynomial([3], [-2]), "3x^-2")
+
+    def test_format_polynomial_quotient_rule_empty(self):
+        self.assertEqual(format_polynomial([], []), "")
+
     def test_compute_polynomial_derivative_str_basic(self):
         result = compute_polynomial_derivative_str_quotient([3], [2])
         terms = [t.strip() for t in result.split("+")]
