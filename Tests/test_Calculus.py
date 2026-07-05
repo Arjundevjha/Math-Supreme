@@ -5,6 +5,7 @@ import math
 import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 math_dir = os.path.join(root_dir, 'Math')
+math_dir = os.path.join(root_dir, "Math")
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 if math_dir not in sys.path:
@@ -851,6 +852,12 @@ class TestCalculusDifferentiation(unittest.TestCase):
         # zip behavior will stop at the shortest list
         self.assertEqual(format_polynomial_product_rule([2, 3, 4], [1, 2]), "2x^1 + 3x^2")
         self.assertEqual(format_polynomial_product_rule([2, 3], [1, 2, 3]), "2x^1 + 3x^2")
+
+    def test_format_polynomial_product_rule_negative_powers_and_coeffs(self):
+        self.assertEqual(format_polynomial_product_rule([-1, -2], [-1, -2]), "-1x^-1 + -2x^-2")
+
+    def test_format_polynomial_product_rule_mixed_signs(self):
+        self.assertEqual(format_polynomial_product_rule([-3, 4], [2, -1]), "-3x^2 + 4x^-1")
 
 class TestTrigIntegration:
     def test_integrate_sin_basic(self):
