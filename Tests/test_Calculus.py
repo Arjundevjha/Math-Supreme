@@ -1165,6 +1165,9 @@ class TestFormatPolynomialChainRule(unittest.TestCase):
         """Test integral of cos(x) over multiple periods"""
         result = integrate_cos(-2 * math.pi, 4 * math.pi)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
+        """Test integral of cos(x) from -pi/2 to pi/2 = 2"""
+        result = integrate_cos(-math.pi / 2, math.pi / 2)
+        assert math.isclose(result, 2.0, rel_tol=1e-5)
 
 if __name__ == '__main__':
     unittest.main()
