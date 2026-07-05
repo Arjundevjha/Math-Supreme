@@ -27,6 +27,11 @@ math_dir = os.path.join(root_dir, 'Math')
 if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 math_dir = os.path.join(root_dir, "Math")
 if math_dir not in sys.path:
@@ -957,6 +962,10 @@ class TestTrigIntegration:
         """Test integral of cos(x) from a to a = 0"""
         result = integrate_cos(math.pi, math.pi)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
+    def test_integrate_cos_same_bounds(self):
+        """Test integral of cos(x) from a to a = 0"""
+        result = integrate_cos(math.pi, math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-5)
 
 if __name__ == '__main__':
     unittest.main()
