@@ -141,6 +141,28 @@ def test_second_derivative_large_numbers():
     coeffs = [1000]
     powers = [1000]
     assert second_derivative(coeffs, powers) == [(999000000, 998)]
+    # Negative powers are skipped in the current implementation
+    assert second_derivative([3], [-2]) == []
+
+def test_second_derivative_fractional_powers_skipped():
+    # Power becomes <= 0 after first derivative
+    assert second_derivative([4], [0.5]) == []
+
+def test_second_derivative_fractional_powers_kept():
+    # Power remains > 0 after first derivative
+    assert second_derivative([4], [2.5]) == [(15.0, 0.5)]
+
+def test_second_derivative_mixed_skipped():
+    # Mix of valid and skipped powers
+    assert second_derivative([3, 2, 1], [3, 0.5, -1]) == [(18, 1)]
+
+def test_second_derivative_zero_coefficients():
+    # Zero coefficients should be processed properly
+    assert second_derivative([0], [3]) == [(0, 1)]
+
+def test_second_derivative_mismatched_lengths():
+    # zip handles mismatched lengths by stopping at the shortest
+    assert second_derivative([1, 2], [3]) == [(6, 1)]
 
 def test_compute_polynomial_derivative_str_single_term():
     assert compute_polynomial_derivative_str([3], [2]) == "6x^1"
