@@ -1,6 +1,7 @@
 import math
 import os
 import sys
+import math
 import pytest
 import math
 
@@ -234,6 +235,26 @@ class TestEvaluatePolynomial:
         """Test with large numbers"""
         assert evaluate_polynomial([1000], [3], 10) == 1000 * 10**3
 
+    def test_evaluate_polynomial_all_zero_coefficients(self):
+        """Test with all zero coefficients"""
+        # 0*x^3 + 0*x^2 + 0*x = 0
+        assert evaluate_polynomial([0, 0, 0], [3, 2, 1], 10) == 0
+
+    def test_evaluate_polynomial_sparse_terms(self):
+        """Test with missing intermediate powers"""
+        # 3*x^5 - 2*x^0 at x=2 -> 3*32 - 2*1 = 96 - 2 = 94
+        assert evaluate_polynomial([3, -2], [5, 0], 2) == 94
+
+    def test_evaluate_polynomial_large_powers(self):
+        """Test with large powers"""
+        # x^10 at x=2 -> 1024
+        assert evaluate_polynomial([1], [10], 2) == 1024
+
+    def test_evaluate_polynomial_precision(self):
+        """Test with small floats where precision might be an issue"""
+        # 0.1 * x^2 + 0.2 * x at x=0.3
+        # 0.1 * 0.09 + 0.2 * 0.3 = 0.009 + 0.06 = 0.069
+        assert math.isclose(evaluate_polynomial([0.1, 0.2], [2, 1], 0.3), 0.069, rel_tol=1e-9)
 def test_check_factor_true():
     # P(x) = x^2 - 4x + 4, check if (x - 2) is a factor
     # P(2) = 2^2 - 4*2 + 4 = 4 - 8 + 4 = 0 -> True
