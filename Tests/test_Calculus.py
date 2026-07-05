@@ -33,6 +33,10 @@ if math_dir not in sys.path:
 
     sys.path.insert(0, os.path.join(root_dir, "Math"))
 
+math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 math_dir = os.path.join(root_dir, "Math")
 if math_dir not in sys.path:
@@ -1125,6 +1129,21 @@ class TestFormatPolynomialChainRule(unittest.TestCase):
         # zip() truncates to the shortest list
         self.assertEqual(format_polynomial_chain_rule([1, 2], [3]), "1x^3")
         self.assertEqual(format_polynomial_chain_rule([1], [3, 2]), "1x^3")
+        """Test integral of cos(x) from -pi to 0 = 0"""
+        result = integrate_cos(-math.pi, 0)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_reversed_bounds(self):
+        """Test integral of cos(x) from pi/2 to 0 = -1"""
+        result = integrate_cos(math.pi / 2, 0)
+        assert math.isclose(result, -1.0, rel_tol=1e-5)
+
+    def test_integrate_cos_fractional_bounds(self):
+        """Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2)"""
+        result = integrate_cos(math.pi / 6, math.pi / 3)
+        expected = math.sin(math.pi / 3) - math.sin(math.pi / 6)
+        assert math.isclose(result, expected, rel_tol=1e-5)
+
 if __name__ == '__main__':
     unittest.main()
 
