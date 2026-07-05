@@ -171,6 +171,25 @@ def test_check_factor_float():
     assert check_factor(coefficients, powers, -0.5) is True
     assert check_factor(coefficients, powers, 1.0) is True
     assert check_factor(coefficients, powers, 0.5) is False
+
+def test_check_factor_precision():
+    # P(x) = x^2 - 2
+    # Factor is (x - sqrt(2)) => x = sqrt(2)
+    import math
+    assert check_factor([1, -2], [2, 0], math.sqrt(2)) is True
+
+    # P(x) = x^3 - 3
+    # Factor is (x - cbrt(3))
+    assert check_factor([1, -3], [3, 0], 3**(1/3)) is True
+
+def test_check_factor_empty():
+    # Empty polynomial evaluates to 0, so any x should technically yield 0 and therefore True
+    assert check_factor([], [], 5) is True
+
+def test_check_factor_zero_polynomial():
+    # Zero polynomial P(x) = 0
+    assert check_factor([0], [2], 10) is True
+
 def test_evaluate_polynomial_poly_basic():
     # P(x) = 2x^2 + 3x + 1
     # P(2) = 2(2^2) + 3(2) + 1 = 8 + 6 + 1 = 15
