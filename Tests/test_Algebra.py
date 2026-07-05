@@ -35,6 +35,29 @@ def test_format_polynomial_floats():
     assert "-2.5x" in terms
     assert "3.1" in terms
 
+def test_format_polynomial_single_term():
+    result = format_polynomial([5], [3])
+    terms = [t.strip() for t in result.split("+")]
+    assert "5x^3" in terms
+
+def test_format_polynomial_negative_powers():
+    result = format_polynomial([2, -3], [-1, -2])
+    terms = [t.strip() for t in result.split("+")]
+    assert "2x^-1" in terms
+    assert "-3x^-2" in terms
+
+def test_format_polynomial_all_zero_powers():
+    result = format_polynomial([1, 2], [0, 0])
+    terms = [t.strip() for t in result.split("+")]
+    assert "1" in terms
+    assert "2" in terms
+
+def test_format_polynomial_all_ones_powers():
+    result = format_polynomial([3, 4], [1, 1])
+    terms = [t.strip() for t in result.split("+")]
+    assert "3x" in terms
+    assert "4x" in terms
+
 def test_linear_eqn_positive_slope():
     # Points: (1, 2) and (3, 6)
     # m = (6 - 2) / (3 - 1) = 4 / 2 = 2.0
