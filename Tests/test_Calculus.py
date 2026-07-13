@@ -262,20 +262,20 @@ def test_integrate_polynomial_empty():
     assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
 
 def test_integrate_polynomial_power_minus_one():
-    # ∫(x^-1)dx raises ZeroDivisionError in this naive implementation
+    # ∫(x^-1)dx raises ValueError since ln|x| is unsupported
     coeffs = [1]
     powers = [-1]
 
-    with pytest.raises(ZeroDivisionError):
+    with pytest.raises(ValueError):
         integrate_polynomial(coeffs, powers)
 
     assert integrate_polynomial([], []) == ([], [])
 
 def test_integrate_polynomial_power_negative_one():
-    # ∫(x^-1)dx requires ln|x|, the power rule fails with ZeroDivisionError
+    # ∫(x^-1)dx requires ln|x|, the power rule fails with ValueError
     coeffs = [1]
     powers = [-1]
-    with pytest.raises(ZeroDivisionError):
+    with pytest.raises(ValueError):
         integrate_polynomial(coeffs, powers)
 
 def test_integrate_polynomial_mixed_terms():
