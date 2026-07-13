@@ -145,7 +145,7 @@ def test_format_polynomial_empty():
     coeffs = []
     powers = []
     result = format_polynomial(coeffs, powers)
-    assert result.strip() == ""
+    assert result.strip() == "0"
 
 def test_product_rule_derivative_basic():
     # u(x) = x, v(x) = x
@@ -541,6 +541,23 @@ class TestTrigIntegration:
         """Test integral of cos(x) from 0 to 0 = 0"""
         result = integrate_cos(0, 0)
         assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+class TestQuotientRuleAdditional(unittest.TestCase):
+    def test_quotient_rule_derivative_empty_lists(self):
+        result = quotient_rule_derivative([], [], [1], [1])
+        self.assertEqual(result, "((0) * (1x^1) - (0) * (1x^0)) / (1x^1)^2")
+
+    def test_quotient_rule_derivative_fractional_powers(self):
+        result = quotient_rule_derivative([1], [0.5], [1], [1])
+        self.assertEqual(result, "((0.5x^-0.5) * (1x^1) - (1x^0.5) * (1x^0)) / (1x^1)^2")
+
+    def test_quotient_rule_derivative_zero_polynomial(self):
+        result = quotient_rule_derivative([0], [1], [1], [1])
+        self.assertEqual(result, "((0x^0) * (1x^1) - (0x^1) * (1x^0)) / (1x^1)^2")
+
+    def test_quotient_rule_derivative_happy_path(self):
+        result = quotient_rule_derivative([2], [2], [3], [1])
+        self.assertEqual(result, "((4x^1) * (3x^1) - (2x^2) * (3x^0)) / (3x^1)^2")
 
 if __name__ == '__main__':
     unittest.main()

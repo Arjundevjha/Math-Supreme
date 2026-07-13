@@ -15,9 +15,10 @@ def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[
     """
     terms = []
     for coeff, power in zip(coefficients, powers):
-        term = f"{coeff}x^{int(power)}"
+        power_str = str(int(power)) if float(power).is_integer() else str(power)
+        term = f"{coeff}x^{power_str}"
         terms.append(term)
-    return " + ".join(terms)
+    return " + ".join(terms) if terms else "0"
 
 
 def compute_polynomial_derivative_str(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> str:
@@ -39,7 +40,8 @@ def compute_polynomial_derivative_str(coefficients: List[Union[int, float]], pow
             continue
         new_coeff = coeff * power
         new_power = power - 1
-        derivative_terms.append(f"{new_coeff}x^{int(new_power)}")
+        new_power_str = str(int(new_power)) if float(new_power).is_integer() else str(new_power)
+        derivative_terms.append(f"{new_coeff}x^{new_power_str}")
     
     return " + ".join(derivative_terms) if derivative_terms else "0"
 
