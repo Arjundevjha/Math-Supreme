@@ -4,7 +4,13 @@ import math
 import pytest
 
 # Ensure the module can be imported
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Math'))
+
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 import importlib
 herons_module = importlib.import_module("Math.Geometry.Euclidean_Geometry.Area.heron's_area_of_triangle_formula")
