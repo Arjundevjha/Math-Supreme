@@ -14,15 +14,14 @@ def factorial(n: int) -> int:
 
 def cosine_taylor(radians: Union[int, float]) -> float:
     """Calculate cosine using Taylor series."""
-    cos_value = 1
-    sign = 1
+    cos_value = 1.0
+    term = 1.0
+    radians_sq = radians * radians
+
     for idx in range(2, 100, 2):
-        fact = factorial(idx)
-        if sign % 2 == 0:
-            cos_value += radians**idx / fact
-        else:
-            cos_value -= radians**idx / fact
-        sign += 1
+        term *= -radians_sq / (idx * (idx - 1))
+        cos_value += term
+
     return cos_value
 
 
