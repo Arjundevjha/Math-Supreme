@@ -37,7 +37,4 @@ def check_factor(coefficients: List[Union[int, float]], powers: List[Union[int, 
     result = evaluate_polynomial(coefficients, powers, x)
     
     # Use math.isclose to account for floating-point precision issues
-    # Use math.isclose to handle floating-point precision issues
-    # Use math.isclose to handle potential floating-point inaccuracies
     return math.isclose(result, 0.0, abs_tol=1e-9)
-    return math.isclose(result, 0, abs_tol=1e-9)
