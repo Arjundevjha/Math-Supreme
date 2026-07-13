@@ -633,6 +633,38 @@ class TestChainRuleFormatPolynomial(unittest.TestCase):
 
     def test_format_polynomial_all_zeros(self):
         self.assertEqual(direct_format_polynomial_chain_rule([0, 0], [0, 0]), "0x^0 + 0x^0")
+class TestFormatPolynomialChainRule:
+    def test_basic(self):
+        assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
+
+    def test_floats(self):
+        assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
+
+    def test_empty(self):
+        assert format_polynomial_chain_rule([], []) == ""
+
+    def test_negative_powers(self):
+        assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
+
+    def test_negative_coeffs(self):
+        assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
+
+    def test_zero_coeffs(self):
+        assert format_polynomial_chain_rule([0], [2]) == "0x^2"
+
+    def test_zero_powers(self):
+        assert format_polynomial_chain_rule([5], [0]) == "5x^0"
+
+    def test_float_powers(self):
+        # As per the code, int(power) is used in formatting
+        assert format_polynomial_chain_rule([2], [2.7]) == "2x^2"
+
+    def test_single_term(self):
+        assert format_polynomial_chain_rule([4], [3]) == "4x^3"
+
+    def test_mismatched_lengths(self):
+        # zip will truncate to the shortest list
+        assert format_polynomial_chain_rule([1, 2], [3]) == "1x^3"
 
 if __name__ == '__main__':
     unittest.main()
