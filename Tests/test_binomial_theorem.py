@@ -1,0 +1,73 @@
+import os
+import sys
+import pytest
+
+# Add root directory to path
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
+math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Combinatorics'))
+if combinatorics_dir not in sys.path:
+    sys.path.insert(0, combinatorics_dir)
+
+from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
+
+def test_expand_binomial_basic():
+    # (x + y)^2 = 1*x^2*y^0 + 2*x^1*y^1 + 1*x^0*y^2
+    result = expand_binomial('x', 'y', 2)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*x^2*y^0" in terms
+    assert "2*x^1*y^1" in terms
+    assert "1*x^0*y^2" in terms
+    assert len(terms) == 3
+
+
+def test_expand_binomial_n_0():
+    # (x + y)^0 = 1*x^0*y^0
+    result = expand_binomial('x', 'y', 0)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*x^0*y^0" in terms
+    assert len(terms) == 1
+
+
+def test_expand_binomial_n_3():
+    # (a + b)^3 = 1*a^3*b^0 + 3*a^2*b^1 + 3*a^1*b^2 + 1*a^0*b^3
+    result = expand_binomial('a', 'b', 3)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*a^3*b^0" in terms
+    assert "3*a^2*b^1" in terms
+    assert "3*a^1*b^2" in terms
+    assert "1*a^0*b^3" in terms
+    assert len(terms) == 4
+
+
+def test_expand_binomial_negative_n():
+    with pytest.raises(ValueError, match="Power n must be non-negative."):
+        expand_binomial('x', 'y', -1)
+
+
+def test_binomial_coefficient_normal():
+    assert binomial_coefficient(5, 2) == 10
+    assert binomial_coefficient(10, 3) == 120
+    assert binomial_coefficient(6, 3) == 20
+
+
+def test_binomial_coefficient_edge_cases():
+    assert binomial_coefficient(5, 0) == 1
+    assert binomial_coefficient(5, 5) == 1
+    assert binomial_coefficient(0, 0) == 1
+
+
+def test_binomial_coefficient_error_handling():
+    with pytest.raises(ValueError, match="Invalid values for n and r"):
+        binomial_coefficient(5, 6)
+    with pytest.raises(ValueError, match="Invalid values for n and r"):
+        binomial_coefficient(5, -1)
