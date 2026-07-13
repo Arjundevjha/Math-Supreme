@@ -479,6 +479,12 @@ def test_partition_zero():
     assert partition(0) == 1
 
 
+def test_partition_too_large():
+    import pytest
+    with pytest.raises(ValueError, match="Number too large"):
+        partition(1001)
+
+
 def test_partition_positive():
     # Known values from OEIS A000041
     # n:    0, 1, 2, 3, 4, 5, 6,  7,  8,  9, 10

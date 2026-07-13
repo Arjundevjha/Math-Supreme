@@ -15,6 +15,8 @@ def partition(n: int) -> int:
         return 0
     if n == 0:
         return 1
+    if n > 1000:
+        raise ValueError("Number too large, maximum allowed is 1000 to prevent uncontrolled resource consumption.")
 
     # Use dynamic programming to calculate partitions
     partitions = [0] * (n + 1)
