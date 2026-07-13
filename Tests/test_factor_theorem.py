@@ -1,6 +1,5 @@
 import os
 import sys
-import pytest
 import math
 
 # Add root directory to path
