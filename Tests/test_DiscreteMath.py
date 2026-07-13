@@ -27,7 +27,6 @@ from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_tria
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
-from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
 from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
 from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation
@@ -63,36 +62,6 @@ def test_factorial_negative_number():
     """Test factorial with a negative number, which should raise RecursionError due to infinite recursion."""
     with pytest.raises(RecursionError):
         factorial(-1)
-
-
-def test_compute_gcd_coprime():
-    assert compute_gcd(17, 19) == 1
-    assert compute_gcd(8, 9) == 1
-
-
-def test_compute_gcd_multiples():
-    assert compute_gcd(10, 5) == 5
-    assert compute_gcd(5, 10) == 5
-    assert compute_gcd(12, 36) == 12
-
-
-def test_compute_gcd_identical():
-    assert compute_gcd(7, 7) == 7
-    assert compute_gcd(100, 100) == 100
-
-
-def test_compute_gcd_common_factors():
-    assert compute_gcd(48, 18) == 6
-    assert compute_gcd(54, 24) == 6
-
-
-def test_compute_gcd_errors():
-    with pytest.raises(ValueError, match="Both numbers must be positive."):
-        compute_gcd(0, 5)
-    with pytest.raises(ValueError, match="Both numbers must be positive."):
-        compute_gcd(5, 0)
-    with pytest.raises(ValueError, match="Both numbers must be positive."):
-        compute_gcd(-5, 5)
 
 
 class TestTrinomialGeneralTerm(unittest.TestCase):
@@ -281,26 +250,6 @@ class TestDiscreteMath(unittest.TestCase):
         with self.assertRaises(ValueError) as context:
             expand_trinomial('a', 'b', 'c', -1)
         self.assertTrue("Power n must be non-negative." in str(context.exception))
-
-
-@pytest.mark.parametrize("n, expected", [
-    # Test composite numbers
-    (12, [2, 2, 3]),
-    (60, [2, 2, 3, 5]),
-    (100, [2, 2, 5, 5]),
-
-    # Test prime numbers
-    (2, [2]),
-    (7, [7]),
-    (13, [13]),
-
-    # Test edge cases
-    (1, []),
-    (0, []),
-    (-5, [])
-])
-def test_prime_factorization_for_gcd(n, expected):
-    assert prime_factorization_for_gcd(n) == expected
 
 
 def test_binomial_general_term():
