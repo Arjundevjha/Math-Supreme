@@ -1,5 +1,4 @@
 # Calculate the number of partitions of a positive integer
-from typing import List
 
 
 def partition(n: int) -> int:
