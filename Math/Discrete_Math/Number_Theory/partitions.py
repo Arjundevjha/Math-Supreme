@@ -11,6 +11,8 @@ def partition(n: int) -> int:
     Returns:
     int: The number of partitions of n.
     """
+    if n > 1000:
+        raise ValueError("Number is too large. Maximum supported value is 1000.")
     if n < 0:
         return 0
     if n == 0:
