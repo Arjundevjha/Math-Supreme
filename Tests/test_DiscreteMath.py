@@ -191,6 +191,10 @@ class TestPascalsTriangle:
             generate_pascals_triangle(-1)
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-5)
+        with pytest.raises(ValueError):
+            generate_pascals_triangle(1001)
+        with pytest.raises(ValueError):
+            generate_pascals_triangle(2000)
 
 
 def test_prime_factorization_edge_case():
