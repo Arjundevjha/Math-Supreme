@@ -6,6 +6,9 @@ import unittest
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Calculus.Differentiation.second_derivatives import second_derivative
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
@@ -297,6 +300,39 @@ class TestDifferentiatePolynomial(unittest.TestCase):
             [(6, 2)]
         )
 
+class TestFormatPolynomialChainRule:
+    def test_basic(self):
+        assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
+
+    def test_floats(self):
+        assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
+
+    def test_empty(self):
+        assert format_polynomial_chain_rule([], []) == ""
+
+    def test_negative_powers(self):
+        assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
+
+    def test_negative_coeffs(self):
+        assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
+
+    def test_zero_coeffs(self):
+        assert format_polynomial_chain_rule([0], [2]) == "0x^2"
+
+    def test_zero_powers(self):
+        assert format_polynomial_chain_rule([5], [0]) == "5x^0"
+
+    def test_float_powers(self):
+        # As per the code, int(power) is used in formatting
+        assert format_polynomial_chain_rule([2], [2.7]) == "2x^2"
+
+    def test_single_term(self):
+        assert format_polynomial_chain_rule([4], [3]) == "4x^3"
+
+    def test_mismatched_lengths(self):
+        # zip will truncate to the shortest list
+        assert format_polynomial_chain_rule([1, 2], [3]) == "1x^3"
+
 if __name__ == '__main__':
     unittest.main()
 def test_quotient_rule_derivative_basic():
@@ -347,25 +383,6 @@ def test_quotient_rule_derivative_float_coefficients():
     # Expected: ((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2
     result = quotient_rule_derivative([1.5], [2], [2.5], [3])
     assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
-def test_format_polynomial_chain_rule_basic():
-    coeffs = [3, 5]
-    powers = [2, 1]
-    result = format_polynomial_chain_rule(coeffs, powers)
-    terms = [t.strip() for t in result.split("+")]
-    assert "3x^2" in terms
-    assert "5x^1" in terms
-    assert len(terms) == 2
-
-def test_format_polynomial_chain_rule_empty():
-    result = format_polynomial_chain_rule([], [])
-    assert result == ""
-
-def test_format_polynomial_chain_rule_mixed():
-    result = format_polynomial_chain_rule([-2, 4.5], [3, 0])
-    terms = [t.strip() for t in result.split("+")]
-    assert "-2x^3" in terms
-    assert "4.5x^0" in terms
-    assert len(terms) == 2
 class TestQuotientRule(unittest.TestCase):
     def test_compute_polynomial_derivative_str_basic(self):
         self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
@@ -418,20 +435,6 @@ def test_format_polynomial_integration_empty():
     result = format_polynomial_integration([], [])
     assert result.strip() == "+ C" or result.strip() == "C"
 
-def test_format_polynomial_chain_rule_2_basic():
-    assert format_polynomial_chain_rule([1, 2, 3], [2, 1, 0]) == "1x^2 + 2x^1 + 3x^0"
-
-def test_format_polynomial_chain_rule_2_floats():
-    assert format_polynomial_chain_rule([1.5, 2.5], [2.0, 1.0]) == "1.5x^2 + 2.5x^1"
-
-def test_format_polynomial_chain_rule_2_empty():
-    assert format_polynomial_chain_rule([], []) == ""
-
-def test_format_polynomial_chain_rule_2_negative_powers():
-    assert format_polynomial_chain_rule([5], [-2]) == "5x^-2"
-
-def test_format_polynomial_chain_rule_2_negative_coeffs():
-    assert format_polynomial_chain_rule([-3, -4], [2, 1]) == "-3x^2 + -4x^1"
 class TestComputePolynomialDerivative:
     def test_basic_polynomial(self):
         # f(x) = 3x^2 + 2x^1
