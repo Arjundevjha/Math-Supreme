@@ -13,6 +13,8 @@ def partition(n: int) -> int:
     """
     if n < 0:
         return 0
+    if n > 1000:
+        raise ValueError("Number must be 1000 or less to prevent uncontrolled resource consumption.")
     if n == 0:
         return 1
 
