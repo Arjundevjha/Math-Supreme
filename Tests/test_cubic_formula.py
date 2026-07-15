@@ -10,15 +10,26 @@ if root_dir not in sys.path:
 
 from Math.Algebra.Polynomials.cubic_formula import cubic_formula
 
+def assert_roots_match(expected_roots, actual_roots):
+    assert len(expected_roots) == len(actual_roots), f"Expected {len(expected_roots)} roots, got {len(actual_roots)}"
+
+    # Check that each expected root is matched exactly once by an actual root
+    matched_indices = set()
+    for expected in expected_roots:
+        found_match = False
+        for i, actual in enumerate(actual_roots):
+            if i not in matched_indices and cmath.isclose(expected, actual, rel_tol=1e-9, abs_tol=1e-9):
+                matched_indices.add(i)
+                found_match = True
+                break
+        assert found_match, f"Expected root {expected} not found in {actual_roots}"
+
 def test_cubic_formula_real_roots():
     # Equation: x^3 - 6x^2 + 11x - 6 = 0
     # Roots: 1, 2, 3
     roots = cubic_formula(1, -6, 11, -6)
     expected_roots = [1, 2, 3]
-
-    # Check that all expected roots are found (allowing for floating point inaccuracy and complex representation)
-    for expected in expected_roots:
-        assert any(cmath.isclose(expected, root, rel_tol=1e-9, abs_tol=1e-9) for root in roots)
+    assert_roots_match(expected_roots, roots)
 
 def test_cubic_formula_complex_roots():
     # Equation: x^3 - 1 = 0
@@ -30,16 +41,14 @@ def test_cubic_formula_complex_roots():
         complex(-0.5, cmath.sqrt(3).real / 2),
         complex(-0.5, -cmath.sqrt(3).real / 2)
     ]
-
-    for expected in expected_roots:
-        assert any(cmath.isclose(expected, root, rel_tol=1e-9, abs_tol=1e-9) for root in roots)
+    assert_roots_match(expected_roots, roots)
 
 def test_cubic_formula_zero_roots():
     # Equation: x^3 = 0
     # Roots: 0, 0, 0
     roots = cubic_formula(1, 0, 0, 0)
-    for root in roots:
-        assert cmath.isclose(0, root, rel_tol=1e-9, abs_tol=1e-9)
+    expected_roots = [0, 0, 0]
+    assert_roots_match(expected_roots, roots)
 
 def test_cubic_formula_value_error():
     # a = 0 should raise ValueError
