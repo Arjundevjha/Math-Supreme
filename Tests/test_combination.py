@@ -41,3 +41,16 @@ def test_nCr_invalid_inputs(n, r):
     """Test nCr raises ValueError for invalid inputs."""
     with pytest.raises(ValueError):
         nCr(n, r)
+
+def test_nCr_large_numbers():
+    """Test nCr with slightly larger numbers."""
+    # 20C10 = 184756
+    assert nCr(20, 10) == 184756
+    # 50C5 = 2118760
+    assert nCr(50, 5) == 2118760
+
+def test_nCr_negative_n_valid_r():
+    """Test nCr with negative n but valid r."""
+    # nCr formula requires factorial(n). factorial raises ValueError for negative numbers
+    with pytest.raises(ValueError, match="Invalid values for n and r."):
+        nCr(-5, 2)
