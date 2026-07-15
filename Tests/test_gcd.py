@@ -90,3 +90,8 @@ def test_prime_factorization_for_gcd_product():
         factors = prime_factorization_for_gcd(n)
         product = reduce(lambda x, y: x * y, factors, 1)
         assert product == n
+def test_compute_gcd_large_numbers():
+    assert compute_gcd(123456, 789012) == 12
+
+def test_prime_factorization_for_gcd_large():
+    assert prime_factorization_for_gcd(1048576) == [2] * 20
