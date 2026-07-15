@@ -1,9 +1,7 @@
 import math
 import os
 import sys
-import math
 import pytest
-import math
 
 # Add root directory to path
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -302,7 +300,6 @@ def test_check_factor_float():
 def test_check_factor_precision():
     # P(x) = x^2 - 2
     # Factor is (x - sqrt(2)) => x = sqrt(2)
-    import math
     assert check_factor([1, -2], [2, 0], math.sqrt(2)) is True
 
     # P(x) = x^3 - 3
@@ -417,7 +414,6 @@ def test_evaluate_polynomial_poly_negative_powers():
     assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
 
 def test_evaluate_polynomial_poly_precision():
-    import math
     # P(x) = 0.1x + 0.2
     # P(1.0) = 0.1(1.0) + 0.2 = 0.3
     # Use math.isclose to account for floating point precision issues (0.1 + 0.2 = 0.30000000000000004)
