@@ -66,6 +66,11 @@ class TestComputeEulersNumber:
         _ = compute_eulers_number(iterations=10, decimal_places=100)
         assert getcontext().prec >= 110
 
+        # Check if the context precision was indeed increased
+        # The decimal context precision is set globally in the function to decimal_places + 10
+        # For decimal_places=100, the context precision should be 110.
+        assert getcontext().prec >= 110
+
     def test_compute_eulers_number_invalid_iterations(self):
         """Test that invalid number of iterations raises ValueError."""
         with pytest.raises(ValueError, match="Iterations must be positive."):
