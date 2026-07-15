@@ -54,6 +54,14 @@ from Math.Discrete_Math.Number_Theory.partitions_approximation import (
     partition_approximation,
 )
 from Math.Discrete_Math.Number_Theory.partitions import partition
+from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term  # noqa: E402
+from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle  # noqa: E402
+from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r  # noqa: E402
+from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient  # noqa: E402
+from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term  # noqa: E402
+from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization  # noqa: E402
+from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation  # noqa: E402
+from Math.Discrete_Math.Number_Theory.partitions import partition  # noqa: E402
 
 
 def test_factorial_zero():
