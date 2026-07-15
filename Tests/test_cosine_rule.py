@@ -112,3 +112,4 @@ def test_cosine_taylor():
     assert abs(cosine_taylor(pi / 2) - 0.0) < 1e-5
     assert abs(cosine_taylor(pi) - (-1.0)) < 1e-5
     assert abs(cosine_taylor(pi / 3) - 0.5) < 1e-5
+    assert abs(cosine_taylor(pi / 4) - 0.70710678118) < 1e-5
