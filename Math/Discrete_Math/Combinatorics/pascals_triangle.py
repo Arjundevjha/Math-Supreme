@@ -2,26 +2,26 @@
 from typing import List
 
 
-def generate_pascals_triangle(n: int) -> List[List[int]]:
+def generate_pascals_triangle(num_rows: int) -> List[List[int]]:
     """
-    Generate Pascal's triangle with n rows.
+    Generate Pascal's triangle with num_rows rows.
 
     Parameters:
-    n (int): The number of rows to generate.
+    num_rows (int): The number of rows to generate.
 
     Returns:
     List[List[int]]: A list of lists representing Pascal's triangle.
     """
-    if n < 0:
+    if num_rows < 0:
         raise ValueError("Number of rows cannot be negative.")
-    if n > 1000:
+    if num_rows > 1000:
         raise ValueError("Number of rows cannot exceed 1000 to prevent excessive resource consumption.")
-    if n == 0:
+    if num_rows == 0:
         return []
     
     triangle = []
     # Generate each row of Pascal's triangle
-    for i in range(n):
+    for i in range(num_rows):
         row = [1] * (i + 1)
         for j in range(1, i):
             # Each element is the sum of the two elements above it
