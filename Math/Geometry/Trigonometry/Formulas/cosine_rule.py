@@ -14,14 +14,15 @@ def factorial(n: int) -> int:
 
 def cosine_taylor(radians: Union[int, float]) -> float:
     """Calculate cosine using Taylor series."""
-    cos_value = 1.0
-    term = 1.0
-    radians_sq = radians * radians
-
+    cos_value = 1
+    sign = 1
     for idx in range(2, 100, 2):
-        term *= -radians_sq / (idx * (idx - 1))
-        cos_value += term
-
+        fact = factorial(idx)
+        if sign % 2 == 0:
+            cos_value += radians**idx / fact
+        else:
+            cos_value -= radians**idx / fact
+        sign += 1
     return cos_value
 
 
@@ -29,19 +30,12 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     """Calculate square root using Newton's method."""
     if x < 0:
         raise ValueError("Cannot calculate square root of negative number.")
-    if precision <= 0:
-        raise ValueError("Precision must be strictly greater than zero.")
     if x == 0:
         return 0
     
     guess = x / 2
-    max_iterations = 10000
-    iterations = 0
     while abs(guess * guess - x) > precision:
-        if iterations >= max_iterations:
-            raise RuntimeError("Maximum iterations reached without converging to the specified precision.")
         guess = (guess + x / guess) / 2
-        iterations += 1
     return guess
 
 

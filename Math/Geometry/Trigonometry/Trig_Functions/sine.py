@@ -22,14 +22,17 @@ def sine(radians: Union[int, float]) -> float:
     Returns:
     float: The sine of the angle.
     """
-    sine_value = float(radians)
-    term = float(radians)
-    radians_sq = float(radians * radians)
+    sine_value = 0
+    sign = 0
     
-    # Calculate sine using Taylor series iteratively:
-    # Next term = Previous term * (-x^2) / ((2n)(2n+1))
-    for idx in range(3, 100, 2):
-        term *= -radians_sq / ((idx - 1) * idx)
-        sine_value += term
+    # Calculate sine using Taylor series: sin(x) = Σ((-1)ⁿ × x^(2n+1)) / (2n+1)!
+    for idx in range(1, 100, 2):
+        fact = factorial(idx)
         
+        if sign % 2 == 0:
+            sine_value += radians**idx / fact
+        else:
+            sine_value -= radians**idx / fact
+        sign += 1
+
     return sine_value

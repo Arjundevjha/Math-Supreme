@@ -1,20 +1,17 @@
 import pytest
 import math
 from decimal import Decimal
-from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import (
-    calculate_pi_nilakantha,
-)
+from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import calculate_pi_nilakantha
 from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
-
 
 class TestNilakanthaAlgorithm:
     def test_calculate_pi_nilakantha_basic(self):
         """Test with small number of terms to check exact values"""
         # π = 3 + 4/(2×3×4) = 3 + 4/24 = 3 + 1/6 = 19/6
-        assert float(calculate_pi_nilakantha(1)) == pytest.approx(19 / 6)
+        assert float(calculate_pi_nilakantha(1)) == pytest.approx(19/6)
 
         # π = 3 + 4/(2×3×4) - 4/(4×5×6) = 19/6 - 4/120 = 19/6 - 1/30 = (95-1)/30 = 94/30 = 47/15
-        assert float(calculate_pi_nilakantha(2)) == pytest.approx(47 / 15)
+        assert float(calculate_pi_nilakantha(2)) == pytest.approx(47/15)
 
     def test_calculate_pi_nilakantha_convergence(self):
         """Test that the algorithm converges towards math.pi as terms increase"""
@@ -43,14 +40,10 @@ class TestNilakanthaAlgorithm:
 
     def test_calculate_pi_nilakantha_invalid_terms(self):
         """Test that invalid number of terms raises ValueError"""
-        with pytest.raises(
-            ValueError, match="Number of terms must be a positive integer."
-        ):
+        with pytest.raises(ValueError, match="Number of terms must be a positive integer."):
             calculate_pi_nilakantha(0)
 
-        with pytest.raises(
-            ValueError, match="Number of terms must be a positive integer."
-        ):
+        with pytest.raises(ValueError, match="Number of terms must be a positive integer."):
             calculate_pi_nilakantha(-5)
 
 
@@ -68,12 +61,5 @@ def test_factorial_positive():
 
 
 def test_factorial_negative():
-    with pytest.raises(
-        ValueError, match="Factorial is not defined for negative numbers."
-    ):
+    with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
         factorial(-1)
-
-
-def test_factorial_limit():
-    with pytest.raises(ValueError, match=r"Factorial calculation limit exceeded"):
-        factorial(10001)

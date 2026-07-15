@@ -3,18 +3,18 @@ import sys
 import math
 import pytest
 
+from Math.Algebra.Polynomials.quadratic_formula import solve_quadratic
+
 # Add root directory to path to allow imports
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
-from Math.Algebra.Polynomials.quadratic_formula import solve_quadratic
 
 class TestSolveQuadratic:
     def test_two_distinct_real_roots(self):
         """Test with an equation that has two distinct real roots: x^2 - 3x + 2 = 0"""
-        # Roots should be 2 and 1. The formula returns (-b+sqrt(D))/2a and (-b-sqrt(D))/2a
-        # For a=1, b=-3, c=2, D=9-8=1, roots are (3+1)/2=2, (3-1)/2=1
+        # Roots should be 2 and 1.
         root1, root2 = solve_quadratic(1, -3, 2)
         assert math.isclose(root1, 2.0, rel_tol=1e-9)
         assert math.isclose(root2, 1.0, rel_tol=1e-9)

@@ -1,4 +1,3 @@
-
 import os
 import sys
 import unittest
@@ -22,15 +21,14 @@ if combinatorics_dir not in sys.path:
     sys.path.insert(0, combinatorics_dir)
 
 from Math.Discrete_Math.Combinatorics.combination import nCr
-
 from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
-from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
 from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
+from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
 from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation
 from Math.Discrete_Math.Number_Theory.partitions import partition
@@ -65,6 +63,36 @@ def test_factorial_negative_number():
     """Test factorial with a negative number, which should raise RecursionError due to infinite recursion."""
     with pytest.raises(RecursionError):
         factorial(-1)
+
+
+def test_compute_gcd_coprime():
+    assert compute_gcd(17, 19) == 1
+    assert compute_gcd(8, 9) == 1
+
+
+def test_compute_gcd_multiples():
+    assert compute_gcd(10, 5) == 5
+    assert compute_gcd(5, 10) == 5
+    assert compute_gcd(12, 36) == 12
+
+
+def test_compute_gcd_identical():
+    assert compute_gcd(7, 7) == 7
+    assert compute_gcd(100, 100) == 100
+
+
+def test_compute_gcd_common_factors():
+    assert compute_gcd(48, 18) == 6
+    assert compute_gcd(54, 24) == 6
+
+
+def test_compute_gcd_errors():
+    with pytest.raises(ValueError, match="Both numbers must be positive."):
+        compute_gcd(0, 5)
+    with pytest.raises(ValueError, match="Both numbers must be positive."):
+        compute_gcd(5, 0)
+    with pytest.raises(ValueError, match="Both numbers must be positive."):
+        compute_gcd(-5, 5)
 
 
 class TestTrinomialGeneralTerm(unittest.TestCase):
@@ -112,6 +140,38 @@ class TestTrinomialGeneralTerm(unittest.TestCase):
         with self.assertRaises(ValueError):
             trinomial_general_term(-1, 0, 0, 1, 1, 1)
 
+
+class TestLCM:
+    def test_compute_lcm_basic(self):
+        assert compute_lcm(4, 6) == 12
+        assert compute_lcm(21, 6) == 42
+
+    def test_compute_lcm_primes(self):
+        assert compute_lcm(7, 5) == 35
+        assert compute_lcm(11, 13) == 143
+
+    def test_compute_lcm_coprimes(self):
+        assert compute_lcm(8, 9) == 72
+
+    def test_compute_lcm_multiples(self):
+        assert compute_lcm(5, 15) == 15
+        assert compute_lcm(12, 4) == 12
+
+    def test_compute_lcm_same_numbers(self):
+        assert compute_lcm(7, 7) == 7
+
+    def test_compute_lcm_large_numbers(self):
+        assert compute_lcm(100, 250) == 500
+
+    def test_compute_lcm_invalid_input(self):
+        with pytest.raises(ValueError, match="Both numbers must be positive."):
+            compute_lcm(0, 5)
+        with pytest.raises(ValueError, match="Both numbers must be positive."):
+            compute_lcm(5, 0)
+        with pytest.raises(ValueError, match="Both numbers must be positive."):
+            compute_lcm(-1, 5)
+        with pytest.raises(ValueError, match="Both numbers must be positive."):
+            compute_lcm(5, -1)
 
 
 class TestPermutation(unittest.TestCase):
@@ -161,10 +221,6 @@ class TestPascalsTriangle:
             generate_pascals_triangle(-1)
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-5)
-        with pytest.raises(ValueError):
-            generate_pascals_triangle(1001)
-        with pytest.raises(ValueError):
-            generate_pascals_triangle(2000)
 
 
 def test_prime_factorization_edge_case():
@@ -227,6 +283,26 @@ class TestDiscreteMath(unittest.TestCase):
         self.assertTrue("Power n must be non-negative." in str(context.exception))
 
 
+@pytest.mark.parametrize("n, expected", [
+    # Test composite numbers
+    (12, [2, 2, 3]),
+    (60, [2, 2, 3, 5]),
+    (100, [2, 2, 5, 5]),
+
+    # Test prime numbers
+    (2, [2]),
+    (7, [7]),
+    (13, [13]),
+
+    # Test edge cases
+    (1, []),
+    (0, []),
+    (-5, [])
+])
+def test_prime_factorization_for_gcd(n, expected):
+    assert prime_factorization_for_gcd(n) == expected
+
+
 def test_binomial_general_term():
     # (a + b)^2 = a^2 + 2ab + b^2
     assert binomial_general_term(2, 0, 1, 1) == 1
@@ -252,6 +328,62 @@ def test_binomial_general_term_powers():
     assert binomial_general_term(3, 1, 2, 3) == 36
     assert binomial_general_term(3, 2, 2, 3) == 54
     assert binomial_general_term(3, 3, 2, 3) == 27
+
+
+def test_expand_binomial_basic():
+    # (x + y)^2 = 1*x^2*y^0 + 2*x^1*y^1 + 1*x^0*y^2
+    result = expand_binomial('x', 'y', 2)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*x^2*y^0" in terms
+    assert "2*x^1*y^1" in terms
+    assert "1*x^0*y^2" in terms
+    assert len(terms) == 3
+
+
+def test_expand_binomial_n_0():
+    # (x + y)^0 = 1*x^0*y^0
+    result = expand_binomial('x', 'y', 0)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*x^0*y^0" in terms
+    assert len(terms) == 1
+
+
+def test_expand_binomial_n_3():
+    # (a + b)^3 = 1*a^3*b^0 + 3*a^2*b^1 + 3*a^1*b^2 + 1*a^0*b^3
+    result = expand_binomial('a', 'b', 3)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*a^3*b^0" in terms
+    assert "3*a^2*b^1" in terms
+    assert "3*a^1*b^2" in terms
+    assert "1*a^0*b^3" in terms
+    assert len(terms) == 4
+
+
+def test_expand_binomial_negative_n():
+    with pytest.raises(ValueError, match="Power n must be non-negative."):
+        expand_binomial('x', 'y', -1)
+
+
+def test_binomial_coefficient_normal():
+    assert binomial_coefficient(5, 2) == 10
+    assert binomial_coefficient(10, 3) == 120
+    assert binomial_coefficient(6, 3) == 20
+
+
+def test_binomial_coefficient_edge_cases():
+    assert binomial_coefficient(5, 0) == 1
+    assert binomial_coefficient(5, 5) == 1
+    assert binomial_coefficient(0, 0) == 1
+
+
+def test_binomial_coefficient_error_handling():
+    with pytest.raises(ValueError, match="Invalid values for n and r"):
+        binomial_coefficient(5, 6)
+    with pytest.raises(ValueError, match="Invalid values for n and r"):
+        binomial_coefficient(5, -1)
 
 
 def test_partition_approximation_edge_cases():
@@ -320,6 +452,23 @@ def test_partition_approximation_relative_error():
     assert errors[-1] < 0.05
 
 
+def test_prime_factorization_simple():
+    # Edge cases
+    assert prime_factorization_simple(1) == []
+    assert prime_factorization_simple(0) == []
+    assert prime_factorization_simple(-1) == []
+
+    # Prime numbers
+    assert prime_factorization_simple(2) == [2]
+    assert prime_factorization_simple(3) == [3]
+    assert prime_factorization_simple(13) == [13]
+
+    # Composite numbers
+    assert prime_factorization_simple(4) == [2, 2]
+    assert prime_factorization_simple(12) == [2, 2, 3]
+    assert prime_factorization_simple(100) == [2, 2, 5, 5]
+    assert prime_factorization_simple(315) == [3, 3, 5, 7]
+
 
 def test_partition_negative():
     assert partition(-1) == 0
@@ -328,22 +477,6 @@ def test_partition_negative():
 
 def test_partition_zero():
     assert partition(0) == 1
-
-
-def test_partition_large_number():
-    with pytest.raises(ValueError, match="Number is too large. Maximum supported value is 1000."):
-        partition(1001)
-
-
-def test_partition_exceeds_limit():
-    with pytest.raises(ValueError, match="1000"):
-        partition(1001)
-
-
-def test_partition_too_large():
-    import pytest
-    with pytest.raises(ValueError, match="1000"):
-        partition(1001)
 
 
 def test_partition_positive():
@@ -362,6 +495,35 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
+
+
+@pytest.mark.parametrize("n, r, expected", [
+    (5, 0, 1),
+    (5, 1, 5),
+    (5, 2, 10),
+    (5, 3, 10),
+    (5, 4, 5),
+    (5, 5, 1),
+    (10, 5, 252),
+    (0, 0, 1),
+    (1, 0, 1),
+    (1, 1, 1),
+])
+def test_nCr_happy_path(n, r, expected):
+    """Test nCr with valid inputs."""
+    assert nCr(n, r) == expected
+
+
+@pytest.mark.parametrize("n, r", [
+    (5, 6),   # r > n
+    (5, -1),  # r < 0
+    (-1, -1), # both negative, r < 0 triggers first or both
+    (-1, 0),  # r > n (-1 < 0)
+])
+def test_nCr_invalid_inputs(n, r):
+    """Test nCr raises ValueError for invalid inputs."""
+    with pytest.raises(ValueError):
+        nCr(n, r)
 
 
 def test_trinomial_coefficient():

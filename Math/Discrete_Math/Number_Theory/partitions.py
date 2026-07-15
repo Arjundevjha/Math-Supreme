@@ -1,4 +1,5 @@
 # Calculate the number of partitions of a positive integer
+from typing import List
 
 
 def partition(n: int) -> int:
@@ -11,16 +12,10 @@ def partition(n: int) -> int:
     Returns:
     int: The number of partitions of n.
     """
-    if n > 1000:
-        raise ValueError("Number is too large. Maximum supported value is 1000.")
     if n < 0:
         return 0
-    if n > 1000:
-        raise ValueError("Number must be 1000 or less to prevent uncontrolled resource consumption.")
     if n == 0:
         return 1
-    if n > 1000:
-        raise ValueError("Number too large, maximum allowed is 1000 to prevent uncontrolled resource consumption.")
 
     # Use dynamic programming to calculate partitions
     partitions = [0] * (n + 1)
