@@ -43,6 +43,17 @@ class TestEvaluatePolynomial(unittest.TestCase):
         # P(x) = 4x^-1 + 2x^-2, P(2) = 4/2 + 2/4 = 2.5
         self.assertEqual(evaluate_polynomial([4, 2], [-1, -2], 2), 2.5)
 
+    def test_evaluate_polynomial_zero_division_error(self):
+        """Test dividing by zero raises an exception when power is negative"""
+        with self.assertRaises(ZeroDivisionError):
+            evaluate_polynomial([1], [-1], 0)
+
+    def test_evaluate_polynomial_mismatched_lengths(self):
+        """Test with mismatched lengths (zip stops at shortest list)"""
+        # P(x) = 2x^2 + 3x
+        # Coefficients length 2, powers length 1
+        self.assertEqual(evaluate_polynomial([2, 3], [2], 2), 8)
+
 class TestRemainderTheorem(unittest.TestCase):
     def test_remainder_theorem_basic(self):
         """Test P(x) = x^2 - 3x + 2 divided by (x - 3). Remainder = P(3)."""
