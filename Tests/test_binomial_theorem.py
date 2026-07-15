@@ -103,3 +103,28 @@ def test_expand_binomial_large_n():
     assert "10*x^2*y^3" in terms
     assert "5*x^1*y^4" in terms
     assert "1*x^0*y^5" in terms
+    # (p + q)^1 = 1*p^1*q^0 + 1*p^0*q^1
+    result = expand_binomial('p', 'q', 1)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*p^1*q^0" in terms
+    assert "1*p^0*q^1" in terms
+    assert len(terms) == 2
+
+def test_expand_binomial_n_4():
+    # (m + n)^4
+    result = expand_binomial('m', 'n', 4)
+    terms = [term.strip() for term in result.split('+')]
+
+    assert "1*m^4*n^0" in terms
+    assert "4*m^3*n^1" in terms
+    assert "6*m^2*n^2" in terms
+    assert "4*m^1*n^3" in terms
+    assert "1*m^0*n^4" in terms
+    assert len(terms) == 5
+
+def test_binomial_coefficient_symmetry():
+    # C(n, r) == C(n, n-r)
+    assert binomial_coefficient(10, 3) == binomial_coefficient(10, 7)
+    assert binomial_coefficient(15, 5) == binomial_coefficient(15, 10)
+    assert binomial_coefficient(7, 2) == binomial_coefficient(7, 5)
