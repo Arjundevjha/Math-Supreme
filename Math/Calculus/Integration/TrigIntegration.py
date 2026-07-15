@@ -1,12 +1,6 @@
 # Trigonometric integration formulas
-import os
-import sys
-# Add Math to path to fix imports inside Math
-math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-from Geometry.Trigonometry.Trig_Functions.sine import sine
-from Geometry.Trigonometry.Trig_Functions.cosine import cosine
+from Math.Geometry.Trigonometry.Trig_Functions.sine import sine
+from Math.Geometry.Trigonometry.Trig_Functions.cosine import cosine
 from typing import Union
 
 
