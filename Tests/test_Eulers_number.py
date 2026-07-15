@@ -55,20 +55,16 @@ class TestComputeEulersNumber:
         assert error_20 < error_10
 
         # At 20 terms, it should be reasonably close to e
+        # After 20 terms, it should be very close to e
         assert math.isclose(e_20, math.e, rel_tol=1e-15)
 
     def test_compute_eulers_number_precision(self):
         """Test the precision parameter."""
-        result = compute_eulers_number(iterations=10, decimal_places=10)
+        result = compute_eulers_number(iterations=50, decimal_places=100)
         assert isinstance(result, Decimal)
 
         # Check context precision after function execution
         _ = compute_eulers_number(iterations=10, decimal_places=100)
-        assert getcontext().prec >= 110
-
-        # Check if the context precision was indeed increased
-        # The decimal context precision is set globally in the function to decimal_places + 10
-        # For decimal_places=100, the context precision should be 110.
         assert getcontext().prec >= 110
 
     def test_compute_eulers_number_invalid_iterations(self):
