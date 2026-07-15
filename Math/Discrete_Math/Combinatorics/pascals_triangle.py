@@ -14,8 +14,6 @@ def generate_pascals_triangle(n: int) -> List[List[int]]:
     """
     if n < 0:
         raise ValueError("Number of rows cannot be negative.")
-    if n > 1000:
-        raise ValueError("Number of rows cannot exceed 1000 to prevent excessive resource consumption.")
     if n == 0:
         return []
     

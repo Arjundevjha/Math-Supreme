@@ -24,42 +24,21 @@ def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_
         return -calculate_arctan(-x, precision, number_of_terms)
 
     arctan_value = Decimal(0)
-
-    # Convert x to Decimal properly to avoid float underflow issues
-    try:
-        x_dec = Decimal(str(x)) if isinstance(x, float) else Decimal(x)
-    except Exception:
-        x_dec = Decimal(x)
-
     # First term of the Taylor series: arctan(1/x) = Σ((-1)ⁿ / ((2n+1) × x^(2n+1)))
-    try:
-        term = Decimal(1) / x_dec
-    except (ArithmeticError, ValueError):
-        return arctan_value
-
+    term = Decimal(1) / Decimal(x)
     n = 0
-    max_iterations = 100000  # Prevent infinite loop DoS
 
     if number_of_terms is not None:
         # Use fixed number of terms
-        while n < number_of_terms and n < max_iterations:
+        while n < number_of_terms:
             arctan_value += term / (2 * n + 1)
             n += 1
-            try:
-                term *= -Decimal(1) / (x_dec * x_dec)
-            except (ArithmeticError, ValueError):
-                break
+            term *= -Decimal(1) / (x * x)
     else:
         # Continue until convergence
-        while abs(term) > Decimal(10) ** (-precision) and n < max_iterations:
+        while abs(term) > Decimal(10) ** (-precision):
             arctan_value += term / (2 * n + 1)
             n += 1
-            try:
-                term *= -Decimal(1) / (x_dec * x_dec)
-            except (ArithmeticError, ValueError):
-                break
-
-        if n >= max_iterations:
-            raise ValueError("Series did not converge. x must be > 1 or < -1 for arctan(1/x) Taylor series convergence.")
+            term *= -Decimal(1) / (x * x)
 
     return arctan_value

@@ -13,10 +13,6 @@ def factorial(num: int) -> int:
     """
     if num < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
-    if num > 10000:
-        raise ValueError(
-            "Factorial calculation limit exceeded (maximum allowed is 10000)."
-        )
 
     # Calculate factorial using iterative approach
     result = 1
