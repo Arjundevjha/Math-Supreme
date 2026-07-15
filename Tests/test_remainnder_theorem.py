@@ -8,7 +8,8 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
-from Math.Algebra.Polynomials.remainnder_theorem import evaluate_polynomial, remainder_theorem
+from Math.Algebra.Polynomials.polynomial import evaluate_polynomial
+from Math.Algebra.Polynomials.remainnder_theorem import remainder_theorem
 
 class TestEvaluatePolynomial(unittest.TestCase):
     def test_evaluate_polynomial_basic(self):
