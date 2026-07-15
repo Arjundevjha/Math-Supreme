@@ -25,6 +25,19 @@ def verify_roots(expected_roots, actual_roots):
                 break
         assert matched, f"Expected root {expected} not found. Remaining unmatched actual roots: {roots_list}"
     assert len(roots_list) == 0, f"Unexpected extra roots found: {roots_list}"
+def assert_roots_match(expected_roots, actual_roots):
+    assert len(expected_roots) == len(actual_roots), f"Expected {len(expected_roots)} roots, got {len(actual_roots)}"
+
+    # Check that each expected root is matched exactly once by an actual root
+    matched_indices = set()
+    for expected in expected_roots:
+        found_match = False
+        for i, actual in enumerate(actual_roots):
+            if i not in matched_indices and cmath.isclose(expected, actual, rel_tol=1e-9, abs_tol=1e-9):
+                matched_indices.add(i)
+                found_match = True
+                break
+        assert found_match, f"Expected root {expected} not found in {actual_roots}"
 
 def test_cubic_formula_real_roots():
     # Equation: x^3 - 6x^2 + 11x - 6 = 0
@@ -33,6 +46,7 @@ def test_cubic_formula_real_roots():
     expected_roots = [1, 2, 3]
 
     verify_roots(expected_roots, roots)
+    assert_roots_match(expected_roots, roots)
 
 def test_cubic_formula_complex_roots():
     # Equation: x^3 - 1 = 0
@@ -46,6 +60,7 @@ def test_cubic_formula_complex_roots():
     ]
 
     verify_roots(expected_roots, roots)
+    assert_roots_match(expected_roots, roots)
 
 def test_cubic_formula_zero_roots():
     # Equation: x^3 = 0
@@ -54,6 +69,7 @@ def test_cubic_formula_zero_roots():
     expected_roots = [0, 0, 0]
 
     verify_roots(expected_roots, roots)
+    assert_roots_match(expected_roots, roots)
 
 def test_cubic_formula_value_error():
     # a = 0 should raise ValueError
