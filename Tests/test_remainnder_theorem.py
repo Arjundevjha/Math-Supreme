@@ -43,6 +43,10 @@ class TestEvaluatePolynomial(unittest.TestCase):
         # P(x) = 4x^-1 + 2x^-2, P(2) = 4/2 + 2/4 = 2.5
         self.assertEqual(evaluate_polynomial([4, 2], [-1, -2], 2), 2.5)
 
+    def test_evaluate_polynomial_large_numbers(self):
+        """Test with large numbers"""
+        self.assertEqual(evaluate_polynomial([1e10, 1e10], [1, 0], 10), 1.1e11)
+
 class TestRemainderTheorem(unittest.TestCase):
     def test_remainder_theorem_basic(self):
         """Test P(x) = x^2 - 3x + 2 divided by (x - 3). Remainder = P(3)."""
@@ -73,6 +77,10 @@ class TestRemainderTheorem(unittest.TestCase):
     def test_remainder_theorem_empty(self):
         """Test empty polynomial"""
         self.assertEqual(remainder_theorem([], [], 5), 0)
+
+    def test_remainder_theorem_large_numbers(self):
+        """Test remainder theorem with large numbers"""
+        self.assertEqual(remainder_theorem([1e10, 1e10], [1, 0], 10), 1.1e11)
 
 if __name__ == '__main__':
     unittest.main()
