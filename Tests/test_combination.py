@@ -22,6 +22,7 @@ from Math.Discrete_Math.Combinatorics.combination import nCr
     (5, 4, 5),
     (5, 5, 1),
     (10, 5, 252),
+    (100, 2, 4950),
     (0, 0, 1),
     (1, 0, 1),
     (1, 1, 1),
@@ -41,3 +42,20 @@ def test_nCr_invalid_inputs(n, r):
     """Test nCr raises ValueError for invalid inputs."""
     with pytest.raises(ValueError):
         nCr(n, r)
+
+@pytest.mark.parametrize("n, r", [
+    (5.5, 2),
+    (5, 2.5),
+    ("5", 2),
+    (5, "2"),
+    (None, 2),
+])
+def test_nCr_invalid_types(n, r):
+    """Test nCr raises TypeError for non-integer inputs."""
+    with pytest.raises(TypeError):
+        nCr(n, r)
+
+def test_nCr_value_error_message():
+    """Test that nCr raises ValueError with the correct message."""
+    with pytest.raises(ValueError, match="Invalid values for n and r."):
+        nCr(5, 6)
