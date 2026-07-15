@@ -24,3 +24,7 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
+
+def test_partition_large_number():
+    with pytest.raises(ValueError, match="Number is too large. Maximum supported value is 1000 to prevent uncontrolled resource consumption."):
+        partition(1001)
