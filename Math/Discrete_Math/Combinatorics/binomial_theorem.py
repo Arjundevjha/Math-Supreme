@@ -2,6 +2,8 @@
 import sys
 sys.path.append('..')
 from combination import nCr
+sys.path.append('../../..')
+from typing import List
 
 
 def binomial_coefficient(n: int, r: int) -> int:
