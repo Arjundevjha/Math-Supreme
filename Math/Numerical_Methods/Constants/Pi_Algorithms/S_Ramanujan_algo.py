@@ -14,6 +14,10 @@ def factorial_decimal(n: int) -> Decimal:
     """
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
+    if n > 1000:
+        raise ValueError(
+            "Factorial calculation limit exceeded (maximum allowed is 1000)."
+        )
     
     result = Decimal(1)
     for i in range(1, n + 1):

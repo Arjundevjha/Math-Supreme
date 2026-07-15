@@ -76,4 +76,4 @@ def test_factorial_negative():
 
 def test_factorial_limit():
     with pytest.raises(ValueError, match=r"Factorial calculation limit exceeded"):
-        factorial(10001)
+        factorial(1001)
