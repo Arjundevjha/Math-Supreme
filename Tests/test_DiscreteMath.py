@@ -27,6 +27,7 @@ from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_tria
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
+from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
 from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation
 from Math.Discrete_Math.Number_Theory.partitions import partition
