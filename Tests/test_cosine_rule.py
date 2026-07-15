@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import pytest
-from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series
+from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
 
 def test_sqrt_newton_precision_zero():
     with pytest.raises(ValueError, match="Precision must be strictly greater than zero."):
@@ -89,3 +89,10 @@ def test_cosine_rule_for_angle_invalid():
         cosine_rule_for_angle(10, 2, 4)
     with pytest.raises(ValueError, match="Invalid triangle: the sum of any two sides must be greater than the third side."):
         cosine_rule_for_angle(3, 10, 4)
+
+def test_cosine_taylor():
+    pi = 3.141592653589793
+    assert abs(cosine_taylor(0) - 1.0) < 1e-5
+    assert abs(cosine_taylor(pi / 2) - 0.0) < 1e-5
+    assert abs(cosine_taylor(pi) - (-1.0)) < 1e-5
+    assert abs(cosine_taylor(pi / 4) - 0.70710678118) < 1e-5
