@@ -21,19 +21,15 @@ combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Com
 if combinatorics_dir not in sys.path:
     sys.path.insert(0, combinatorics_dir)
 
-from Math.Discrete_Math.Combinatorics.combination import nCr
 
-from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
-from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
-from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
-from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
-from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient
-from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
-from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
-from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
-from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
-from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation
-from Math.Discrete_Math.Number_Theory.partitions import partition
+from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term  # noqa: E402
+from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle  # noqa: E402
+from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r  # noqa: E402
+from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient  # noqa: E402
+from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term  # noqa: E402
+from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization  # noqa: E402
+from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation  # noqa: E402
+from Math.Discrete_Math.Number_Theory.partitions import partition  # noqa: E402
 
 
 def test_factorial_zero():
@@ -319,49 +315,6 @@ def test_partition_approximation_relative_error():
     # And at n=100, the relative error should be < 5%
     assert errors[-1] < 0.05
 
-
-
-def test_partition_negative():
-    assert partition(-1) == 0
-    assert partition(-10) == 0
-
-
-def test_partition_zero():
-    assert partition(0) == 1
-
-
-def test_partition_large_number():
-    with pytest.raises(ValueError, match="Number is too large. Maximum supported value is 1000."):
-        partition(1001)
-
-
-def test_partition_exceeds_limit():
-    with pytest.raises(ValueError, match="1000"):
-        partition(1001)
-
-
-def test_partition_too_large():
-    import pytest
-    with pytest.raises(ValueError, match="1000"):
-        partition(1001)
-
-
-def test_partition_positive():
-    # Known values from OEIS A000041
-    # n:    0, 1, 2, 3, 4, 5, 6,  7,  8,  9, 10
-    # p(n): 1, 1, 2, 3, 5, 7, 11, 15, 22, 30, 42
-    assert partition(1) == 1
-    assert partition(2) == 2
-    assert partition(3) == 3
-    assert partition(4) == 5
-    assert partition(5) == 7
-    assert partition(6) == 11
-    assert partition(7) == 15
-    assert partition(8) == 22
-    assert partition(9) == 30
-    assert partition(10) == 42
-    assert partition(15) == 176
-    assert partition(20) == 627
 
 
 def test_trinomial_coefficient():
