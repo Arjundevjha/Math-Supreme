@@ -30,14 +30,14 @@ class TestFactorialDecimal:
 class TestComputeEulersNumber:
     def test_compute_eulers_number_basic(self):
         """Test with small number of iterations."""
-        # e = 1/0! = 1
-        assert float(compute_eulers_number(iterations=1)) == pytest.approx(1.0)
+        # e for 1 iteration: 1/0! = 1
+        assert compute_eulers_number(iterations=1) == Decimal('1')
 
-        # e = 1/0! + 1/1! = 2
-        assert float(compute_eulers_number(iterations=2)) == pytest.approx(2.0)
+        # e for 2 iterations: 1/0! + 1/1! = 2
+        assert compute_eulers_number(iterations=2) == Decimal('2')
 
-        # e = 1/0! + 1/1! + 1/2! = 2.5
-        assert float(compute_eulers_number(iterations=3)) == pytest.approx(2.5)
+        # e for 3 iterations: 1/0! + 1/1! + 1/2! = 2.5
+        assert compute_eulers_number(iterations=3) == Decimal('2.5')
 
     def test_compute_eulers_number_convergence(self):
         """Test that the algorithm converges towards math.e as iterations increase."""
@@ -52,16 +52,19 @@ class TestComputeEulersNumber:
         assert error_10 < error_5
         assert error_20 < error_10
 
-        # At 20 terms, it should be reasonably close to e
-        assert math.isclose(e_20, math.e, rel_tol=1e-5)
+        # After 20 terms, it should be very close to e
+        assert math.isclose(e_20, math.e, rel_tol=1e-15)
 
     def test_compute_eulers_number_precision(self):
         """Test the precision parameter."""
-        result = compute_eulers_number(iterations=10, decimal_places=10)
+        result = compute_eulers_number(iterations=50, decimal_places=100)
         assert isinstance(result, Decimal)
 
-        high_prec_result = compute_eulers_number(iterations=10, decimal_places=100)
-        assert isinstance(high_prec_result, Decimal)
+        # Check if the context precision was indeed increased
+        # The decimal context precision is set globally in the function to decimal_places + 10
+        # For decimal_places=100, the context precision should be 110.
+        from decimal import getcontext
+        assert getcontext().prec >= 110
 
     def test_compute_eulers_number_invalid_iterations(self):
         """Test that invalid number of iterations raises ValueError."""
@@ -70,50 +73,3 @@ class TestComputeEulersNumber:
 
         with pytest.raises(ValueError, match="Iterations must be positive."):
             compute_eulers_number(iterations=-5)
-        assert factorial_decimal(0) == Decimal('1')
-
-    def test_factorial_one(self):
-        assert factorial_decimal(1) == Decimal('1')
-
-    def test_factorial_positive(self):
-        assert factorial_decimal(5) == Decimal('120')
-        assert factorial_decimal(10) == Decimal('3628800')
-
-    def test_factorial_negative(self):
-        with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
-            factorial_decimal(-1)
-
-
-class TestComputeEulersNumber:
-    def test_compute_eulers_number_small_iterations(self):
-        # 0 iterations is ValueError
-        with pytest.raises(ValueError, match="Iterations must be positive."):
-            compute_eulers_number(0)
-
-        with pytest.raises(ValueError, match="Iterations must be positive."):
-            compute_eulers_number(-5)
-
-        # e for 1 iteration: 1/0! = 1
-        assert compute_eulers_number(1) == Decimal('1')
-
-        # e for 2 iterations: 1/0! + 1/1! = 2
-        assert compute_eulers_number(2) == Decimal('2')
-
-        # e for 3 iterations: 1/0! + 1/1! + 1/2! = 2.5
-        assert compute_eulers_number(3) == Decimal('2.5')
-
-    def test_compute_eulers_number_convergence(self):
-        # After 20 iterations, the value should be very close to math.e
-        e_approx = compute_eulers_number(20)
-        assert math.isclose(float(e_approx), math.e, rel_tol=1e-15)
-
-    def test_compute_eulers_number_precision(self):
-        # Test that we can specify the precision
-        result = compute_eulers_number(50, 100)
-        assert isinstance(result, Decimal)
-
-        # Check if the context precision was indeed increased
-        # The decimal context precision is set globally in the function to decimal_places + 10
-        # For decimal_places=100, the context precision should be 110.
-        from decimal import getcontext
-        assert getcontext().prec >= 110
