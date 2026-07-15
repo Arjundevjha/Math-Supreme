@@ -31,6 +31,14 @@ def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_
     except Exception:
         x_dec = Decimal(x)
 
+    # Check for extremely small x values that would underflow when squared
+    try:
+        x_squared = x_dec * x_dec
+        if x_squared.is_zero():
+            return arctan_value
+    except (ArithmeticError, ValueError):
+        return arctan_value
+
     # First term of the Taylor series: arctan(1/x) = Σ((-1)ⁿ / ((2n+1) × x^(2n+1)))
     try:
         term = Decimal(1) / x_dec
@@ -46,7 +54,7 @@ def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_
             arctan_value += term / (2 * n + 1)
             n += 1
             try:
-                term *= -Decimal(1) / (x_dec * x_dec)
+                term *= -Decimal(1) / x_squared
             except (ArithmeticError, ValueError):
                 break
     else:
@@ -55,7 +63,7 @@ def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_
             arctan_value += term / (2 * n + 1)
             n += 1
             try:
-                term *= -Decimal(1) / (x_dec * x_dec)
+                term *= -Decimal(1) / x_squared
             except (ArithmeticError, ValueError):
                 break
 
