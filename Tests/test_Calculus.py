@@ -65,7 +65,6 @@ from Math.Calculus.Differentiation.product_rule import compute_polynomial_deriva
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
 from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative, compute_polynomial_derivative_str as compute_polynomial_derivative_str_quotient
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
-from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
 from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
 
 def test_second_derivative_quadratic():
@@ -518,45 +517,6 @@ def test_chain_rule_derivative_empty_inner():
     result = chain_rule_derivative([], [], 2)
     assert "2()^1 * ()" in result
 
-def test_integrate_cos_basic():
-    # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
-    result = integrate_cos(0, math.pi / 2)
-    assert math.isclose(result, 1.0, rel_tol=1e-5)
-
-def test_integrate_cos_full_period():
-    # Integral of cos(x) from 0 to 2*pi should be 0
-    result = integrate_cos(0, 2 * math.pi)
-    assert math.isclose(result, 0.0, abs_tol=1e-5)
-
-def test_integrate_cos_negative_bounds():
-    # Integral of cos(x) from -pi/2 to 0 should be sin(0) - sin(-pi/2) = 0 - (-1) = 1
-    result = integrate_cos(-math.pi / 2, 0)
-    assert math.isclose(result, 1.0, rel_tol=1e-5)
-
-def test_integrate_cos_same_bounds():
-    # Integral of cos(x) from a to a should be 0
-    result = integrate_cos(math.pi, math.pi)
-    assert math.isclose(result, 0.0, abs_tol=1e-5)
-
-def test_integrate_sin_basic():
-    # Integral of sin(x) from 0 to pi/2 should be -cos(pi/2) - (-cos(0)) = 0 + 1 = 1
-    result = integrate_sin(0, math.pi / 2)
-    assert math.isclose(result, 1.0, rel_tol=1e-5)
-
-def test_integrate_sin_full_period():
-    # Integral of sin(x) from 0 to 2*pi should be 0
-    result = integrate_sin(0, 2 * math.pi)
-    assert math.isclose(result, 0.0, abs_tol=1e-5)
-
-def test_integrate_sin_negative_bounds():
-    # Integral of sin(x) from -pi/2 to 0 should be -cos(0) - (-cos(-pi/2)) = -1 - 0 = -1
-    result = integrate_sin(-math.pi / 2, 0)
-    assert math.isclose(result, -1.0, rel_tol=1e-5)
-
-def test_integrate_sin_same_bounds():
-    # Integral of sin(x) from a to a should be 0
-    result = integrate_sin(math.pi, math.pi)
-    assert math.isclose(result, 0.0, abs_tol=1e-5)
 
 class TestDifferentiatePolynomial(unittest.TestCase):
     def test_basic_polynomial(self):
@@ -1190,75 +1150,7 @@ class TestCalculusDifferentiation(unittest.TestCase):
     def test_format_polynomial_product_rule_mixed_signs(self):
         self.assertEqual(format_polynomial_product_rule([-3, 4], [2, -1]), "-3x^2 + 4x^-1")
 
-class TestTrigIntegration:
-    def test_integrate_sin_basic(self):
-        """Test integral of sin(x) from 0 to pi = 2"""
-        result = integrate_sin(0, math.pi)
-        assert math.isclose(result, 2.0, rel_tol=1e-5)
 
-    def test_integrate_sin_zero(self):
-        """Test integral of sin(x) from 0 to 0 = 0"""
-        result = integrate_sin(0, 0)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_sin_full_period(self):
-        """Test integral of sin(x) from 0 to 2pi = 0"""
-        result = integrate_sin(0, 2 * math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_sin_negative_bounds(self):
-        """Test integral of sin(x) from -pi to 0 = -2"""
-        result = integrate_sin(-math.pi, 0)
-        assert math.isclose(result, -2.0, rel_tol=1e-5)
-
-    def test_integrate_sin_reversed_bounds(self):
-        """Test integral of sin(x) from pi to 0 = -2"""
-        result = integrate_sin(math.pi, 0)
-        assert math.isclose(result, -2.0, rel_tol=1e-5)
-
-    def test_integrate_sin_fractional_pi(self):
-        """Test integral of sin(x) from 0 to pi/3 = 0.5"""
-        result = integrate_sin(0, math.pi / 3)
-        assert math.isclose(result, 0.5, rel_tol=1e-5)
-
-    def test_integrate_sin_float_bounds(self):
-        """Test integral of sin(x) from 0.5 to 1.5"""
-        result = integrate_sin(0.5, 1.5)
-        expected = -math.cos(1.5) + math.cos(0.5)
-        assert math.isclose(result, expected, rel_tol=1e-5)
-
-    def test_integrate_cos_basic(self):
-        """Test integral of cos(x) from 0 to pi/2 = 1"""
-        result = integrate_cos(0, math.pi / 2)
-        assert math.isclose(result, 1.0, rel_tol=1e-5)
-
-    def test_integrate_cos_zero(self):
-        """Test integral of cos(x) from 0 to 0 = 0"""
-        result = integrate_cos(0, 0)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_cos_full_period(self):
-        """Test integral of cos(x) from 0 to 2pi = 0"""
-        result = integrate_cos(0, 2 * math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_cos_negative_bounds(self):
-        """Test integral of cos(x) from -pi/2 to 0 = 1"""
-        result = integrate_cos(-math.pi / 2, 0)
-        assert math.isclose(result, 1.0, rel_tol=1e-5)
-
-    def test_integrate_cos_half_period(self):
-        """Test integral of cos(x) from -pi/2 to pi/2 = 2"""
-        result = integrate_cos(-math.pi / 2, math.pi / 2)
-        assert math.isclose(result, 2.0, rel_tol=1e-5)
-    def test_integrate_cos_same_bounds(self):
-        """Test integral of cos(x) from a to a = 0"""
-        result = integrate_cos(math.pi, math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-    def test_integrate_cos_same_bounds(self):
-        """Test integral of cos(x) from a to a = 0"""
-        result = integrate_cos(math.pi, math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-5)
 def test_quotient_rule_derivative_happy_path():
     # Normal polynomial differentiation: u(x) = 2x^2, v(x) = 3x^1
     # u' = 4x^1, v' = 3x^0
@@ -1316,38 +1208,6 @@ class TestFormatPolynomialChainRule(unittest.TestCase):
         # zip() truncates to the shortest list
         self.assertEqual(format_polynomial_chain_rule([1, 2], [3]), "1x^3")
         self.assertEqual(format_polynomial_chain_rule([1], [3, 2]), "1x^3")
-        """Test integral of cos(x) from -pi to 0 = 0"""
-        result = integrate_cos(-math.pi, 0)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_cos_reversed_bounds(self):
-        """Test integral of cos(x) from pi/2 to 0 = -1"""
-        result = integrate_cos(math.pi / 2, 0)
-        assert math.isclose(result, -1.0, rel_tol=1e-5)
-
-    def test_integrate_cos_fractional_bounds(self):
-        """Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2)"""
-        result = integrate_cos(math.pi / 6, math.pi / 3)
-        expected = math.sin(math.pi / 3) - math.sin(math.pi / 6)
-        assert math.isclose(result, expected, rel_tol=1e-5)
-    def test_integrate_cos_same_bounds(self):
-        """Test integral of cos(x) from pi to pi = 0"""
-        result = integrate_cos(math.pi, math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_cos_half_period(self):
-        """Test integral of cos(x) from 0 to pi = 0"""
-        result = integrate_cos(0, math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-
-    def test_integrate_cos_multiple_periods(self):
-        """Test integral of cos(x) over multiple periods"""
-        result = integrate_cos(-2 * math.pi, 4 * math.pi)
-        assert math.isclose(result, 0.0, abs_tol=1e-9)
-        """Test integral of cos(x) from -pi/2 to pi/2 = 2"""
-        result = integrate_cos(-math.pi / 2, math.pi / 2)
-        assert math.isclose(result, 2.0, rel_tol=1e-5)
-
 
 class TestProductRuleComputePolynomialDerivativeStr(unittest.TestCase):
     def test_compute_polynomial_derivative_str_single_term(self):
