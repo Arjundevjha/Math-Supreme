@@ -414,7 +414,7 @@ def test_evaluate_polynomial_negative_powers():
     assert evaluate_polynomial([2, 3], [-1, 0], 2) == 4
 
 def test_evaluate_polynomial_precision():
-    import math
+    pass
 def test_evaluate_polynomial_poly_precision():
     # P(x) = 0.1x + 0.2
     # P(1.0) = 0.1(1.0) + 0.2 = 0.3

@@ -21,7 +21,6 @@ def trinomial_coefficient(n: int, i: int, j: int) -> int:
         return 0
     
     # Calculate coefficient using formula: C(n,i) × C(n-i,j)
-    k = n - i - j
     return nCr(n, i) * nCr(n - i, j)
 
 
