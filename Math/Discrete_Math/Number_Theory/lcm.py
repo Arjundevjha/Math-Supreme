@@ -1,5 +1,5 @@
 # Least Common Multiple (LCM) calculation
-import collections
+import math
 from typing import List
 
 
@@ -39,19 +39,4 @@ def compute_lcm(a: int, b: int) -> int:
     if a <= 0 or b <= 0:
         raise ValueError("Both numbers must be positive.")
     
-    # Get prime factors for both numbers
-    factors_a = prime_factorization_simple(a)
-    factors_b = prime_factorization_simple(b)
-
-    counts_a = collections.Counter(factors_a)
-    counts_b = collections.Counter(factors_b)
-
-    # Find all unique factors
-    all_factors = set(counts_a.keys()) | set(counts_b.keys())
-    
-    # Calculate LCM by taking maximum power of each prime factor
-    lcm = 1
-    for factor in all_factors:
-        lcm *= factor ** max(counts_a[factor], counts_b[factor])
-    
-    return lcm
+    return abs(a * b) // math.gcd(a, b)
