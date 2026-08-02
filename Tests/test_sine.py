@@ -1,0 +1,60 @@
+import sys
+import os
+
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+math_dir = os.path.join(project_root, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+import math
+import pytest
+from Math.Geometry.Trigonometry.Trig_Functions.sine import sine, factorial
+
+def test_factorial():
+    assert factorial(0) == 1
+    assert factorial(1) == 1
+    assert factorial(5) == 120
+
+    with pytest.raises(ValueError, match="Factorial not defined for negative numbers."):
+        factorial(-1)
+
+    with pytest.raises(ValueError, match="Factorial calculation limit exceeded"):
+        factorial(1001)
+
+def test_sine_known_values():
+    pi = math.pi
+    tolerance = 1e-5
+
+    # Test known values
+    assert abs(sine(0) - 0.0) < tolerance
+    assert abs(sine(pi / 6) - 0.5) < tolerance
+    assert abs(sine(pi / 4) - math.sin(pi / 4)) < tolerance
+    assert abs(sine(pi / 3) - math.sin(pi / 3)) < tolerance
+    assert abs(sine(pi / 2) - 1.0) < tolerance
+    assert abs(sine(pi) - 0.0) < tolerance
+
+def test_sine_negative_angles():
+    pi = math.pi
+    tolerance = 1e-5
+
+    assert abs(sine(-pi / 2) - (-1.0)) < tolerance
+    assert abs(sine(-pi / 6) - (-0.5)) < tolerance
+    assert abs(sine(-pi) - 0.0) < tolerance
+
+def test_sine_types():
+    tolerance = 1e-5
+    assert abs(sine(0) - 0.0) < tolerance  # int
+    assert abs(sine(0.0) - 0.0) < tolerance  # float
+
+def test_sine_large_angles():
+    pi = math.pi
+    tolerance = 1e-5
+
+    # Test 2pi (should be 0)
+    assert abs(sine(2 * pi) - 0.0) < tolerance
+
+    # The Taylor series might have precision loss for very large numbers
+    # Let's test a moderately larger number where it still converges
+    assert abs(sine(3 * pi / 2) - (-1.0)) < tolerance
