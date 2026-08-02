@@ -18,15 +18,16 @@ def factorial(n: int) -> int:
 
 def sine_taylor(radians: Union[int, float]) -> float:
     """Calculate sine using Taylor series."""
-    sine_value = 0
-    sign = 0
-    for idx in range(1, 100, 2):
-        fact = factorial(idx)
-        if sign % 2 == 0:
-            sine_value += radians**idx / fact
-        else:
-            sine_value -= radians**idx / fact
-        sign += 1
+    sine_value = float(radians)
+    term = float(radians)
+    radians_sq = float(radians * radians)
+
+    # Calculate sine using Taylor series iteratively:
+    # Next term = Previous term * (-x^2) / ((2n)(2n+1))
+    for idx in range(3, 100, 2):
+        term *= -radians_sq / ((idx - 1) * idx)
+        sine_value += term
+
     return sine_value
 
 
