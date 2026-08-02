@@ -4,7 +4,7 @@ from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import (
     calculate_pi_nilakantha,
 )
-from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
+from Math.utils.math_utils import factorial
 from Math.Numerical_Methods.Functions.nth_root.nth_root import nth_root
 
 
