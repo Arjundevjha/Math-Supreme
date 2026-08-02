@@ -37,6 +37,10 @@ def n_permute_r(n: int, r: int) -> Union[int, float]:
     Returns:
     Union[int, float]: The number of permutations (n permute r).
     """
+    if not isinstance(n, int) or not isinstance(r, int) or isinstance(n, bool) or isinstance(r, bool):
+        raise TypeError("n and r must be integers")
+    if r < 0 or n < 0:
+        raise ValueError("n and r must be non-negative integers")
     if n < r:
         raise ValueError(
             "n should be greater than or equal to r for permutations to be valid."
