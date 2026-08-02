@@ -1,5 +1,16 @@
+import os
+import sys
+import pytest
 import math
 import unittest
+
+# Fix imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Math"))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Probability_and_Statistics.Descriptive_Statistics.median import median
 

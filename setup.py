@@ -4,7 +4,7 @@ setup(
     name='Math-Supreme',
     version='0.0.1',
     description='Deep Library of mathematical operations',
-    long_description=open('README.md', encoding='utf-8').read(),
+    long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     author='Aarav Rastogi, Arjun Dev Jha',
     author_email='arjundevjha111@gmail.com, aarav.rastogi24@gmail.com',

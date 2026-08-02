@@ -1,16 +1,18 @@
 import math
 import os
 import sys
+import math
 import pytest
+import math
 
 # Add root directory to path
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
-from Math.Algebra.Polynomials.polynomial import format_polynomial, evaluate_polynomial
+from Math.Algebra.Polynomials.polynomial import format_polynomial, evaluate_polynomial as evaluate_polynomial_poly
 from Math.Algebra.Linear_Equations.linear_eqn import linear_eqn
-from Math.Algebra.Polynomials.factor_theorem import check_factor
+from Math.Algebra.Polynomials.factor_theorem import evaluate_polynomial, check_factor
 
 def test_format_polynomial_basic():
     result = format_polynomial([2, 3, 4], [2, 1, 0])
@@ -300,6 +302,7 @@ def test_check_factor_float():
 def test_check_factor_precision():
     # P(x) = x^2 - 2
     # Factor is (x - sqrt(2)) => x = sqrt(2)
+    import math
     assert check_factor([1, -2], [2, 0], math.sqrt(2)) is True
 
     # P(x) = x^3 - 3
@@ -384,110 +387,109 @@ def test_check_factor_zero_value():
         # Empty polynomial P(x) = 0
         # For any x, P(x) = 0, so any (x - a) is a factor
         assert check_factor([], [], 5) is True
-def test_evaluate_polynomial_basic():
+def test_evaluate_polynomial_poly_basic():
     # P(x) = 2x^2 + 3x + 1
     # P(2) = 2(2^2) + 3(2) + 1 = 8 + 6 + 1 = 15
-    assert evaluate_polynomial([2, 3, 1], [2, 1, 0], 2) == 15
+    assert evaluate_polynomial_poly([2, 3, 1], [2, 1, 0], 2) == 15
 
-def test_evaluate_polynomial_zero_x():
+def test_evaluate_polynomial_poly_zero_x():
     # P(x) = 5x^3 - 2x^2 + 4
     # P(0) = 4
-    assert evaluate_polynomial([5, -2, 4], [3, 2, 0], 0) == 4
+    assert evaluate_polynomial_poly([5, -2, 4], [3, 2, 0], 0) == 4
 
-def test_evaluate_polynomial_negative_x():
+def test_evaluate_polynomial_poly_negative_x():
     # P(x) = x^3 - x^2 + x - 1
     # P(-2) = (-2)^3 - (-2)^2 + (-2) - 1 = -8 - 4 - 2 - 1 = -15
-    assert evaluate_polynomial([1, -1, 1, -1], [3, 2, 1, 0], -2) == -15
+    assert evaluate_polynomial_poly([1, -1, 1, -1], [3, 2, 1, 0], -2) == -15
 
-def test_evaluate_polynomial_floating_point():
+def test_evaluate_polynomial_poly_floating_point():
     # P(x) = 1.5x^2 + 2.5x
     # P(2.0) = 1.5(2.0^2) + 2.5(2.0) = 6.0 + 5.0 = 11.0
-    assert math.isclose(evaluate_polynomial([1.5, 2.5], [2, 1], 2.0), 11.0)
+    assert math.isclose(evaluate_polynomial_poly([1.5, 2.5], [2, 1], 2.0), 11.0)
 
-def test_evaluate_polynomial_empty():
+def test_evaluate_polynomial_poly_empty():
     # Empty polynomial
-    assert evaluate_polynomial([], [], 5) == 0
+    assert evaluate_polynomial_poly([], [], 5) == 0
 
-def test_evaluate_polynomial_negative_powers():
+def test_evaluate_polynomial_poly_negative_powers():
     # P(x) = 2x^-1 + 3
     # P(2) = 2(2^-1) + 3 = 1 + 3 = 4
-    assert evaluate_polynomial([2, 3], [-1, 0], 2) == 4
+    assert evaluate_polynomial_poly([2, 3], [-1, 0], 2) == 4
 
-def test_evaluate_polynomial_precision():
-    import math
 def test_evaluate_polynomial_poly_precision():
+    import math
     # P(x) = 0.1x + 0.2
     # P(1.0) = 0.1(1.0) + 0.2 = 0.3
     # Use math.isclose to account for floating point precision issues (0.1 + 0.2 = 0.30000000000000004)
-    assert math.isclose(evaluate_polynomial([0.1, 0.2], [1, 0], 1.0), 0.3)
+    assert math.isclose(evaluate_polynomial_poly([0.1, 0.2], [1, 0], 1.0), 0.3)
 
-def test_evaluate_polynomial_zero_power_zero_x():
+def test_evaluate_polynomial_poly_zero_power_zero_x():
     # x=0, power=0 -> 0**0 = 1 in Python
     # P(x) = 3x^0
     # P(0) = 3 * 0^0 = 3
-    assert evaluate_polynomial([3], [0], 0) == 3
+    assert evaluate_polynomial_poly([3], [0], 0) == 3
 
-def test_evaluate_polynomial_unequal_lists():
+def test_evaluate_polynomial_poly_unequal_lists():
     # zip truncates to shortest list
     # P(x) = 2x^2 + 3x
     # with extra power or extra coeff
-    assert evaluate_polynomial([2, 3, 4], [2, 1], 2) == 14
-    assert evaluate_polynomial([2, 3], [2, 1, 0], 2) == 14
+    assert evaluate_polynomial_poly([2, 3, 4], [2, 1], 2) == 14
+    assert evaluate_polynomial_poly([2, 3], [2, 1, 0], 2) == 14
 
-def test_evaluate_polynomial_zero_division():
+def test_evaluate_polynomial_poly_zero_division():
     # x=0 with negative power raises ZeroDivisionError
     # P(x) = 2x^-1
     with pytest.raises(ZeroDivisionError):
-        evaluate_polynomial([2], [-1], 0)
+        evaluate_polynomial_poly([2], [-1], 0)
 
-def test_evaluate_polynomial_all_zero_coeffs():
+def test_evaluate_polynomial_poly_all_zero_coeffs():
     # P(x) = 0x^2 + 0x + 0
-    assert evaluate_polynomial([0, 0, 0], [2, 1, 0], 5) == 0
-    assert math.isclose(evaluate_polynomial([2, 3], [-1, 0], 2), 4.0)
-def test_evaluate_polynomial_fractional_powers():
+    assert evaluate_polynomial_poly([0, 0, 0], [2, 1, 0], 5) == 0
+    assert math.isclose(evaluate_polynomial_poly([2, 3], [-1, 0], 2), 4.0)
+def test_evaluate_polynomial_poly_fractional_powers():
     # P(x) = 1x^0.5
     # P(4) = 1 * 4^0.5 = 2.0
-    assert evaluate_polynomial([1], [0.5], 4) == 2.0
+    assert evaluate_polynomial_poly([1], [0.5], 4) == 2.0
 
-def test_evaluate_polynomial_precision():
+def test_evaluate_polynomial_poly_precision():
     # P(x) = 0.1x + 0.2x
     # P(1) = 0.1(1) + 0.2(1) = 0.3
     # Direct equality might fail due to floating point precision: 0.1 + 0.2 = 0.30000000000000004
-    result = evaluate_polynomial([0.1, 0.2], [1, 1], 1)
+    result = evaluate_polynomial_poly([0.1, 0.2], [1, 1], 1)
     assert math.isclose(result, 0.3, rel_tol=1e-9, abs_tol=1e-9)
 
-def test_evaluate_polynomial_zero_coef():
+def test_evaluate_polynomial_poly_zero_coef():
     # P(x) = 0x^2 + 0x + 0
-    assert evaluate_polynomial([0, 0, 0], [2, 1, 0], 100) == 0
+    assert evaluate_polynomial_poly([0, 0, 0], [2, 1, 0], 100) == 0
 
-def test_evaluate_polynomial_large_numbers():
+def test_evaluate_polynomial_poly_large_numbers():
     # P(x) = 1x^10
     # P(10) = 10^10 = 10000000000
-    assert evaluate_polynomial([1], [10], 10) == 10000000000
+    assert evaluate_polynomial_poly([1], [10], 10) == 10000000000
 
-def test_evaluate_polynomial_zero_to_zero():
+def test_evaluate_polynomial_poly_zero_to_zero():
     # P(x) = 1x^0
     # P(0) = 1(0^0) = 1.0 (in python, 0**0 is 1)
-    assert evaluate_polynomial([1], [0], 0) == 1
-def test_evaluate_polynomial_fractional_powers():
+    assert evaluate_polynomial_poly([1], [0], 0) == 1
+def test_evaluate_polynomial_poly_fractional_powers():
     # P(x) = x^0.5 + 2
     # P(4) = 4^0.5 + 2 = 2 + 2 = 4.0
-    assert evaluate_polynomial([1, 2], [0.5, 0], 4) == 4.0
+    assert evaluate_polynomial_poly([1, 2], [0.5, 0], 4) == 4.0
 
-def test_evaluate_polynomial_large_numbers():
+def test_evaluate_polynomial_poly_large_numbers():
     # P(x) = x^10
     # P(2) = 2^10 = 1024
-    assert evaluate_polynomial([1], [10], 2) == 1024
+    assert evaluate_polynomial_poly([1], [10], 2) == 1024
 
-def test_evaluate_polynomial_zero_division_error():
+def test_evaluate_polynomial_poly_zero_division_error():
     # P(x) = x^-1
     # P(0) should raise ZeroDivisionError
     with pytest.raises(ZeroDivisionError):
-        evaluate_polynomial([1], [-1], 0)
+        evaluate_polynomial_poly([1], [-1], 0)
 
-def test_evaluate_polynomial_mismatched_lengths():
+def test_evaluate_polynomial_poly_mismatched_lengths():
     # Evaluate polynomial with mismatched lengths of coefficients and powers
     # P(x) = 2x^2 + 3x
     # Should zip up to the shortest list (coefficients has 2, powers has 1)
     # result = 2*(2^2) = 8
-    assert evaluate_polynomial([2, 3], [2], 2) == 8
+    assert evaluate_polynomial_poly([2, 3], [2], 2) == 8
