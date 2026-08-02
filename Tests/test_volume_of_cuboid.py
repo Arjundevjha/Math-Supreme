@@ -3,14 +3,6 @@ import os
 import unittest
 import math
 
-# Add project root and Math/ to sys.path
-dir_path = os.path.dirname(os.path.realpath(__file__))
-parent_dir_path = os.path.abspath(os.path.join(dir_path, os.pardir))
-if parent_dir_path not in sys.path:
-    sys.path.insert(0, parent_dir_path)
-math_dir = os.path.join(parent_dir_path, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
 from Math.Geometry.Euclidean_Geometry.Volume.cuboid import volume_of_cuboid
 

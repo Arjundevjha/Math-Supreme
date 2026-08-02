@@ -3,14 +3,7 @@ import os
 import math
 import pytest
 
-# Add both the project root and the Math/ directory to sys.path
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-math_dir = os.path.join(project_root, 'Math')
 
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
 from Math.Geometry.Euclidean_Geometry.pythagoras_theorem import pythagorean_theorem
 

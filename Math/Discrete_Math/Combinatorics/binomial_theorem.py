@@ -1,7 +1,6 @@
 # Binomial theorem expansion
 import sys
-sys.path.append('..')
-from combination import nCr
+from Math.Discrete_Math.Combinatorics.combination import nCr
 
 
 def binomial_coefficient(n: int, r: int) -> int:

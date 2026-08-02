@@ -1,18 +1,11 @@
 import sys
 import os
 
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
-math_dir = os.path.join(project_root, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
 import pytest
 from Math.Geometry.Trigonometry.Formulas.cosine_rule import (
     sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
 )
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
 
 def test_sqrt_newton_precision_zero():

@@ -2,18 +2,8 @@ import sys
 import os
 import unittest
 
-# Ensure both the project root and Math directory are in sys.path
-# to avoid ModuleNotFoundError when running tests individually.
-current_dir = os.path.dirname(os.path.abspath(__file__))
-project_root = os.path.dirname(current_dir)
-math_dir = os.path.join(project_root, 'Math')
 
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-
-from Geometry.Analytic_Geometry.line_equations.line_from_points import line_from_points
+from Math.Geometry.Analytic_Geometry.line_equations.line_from_points import line_from_points
 
 class TestLineFromPoints(unittest.TestCase):
 

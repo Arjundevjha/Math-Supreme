@@ -1,7 +1,6 @@
 # General term of the binomial expansion
 import sys
-sys.path.append('..')
-from combination import nCr
+from Math.Discrete_Math.Combinatorics.combination import nCr
 from typing import Union
 
 
