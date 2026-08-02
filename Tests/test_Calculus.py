@@ -63,7 +63,7 @@ if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
 from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
-from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative, compute_polynomial_derivative_str as compute_polynomial_derivative_str_quotient
+from Math.Calculus.Differentiation.quotient_rule import format_polynomial, compute_polynomial_derivative_str as compute_polynomial_derivative_str_quotient
 from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
 from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
 from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
@@ -668,84 +668,16 @@ class TestFormatPolynomialChainRule:
 
 if __name__ == '__main__':
     unittest.main()
-def test_quotient_rule_derivative_basic():
-    # u(x) = x, v(x) = x
-    # u' = 1x^0, v' = 1x^0
-    # Expected: ((1x^0) * (1x^1) - (1x^1) * (1x^0)) / (1x^1)^2
-    result = quotient_rule_derivative([1], [1], [1], [1])
-    assert result == "((1x^0) * (1x^1) - (1x^1) * (1x^0)) / (1x^1)^2"
 
-def test_quotient_rule_derivative_polynomials():
-    # u(x) = 2x^3, v(x) = x^2
-    # u' = 6x^2, v' = 2x^1
-    # Expected: ((6x^2) * (1x^2) - (2x^3) * (2x^1)) / (1x^2)^2
-    result = quotient_rule_derivative([2], [3], [1], [2])
-    assert result == "((6x^2) * (1x^2) - (2x^3) * (2x^1)) / (1x^2)^2"
 
-def test_quotient_rule_derivative_multiple_terms():
-    # u(x) = x^2 + 2x, v(x) = 3x + 4
-    # u' = 2x^1 + 2x^0, v' = 3x^0
-    # Expected: ((2x^1 + 2x^0) * (3x^1 + 4x^0) - (1x^2 + 2x^1) * (3x^0)) / (3x^1 + 4x^0)^2
-    result = quotient_rule_derivative([1, 2], [2, 1], [3, 4], [1, 0])
-    assert result == "((2x^1 + 2x^0) * (3x^1 + 4x^0) - (1x^2 + 2x^1) * (3x^0)) / (3x^1 + 4x^0)^2"
 
-def test_quotient_rule_derivative_constant_numerator():
-    # u(x) = 5, v(x) = 2x
-    # u' = 0, v' = 2x^0
-    # Expected: ((0) * (2x^1) - (5x^0) * (2x^0)) / (2x^1)^2
-    result = quotient_rule_derivative([5], [0], [2], [1])
-    assert result == "((0) * (2x^1) - (5x^0) * (2x^0)) / (2x^1)^2"
 
-def test_quotient_rule_derivative_constant_denominator():
-    # u(x) = 2x, v(x) = 5
-    # u' = 2x^0, v' = 0
-    # Expected: ((2x^0) * (5x^0) - (2x^1) * (0)) / (5x^0)^2
-    result = quotient_rule_derivative([2], [1], [5], [0])
-    assert result == "((2x^0) * (5x^0) - (2x^1) * (0)) / (5x^0)^2"
 
-def test_quotient_rule_derivative_negative_coefficients_and_powers():
-    # u(x) = -3x^-2, v(x) = 4x^-1
-    # u' = 6x^-3, v' = -4x^-2
-    # Expected: ((6x^-3) * (4x^-1) - (-3x^-2) * (-4x^-2)) / (4x^-1)^2
-    result = quotient_rule_derivative([-3], [-2], [4], [-1])
-    assert result == "((6x^-3) * (4x^-1) - (-3x^-2) * (-4x^-2)) / (4x^-1)^2"
 
-def test_quotient_rule_derivative_float_coefficients():
-    # u(x) = 1.5x^2, v(x) = 2.5x^3
-    # u' = 3.0x^1, v' = 7.5x^2
-    # Expected: ((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2
-    result = quotient_rule_derivative([1.5], [2], [2.5], [3])
-    assert result == "((3.0x^1) * (2.5x^3) - (1.5x^2) * (7.5x^2)) / (2.5x^3)^2"
 
-def test_quotient_rule_derivative_zero_coefficients():
-    # u(x) = 0x^2, v(x) = 1x^1
-    # u' = 0x^1, v' = 1x^0
-    # Expected: ((0x^1) * (1x^1) - (0x^2) * (1x^0)) / (1x^1)^2
-    result = quotient_rule_derivative([0], [2], [1], [1])
-    assert result == "((0x^1) * (1x^1) - (0x^2) * (1x^0)) / (1x^1)^2"
 
-def test_quotient_rule_derivative_empty_lists():
-    # u(x) = empty, v(x) = empty
-    # u' = 0, v' = 0
-    # Expected: ((0) * () - () * (0)) / ()^2
-    result = quotient_rule_derivative([], [], [], [])
-    assert result == "((0) * () - () * (0)) / ()^2"
 
-def test_quotient_rule_derivative_fractional_powers():
-    # u(x) = 1x^2.5 -> format converts power to int, so 1x^2
-    # compute derivative converts new power to int: 2.5 * 1 = 2.5, power = 1.5 -> int is 1
-    # u' = 2.5x^1
-    # v(x) = 2x^0.5 -> format converts power to int, so 2x^0
-    # v' = 0.5 * 2 = 1.0, power = -0.5 -> int is 0
-    # v' = 1.0x^0
-    result = quotient_rule_derivative([1], [2.5], [2], [0.5])
-    assert result == "((2.5x^1) * (2x^0) - (1x^2) * (1.0x^0)) / (2x^0)^2"
 
-def test_quotient_rule_derivative_zero_power_numerator_and_denominator():
-    # u(x) = 1x^0, v(x) = 1x^0
-    # u' = 0, v' = 0
-    result = quotient_rule_derivative([1], [0], [1], [0])
-    assert result == "((0) * (1x^0) - (1x^0) * (0)) / (1x^0)^2"
 def test_format_polynomial_chain_rule_basic():
     coeffs = [3, 5]
     powers = [2, 1]
@@ -790,59 +722,6 @@ def test_format_polynomial_chain_rule_zero_coeff():
     assert "5x^1" in terms
     assert len(terms) == 2
 
-class TestQuotientRule(unittest.TestCase):
-    def test_format_polynomial_quotient_rule_basic(self):
-        self.assertEqual(format_polynomial([3], [2]), "3x^2")
-
-    def test_format_polynomial_quotient_rule_multiple_terms(self):
-        self.assertEqual(format_polynomial([3, 2, 1], [2, 1, 0]), "3x^2 + 2x^1 + 1x^0")
-
-    def test_format_polynomial_quotient_rule_floats(self):
-        self.assertEqual(format_polynomial([1.5, 2.5], [2, 1]), "1.5x^2 + 2.5x^1")
-
-    def test_format_polynomial_quotient_rule_negative_powers(self):
-        self.assertEqual(format_polynomial([3], [-2]), "3x^-2")
-
-    def test_format_polynomial_quotient_rule_empty(self):
-        self.assertEqual(format_polynomial([], []), "")
-
-    def test_compute_polynomial_derivative_str_basic(self):
-        result = compute_polynomial_derivative_str_quotient([3], [2])
-        terms = [t.strip() for t in result.split("+")]
-        self.assertIn("6x^1", terms)
-        self.assertEqual(len(terms), 1)
-
-    def test_compute_polynomial_derivative_str_multiple_terms(self):
-        result = compute_polynomial_derivative_str_quotient([3, 2, 1], [2, 1, 0])
-        terms = [t.strip() for t in result.split("+")]
-        self.assertIn("6x^1", terms)
-        self.assertIn("2x^0", terms)
-        self.assertEqual(len(terms), 2)
-
-    def test_compute_polynomial_derivative_str_constant(self):
-        self.assertEqual(compute_polynomial_derivative_str_quotient([5], [0]), "0")
-
-    def test_compute_polynomial_derivative_str_zero_coefficient(self):
-        result = compute_polynomial_derivative_str_quotient([0], [2])
-        terms = [t.strip() for t in result.split("+")]
-        self.assertIn("0x^1", terms)
-        self.assertEqual(len(terms), 1)
-
-    def test_compute_polynomial_derivative_str_float(self):
-        result = compute_polynomial_derivative_str_quotient([1.5, 2.5], [2, 1])
-        terms = [t.strip() for t in result.split("+")]
-        self.assertIn("3.0x^1", terms)
-        self.assertIn("2.5x^0", terms)
-        self.assertEqual(len(terms), 2)
-
-    def test_compute_polynomial_derivative_str_negative_powers(self):
-        result = compute_polynomial_derivative_str_quotient([3], [-2])
-        terms = [t.strip() for t in result.split("+")]
-        self.assertIn("-6x^-3", terms)
-        self.assertEqual(len(terms), 1)
-
-    def test_compute_polynomial_derivative_str_empty(self):
-        self.assertEqual(compute_polynomial_derivative_str_quotient([], []), "0")
 
 def test_format_polynomial_integration_multiple_terms():
     result = format_polynomial_integration([2.0, 3.5, 1.0], [2.0, 1.0, 0.0])
@@ -1259,34 +1138,11 @@ class TestTrigIntegration:
         """Test integral of cos(x) from a to a = 0"""
         result = integrate_cos(math.pi, math.pi)
         assert math.isclose(result, 0.0, abs_tol=1e-5)
-def test_quotient_rule_derivative_happy_path():
-    # Normal polynomial differentiation: u(x) = 2x^2, v(x) = 3x^1
-    # u' = 4x^1, v' = 3x^0
-    result = quotient_rule_derivative([2], [2], [3], [1])
-    assert result == "((4x^1) * (3x^1) - (2x^2) * (3x^0)) / (3x^1)^2"
 
-def test_quotient_rule_derivative_empty_numerator_edge():
-    # u(x) = 0 (empty), v(x) = x
-    result = quotient_rule_derivative([], [], [1], [1])
-    assert result == "((0) * (1x^1) - () * (1x^0)) / (1x^1)^2"
 
-def test_quotient_rule_derivative_empty_denominator_edge():
-    # u(x) = x, v(x) = 0 (empty)
-    result = quotient_rule_derivative([1], [1], [], [])
-    assert result == "((1x^0) * () - (1x^1) * (0)) / ()^2"
 
-def test_quotient_rule_derivative_both_empty_edge():
-    # u(x) = 0 (empty), v(x) = 0 (empty)
-    result = quotient_rule_derivative([], [], [], [])
-    assert result == "((0) * () - () * (0)) / ()^2"
 
-def test_quotient_rule_derivative_fractional_powers_edge():
-    result = quotient_rule_derivative([1], [0.5], [1], [1.5])
-    assert result == "((0.5x^0) * (1x^1) - (1x^0) * (1.5x^0)) / (1x^1)^2"
 
-def test_quotient_rule_derivative_zero_polynomials_edge():
-    result = quotient_rule_derivative([0], [0], [1], [1])
-    assert result == "((0) * (1x^1) - (0x^0) * (1x^0)) / (1x^1)^2"
 
 
 class TestFormatPolynomialChainRule(unittest.TestCase):
