@@ -1,19 +1,6 @@
 # Cosecant function
 from typing import Union
-
-
-def factorial(n: int) -> int:
-    """Calculate factorial of n."""
-    if n < 0:
-        raise ValueError("Factorial not defined for negative numbers.")
-    if n > 1000:
-        raise ValueError(
-            "Factorial calculation limit exceeded (maximum allowed is 1000)."
-        )
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
+from Math.math_utils import factorial
 
 
 def sine_taylor(radians: Union[int, float]) -> float:

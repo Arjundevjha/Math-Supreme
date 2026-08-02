@@ -1,29 +1,6 @@
 # Permutation formula: for nPr where n and r are non-negative integers
 from typing import Union
-
-
-def factorial(n: int) -> int:
-    """
-    Calculate factorial of n using recursion.
-
-    Parameters:
-    n (int): The number to calculate factorial for.
-
-    Returns:
-    int: The factorial of n (n!).
-    """
-
-    if n < 0:
-        raise ValueError("Factorial is not defined for negative numbers.")
-    if n > 1000:
-        raise ValueError(
-            "Factorial calculation limit exceeded (maximum allowed is 1000)."
-        )
-    if n == 0:
-        return 1
-    else:
-        # Calculate factorial recursively
-        return n * factorial(n - 1)
+from Math.math_utils import factorial
 
 
 def n_permute_r(n: int, r: int) -> Union[int, float]:
