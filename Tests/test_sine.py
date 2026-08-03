@@ -1,14 +1,3 @@
-import sys
-import os
-
-project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if project_root not in sys.path:
-    sys.path.insert(0, project_root)
-math_dir = os.path.join(project_root, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-
-import math
 import pytest
 from Math.Geometry.Trigonometry.Trig_Functions.sine import sine, factorial
 
@@ -24,19 +13,19 @@ def test_factorial():
         factorial(1001)
 
 def test_sine_known_values():
-    pi = math.pi
+    pi = 3.141592653589793
     tolerance = 1e-5
 
     # Test known values
     assert abs(sine(0) - 0.0) < tolerance
     assert abs(sine(pi / 6) - 0.5) < tolerance
-    assert abs(sine(pi / 4) - math.sin(pi / 4)) < tolerance
-    assert abs(sine(pi / 3) - math.sin(pi / 3)) < tolerance
+    assert abs(sine(pi / 4) - 0.7071067811865476) < tolerance
+    assert abs(sine(pi / 3) - 0.8660254037844386) < tolerance
     assert abs(sine(pi / 2) - 1.0) < tolerance
     assert abs(sine(pi) - 0.0) < tolerance
 
 def test_sine_negative_angles():
-    pi = math.pi
+    pi = 3.141592653589793
     tolerance = 1e-5
 
     assert abs(sine(-pi / 2) - (-1.0)) < tolerance
@@ -49,7 +38,7 @@ def test_sine_types():
     assert abs(sine(0.0) - 0.0) < tolerance  # float
 
 def test_sine_large_angles():
-    pi = math.pi
+    pi = 3.141592653589793
     tolerance = 1e-5
 
     # Test 2pi (should be 0)
