@@ -20,8 +20,9 @@ def cosine_taylor(radians: Union[int, float]) -> float:
     """Calculate cosine using Taylor series."""
     cos_value = 1
     sign = 1
+    fact = 1
     for idx in range(2, 100, 2):
-        fact = factorial(idx)
+        fact *= (idx - 1) * idx
         if sign % 2 == 0:
             cos_value += radians**idx / fact
         else:
