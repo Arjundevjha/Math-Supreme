@@ -1,16 +1,4 @@
-import os
-import sys
 import pytest
-
-# Add root directory to path to allow "Math.Discrete_Math..." imports
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if root_dir not in sys.path:
-    sys.path.insert(0, root_dir)
-
-# the code has imports assuming "Math" is the root in some cases, so let's add it too
-math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
 from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
 
