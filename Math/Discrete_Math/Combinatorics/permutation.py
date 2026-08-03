@@ -12,6 +12,13 @@ def factorial(n: int) -> int:
     Returns:
     int: The factorial of n (n!).
     """
+
+    if n < 0:
+        raise ValueError("Factorial is not defined for negative numbers.")
+    if n > 1000:
+        raise ValueError(
+            "Factorial calculation limit exceeded (maximum allowed is 1000)."
+        )
     if n == 0:
         return 1
     else:
@@ -31,7 +38,9 @@ def n_permute_r(n: int, r: int) -> Union[int, float]:
     Union[int, float]: The number of permutations (n permute r).
     """
     if n < r:
-        raise ValueError("n should be greater than or equal to r for permutations to be valid.")
+        raise ValueError(
+            "n should be greater than or equal to r for permutations to be valid."
+        )
 
     # Calculate permutations using factorial formula
     return factorial(n) / factorial(n - r)

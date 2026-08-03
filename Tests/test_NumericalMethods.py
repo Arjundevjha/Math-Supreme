@@ -5,6 +5,7 @@ from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import (
     calculate_pi_nilakantha,
 )
 from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
+from Math.Numerical_Methods.Functions.nth_root.nth_root import nth_root
 
 
 class TestNilakanthaAlgorithm:
@@ -76,4 +77,71 @@ def test_factorial_negative():
 
 def test_factorial_limit():
     with pytest.raises(ValueError, match=r"Factorial calculation limit exceeded"):
-        factorial(10001)
+        factorial(1001)
+
+
+def test_nth_root_basic_int():
+    assert nth_root(8, 3) == pytest.approx(2.0)
+    assert nth_root(1000, 3) == pytest.approx(10.0)
+    assert nth_root(16, 4) == pytest.approx(2.0)
+    assert nth_root(1, 100) == pytest.approx(1.0)
+
+
+def test_nth_root_basic_float():
+    assert nth_root(2, 2) == pytest.approx(1.414213562373095)
+    assert nth_root(10, 3) == pytest.approx(2.154434690031884)
+    assert nth_root(0.123456, 5) == pytest.approx(0.6581159862199095)
+
+
+def test_nth_root_negative_base():
+    assert nth_root(-8, 3) == pytest.approx(-2.0)
+    assert nth_root(-1000, 3) == pytest.approx(-10.0)
+    assert nth_root(-32, 5) == pytest.approx(-2.0)
+
+    with pytest.raises(
+        ValueError, match="Real n-th root of a negative number is undefined"
+    ):
+        nth_root(-4, 2)
+    with pytest.raises(
+        ValueError, match="Real n-th root of a negative number is undefined"
+    ):
+        nth_root(-8, 2.5)
+
+
+def test_nth_root_negative_exponent():
+    assert nth_root(8, -3) == pytest.approx(0.5)
+    assert nth_root(4, -2) == pytest.approx(0.5)
+    assert nth_root(-8, -3) == pytest.approx(-0.5)
+
+
+def test_nth_root_fractional_degree():
+    assert nth_root(2, 0.5) == pytest.approx(4.0)
+    assert nth_root(4, 2.5) == pytest.approx(1.7411011265922482)
+
+
+def test_nth_root_zero():
+    assert nth_root(0, 3) == 0.0
+    assert nth_root(0, 2.5) == 0.0
+    with pytest.raises(
+        ValueError,
+        match="Zero cannot be raised to a negative power or root",
+    ):
+        nth_root(0, -3)
+
+
+def test_nth_root_invalid_degree():
+    with pytest.raises(
+        ValueError, match="The root degree 'n' cannot be zero"
+    ):
+        nth_root(8, 0)
+
+
+def test_nth_root_decimal_precision():
+    x = Decimal("2")
+    n = Decimal("3")
+    res = nth_root(x, n, precision=50)
+    assert isinstance(res, Decimal)
+    assert str(res).startswith(
+        "1.2599210498948731647672106072782283505702514647015"
+    )
+    assert res**3 == pytest.approx(2.0)

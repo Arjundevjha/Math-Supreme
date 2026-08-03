@@ -5,3 +5,7 @@ __pycache__/
 .pytest_cache/
 
 .coverage
+
+# Packaging artifacts
+Math_Supreme.egg-info/
+.pytest_cache/

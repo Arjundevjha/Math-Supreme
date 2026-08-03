@@ -204,6 +204,8 @@ the repository.
     - [x] `factorial.py`
   - [ ] `hexation/`
     - [ ] `hexation.py`
+  - [x] `nth_root/`
+    - [x] `nth_root.py`
   - [ ] `square_root/`
   - [ ] `tetration/`
     - [ ] `tetration.py`
