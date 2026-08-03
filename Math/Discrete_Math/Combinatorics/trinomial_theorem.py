@@ -1,8 +1,7 @@
 # Trinomial theorem expansion
 import sys
 import os
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from combination import nCr
+from Math.Discrete_Math.Combinatorics.combination import nCr
 
 
 def trinomial_coefficient(n: int, i: int, j: int) -> int:

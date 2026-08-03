@@ -3,17 +3,8 @@ import sys
 import pytest
 
 # Add root directory to path
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if root_dir not in sys.path:
-    sys.path.insert(0, root_dir)
 
-math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
-combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Combinatorics'))
-if combinatorics_dir not in sys.path:
-    sys.path.insert(0, combinatorics_dir)
 
 from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
 

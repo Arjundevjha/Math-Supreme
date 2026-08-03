@@ -2,15 +2,7 @@ import sys
 import os
 import pytest
 
-# Add both the project root and Math/ directory to sys.path
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-math_dir = os.path.join(parent_dir, 'Math')
 
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
 

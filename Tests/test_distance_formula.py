@@ -3,15 +3,7 @@ import os
 import math
 import pytest
 
-# Add project root and Math/ to sys.path to resolve imports
-current_dir = os.path.dirname(os.path.abspath(__file__))
-parent_dir = os.path.dirname(current_dir)
-if parent_dir not in sys.path:
-    sys.path.insert(0, parent_dir)
 
-math_dir = os.path.join(parent_dir, "Math")
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
 from Math.Geometry.Analytic_Geometry.distance_formula import distance_formula
 

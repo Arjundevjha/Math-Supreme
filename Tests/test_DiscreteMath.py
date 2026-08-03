@@ -4,25 +4,6 @@ import unittest
 
 import pytest
 
-# Add root directory to path to allow "Math.Discrete_Math..." imports
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
-if root_dir not in sys.path:
-    sys.path.insert(0, root_dir)
-
-# the code has imports assuming "Math" is the root in some cases, so let's add it too
-math_dir = os.path.abspath(os.path.join(root_dir, "Math"))
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-
-# E.g. trinomial_theorem.py has `sys.path.append('..')` and `from combination import nCr`
-# The internal code assumes sys.path has `Math/Discrete_Math/Combinatorics`
-combinatorics_dir = os.path.abspath(
-    os.path.join(math_dir, "Discrete_Math", "Combinatorics")
-)
-if combinatorics_dir not in sys.path:
-    sys.path.insert(0, combinatorics_dir)
-
-
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
 from Math.Discrete_Math.Combinatorics.binomial_theorem import (
