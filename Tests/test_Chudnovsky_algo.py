@@ -1,13 +1,14 @@
 import pytest
-import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Chudnovsky_algo import calculate_pi_chudnovsky
 
 class TestChudnovskyAlgorithm:
     def test_calculate_pi_chudnovsky_basic(self):
-        # 50 terms precision should be close to math.pi
+        # 50 terms precision should be close to pi
         pi_val = float(calculate_pi_chudnovsky(precision=50))
-        assert math.isclose(pi_val, math.pi, rel_tol=1e-15)
+        # Compare with known pi value up to 15 decimals
+        known_pi = 3.141592653589793
+        assert abs(pi_val - known_pi) < 1e-15
 
     def test_calculate_pi_chudnovsky_precision(self):
         # First 50 digits of Pi after the decimal point
