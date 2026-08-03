@@ -1,4 +1,3 @@
-import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.William_Shanks import (
     calculate_pi_shanks,
@@ -57,4 +56,6 @@ class TestWilliamShanks:
         assert isinstance(arctan_2, Decimal)
 
         # arctan(1/2) is approx 0.463647609
-        assert math.isclose(float(arctan_2), math.atan(0.5), rel_tol=1e-9)
+        # Check the string representation to avoid using the `math` module
+        expected_arctan_2 = "0.463647609"
+        assert str(arctan_2).startswith(expected_arctan_2)
