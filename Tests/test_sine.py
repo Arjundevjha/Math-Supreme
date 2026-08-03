@@ -1,5 +1,4 @@
 import pytest
-import math
 from Math.Geometry.Trigonometry.Trig_Functions.sine import factorial, sine
 
 
@@ -16,8 +15,9 @@ def test_factorial():
 
 
 def test_sine():
-    assert math.isclose(sine(0), 0.0, abs_tol=1e-5)
-    assert math.isclose(sine(math.pi / 2), 1.0, abs_tol=1e-5)
-    assert math.isclose(sine(math.pi), 0.0, abs_tol=1e-5)
-    assert math.isclose(sine(3 * math.pi / 2), -1.0, abs_tol=1e-5)
-    assert math.isclose(sine(2 * math.pi), 0.0, abs_tol=1e-5)
+    pi = 3.141592653589793
+    assert abs(sine(0) - 0.0) < 1e-5
+    assert abs(sine(pi / 2) - 1.0) < 1e-5
+    assert abs(sine(pi) - 0.0) < 1e-5
+    assert abs(sine(3 * pi / 2) - (-1.0)) < 1e-5
+    assert abs(sine(2 * pi) - 0.0) < 1e-5
