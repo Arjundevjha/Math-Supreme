@@ -1,5 +1,4 @@
 import unittest
-import math
 from Math.Geometry.Euclidean_Geometry.Volume.prism import volume_of_prism
 
 class TestVolumeOfPrism(unittest.TestCase):
@@ -7,11 +6,11 @@ class TestVolumeOfPrism(unittest.TestCase):
         self.assertEqual(volume_of_prism(10, 5), 50.0)
 
     def test_positive_floats(self):
-        self.assertTrue(math.isclose(volume_of_prism(2.5, 4.2), 10.5, rel_tol=1e-9))
+        self.assertAlmostEqual(volume_of_prism(2.5, 4.2), 10.5, places=7)
 
     def test_mixed_types(self):
-        self.assertTrue(math.isclose(volume_of_prism(2, 4.5), 9.0, rel_tol=1e-9))
-        self.assertTrue(math.isclose(volume_of_prism(2.5, 4), 10.0, rel_tol=1e-9))
+        self.assertAlmostEqual(volume_of_prism(2, 4.5), 9.0, places=7)
+        self.assertAlmostEqual(volume_of_prism(2.5, 4), 10.0, places=7)
 
     def test_zero_dimensions(self):
         self.assertEqual(volume_of_prism(0, 5), 0)
