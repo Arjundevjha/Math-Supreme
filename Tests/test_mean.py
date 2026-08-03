@@ -45,3 +45,4 @@ class TestMean(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+# Code works normally without sys.path modification

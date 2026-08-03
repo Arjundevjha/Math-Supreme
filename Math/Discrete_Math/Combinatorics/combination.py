@@ -1,8 +1,6 @@
 # Combination formula: for nCr where n and r are non-negative integers
 
-import sys
-import os
-from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
+from Math.utils.math_utils import factorial
 
 def nCr(n: int, r: int) -> int:
     """

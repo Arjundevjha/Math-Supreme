@@ -37,7 +37,7 @@ def test_factorial():
     assert factorial(0) == 1
     assert factorial(1) == 1
     assert factorial(5) == 120
-    with pytest.raises(ValueError, match="Factorial not defined for negative numbers."):
+    with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
         factorial(-1)
 
 def test_sqrt_newton_negative():

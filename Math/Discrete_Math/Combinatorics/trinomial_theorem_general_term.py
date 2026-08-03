@@ -1,7 +1,7 @@
 # General term of the trinomial expansion
-import sys
-from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
 from typing import Union
+
+from Math.utils.math_utils import factorial
 
 
 def trinomial_general_term(n: int, i: int, j: int, a: Union[int, float], b: Union[int, float], c: Union[int, float]) -> Union[int, float]:
