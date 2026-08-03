@@ -1,6 +1,6 @@
 import unittest
 from decimal import Decimal, getcontext, Overflow, DivisionByZero
-import math
+from Math.Numerical_Methods.Constants.Pi_Algorithms.Chudnovsky_algo import calculate_pi_chudnovsky
 from unittest.mock import patch, MagicMock
 
 from Math.Geometry.Trigonometry.Arc_Functions.arctan import calculate_arctan
@@ -13,7 +13,7 @@ class TestArcTan(unittest.TestCase):
     def test_calculate_arctan_one(self):
         """Test that arctan(1/1) approaches pi/4."""
         val = calculate_arctan(1, number_of_terms=10000)
-        self.assertAlmostEqual(float(val), math.pi / 4, places=3)
+        self.assertAlmostEqual(float(val), float(calculate_pi_chudnovsky(precision=15) / 4), places=3)
 
     def test_euler_formula(self):
         """Test euler's formula: pi/4 = arctan(1/2) + arctan(1/3)"""
@@ -21,7 +21,7 @@ class TestArcTan(unittest.TestCase):
         atan3 = calculate_arctan(3, precision=50)
 
         pi_over_4 = atan2 + atan3
-        self.assertAlmostEqual(float(pi_over_4), math.pi / 4, places=15)
+        self.assertAlmostEqual(float(pi_over_4), float(calculate_pi_chudnovsky(precision=15) / 4), places=15)
 
     def test_machin_formula(self):
         """Test Machin's formula: pi/4 = 4*arctan(1/5) - arctan(1/239)"""
@@ -29,7 +29,7 @@ class TestArcTan(unittest.TestCase):
         atan239 = calculate_arctan(239, precision=50)
 
         pi_over_4 = 4 * atan5 - atan239
-        self.assertAlmostEqual(float(pi_over_4), math.pi / 4, places=15)
+        self.assertAlmostEqual(float(pi_over_4), float(calculate_pi_chudnovsky(precision=15) / 4), places=15)
 
     def test_negative_values(self):
         """Test that calculate_arctan(-x) = -calculate_arctan(x)"""
