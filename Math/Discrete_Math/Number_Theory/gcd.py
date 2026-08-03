@@ -1,6 +1,5 @@
 # Greatest Common Divisor (GCD) calculation
 from typing import List
-from collections import Counter
 
 
 def prime_factorization_for_gcd(n: int) -> List[int]:
@@ -27,7 +26,7 @@ def prime_factorization_for_gcd(n: int) -> List[int]:
 
 def compute_gcd(a: int, b: int) -> int:
     """
-    Compute the Greatest Common Divisor (GCD) of two numbers using prime factorization.
+    Compute the Greatest Common Divisor (GCD) of two numbers using Euclidean algorithm.
 
     Parameters:
     a (int): The first number.
@@ -39,19 +38,7 @@ def compute_gcd(a: int, b: int) -> int:
     if a <= 0 or b <= 0:
         raise ValueError("Both numbers must be positive.")
     
-    # Get prime factors for both numbers
-    factors_a = prime_factorization_for_gcd(a)
-    factors_b = prime_factorization_for_gcd(b)
-
-    # Find common factors
-    common_factors = set(factors_a) & set(factors_b)
+    while b:
+        a, b = b, a % b
     
-    # Calculate GCD by taking minimum power of each common prime factor
-    count_a = Counter(factors_a)
-    count_b = Counter(factors_b)
-
-    gcd = 1
-    for factor in common_factors:
-        gcd *= factor ** min(count_a[factor], count_b[factor])
-    
-    return gcd
+    return a

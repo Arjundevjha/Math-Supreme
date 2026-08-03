@@ -1,6 +1,6 @@
 # Least Common Multiple (LCM) calculation
-import math
 from typing import List
+from Math.Discrete_Math.Number_Theory.gcd import compute_gcd
 
 
 def prime_factorization_simple(n: int) -> List[int]:
@@ -39,4 +39,4 @@ def compute_lcm(a: int, b: int) -> int:
     if a <= 0 or b <= 0:
         raise ValueError("Both numbers must be positive.")
     
-    return abs(a * b) // math.gcd(a, b)
+    return abs(a * b) // compute_gcd(a, b)
