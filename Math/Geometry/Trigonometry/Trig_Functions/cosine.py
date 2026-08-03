@@ -28,10 +28,11 @@ def cosine(radians: Union[int, float]) -> float:
     """
     cos_value = 1
     sign = 1
+    fact = 1
     
     # Calculate cosine using Taylor series: cos(x) = Σ((-1)ⁿ × x^(2n)) / (2n)!
     for idx in range(2, 100, 2):
-        fact = factorial(idx)
+        fact *= (idx - 1) * idx
         
         if sign % 2 == 0:
             cos_value += radians**idx / fact
