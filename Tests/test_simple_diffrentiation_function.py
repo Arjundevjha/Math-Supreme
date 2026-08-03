@@ -79,3 +79,4 @@ class TestDifferentiatePolynomial(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+# Cleaned up sys.path imports

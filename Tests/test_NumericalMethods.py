@@ -4,7 +4,7 @@ from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import (
     calculate_pi_nilakantha,
 )
-from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
+from Math.utils.math_utils import factorial
 from Math.Numerical_Methods.Functions.nth_root.nth_root import nth_root
 
 
@@ -134,6 +134,20 @@ def test_nth_root_invalid_degree():
         ValueError, match="The root degree 'n' cannot be zero"
     ):
         nth_root(8, 0)
+
+
+
+def test_nth_root_decimal_precision_bounds():
+    # Test that precision < 1 raises ValueError
+    with pytest.raises(ValueError, match="precision must be between 1 and 10000"):
+        nth_root(2, 3, precision=0)
+
+    with pytest.raises(ValueError, match="precision must be between 1 and 10000"):
+        nth_root(2, 3, precision=-5)
+
+    # Test that precision > 10000 raises ValueError
+    with pytest.raises(ValueError, match="precision must be between 1 and 10000"):
+        nth_root(2, 3, precision=10001)
 
 
 def test_nth_root_decimal_precision():
