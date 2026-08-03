@@ -1,5 +1,7 @@
 import unittest
 from decimal import Decimal
+import decimal
+import math
 
 from Math.Geometry.Trigonometry.Arc_Functions.arctan import calculate_arctan
 

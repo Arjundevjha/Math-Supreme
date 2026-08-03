@@ -1,6 +1,7 @@
 import sys
 import os
 import math
+import pytest
 
 # Add project root and Math/ to sys.path to resolve imports
 current_dir = os.path.dirname(os.path.abspath(__file__))

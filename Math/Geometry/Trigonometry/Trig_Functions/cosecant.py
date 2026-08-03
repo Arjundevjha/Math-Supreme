@@ -1,7 +1,33 @@
 # Cosecant function
 from typing import Union
 
-from Math.Geometry.Trigonometry.utils.taylor_series import sine_taylor
+
+def factorial(n: int) -> int:
+    """Calculate factorial of n."""
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers.")
+    if n > 1000:
+        raise ValueError(
+            "Factorial calculation limit exceeded (maximum allowed is 1000)."
+        )
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+def sine_taylor(radians: Union[int, float]) -> float:
+    """Calculate sine using Taylor series."""
+    sine_value = 0
+    sign = 0
+    for idx in range(1, 100, 2):
+        fact = factorial(idx)
+        if sign % 2 == 0:
+            sine_value += radians**idx / fact
+        else:
+            sine_value -= radians**idx / fact
+        sign += 1
+    return sine_value
 
 
 def cosecant(radians: Union[int, float]) -> float:

@@ -9,9 +9,11 @@ if math_dir not in sys.path:
     sys.path.insert(0, math_dir)
 
 import pytest
+from Math.Geometry.Trigonometry.Formulas.cosine_rule import (
+    sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
+)
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, arccos_series
-from Math.Geometry.Trigonometry.utils.taylor_series import factorial, cosine_taylor
+from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
 
 def test_sqrt_newton_precision_zero():
     with pytest.raises(ValueError, match="Precision must be strictly greater than zero."):
