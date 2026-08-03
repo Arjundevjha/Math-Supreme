@@ -53,5 +53,11 @@ class TestCompoundInterest(unittest.TestCase):
         with self.assertRaises(ValueError):
             compound_interest(1000, 5, -10, 1)
 
+    def test_security_limits(self):
+        # Exceedingly large compound_frequency * time
+        with self.assertRaises(ValueError):
+            compound_interest(1000, 5, 100, 10**5) # 10**7 > 10**6
+
+
 if __name__ == '__main__':
     unittest.main()
