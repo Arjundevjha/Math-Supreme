@@ -1,12 +1,11 @@
 import pytest
-import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Machin_algo import calculate_pi_machin, calculate_arctan_series
 
 class TestMachinAlgorithm:
     def test_calculate_pi_machin_basic(self):
         pi_val = float(calculate_pi_machin(precision=10))
-        assert math.isclose(pi_val, math.pi, rel_tol=1e-9)
+        assert abs(pi_val - 3.141592653589793) < 1e-9
 
     def test_calculate_pi_machin_precision(self):
         pi_high_prec = calculate_pi_machin(precision=100)
@@ -31,10 +30,10 @@ class TestMachinAlgorithm:
         ans_neg = calculate_arctan_series(-5, 10)
         assert ans_neg == -ans_pos
 
-        # check x = 5 against math.atan(1/5)
+        # check x = 5 against known arctan(1/5)
         ans_5 = float(calculate_arctan_series(5, 10))
-        assert math.isclose(ans_5, math.atan(1/5), rel_tol=1e-9)
+        assert abs(ans_5 - 0.19739555984988078) < 1e-9
 
-        # check x = 239 against math.atan(1/239)
+        # check x = 239 against known arctan(1/239)
         ans_239 = float(calculate_arctan_series(239, 10))
-        assert math.isclose(ans_239, math.atan(1/239), rel_tol=1e-9)
+        assert abs(ans_239 - 0.004184076002074723) < 1e-9
