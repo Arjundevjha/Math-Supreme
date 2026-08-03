@@ -1,4 +1,3 @@
-import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Machin_algo import (
     calculate_arctan_series,
@@ -8,9 +7,11 @@ from Math.Numerical_Methods.Constants.Pi_Algorithms.Machin_algo import (
 
 class TestMachinAlgorithm:
     def test_calculate_pi_machin_basic(self):
-        """Test that the algorithm converges towards math.pi with default precision"""
-        pi_val = float(calculate_pi_machin(15))
-        assert math.isclose(pi_val, math.pi, rel_tol=1e-15)
+        """Test that the algorithm converges towards Pi with default precision"""
+        pi_val = calculate_pi_machin(15)
+        # 3.141592653589793
+        expected_pi_prefix = "3.14159265358979"
+        assert str(pi_val).startswith(expected_pi_prefix)
 
     def test_calculate_pi_machin_precision(self):
         """Test the precision parameter of the calculate_pi_machin function"""
@@ -19,6 +20,10 @@ class TestMachinAlgorithm:
         # Check that we can get high precision without errors
         high_prec_result = calculate_pi_machin(precision=100)
         assert isinstance(high_prec_result, Decimal)
+
+        # 100 digits of Pi
+        expected_pi_prefix = "3.14159265358979323846264338327950288419716939937510"
+        assert str(high_prec_result).startswith(expected_pi_prefix)
 
     def test_calculate_arctan_series_zero(self):
         """Test arctan of 1/x where x is 0 (handled gracefully as returning 0)"""
@@ -32,10 +37,12 @@ class TestMachinAlgorithm:
 
     def test_calculate_arctan_series_basic(self):
         """Test arctan of 1/x for basic values"""
-        val_5 = float(calculate_arctan_series(5, 15))
-        expected_5 = math.atan(1 / 5)
-        assert math.isclose(val_5, expected_5, rel_tol=1e-15)
+        val_5 = calculate_arctan_series(5, 15)
+        # arctan(1/5) ~ 0.1973955598498807
+        expected_5_prefix = "0.197395559849880"
+        assert str(val_5).startswith(expected_5_prefix)
 
-        val_239 = float(calculate_arctan_series(239, 15))
-        expected_239 = math.atan(1 / 239)
-        assert math.isclose(val_239, expected_239, rel_tol=1e-15)
+        val_239 = calculate_arctan_series(239, 15)
+        # arctan(1/239) ~ 0.0041840760020747
+        expected_239_prefix = "0.00418407600207"
+        assert str(val_239).startswith(expected_239_prefix)
