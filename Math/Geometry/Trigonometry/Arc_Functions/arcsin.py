@@ -1,34 +1,7 @@
+from Math.Geometry.Trigonometry.taylor_series import sine_taylor
+
 # Arcsine using numerical approximation
 from typing import Union
-
-
-def sine_taylor_series(radians: Union[int, float], terms: int = 100) -> float:
-    """
-    Calculate sine using Taylor series expansion.
-
-    Parameters:
-    radians (Union[int, float]): The angle in radians.
-    terms (int): Number of terms to use in the series.
-
-    Returns:
-    float: The sine of the angle.
-    """
-    sine_value = 0
-    sign = 0
-    factorial = 1
-
-    # Calculate sine using Taylor series
-    for idx in range(1, terms * 2, 2):
-        if idx > 1:
-            factorial *= (idx - 1) * idx
-
-        if sign % 2 == 0:
-            sine_value += radians**idx / factorial
-        else:
-            sine_value -= radians**idx / factorial
-        sign += 1
-
-    return sine_value
 
 
 def arcsin_numerical(
@@ -59,7 +32,7 @@ def arcsin_numerical(
     angle = 0.0
 
     while angle <= pi_approx / 2:
-        calculated_sin = sine_taylor_series(angle)
+        calculated_sin = sine_taylor(angle, terms=100)
         if abs(calculated_sin - sin_value) < precision:
             return angle
         angle += step

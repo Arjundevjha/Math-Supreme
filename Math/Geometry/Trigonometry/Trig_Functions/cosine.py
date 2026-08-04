@@ -1,7 +1,6 @@
-# Cosine function using Taylor series
 from typing import Union
 
-from Math.utils.math_utils import factorial
+from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
 
 
 def cosine(radians: Union[int, float]) -> float:
@@ -14,18 +13,4 @@ def cosine(radians: Union[int, float]) -> float:
     Returns:
     float: The cosine of the angle.
     """
-    cos_value = 1
-    sign = 1
-    fact = 1
-    
-    # Calculate cosine using Taylor series: cos(x) = Σ((-1)ⁿ × x^(2n)) / (2n)!
-    for idx in range(2, 100, 2):
-        fact *= (idx - 1) * idx
-        
-        if sign % 2 == 0:
-            cos_value += radians**idx / fact
-        else:
-            cos_value -= radians**idx / fact
-        sign += 1
-    
-    return cos_value
+    return cosine_taylor(radians)

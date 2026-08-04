@@ -1,22 +1,7 @@
+from Math.Geometry.Trigonometry.taylor_series import sine_taylor
+
 # Cosecant function
 from typing import Union
-
-from Math.utils.math_utils import factorial
-
-
-def sine_taylor(radians: Union[int, float]) -> float:
-    """Calculate sine using Taylor series."""
-    sine_value = float(radians)
-    term = float(radians)
-    radians_sq = float(radians * radians)
-
-    # Calculate sine using Taylor series iteratively:
-    # Next term = Previous term * (-x^2) / ((2n)(2n+1))
-    for idx in range(3, 100, 2):
-        term *= -radians_sq / ((idx - 1) * idx)
-        sine_value += term
-
-    return sine_value
 
 
 def cosecant(radians: Union[int, float]) -> float:
@@ -32,6 +17,6 @@ def cosecant(radians: Union[int, float]) -> float:
     sin_value = sine_taylor(radians)
     if sin_value == 0:
         raise ValueError("Cosecant is undefined for angles where sin(x) = 0.")
-    
+
     # Calculate cosecant using formula: csc(x) = 1 / sin(x)
     return 1 / sin_value
