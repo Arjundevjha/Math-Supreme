@@ -1,20 +1,7 @@
 # Cosine rule (Law of Cosines) for finding sides and angles of triangles
 from typing import Union
 
-from Math.utils.math_utils import factorial
-
-
-def cosine_taylor(radians: Union[int, float]) -> float:
-    """Calculate cosine using Taylor series."""
-    cos_value = 1.0
-    term = 1.0
-    radians_sq = radians * radians
-
-    for idx in range(2, 100, 2):
-        term *= -radians_sq / (idx * (idx - 1))
-        cos_value += term
-
-    return cos_value
+from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
 
 
 def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
