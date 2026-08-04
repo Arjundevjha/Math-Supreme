@@ -1,6 +1,6 @@
 # Second derivatives
 from typing import List, Union
-
+from Math.Calculus.Differentiation.utils import compute_polynomial_derivative
 
 def second_derivative(
     coeffs: List[Union[int, float]], powers: List[Union[int, float]]
@@ -15,19 +15,7 @@ def second_derivative(
     Returns:
     List[tuple]: List of tuples (coefficient, power) for the second derivative.
     """
-    # First derivative: d/dx(ax^n) = n×a×x^(n-1)
-    first_deriv_coeffs = []
-    first_deriv_powers = []
+    first_deriv_coeffs, first_deriv_powers = compute_polynomial_derivative(coeffs, powers)
+    second_deriv_coeffs, second_deriv_powers = compute_polynomial_derivative(first_deriv_coeffs, first_deriv_powers)
 
-    for coeff, power in zip(coeffs, powers):
-        if power > 0:
-            first_deriv_coeffs.append(coeff * power)
-            first_deriv_powers.append(power - 1)
-
-    # Second derivative: apply derivative again
-    second_deriv = []
-    for coeff, power in zip(first_deriv_coeffs, first_deriv_powers):
-        if power > 0:
-            second_deriv.append((coeff * power, power - 1))
-
-    return second_deriv
+    return list(zip(second_deriv_coeffs, second_deriv_powers))
