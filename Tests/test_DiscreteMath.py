@@ -17,7 +17,7 @@ from Math.Discrete_Math.Combinatorics.pascals_triangle import (
     print_pascals_triangle,
     generate_pascals_triangle,
 )
-from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
+from Math.Discrete_Math.Combinatorics.permutation import factorial
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import (
     expand_trinomial,
     trinomial_coefficient,
@@ -37,7 +37,7 @@ from Math.Discrete_Math.Number_Theory.partitions_approximation import (
 from Math.Discrete_Math.Number_Theory.partitions import partition
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term  # noqa: E402
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle  # noqa: E402
-from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r  # noqa: E402
+from Math.Discrete_Math.Combinatorics.permutation import factorial  # noqa: E402
 from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient  # noqa: E402
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term  # noqa: E402
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization  # noqa: E402
@@ -119,21 +119,6 @@ class TestTrinomialGeneralTerm(unittest.TestCase):
         # n < 0
         with self.assertRaises(ValueError):
             trinomial_general_term(-1, 0, 0, 1, 1, 1)
-
-
-class TestPermutation(unittest.TestCase):
-    def test_n_permute_r_typical(self):
-        self.assertEqual(n_permute_r(5, 3), 60)
-        self.assertEqual(n_permute_r(10, 2), 90)
-
-    def test_n_permute_r_boundary(self):
-        self.assertEqual(n_permute_r(5, 0), 1)
-        self.assertEqual(n_permute_r(5, 5), 120)
-        self.assertEqual(n_permute_r(0, 0), 1)
-
-    def test_n_permute_r_invalid(self):
-        with self.assertRaises(ValueError):
-            n_permute_r(3, 5)
 
 
 class TestPascalsTriangle:
