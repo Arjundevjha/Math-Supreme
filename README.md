@@ -21,8 +21,9 @@ the repository.
 
 - [x] `Polynomials/`
   - [x] `polynomial.py`
-  - [x] `cubic_formula.py`
   - [x] `quadratic_formula.py`
+  - [x] `cubic_formula.py`
+  - [x] `quartic_formula.py`
   - [x] `factor_theorem.py`
   - [x] `remainnder_theorem.py`
 - [x] `Linear_Equations/`
@@ -45,6 +46,7 @@ the repository.
   - [x] `chain_rule.py`
   - [x] `quotient_rule.py`
   - [x] `second_derivatives.py`
+  - [x] `utils.py`
   - [ ] `implicit_differentiation.py`
 - [ ] `Applications_of_Derivatives/`
   - [ ] `curve_sketching.py`
@@ -111,7 +113,7 @@ the repository.
 ## Geometry
 
 - [x] `Euclidean_Geometry/`
-  - [ ] `Area/`
+  - [x] `Area/`
     - [x] `circle.py`
     - [x] `heron's_area_of_triangle_formula.py`
     - [x] `polygon_of_n_sides.py`
@@ -145,6 +147,7 @@ the repository.
     - [ ] `rotate.py`
   - [ ] `area_collinearity.py`
 - [ ] `Trigonometry/`
+  - [x] `taylor_series.py`
   - [x] `Trig_Functions/`
     - [x] `sine.py`
     - [x] `cosine.py`
@@ -248,6 +251,17 @@ the repository.
   - [ ] `stress_strain_curve.tex`
   - [ ] `basic_circuits.py`
   - [ ] `thermal_conduction.tex`
+
+---
+
+## Running Tests
+
+All mathematical scripts and module features are thoroughly tested using `pytest`.
+
+To run the complete test suite:
+```bash
+pytest
+```
 
 ---
 
