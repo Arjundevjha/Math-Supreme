@@ -34,16 +34,16 @@ def test_second_derivative_floats():
     assert second_derivative(coeffs, powers) == [(30.0, 2.0)]
 
 def test_second_derivative_negative_powers():
-    # Based on the current implementation, powers <= 0 are ignored
-    # d/dx(3x^-2) -> empty list since power is not > 0
+    # d^2/dx^2 (3x^-2) = d/dx (-6x^-3) = 18x^-4
     coeffs = [3]
     powers = [-2]
-    assert second_derivative(coeffs, powers) == []
+    assert second_derivative(coeffs, powers) == [(18, -4)]
 
     # Another test case for negative powers
+    # d^2/dx^2 (3x^-2 + 2x^-1) = d/dx (-6x^-3 - 2x^-2) = 18x^-4 + 4x^-3
     coeffs = [3, 2]
     powers = [-2, -1]
-    assert second_derivative(coeffs, powers) == []
+    assert second_derivative(coeffs, powers) == [(18, -4), (4, -3)]
 
 def test_second_derivative_negative_coeffs():
     # -3x^4 -> y'' = -36x^2
@@ -69,10 +69,11 @@ def test_second_derivative_zero_coeffs():
     assert second_derivative(coeffs, powers) == [(0, 1), (0, 0)]
 
 def test_second_derivative_mixed():
-    # 3x^3 + 2x^2 + 5x - 4x^-2 -> y'' = 18x + 4
+    # 3x^3 + 2x^2 + 5x - 4x^-2 -> y'' = 18x + 4 - (-4 * -2 * -3)x^-4 = 18x + 4 - 24x^-4
+    # Wait, -4x^-2 -> d/dx = 8x^-3 -> d^2/dx^2 = -24x^-4
     coeffs = [3, 2, 5, -4]
     powers = [3, 2, 1, -2]
-    assert second_derivative(coeffs, powers) == [(18, 1), (4, 0)]
+    assert second_derivative(coeffs, powers) == [(18, 1), (4, 0), (-24, -4)]
 
 def test_second_derivative_unordered_powers():
     # x + 4x^3 - 2x^2 - 5 -> y'' = 24x - 4
@@ -95,18 +96,19 @@ def test_second_derivative_large_numbers():
     assert second_derivative(coeffs, powers) == [(999000000, 998)]
 
 def test_second_derivative_fractional_powers_skipped():
-    # Power becomes <= 0 after first derivative
-    assert second_derivative([4], [0.5]) == []
+    # 4x^0.5 -> 2x^-0.5 -> -1x^-1.5
+    assert second_derivative([4], [0.5]) == [(-1.0, -1.5)]
 
 def test_second_derivative_mixed_skipped():
     # Mix of valid and skipped powers
-    assert second_derivative([3, 2, 1], [3, 0.5, -1]) == [(18, 1)]
+    # 3x^3 + 2x^0.5 + 1x^-1 -> y'' = 18x + (-0.5x^-1.5) + (2x^-3)
+    assert second_derivative([3, 2, 1], [3, 0.5, -1]) == [(18, 1), (-0.5, -1.5), (2, -3)]
 
 def test_second_derivative_mixed_terms():
-    # 2x^3 + 5x^0 + 4x^-1 -> y'' = 12x
+    # 2x^3 + 5x^0 + 4x^-1 -> y'' = 12x + 8x^-3
     coeffs = [2, 5, 4]
     powers = [3, 0, -1]
-    assert second_derivative(coeffs, powers) == [(12, 1)]
+    assert second_derivative(coeffs, powers) == [(12, 1), (8, -3)]
 
 def test_second_derivative_with_negative_coeff_and_positive_power():
     # -2x^2 -> -4x -> -4
