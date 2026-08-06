@@ -19,6 +19,7 @@
   - **PR #271**: Improper import path (`from Math.Geometry.Trigonometry.Trig_Functions.sine import factorial`) violating internal import standards, and conflicting with #262.
 - **Merge Conflict Resolution**:
   - Resolved merge conflict in `Tests/test_Calculus.py` on PR #270 branch where `TestTrigIntegration` had been moved to `Tests/test_TrigIntegration.py` in PR #266.
+- **README.md Sync & Push**: Updated `README.md` to sync missing roadmap items (`quartic_formula.py`, `utils.py`, `taylor_series.py`, `Euclidean_Geometry/Area/`) and added a `Running Tests` section (`pytest`). Committed and pushed to `origin main`.
 - **Current Open PR Count**: 0.
 
 ## Verification Status
@@ -26,6 +27,7 @@
 - Open PRs Remaining: 0 (`gh pr list` empty).
 
 ## Key Active & Created Files
+- [README.md](file:///Users/abc/Desktop/Math-Supreme/README.md)
 - [taylor_series.py](file:///Users/abc/Desktop/Math-Supreme/Math/Geometry/Trigonometry/taylor_series.py)
 - [polygon_of_n_sides.py](file:///Users/abc/Desktop/Math-Supreme/Math/Geometry/Euclidean_Geometry/Area/polygon_of_n_sides.py)
 - [second_derivatives.py](file:///Users/abc/Desktop/Math-Supreme/Math/Calculus/Differentiation/second_derivatives.py)
