@@ -3,10 +3,9 @@ import os
 
 
 import pytest
-from Math.Geometry.Trigonometry.Formulas.cosine_rule import (
-    sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
-)
-from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series, cosine_taylor
+from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, arccos_series
+from Math.utils.math_utils import factorial
+from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
 
 def test_sqrt_newton_precision_zero():
     with pytest.raises(ValueError, match="Precision must be strictly greater than zero."):

@@ -3,7 +3,11 @@ from decimal import Decimal, getcontext
 from typing import Union, Optional
 
 
-def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_of_terms: Optional[int] = None) -> Decimal:
+def calculate_arctan(
+    x: Union[int, float, Decimal],
+    precision: int = 50,
+    number_of_terms: Optional[int] = None,
+) -> Decimal:
     """
     Calculate the arctangent of (1/x) in radians with specified precision using Taylor series.
 
@@ -17,7 +21,7 @@ def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_
     """
     # Set precision for Decimal calculations
     getcontext().prec = precision + 2
-    
+
     if x == 0:
         return Decimal(0)
     elif x < 0:
@@ -68,6 +72,8 @@ def calculate_arctan(x: Union[int, float, Decimal], precision: int = 50, number_
                 break
 
         if n >= max_iterations:
-            raise ValueError("Series did not converge. x must be > 1 or < -1 for arctan(1/x) Taylor series convergence.")
+            raise ValueError(
+                "Series did not converge. x must be > 1 or < -1 for arctan(1/x) Taylor series convergence."
+            )
 
     return arctan_value
