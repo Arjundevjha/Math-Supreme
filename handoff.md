@@ -27,6 +27,7 @@
 - Open PRs Remaining: 0 (`gh pr list` empty).
 
 ## Key Active & Created Files
+- [.gemini/skills/repo-sync-workflow/SKILL.md](file:///Users/abc/Desktop/Math-Supreme/.gemini/skills/repo-sync-workflow/SKILL.md)
 - [README.md](file:///Users/abc/Desktop/Math-Supreme/README.md)
 - [taylor_series.py](file:///Users/abc/Desktop/Math-Supreme/Math/Geometry/Trigonometry/taylor_series.py)
 - [polygon_of_n_sides.py](file:///Users/abc/Desktop/Math-Supreme/Math/Geometry/Euclidean_Geometry/Area/polygon_of_n_sides.py)
