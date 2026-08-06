@@ -1,7 +1,6 @@
-# Sine function using Taylor series
 from typing import Union
 
-from Math.utils.math_utils import factorial
+from Math.Geometry.Trigonometry.taylor_series import sine_taylor
 
 
 def sine(radians: Union[int, float]) -> float:
@@ -14,14 +13,4 @@ def sine(radians: Union[int, float]) -> float:
     Returns:
     float: The sine of the angle.
     """
-    sine_value = float(radians)
-    term = float(radians)
-    radians_sq = float(radians * radians)
-    
-    # Calculate sine using Taylor series iteratively:
-    # Next term = Previous term * (-x^2) / ((2n)(2n+1))
-    for idx in range(3, 100, 2):
-        term *= -radians_sq / ((idx - 1) * idx)
-        sine_value += term
-        
-    return sine_value
+    return sine_taylor(radians)
