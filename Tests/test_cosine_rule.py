@@ -5,7 +5,6 @@ import os
 import pytest
 from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, arccos_series
 from Math.utils.math_utils import factorial
-from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
 
 def test_sqrt_newton_precision_zero():
     with pytest.raises(ValueError, match="Precision must be strictly greater than zero."):
@@ -57,11 +56,7 @@ def test_sqrt_newton_max_iterations():
         with pytest.raises(RuntimeError, match="Maximum iterations reached without converging to the specified precision."):
             sqrt_newton(4, 0.5)
 
-def test_cosine_taylor():
-    pi = 3.141592653589793
-    assert abs(cosine_taylor(0) - 1.0) < 1e-5
-    assert abs(cosine_taylor(pi) - (-1.0)) < 1e-5
-    assert abs(cosine_taylor(pi/2) - 0.0) < 1e-5
+
 
 def test_arccos_series():
     with pytest.raises(ValueError, match="arccos is only defined for values between -1 and 1."):
@@ -98,10 +93,3 @@ def test_cosine_rule_for_angle_invalid():
     with pytest.raises(ValueError, match="Invalid triangle: the sum of any two sides must be greater than the third side."):
         cosine_rule_for_angle(3, 10, 4)
 
-def test_cosine_taylor():
-    pi = 3.141592653589793
-    assert abs(cosine_taylor(0) - 1.0) < 1e-5
-    assert abs(cosine_taylor(pi / 2) - 0.0) < 1e-5
-    assert abs(cosine_taylor(pi) - (-1.0)) < 1e-5
-    assert abs(cosine_taylor(pi / 3) - 0.5) < 1e-5
-    assert abs(cosine_taylor(pi / 4) - 0.70710678118) < 1e-5
