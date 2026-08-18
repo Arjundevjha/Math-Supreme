@@ -12,6 +12,9 @@ def sine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The sine of the angle.
     """
+    if terms <= 0 or terms > 1000:
+        raise ValueError("Number of terms must be a positive integer not exceeding 1000.")
+
     sine_value = float(radians)
     term = float(radians)
     radians_sq = float(radians * radians)
@@ -34,6 +37,9 @@ def cosine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The cosine of the angle.
     """
+    if terms <= 0 or terms > 1000:
+        raise ValueError("Number of terms must be a positive integer not exceeding 1000.")
+
     cos_value = 1.0
     term = 1.0
     radians_sq = float(radians * radians)
