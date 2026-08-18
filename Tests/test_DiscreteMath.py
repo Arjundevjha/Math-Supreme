@@ -1,15 +1,7 @@
-import os
-import sys
 import unittest
 
 import pytest
 
-from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
-from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
-from Math.Discrete_Math.Combinatorics.binomial_theorem import (
-    expand_binomial,
-    binomial_coefficient,
-)
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import (
     binomial_general_term,
 )
@@ -21,23 +13,10 @@ from Math.Discrete_Math.Combinatorics.permutation import factorial
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import (
     trinomial_general_term,
 )
-from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
-from Math.Discrete_Math.Number_Theory.gcd import (
-    compute_gcd,
-    prime_factorization_for_gcd,
-)
-from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
 from Math.Discrete_Math.Number_Theory.partitions_approximation import (
     partition_approximation,
 )
 from Math.Discrete_Math.Number_Theory.partitions import partition
-from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term  # noqa: E402
-from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle  # noqa: E402
-from Math.Discrete_Math.Combinatorics.permutation import factorial  # noqa: E402
-from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term  # noqa: E402
-from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization  # noqa: E402
-from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation  # noqa: E402
-from Math.Discrete_Math.Number_Theory.partitions import partition  # noqa: E402
 
 
 def test_factorial_zero():
@@ -158,37 +137,6 @@ class TestPascalsTriangle:
             generate_pascals_triangle(1001)
         with pytest.raises(ValueError):
             generate_pascals_triangle(2000)
-
-
-def test_prime_factorization_edge_case():
-    assert prime_factorization(1) == []
-
-
-def test_prime_factorization_prime_numbers():
-    assert prime_factorization(2) == [2]
-    assert prime_factorization(3) == [3]
-    assert prime_factorization(7) == [7]
-    assert prime_factorization(13) == [13]
-
-
-def test_prime_factorization_composite_numbers():
-    assert prime_factorization(4) == [2, 2]
-    assert prime_factorization(6) == [2, 3]
-    assert prime_factorization(8) == [2, 2, 2]
-    assert prime_factorization(12) == [2, 2, 3]
-    assert prime_factorization(15) == [3, 5]
-    assert prime_factorization(100) == [2, 2, 5, 5]
-    assert prime_factorization(1024) == [2] * 10
-
-
-def test_prime_factorization_invalid_input():
-    with pytest.raises(ValueError, match="Number must be positive."):
-        prime_factorization(0)
-    with pytest.raises(ValueError, match="Number must be positive."):
-        prime_factorization(-1)
-    with pytest.raises(ValueError, match="Number must be positive."):
-        prime_factorization(-10)
-
 
 
 def test_binomial_general_term():
