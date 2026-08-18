@@ -1,4 +1,5 @@
 # Factorial calculation
+import math
 
 
 def factorial(n: int) -> int:
@@ -17,12 +18,4 @@ def factorial(n: int) -> int:
         raise ValueError(
             "Factorial calculation limit exceeded (maximum allowed is 1000)."
         )
-    if n == 0 or n == 1:
-        return 1
-
-    # Calculate factorial using iterative approach
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-
-    return result
+    return math.factorial(n)
