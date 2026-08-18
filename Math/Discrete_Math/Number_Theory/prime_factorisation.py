@@ -14,18 +14,20 @@ def prime_factorization(number: int) -> List[int]:
     """
     if number <= 0:
         raise ValueError("Number must be positive.")
+    if number > 10**12:
+        raise ValueError("Number is too large. Maximum supported value is 10^12.")
     if number == 1:
         return []
-    
+
     factors = []
     n = number
     factor = 2
-    
+
     # Find all prime factors by trial division
     while n > 1:
         while n % factor == 0:
             factors.append(factor)
             n //= factor
         factor += 1
-    
+
     return factors
