@@ -1,6 +1,4 @@
 # Trinomial theorem expansion
-import sys
-import os
 from Math.Discrete_Math.Combinatorics.combination import nCr
 
 
