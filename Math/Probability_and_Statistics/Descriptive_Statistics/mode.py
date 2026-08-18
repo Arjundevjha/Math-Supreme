@@ -1,4 +1,5 @@
 # Calculate the mode (most frequent value) of a list of numbers
+from collections import Counter
 from typing import List, Union
 
 
@@ -17,9 +18,7 @@ def mode(data: List[Union[int, float]]) -> Union[int, float, List[Union[int, flo
         return 0.0
     
     # Count frequency of each number
-    frequency = {}
-    for number in data:
-        frequency[number] = frequency.get(number, 0) + 1
+    frequency = Counter(data)
 
     # Find the maximum frequency and all numbers with that frequency
     max_freq = max(frequency.values())
