@@ -1,6 +1,7 @@
 # Combination formula: for nCr where n and r are non-negative integers
 
-from Math.utils.math_utils import factorial
+import math
+
 
 def nCr(n: int, r: int) -> int:
     """
@@ -15,6 +16,6 @@ def nCr(n: int, r: int) -> int:
     """
     if r < 0 or r > n:
         raise ValueError("Invalid values for n and r.")
-    
-    # Calculate combinations using factorial formula
-    return factorial(n) // (factorial(r) * factorial(n - r))
+
+    # Calculate combinations using optimized standard library math.comb
+    return math.comb(n, r)
