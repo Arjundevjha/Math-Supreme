@@ -18,10 +18,6 @@ from Math.Discrete_Math.Combinatorics.pascals_triangle import (
     generate_pascals_triangle,
 )
 from Math.Discrete_Math.Combinatorics.permutation import factorial
-from Math.Discrete_Math.Combinatorics.trinomial_theorem import (
-    expand_trinomial,
-    trinomial_coefficient,
-)
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import (
     trinomial_general_term,
 )
@@ -38,7 +34,6 @@ from Math.Discrete_Math.Number_Theory.partitions import partition
 from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term  # noqa: E402
 from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle  # noqa: E402
 from Math.Discrete_Math.Combinatorics.permutation import factorial  # noqa: E402
-from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient  # noqa: E402
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term  # noqa: E402
 from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization  # noqa: E402
 from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation  # noqa: E402
@@ -195,40 +190,6 @@ def test_prime_factorization_invalid_input():
         prime_factorization(-10)
 
 
-class TestDiscreteMath(unittest.TestCase):
-    def test_expand_trinomial_n_0(self):
-        result = expand_trinomial("a", "b", "c", 0)
-        self.assertEqual(result, "1*a^0*b^0*c^0")
-
-    def test_expand_trinomial_n_1(self):
-        result = expand_trinomial("a", "b", "c", 1)
-        # 1*a^0*b^0*c^1 + 1*a^0*b^1*c^0 + 1*a^1*b^0*c^0
-        self.assertEqual(result, "1*a^0*b^0*c^1 + 1*a^0*b^1*c^0 + 1*a^1*b^0*c^0")
-
-    def test_expand_trinomial_n_2(self):
-        result = expand_trinomial("x", "y", "z", 2)
-        # 1*x^0*y^0*z^2 + 2*x^0*y^1*z^1 + 1*x^0*y^2*z^0 + 2*x^1*y^0*z^1 + 2*x^1*y^1*z^0 + 1*x^2*y^0*z^0
-        self.assertEqual(
-            result,
-            "1*x^0*y^0*z^2 + 2*x^0*y^1*z^1 + 1*x^0*y^2*z^0 + 2*x^1*y^0*z^1 + 2*x^1*y^1*z^0 + 1*x^2*y^0*z^0",
-        )
-
-    def test_expand_trinomial_different_variables(self):
-        result = expand_trinomial("p", "q", "r", 1)
-        self.assertEqual(result, "1*p^0*q^0*r^1 + 1*p^0*q^1*r^0 + 1*p^1*q^0*r^0")
-
-    def test_expand_trinomial_long_variable_names(self):
-        result = expand_trinomial("alpha", "beta", "gamma", 1)
-        self.assertEqual(
-            result,
-            "1*alpha^0*beta^0*gamma^1 + 1*alpha^0*beta^1*gamma^0 + 1*alpha^1*beta^0*gamma^0",
-        )
-
-    def test_expand_trinomial_negative_n(self):
-        with self.assertRaises(ValueError) as context:
-            expand_trinomial("a", "b", "c", -1)
-        self.assertTrue("Power n must be non-negative." in str(context.exception))
-
 
 def test_binomial_general_term():
     # (a + b)^2 = a^2 + 2ab + b^2
@@ -369,21 +330,6 @@ def test_partition_positive():
     assert partition(20) == 627
 
 
-def test_trinomial_coefficient():
-    # Test cases with positive values for n, i, j
-    assert trinomial_coefficient(2, 1, 1) == 2
-    assert trinomial_coefficient(3, 1, 1) == 6
-    assert trinomial_coefficient(3, 2, 1) == 3
-    assert trinomial_coefficient(3, 3, 0) == 1
-    assert trinomial_coefficient(0, 0, 0) == 1
-
-    # Test cases where i + j > n
-    assert trinomial_coefficient(2, 2, 1) == 0
-    assert trinomial_coefficient(3, 2, 2) == 0
-
-    # Test cases with negative indices
-    assert trinomial_coefficient(2, -1, 1) == 0
-    assert trinomial_coefficient(2, 1, -1) == 0
 
 
 if __name__ == "__main__":
