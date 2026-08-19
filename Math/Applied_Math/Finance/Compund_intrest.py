@@ -26,8 +26,6 @@ def compound_interest(
         )
     if compound_frequency <= 0:
         raise ValueError("Compound frequency must be positive.")
-    if compound_frequency * time > 10**6:
-        raise ValueError("The product of compound frequency and time is too large.")
 
     # Calculate compound interest using formula: A = P(1 + r/n)^(nt)
     total_amount = principal_amount * (
@@ -35,3 +33,4 @@ def compound_interest(
     ) ** (compound_frequency * time)
 
     return total_amount
+

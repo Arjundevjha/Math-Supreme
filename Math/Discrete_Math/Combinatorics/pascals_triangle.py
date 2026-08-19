@@ -14,10 +14,9 @@ def generate_pascals_triangle(num_rows: int) -> List[List[int]]:
     """
     if num_rows < 0:
         raise ValueError("Number of rows cannot be negative.")
-    if num_rows > 1000:
-        raise ValueError("Number of rows cannot exceed 1000 to prevent excessive resource consumption.")
     if num_rows == 0:
         return []
+
     
     triangle = []
     # Generate each row of Pascal's triangle

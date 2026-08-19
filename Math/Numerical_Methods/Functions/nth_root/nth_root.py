@@ -21,9 +21,10 @@ def nth_root(
     Union[float, Decimal]: The n-th root of x.
     """
     if precision is not None:
-        if precision <= 0 or precision > 10000:
-            raise ValueError("precision must be between 1 and 10000")
+        if precision <= 0:
+            raise ValueError("precision must be a positive integer")
         getcontext().prec = precision
+
 
     is_decimal = (
         isinstance(x, Decimal)

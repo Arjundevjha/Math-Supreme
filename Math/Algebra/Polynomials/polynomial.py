@@ -15,13 +15,9 @@ def evaluate_polynomial(coefficients: List[Union[int, float]], powers: List[Unio
     float: The value of the polynomial at x.
     """
     # Calculate polynomial value: P(x) = Σ(coefficient × x^power)
-    MAX_POWER = 1000
-    for power in powers:
-        if power > MAX_POWER:
-            raise ValueError(f"Power {power} exceeds maximum allowed value of {MAX_POWER}")
-
-    result = sum(coeff * (x ** power) for coeff, power in zip(coefficients, powers))
+    result = sum(coeff * (x**power) for coeff, power in zip(coefficients, powers))
     return result
+
 
 
 def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> str:

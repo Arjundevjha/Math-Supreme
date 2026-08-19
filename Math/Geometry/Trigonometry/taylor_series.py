@@ -1,3 +1,4 @@
+# Taylor series approximations for trigonometric functions
 from typing import Union
 
 
@@ -12,8 +13,8 @@ def sine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The sine of the angle.
     """
-    if terms <= 0 or terms > 1000:
-        raise ValueError("Number of terms must be a positive integer not exceeding 1000.")
+    if terms <= 0:
+        raise ValueError("Number of terms must be a positive integer.")
 
     sine_value = float(radians)
     term = float(radians)
@@ -37,8 +38,9 @@ def cosine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The cosine of the angle.
     """
-    if terms <= 0 or terms > 1000:
-        raise ValueError("Number of terms must be a positive integer not exceeding 1000.")
+    if terms <= 0:
+        raise ValueError("Number of terms must be a positive integer.")
+
 
     cos_value = 1.0
     term = 1.0
