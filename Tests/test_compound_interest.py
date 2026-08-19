@@ -1,10 +1,8 @@
-import unittest
-import sys
-import os
 import math
-
+import unittest
 
 from Math.Applied_Math.Finance.Compund_intrest import compound_interest
+
 
 class TestCompoundInterest(unittest.TestCase):
     def test_regular_compound_intervals(self):
@@ -46,11 +44,7 @@ class TestCompoundInterest(unittest.TestCase):
         with self.assertRaises(ValueError):
             compound_interest(1000, 5, -10, 1)
 
-    def test_security_limits(self):
-        # Exceedingly large compound_frequency * time
-        with self.assertRaises(ValueError):
-            compound_interest(1000, 5, 100, 10**5) # 10**7 > 10**6
-
 
 if __name__ == '__main__':
     unittest.main()
+

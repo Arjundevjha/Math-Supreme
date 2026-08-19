@@ -1,4 +1,3 @@
-import pytest
 import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Machin_algo import calculate_pi_machin, calculate_arctan_series

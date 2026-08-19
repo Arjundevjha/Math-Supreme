@@ -1,68 +1,25 @@
-import os
-import sys
-
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-if root_dir not in sys.path:
-    sys.path.insert(0, root_dir)
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-import pytest
 import math
 import unittest
-root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-math_dir = os.path.join(root_dir, 'Math')
-math_dir = os.path.join(root_dir, "Math")
-math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Math"))
-if root_dir not in sys.path:
-    sys.path.insert(0, root_dir)
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
-math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
+import pytest
 
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
+from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative
+from Math.Calculus.Differentiation.product_rule import product_rule_derivative
+from Math.Calculus.Differentiation.quotient_rule import quotient_rule_derivative
+from Math.Calculus.Differentiation.simple_diffrentiation_function import (
+    differentiate_polynomial,
+)
+from Math.Calculus.Differentiation.utils import (
+    compute_polynomial_derivative,
+    compute_polynomial_derivative_str,
+    format_polynomial,
+)
 
-math_dir = os.path.join(root_dir, 'Math')
-math_dir = os.path.join(root_dir, "Math")
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
+format_polynomial_product_rule = format_polynomial
+format_polynomial_chain_rule = format_polynomial
+compute_polynomial_derivative_str_quotient = compute_polynomial_derivative_str
 
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
 
-    sys.path.insert(0, os.path.join(root_dir, "Math"))
-
-math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Math'))
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-
-math_dir = os.path.join(root_dir, 'Math')
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-
-math_dir = os.path.join(root_dir, "Math")
-if math_dir not in sys.path:
-    sys.path.insert(0, math_dir)
-from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
-from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative, compute_polynomial_derivative_str as compute_polynomial_derivative_str_quotient
-from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
-from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
 
 def test_compute_polynomial_derivative_str_single_term():
     assert compute_polynomial_derivative_str([3], [2]) == "6x^1"

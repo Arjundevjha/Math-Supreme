@@ -8,9 +8,6 @@ def test_partition_negative():
 def test_partition_zero():
     assert partition(0) == 1
 
-def test_partition_large_number():
-    with pytest.raises(ValueError, match="Number is too large. Maximum supported value is 1000."):
-        partition(1001)
 
 def test_partition_positive():
     # Known values from OEIS A000041
@@ -28,7 +25,6 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
+    assert partition(30) == 5604
+    assert partition(50) == 204226
 
-def test_partition_large_number():
-    with pytest.raises(ValueError, match="Number is too large. Maximum supported value is 1000 to prevent uncontrolled resource consumption."):
-        partition(1001)

@@ -1,5 +1,4 @@
 # Binomial theorem expansion
-import sys
 from Math.Discrete_Math.Combinatorics.combination import nCr
 
 

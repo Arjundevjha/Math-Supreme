@@ -1,7 +1,8 @@
+# Cosecant trigonometric function
+from typing import Union
+
 from Math.Geometry.Trigonometry.taylor_series import sine_taylor
 
-# Cosecant function
-from typing import Union
 
 
 def cosecant(radians: Union[int, float]) -> float:

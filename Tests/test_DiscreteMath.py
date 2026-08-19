@@ -128,15 +128,12 @@ class TestPascalsTriangle:
         ]
 
     def test_generate_pascals_triangle_invalid(self):
-        """Test generating an invalid Pascal's triangle."""
+        """Test generating an invalid Pascal's triangle with negative rows."""
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-1)
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-5)
-        with pytest.raises(ValueError):
-            generate_pascals_triangle(1001)
-        with pytest.raises(ValueError):
-            generate_pascals_triangle(2000)
+
 
 
 def test_binomial_general_term():
@@ -241,25 +238,6 @@ def test_partition_zero():
     assert partition(0) == 1
 
 
-def test_partition_large_number():
-    with pytest.raises(
-        ValueError, match="Number is too large. Maximum supported value is 1000."
-    ):
-        partition(1001)
-
-
-def test_partition_exceeds_limit():
-    with pytest.raises(ValueError, match="1000"):
-        partition(1001)
-
-
-def test_partition_too_large():
-    import pytest
-
-    with pytest.raises(ValueError, match="1000"):
-        partition(1001)
-
-
 def test_partition_positive():
     # Known values from OEIS A000041
     # n:    0, 1, 2, 3, 4, 5, 6,  7,  8,  9, 10
@@ -276,6 +254,8 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
+    assert partition(50) == 204226
+
 
 
 

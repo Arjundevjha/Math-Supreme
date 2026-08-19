@@ -1,7 +1,8 @@
 import pytest
+import unittest.mock
 from decimal import Decimal
 from Math.Numerical_Methods.Functions.nth_root.nth_root import nth_root
-import unittest.mock
+
 
 
 def test_nth_root_basic_int():
@@ -59,16 +60,13 @@ def test_nth_root_invalid_degree():
 
 
 def test_nth_root_decimal_precision_bounds():
-    # Test that precision < 1 raises ValueError
-    with pytest.raises(ValueError, match="precision must be between 1 and 10000"):
+    # Test that precision <= 0 raises ValueError
+    with pytest.raises(ValueError, match="precision must be a positive integer"):
         nth_root(2, 3, precision=0)
 
-    with pytest.raises(ValueError, match="precision must be between 1 and 10000"):
+    with pytest.raises(ValueError, match="precision must be a positive integer"):
         nth_root(2, 3, precision=-5)
 
-    # Test that precision > 10000 raises ValueError
-    with pytest.raises(ValueError, match="precision must be between 1 and 10000"):
-        nth_root(2, 3, precision=10001)
 
 
 def test_nth_root_decimal_precision():

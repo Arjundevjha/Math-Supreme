@@ -1,7 +1,11 @@
-from Math.Geometry.Trigonometry.taylor_series import sine_taylor, cosine_taylor
-
-# Tangent function
+# Tangent trigonometric function
 from typing import Union
+
+from Math.Geometry.Trigonometry.taylor_series import (
+    cosine_taylor,
+    sine_taylor,
+)
+
 
 
 def tangent(radians: Union[int, float]) -> float:

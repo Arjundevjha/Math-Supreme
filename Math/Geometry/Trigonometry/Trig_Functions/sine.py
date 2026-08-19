@@ -1,6 +1,8 @@
+# Sine trigonometric function using Taylor series
 from typing import Union
 
 from Math.Geometry.Trigonometry.taylor_series import sine_taylor
+
 
 
 def sine(radians: Union[int, float]) -> float:

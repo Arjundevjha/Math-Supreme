@@ -1,7 +1,8 @@
 # General term of the binomial expansion
-import sys
-from Math.Discrete_Math.Combinatorics.combination import nCr
 from typing import Union
+
+from Math.Discrete_Math.Combinatorics.combination import nCr
+
 
 
 def binomial_general_term(n: int, r: int, a: Union[int, float], b: Union[int, float]) -> Union[int, float]:

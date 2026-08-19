@@ -1,6 +1,8 @@
+# Cosine trigonometric function using Taylor series
 from typing import Union
 
 from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
+
 
 
 def cosine(radians: Union[int, float]) -> float:

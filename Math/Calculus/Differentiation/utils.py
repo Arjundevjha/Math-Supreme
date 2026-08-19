@@ -1,4 +1,6 @@
+# Polynomial differentiation and formatting utilities
 from typing import List, Union, Tuple
+
 
 
 def format_polynomial(

@@ -1,5 +1,3 @@
-import os
-import sys
 import math
 
 # Add root directory to path

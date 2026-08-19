@@ -1,6 +1,4 @@
 import cmath
-import os
-import sys
 import pytest
 
 # Add root directory to path

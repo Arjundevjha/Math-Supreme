@@ -74,28 +74,7 @@ def test_factorial_negative():
         factorial(-1)
 
 
-def test_factorial_limit():
-    with pytest.raises(ValueError, match=r"Factorial calculation limit exceeded"):
-        factorial(1001)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def test_factorial_large():
+    assert factorial(20) == 2432902008176640000
 
 

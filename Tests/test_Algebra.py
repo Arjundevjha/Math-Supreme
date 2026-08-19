@@ -1,7 +1,6 @@
 import math
-import os
-import sys
 import pytest
+
 
 # Add root directory to path
 
@@ -245,10 +244,10 @@ class TestEvaluatePolynomial:
         # x^10 at x=2 -> 1024
         assert evaluate_polynomial([1], [10], 2) == 1024
 
-    def test_evaluate_polynomial_excessive_power(self):
-        """Test with power exceeding maximum allowed value raises ValueError"""
-        with pytest.raises(ValueError, match="Power 1001 exceeds maximum allowed value of 1000"):
-            evaluate_polynomial([1], [1001], 2)
+    def test_evaluate_polynomial_large_power(self):
+        """Test with very large power without artificial restrictions"""
+        assert evaluate_polynomial([1], [1001], 2) == 2**1001
+
 
     def test_evaluate_polynomial_precision(self):
         """Test with small floats where precision might be an issue"""

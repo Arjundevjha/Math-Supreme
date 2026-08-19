@@ -1,7 +1,8 @@
+# Secant trigonometric function
+from typing import Union
+
 from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
 
-# Secant function
-from typing import Union
 
 
 def secant(radians: Union[int, float]) -> float:

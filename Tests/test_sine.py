@@ -1,4 +1,3 @@
-import pytest
 
 from Math.Geometry.Trigonometry.Trig_Functions.sine import sine
 

@@ -1,4 +1,3 @@
-import pytest
 import math
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Chudnovsky_algo import calculate_pi_chudnovsky
