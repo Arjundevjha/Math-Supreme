@@ -1,6 +1,10 @@
 # Least Common Multiple (LCM) calculation
 from typing import List
+
 from Math.Discrete_Math.Number_Theory.gcd import compute_gcd
+from Math.Discrete_Math.Number_Theory.prime_factorisation import (
+    prime_factorization,
+)
 
 
 def prime_factorization_simple(n: int) -> List[int]:
@@ -13,16 +17,10 @@ def prime_factorization_simple(n: int) -> List[int]:
     Returns:
     List[int]: List of prime factors.
     """
-    factors = []
-    d = 2
-    while d * d <= n:
-        while n % d == 0:
-            factors.append(d)
-            n //= d
-        d += 1
-    if n > 1:
-        factors.append(n)
-    return factors
+    if n <= 1:
+        return []
+    return prime_factorization(n)
+
 
 
 def compute_lcm(a: int, b: int) -> int:

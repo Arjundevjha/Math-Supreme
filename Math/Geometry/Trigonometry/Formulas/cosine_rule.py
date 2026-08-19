@@ -1,17 +1,27 @@
-from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
-
 # Cosine rule (Law of Cosines) for finding sides and angles of triangles
 from typing import Union
 
+from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
+from Math.utils.math_utils import PI
+
 
 def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
-    """Calculate square root using Newton's method."""
+    """
+    Calculate square root using Newton's method.
+
+    Parameters:
+    x (Union[int, float]): The number to find the square root of.
+    precision (float): Convergence tolerance for the square root.
+
+    Returns:
+    float: The calculated square root.
+    """
     if x < 0:
         raise ValueError("Cannot calculate square root of negative number.")
     if precision <= 0:
         raise ValueError("Precision must be strictly greater than zero.")
     if x == 0:
-        return 0
+        return 0.0
 
     guess = x / 2
     max_iterations = 10000
@@ -27,22 +37,27 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
 
 
 def arccos_series(x: Union[int, float]) -> float:
-    """Calculate arccos using series approximation."""
+    """
+    Calculate arccos using series approximation.
+
+    Parameters:
+    x (Union[int, float]): The value to calculate arccos for (between -1 and 1).
+
+    Returns:
+    float: The angle in radians.
+    """
     if x < -1 or x > 1:
         raise ValueError("arccos is only defined for values between -1 and 1.")
 
-    # Use arccos(x) = π/2 - arcsin(x) approximation
-    # For simplicity, use polynomial approximation
-    pi = 3.14159265358979323846
-
     if x == 1:
-        return 0
+        return 0.0
     if x == -1:
-        return pi
+        return PI
 
-    # Polynomial approximation for arccos
-    result = pi / 2 - x - (x**3) / 6 - (3 * x**5) / 40
+    # Polynomial approximation for arccos: arccos(x) = π/2 - x - x³/6 - 3x⁵/40
+    result = PI / 2 - x - (x**3) / 6 - (3 * x**5) / 40
     return result
+
 
 
 def cosine_rule_for_side(

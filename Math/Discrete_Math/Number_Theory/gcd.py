@@ -1,6 +1,10 @@
 # Greatest Common Divisor (GCD) calculation
 from typing import List
 
+from Math.Discrete_Math.Number_Theory.prime_factorisation import (
+    prime_factorization,
+)
+
 
 def prime_factorization_for_gcd(n: int) -> List[int]:
     """
@@ -12,16 +16,10 @@ def prime_factorization_for_gcd(n: int) -> List[int]:
     Returns:
     List[int]: List of prime factors.
     """
-    factors = []
-    d = 2
-    while d * d <= n:
-        while n % d == 0:
-            factors.append(d)
-            n //= d
-        d += 1
-    if n > 1:
-        factors.append(n)
-    return factors
+    if n <= 1:
+        return []
+    return prime_factorization(n)
+
 
 
 def compute_gcd(a: int, b: int) -> int:

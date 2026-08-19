@@ -1,28 +1,8 @@
 # Euler's number calculation
 from decimal import Decimal, getcontext
 
+from Math.utils.math_utils import factorial_decimal
 
-def factorial_decimal(n: int) -> Decimal:
-    """
-    Calculate factorial as Decimal for high precision.
-
-    Parameters:
-    n (int): The number to calculate factorial for.
-
-    Returns:
-    Decimal: The factorial of n.
-    """
-    if n < 0:
-        raise ValueError("Factorial is not defined for negative numbers.")
-    if n > 1000:
-        raise ValueError(
-            "Factorial calculation limit exceeded (maximum allowed is 1000)."
-        )
-    
-    result = Decimal(1)
-    for i in range(1, n + 1):
-        result *= i
-    return result
 
 
 def compute_eulers_number(iterations: int = 100, decimal_places: int = 50) -> Decimal:

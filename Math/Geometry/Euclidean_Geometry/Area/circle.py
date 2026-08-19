@@ -1,6 +1,8 @@
 # Area of circle
 from typing import Union
 
+from Math.utils.math_utils import PI
+
 
 def area_of_circle(radius: Union[int, float]) -> float:
     """
@@ -14,9 +16,6 @@ def area_of_circle(radius: Union[int, float]) -> float:
     """
     if radius < 0:
         raise ValueError("Radius cannot be negative.")
-    
-    # Use pi approximation: π ≈ 3.14159265358979323846
-    pi = 3.14159265358979323846
-    
+
     # Calculate area using formula: A = πr²
-    return pi * (radius ** 2)
+    return PI * (radius**2)

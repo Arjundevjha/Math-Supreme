@@ -4,7 +4,7 @@ from typing import Union
 from Math.utils.math_utils import factorial
 
 
-def n_permute_r(n: int, r: int) -> Union[int, float]:
+def n_permute_r(n: int, r: int) -> int:
     """
     Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.
 
@@ -13,12 +13,12 @@ def n_permute_r(n: int, r: int) -> Union[int, float]:
     r (int): The number of items to arrange.
 
     Returns:
-    Union[int, float]: The number of permutations (n permute r).
+    int: The number of permutations (n permute r).
     """
-    if n < r:
+    if r < 0 or n < 0 or n < r:
         raise ValueError(
             "n should be greater than or equal to r for permutations to be valid."
         )
 
     # Calculate permutations using factorial formula
-    return factorial(n) / factorial(n - r)
+    return factorial(n) // factorial(n - r)

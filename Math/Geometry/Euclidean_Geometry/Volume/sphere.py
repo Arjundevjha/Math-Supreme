@@ -1,6 +1,8 @@
 # Volume of sphere
 from typing import Union
 
+from Math.utils.math_utils import PI
+
 
 def volume_of_sphere(radius: Union[int, float]) -> float:
     """
@@ -15,8 +17,5 @@ def volume_of_sphere(radius: Union[int, float]) -> float:
     if radius < 0:
         raise ValueError("Radius cannot be negative.")
 
-    # Use pi approximation: π ≈ 3.14159265358979323846
-    pi = 3.14159265358979323846
-    
     # Calculate volume using formula: V = (4/3)πr³
-    return (4 / 3) * pi * (radius ** 3)
+    return (4 / 3) * PI * (radius**3)

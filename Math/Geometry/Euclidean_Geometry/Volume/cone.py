@@ -1,6 +1,8 @@
 # Volume of cone
 from typing import Union
 
+from Math.utils.math_utils import PI
+
 
 def volume_of_cone(radius: Union[int, float], height: Union[int, float]) -> float:
     """
@@ -15,9 +17,6 @@ def volume_of_cone(radius: Union[int, float], height: Union[int, float]) -> floa
     """
     if radius < 0 or height < 0:
         raise ValueError("Radius and height cannot be negative.")
-    
-    # Use pi approximation: π ≈ 3.14159265358979323846
-    pi = 3.14159265358979323846
-    
+
     # Calculate volume using formula: V = (1/3)πr²h
-    return (1 / 3) * pi * (radius ** 2) * height
+    return (1 / 3) * PI * (radius**2) * height

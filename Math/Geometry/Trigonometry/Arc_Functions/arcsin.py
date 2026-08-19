@@ -1,7 +1,9 @@
-from Math.Geometry.Trigonometry.taylor_series import sine_taylor
-
-# Arcsine using numerical approximation
+# Arcsine calculation using numerical approximation
 from typing import Union
+
+from Math.Geometry.Trigonometry.taylor_series import sine_taylor
+from Math.utils.math_utils import PI
+
 
 
 def arcsin_numerical(
