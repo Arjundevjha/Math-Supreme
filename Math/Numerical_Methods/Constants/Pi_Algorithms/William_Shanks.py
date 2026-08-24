@@ -25,7 +25,7 @@ def calculate_pi_shanks(precision: int = 50) -> Decimal:
     
     Formula: π/4 = 1587×arctan(1/2852) + 295×arctan(1/4193) + 593×arctan(1/4246) 
                    + 359×arctan(1/39307) + 481×arctan(1/55603) + 625×arctan(1/211050) 
-                   - 728×arctan(1/390112)
+                   - 708×arctan(1/390112)
 
     Parameters:
     precision (int): The number of decimal places for the result (default: 50).
@@ -43,6 +43,6 @@ def calculate_pi_shanks(precision: int = 50) -> Decimal:
                  359 * calculate_arctan_series_shanks(39307, precision) +
                  481 * calculate_arctan_series_shanks(55603, precision) +
                  625 * calculate_arctan_series_shanks(211050, precision) -
-                 728 * calculate_arctan_series_shanks(390112, precision))
+                 708 * calculate_arctan_series_shanks(390112, precision))
     
     return pi_over_4 * 4
