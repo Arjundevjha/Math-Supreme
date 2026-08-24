@@ -3,6 +3,9 @@ from Math.Discrete_Math.Combinatorics.trinomial_theorem import (
     expand_trinomial,
     trinomial_coefficient,
 )
+from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import (
+    trinomial_general_term,
+)
 
 class TestTrinomialTheorem(unittest.TestCase):
     def test_expand_trinomial_n_0(self):
@@ -53,6 +56,15 @@ class TestTrinomialTheorem(unittest.TestCase):
     def test_trinomial_coefficient_negative_indices(self):
         self.assertEqual(trinomial_coefficient(2, -1, 1), 0)
         self.assertEqual(trinomial_coefficient(2, 1, -1), 0)
+
+    def test_trinomial_general_term(self):
+        self.assertEqual(trinomial_general_term(2, 1, 1, 2, 3, 4), 12)
+        self.assertEqual(trinomial_general_term(3, 1, 1, 0.5, 1.5, 2.0), 9.0)
+        self.assertEqual(trinomial_general_term(0, 0, 0, 1, 2, 3), 1)
+
+    def test_trinomial_general_term_invalid_values(self):
+        with self.assertRaisesRegex(ValueError, "Invalid values for n, i, and j."):
+            trinomial_general_term(2, -1, 0, 1, 1, 1)
 
 if __name__ == "__main__":
     unittest.main()
