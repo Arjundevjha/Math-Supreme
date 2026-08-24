@@ -17,5 +17,11 @@ class TestArcTanSecurity(unittest.TestCase):
         val = calculate_arctan(Decimal('1e-600000'))
         self.assertIsNotNone(val)
 
+    def test_broad_exception_handling(self):
+        # Verify normal calculation works with integer, float, Decimal
+        self.assertIsNotNone(calculate_arctan(2))
+        self.assertIsNotNone(calculate_arctan(2.0))
+        self.assertIsNotNone(calculate_arctan(Decimal('2')))
+
 if __name__ == '__main__':
     unittest.main()

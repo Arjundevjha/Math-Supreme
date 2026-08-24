@@ -1,5 +1,5 @@
 # Arctangent (inverse tangent) function using Taylor series
-from decimal import Decimal, getcontext
+from decimal import Decimal, getcontext, InvalidOperation
 from typing import Union, Optional
 
 
@@ -32,7 +32,7 @@ def calculate_arctan(
     # Convert x to Decimal properly to avoid float underflow issues
     try:
         x_dec = Decimal(str(x)) if isinstance(x, float) else Decimal(x)
-    except Exception:
+    except (ValueError, TypeError, InvalidOperation):
         x_dec = Decimal(x)
 
     # Check for extremely small x values that would underflow when squared
