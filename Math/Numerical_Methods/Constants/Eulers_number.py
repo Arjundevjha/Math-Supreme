@@ -16,9 +16,12 @@ def compute_eulers_number(iterations: int = 100, decimal_places: int = 50) -> De
     Returns:
     Decimal: Euler's number e to the specified precision.
     """
-    if iterations <= 0:
-        raise ValueError("Iterations must be positive.")
-    
+    # Validate inputs to prevent DoS via excessive memory/CPU consumption
+    if iterations <= 0 or iterations > 10000:
+        raise ValueError("Iterations must be between 1 and 10000.")
+    if decimal_places <= 0 or decimal_places > 10000:
+        raise ValueError("Decimal places must be between 1 and 10000.")
+
     # Set precision for Decimal calculations
     getcontext().prec = decimal_places + 10
     
