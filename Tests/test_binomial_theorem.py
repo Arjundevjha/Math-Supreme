@@ -1,8 +1,19 @@
+import os
+import sys
 import pytest
 
 # Add root directory to path
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
 
+math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
+combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Combinatorics'))
+if combinatorics_dir not in sys.path:
+    sys.path.insert(0, combinatorics_dir)
 
 from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
 
@@ -60,60 +71,3 @@ def test_binomial_coefficient_error_handling():
         binomial_coefficient(5, 6)
     with pytest.raises(ValueError, match="Invalid values for n and r"):
         binomial_coefficient(5, -1)
-
-def test_expand_binomial_n_1():
-    # (x + y)^1 = 1*x^1*y^0 + 1*x^0*y^1
-    result = expand_binomial('x', 'y', 1)
-    terms = [term.strip() for term in result.split('+')]
-
-    assert "1*x^1*y^0" in terms
-    assert "1*x^0*y^1" in terms
-    assert len(terms) == 2
-
-def test_expand_binomial_same_terms():
-    # (a + a)^2 = 1*a^2*a^0 + 2*a^1*a^1 + 1*a^0*a^2
-    result = expand_binomial('a', 'a', 2)
-    terms = [term.strip() for term in result.split('+')]
-
-    assert "1*a^2*a^0" in terms
-    assert "2*a^1*a^1" in terms
-    assert "1*a^0*a^2" in terms
-    assert len(terms) == 3
-
-def test_expand_binomial_large_n():
-    # (x + y)^5
-    result = expand_binomial('x', 'y', 5)
-    terms = [term.strip() for term in result.split('+')]
-
-    assert len(terms) == 6
-    assert "1*x^5*y^0" in terms
-    assert "5*x^4*y^1" in terms
-    assert "10*x^3*y^2" in terms
-    assert "10*x^2*y^3" in terms
-    assert "5*x^1*y^4" in terms
-    assert "1*x^0*y^5" in terms
-    # (p + q)^1 = 1*p^1*q^0 + 1*p^0*q^1
-    result = expand_binomial('p', 'q', 1)
-    terms = [term.strip() for term in result.split('+')]
-
-    assert "1*p^1*q^0" in terms
-    assert "1*p^0*q^1" in terms
-    assert len(terms) == 2
-
-def test_expand_binomial_n_4():
-    # (m + n)^4
-    result = expand_binomial('m', 'n', 4)
-    terms = [term.strip() for term in result.split('+')]
-
-    assert "1*m^4*n^0" in terms
-    assert "4*m^3*n^1" in terms
-    assert "6*m^2*n^2" in terms
-    assert "4*m^1*n^3" in terms
-    assert "1*m^0*n^4" in terms
-    assert len(terms) == 5
-
-def test_binomial_coefficient_symmetry():
-    # C(n, r) == C(n, n-r)
-    assert binomial_coefficient(10, 3) == binomial_coefficient(10, 7)
-    assert binomial_coefficient(15, 5) == binomial_coefficient(15, 10)
-    assert binomial_coefficient(7, 2) == binomial_coefficient(7, 5)

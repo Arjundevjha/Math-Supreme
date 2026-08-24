@@ -1,6 +1,14 @@
+import os
+import sys
 import pytest
 import math
 
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Geometry.Analytic_Geometry.line_equations.slope import calculate_slope
 

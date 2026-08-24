@@ -1,8 +1,8 @@
-
-
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import pytest
-from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, arccos_series
-from Math.utils.math_utils import factorial
+from Math.Geometry.Trigonometry.Formulas.cosine_rule import sqrt_newton, cosine_rule_for_side, cosine_rule_for_angle, factorial, arccos_series
 
 def test_sqrt_newton_precision_zero():
     with pytest.raises(ValueError, match="Precision must be strictly greater than zero."):
@@ -33,7 +33,7 @@ def test_factorial():
     assert factorial(0) == 1
     assert factorial(1) == 1
     assert factorial(5) == 120
-    with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
+    with pytest.raises(ValueError, match="Factorial not defined for negative numbers."):
         factorial(-1)
 
 def test_sqrt_newton_negative():
@@ -53,7 +53,6 @@ def test_sqrt_newton_max_iterations():
     with unittest.mock.patch('builtins.abs', return_value=1.0):
         with pytest.raises(RuntimeError, match="Maximum iterations reached without converging to the specified precision."):
             sqrt_newton(4, 0.5)
-
 
 
 def test_arccos_series():
@@ -90,4 +89,3 @@ def test_cosine_rule_for_angle_invalid():
         cosine_rule_for_angle(10, 2, 4)
     with pytest.raises(ValueError, match="Invalid triangle: the sum of any two sides must be greater than the third side."):
         cosine_rule_for_angle(3, 10, 4)
-

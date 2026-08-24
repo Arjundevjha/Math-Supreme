@@ -1,25 +1,200 @@
+import os
+import sys
+
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+import pytest
 import math
 import unittest
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+math_dir = os.path.join(root_dir, 'Math')
+math_dir = os.path.join(root_dir, "Math")
+math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "Math"))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
-import pytest
+math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
-from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative
-from Math.Calculus.Differentiation.product_rule import product_rule_derivative
-from Math.Calculus.Differentiation.quotient_rule import quotient_rule_derivative
-from Math.Calculus.Differentiation.simple_diffrentiation_function import (
-    differentiate_polynomial,
-)
-from Math.Calculus.Differentiation.utils import (
-    compute_polynomial_derivative,
-    compute_polynomial_derivative_str,
-    format_polynomial,
-)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
-format_polynomial_product_rule = format_polynomial
-format_polynomial_chain_rule = format_polynomial
-compute_polynomial_derivative_str_quotient = compute_polynomial_derivative_str
+math_dir = os.path.join(root_dir, 'Math')
+math_dir = os.path.join(root_dir, "Math")
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
+    sys.path.insert(0, os.path.join(root_dir, "Math"))
+
+math_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+math_dir = os.path.join(root_dir, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+from Math.Calculus.Differentiation.second_derivatives import second_derivative
+math_dir = os.path.join(root_dir, "Math")
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+from Math.Calculus.Differentiation.product_rule import compute_polynomial_derivative_str, product_rule_derivative, format_polynomial as format_polynomial_product_rule
+from Math.Calculus.Integration.NumIntegration import integrate_polynomial, format_polynomial_integration
+from Math.Calculus.Differentiation.quotient_rule import format_polynomial, quotient_rule_derivative, compute_polynomial_derivative_str as compute_polynomial_derivative_str_quotient
+from Math.Calculus.Differentiation.chain_rule import chain_rule_derivative, format_polynomial as format_polynomial_chain_rule, compute_polynomial_derivative
+from Math.Calculus.Integration.TrigIntegration import integrate_cos, integrate_sin
+from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
+
+def test_second_derivative_quadratic():
+    # 3x^2 + 2x + 1 -> y'' = 6
+    coeffs = [3, 2, 1]
+    powers = [2, 1, 0]
+    assert second_derivative(coeffs, powers) == [(6, 0)]
+
+def test_second_derivative_cubic():
+    # 4x^3 - 2x^2 + x - 5 -> y'' = 24x - 4
+    coeffs = [4, -2, 1, -5]
+    powers = [3, 2, 1, 0]
+    assert second_derivative(coeffs, powers) == [(24, 1), (-4, 0)]
+
+def test_second_derivative_constant():
+    # y = 5 -> y'' = 0 (represented as empty list)
+    coeffs = [5]
+    powers = [0]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_linear():
+    # y = 3x -> y'' = 0 (represented as empty list)
+    coeffs = [3]
+    powers = [1]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_empty():
+    assert second_derivative([], []) == []
+
+def test_second_derivative_floats():
+    # 2.5x^4 -> y'' = 30.0x^2
+    coeffs = [2.5]
+    powers = [4.0]
+    assert second_derivative(coeffs, powers) == [(30.0, 2.0)]
+
+def test_second_derivative_negative_powers():
+    # Based on the current implementation, powers <= 0 are ignored
+    # d/dx(3x^-2) -> empty list since power is not > 0
+    coeffs = [3]
+    powers = [-2]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_negative_coeffs():
+    # -3x^4 -> y'' = -36x^2
+    coeffs = [-3]
+    powers = [4]
+    assert second_derivative(coeffs, powers) == [(-36, 2)]
+
+def test_second_derivative_fractional_powers():
+    # x^2.5 -> y'' = 3.75x^0.5
+    coeffs = [1]
+    powers = [2.5]
+    assert second_derivative(coeffs, powers) == [(3.75, 0.5)]
+
+def test_second_derivative_zero_coeffs():
+    # 0x^3 -> y'' = 0x^1
+    coeffs = [0]
+    powers = [3]
+    assert second_derivative(coeffs, powers) == [(0, 1)]
+
+def test_second_derivative_mixed():
+    # 3x^3 + 2x^2 + 5x - 4x^-2 -> y'' = 18x + 4
+    coeffs = [3, 2, 5, -4]
+    powers = [3, 2, 1, -2]
+    assert second_derivative(coeffs, powers) == [(18, 1), (4, 0)]
+def test_second_derivative_zero_coeffs():
+    # 0x^3 + 0x^2 -> y'' = 0x
+    coeffs = [0, 0]
+    powers = [3, 2]
+    assert second_derivative(coeffs, powers) == [(0, 1), (0, 0)]
+
+def test_second_derivative_unordered_powers():
+    # x + 4x^3 - 2x^2 - 5 -> y'' = 24x - 4
+    coeffs = [1, 4, -2, -5]
+    powers = [1, 3, 2, 0]
+    assert second_derivative(coeffs, powers) == [(24, 1), (-4, 0)]
+
+def test_second_derivative_mismatched_lengths():
+    # zip() behavior
+    coeffs = [4, -2]
+    powers = [3]
+    assert second_derivative(coeffs, powers) == [(24, 1)]
+
+def test_second_derivative_negative_powers():
+    # Currently code ignores powers <= 0 for derivatives
+    # Let's verify this behavior
+    coeffs = [3, 2]
+    powers = [-2, -1]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_large_numbers():
+    # 1000x^1000 -> y'' = 1000 * 1000 * 999 x^998 = 999000000x^998
+    coeffs = [1000]
+    powers = [1000]
+    assert second_derivative(coeffs, powers) == [(999000000, 998)]
+    # Negative powers are skipped in the current implementation
+    assert second_derivative([3], [-2]) == []
+
+def test_second_derivative_fractional_powers_skipped():
+    # Power becomes <= 0 after first derivative
+    assert second_derivative([4], [0.5]) == []
+
+def test_second_derivative_fractional_powers_kept():
+    # Power remains > 0 after first derivative
+    assert second_derivative([4], [2.5]) == [(15.0, 0.5)]
+
+def test_second_derivative_mixed_skipped():
+    # Mix of valid and skipped powers
+    assert second_derivative([3, 2, 1], [3, 0.5, -1]) == [(18, 1)]
+
+def test_second_derivative_zero_coefficients():
+    # Zero coefficients should be processed properly
+    assert second_derivative([0], [3]) == [(0, 1)]
+
+def test_second_derivative_mismatched_lengths():
+    # zip handles mismatched lengths by stopping at the shortest
+    assert second_derivative([1, 2], [3]) == [(6, 1)]
+def test_second_derivative_negative_powers():
+    # The current function ignores negative powers: if power > 0:
+    # So x^-2 -> y'' = []
+    coeffs = [1]
+    powers = [-2]
+    assert second_derivative(coeffs, powers) == []
+
+def test_second_derivative_mixed_terms():
+    # 2x^3 + 5x^0 + 4x^-1 -> y'' = 12x
+    coeffs = [2, 5, 4]
+    powers = [3, 0, -1]
+    assert second_derivative(coeffs, powers) == [(12, 1)]
 
 def test_compute_polynomial_derivative_str_single_term():
     assert compute_polynomial_derivative_str([3], [2]) == "6x^1"
@@ -39,6 +214,90 @@ def test_compute_polynomial_derivative_str_empty():
 
 def test_compute_polynomial_derivative_str_negative_powers_and_floats():
     assert compute_polynomial_derivative_str([2.5, 3], [-2, 0]) == "-5.0x^-3"
+
+def test_integrate_polynomial_basic():
+
+    # ∫(3x^2 + 2x + 1)dx = x^3 + x^2 + x + C
+    coeffs = [3, 2, 1]
+    powers = [2, 1, 0]
+    expected_coeffs = [1.0, 1.0, 1.0]
+    expected_powers = [3, 2, 1]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_negative_powers():
+    # ∫(x^-2)dx = -x^-1
+    coeffs = [1]
+    powers = [-2]
+    expected_coeffs = [-1.0]
+    expected_powers = [-1]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_fractional_powers():
+    # ∫(x^0.5)dx = (2/3)x^1.5
+    coeffs = [1]
+    powers = [0.5]
+    expected_coeffs = [1 / 1.5]
+    expected_powers = [1.5]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_zero_coefficients():
+    # ∫(0x^2)dx = 0
+    coeffs = [0]
+    powers = [2]
+    expected_coeffs = [0.0]
+    expected_powers = [3]
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_empty():
+    # ∫(0)dx = C
+    coeffs = []
+    powers = []
+    expected_coeffs = []
+    expected_powers = []
+
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_integrate_polynomial_power_minus_one():
+    # ∫(x^-1)dx raises ValueError since ln|x| is unsupported
+    coeffs = [1]
+    powers = [-1]
+
+    with pytest.raises(ValueError):
+        integrate_polynomial(coeffs, powers)
+
+    assert integrate_polynomial([], []) == ([], [])
+
+def test_integrate_polynomial_power_negative_one():
+    # ∫(x^-1)dx requires ln|x|, the power rule fails with ValueError
+    coeffs = [1]
+    powers = [-1]
+    with pytest.raises(ValueError):
+        integrate_polynomial(coeffs, powers)
+
+def test_integrate_polynomial_mixed_terms():
+    coeffs = [3, -2, 1.5, 0]
+    powers = [2, -3, 0.5, 1]
+    expected_coeffs = [1.0, 1.0, 1.0, 0.0]
+    expected_powers = [3, -2, 1.5, 2]
+    assert integrate_polynomial(coeffs, powers) == (expected_coeffs, expected_powers)
+
+def test_format_polynomial_integration_basic():
+    # x^3 + x^2 + x + C
+    coeffs = [1.0, 1.0, 1.0]
+    powers = [3, 2, 1]
+
+    assert format_polynomial_integration(coeffs, powers) == "1.0x^3 + 1.0x^2 + 1.0x + C"
+
+def test_format_polynomial_integration_zero_power():
+    # 5
+    coeffs = [5.0]
+    powers = [0]
+
+    assert format_polynomial_integration(coeffs, powers) == "5.0 + C"
 
 def test_format_polynomial_basic():
     coeffs = [2, 3]
@@ -69,6 +328,55 @@ def test_format_polynomial_empty():
     powers = []
     result = format_polynomial(coeffs, powers)
     assert result.strip() == ""
+
+def test_product_rule_derivative_basic():
+    # u(x) = x, v(x) = x
+    # u'v + uv' = (1x^0) * (1x^1) + (1x^1) * (1x^0)
+    result = product_rule_derivative([1], [1], [1], [1])
+    assert result == "(1x^0) * (1x^1) + (1x^1) * (1x^0)"
+
+def test_product_rule_derivative_complex():
+    # u(x) = 2x^2 + 3x, v(x) = 4x^3
+    result = product_rule_derivative([2, 3], [2, 1], [4], [3])
+    assert "(4x^1 + 3x^0) * (4x^3) + (2x^2 + 3x^1) * (12x^2)" == result
+
+def test_product_rule_derivative_constant():
+    # u(x) = 5, v(x) = x
+    result = product_rule_derivative([5], [0], [1], [1])
+    assert result == "(0) * (1x^1) + (5x^0) * (1x^0)"
+
+def test_product_rule_derivative_multiple_terms():
+    # u(x) = 3x^3 + 2x^2 + x, v(x) = 5x^2 + 4
+    # u_prime = 9x^2 + 4x^1 + 1x^0
+    # v_prime = 10x^1
+    result = product_rule_derivative([3, 2, 1], [3, 2, 1], [5, 4], [2, 0])
+    expected = "(9x^2 + 4x^1 + 1x^0) * (5x^2 + 4x^0) + (3x^3 + 2x^2 + 1x^1) * (10x^1)"
+    assert result == expected
+
+def test_product_rule_derivative_empty_polynomials():
+    # u(x) = empty, v(x) = empty
+    result = product_rule_derivative([], [], [], [])
+    assert result == "0"
+
+def test_product_rule_derivative_floating_point():
+    # u(x) = 1.5x^2, v(x) = 2.5x^3
+    result = product_rule_derivative([1.5], [2.0], [2.5], [3.0])
+    assert result == "(3.0x^1) * (2.5x^3) + (1.5x^2) * (7.5x^2)"
+
+def test_product_rule_derivative_negative_powers():
+    # u(x) = 2x^-1, v(x) = 3x^-2
+    result = product_rule_derivative([2], [-1], [3], [-2])
+    assert result == "(-2x^-2) * (3x^-2) + (2x^-1) * (-6x^-3)"
+
+def test_product_rule_derivative_zero_coefficients():
+    # u(x) = 0x^2, v(x) = 5x^3
+    result = product_rule_derivative([0], [2], [5], [3])
+    assert result == "(0x^1) * (5x^3) + (0x^2) * (15x^2)"
+
+def test_product_rule_derivative_both_constants():
+    # u(x) = 5, v(x) = 7
+    result = product_rule_derivative([5], [0], [7], [0])
+    assert result == "(0) * (7x^0) + (5x^0) * (0)"
 
 def test_chain_rule_derivative_basic():
     # g(x) = x^2, n = 3 => (x^2)^3 => derivative is 3(x^2)^2 * (2x)
@@ -102,6 +410,7 @@ def test_chain_rule_derivative_negative_exponent():
     # Negative exponent should raise ValueError
     with pytest.raises(ValueError, match="Exponent must be non-negative."):
         chain_rule_derivative([1, 2], [2, 0], -1)
+
 
 def test_chain_rule_derivative_float_coefficients():
     # g(x) = 1.5x^2.5, n = 2 => 2(1.5x^2.5)^1 * (3.75x^1.5)
@@ -209,6 +518,46 @@ def test_chain_rule_derivative_empty_inner():
     result = chain_rule_derivative([], [], 2)
     assert "2()^1 * ()" in result
 
+def test_integrate_cos_basic():
+    # Integral of cos(x) from 0 to pi/2 should be sin(pi/2) - sin(0) = 1 - 0 = 1
+    result = integrate_cos(0, math.pi / 2)
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+def test_integrate_cos_full_period():
+    # Integral of cos(x) from 0 to 2*pi should be 0
+    result = integrate_cos(0, 2 * math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+def test_integrate_cos_negative_bounds():
+    # Integral of cos(x) from -pi/2 to 0 should be sin(0) - sin(-pi/2) = 0 - (-1) = 1
+    result = integrate_cos(-math.pi / 2, 0)
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+def test_integrate_cos_same_bounds():
+    # Integral of cos(x) from a to a should be 0
+    result = integrate_cos(math.pi, math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+def test_integrate_sin_basic():
+    # Integral of sin(x) from 0 to pi/2 should be -cos(pi/2) - (-cos(0)) = 0 + 1 = 1
+    result = integrate_sin(0, math.pi / 2)
+    assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+def test_integrate_sin_full_period():
+    # Integral of sin(x) from 0 to 2*pi should be 0
+    result = integrate_sin(0, 2 * math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
+def test_integrate_sin_negative_bounds():
+    # Integral of sin(x) from -pi/2 to 0 should be -cos(0) - (-cos(-pi/2)) = -1 - 0 = -1
+    result = integrate_sin(-math.pi / 2, 0)
+    assert math.isclose(result, -1.0, rel_tol=1e-5)
+
+def test_integrate_sin_same_bounds():
+    # Integral of sin(x) from a to a should be 0
+    result = integrate_sin(math.pi, math.pi)
+    assert math.isclose(result, 0.0, abs_tol=1e-5)
+
 class TestDifferentiatePolynomial(unittest.TestCase):
     def test_basic_polynomial(self):
         # d/dx(3x^2 + 2x + 1) = 6x + 2
@@ -261,6 +610,7 @@ class TestDifferentiatePolynomial(unittest.TestCase):
             differentiate_polynomial([2, 5, 4], [3, 0, -1]),
             [(6, 2)]
         )
+
 
 from Math.Calculus.Differentiation.chain_rule import format_polynomial as direct_format_polynomial_chain_rule
 class TestChainRuleFormatPolynomial(unittest.TestCase):
@@ -494,6 +844,56 @@ class TestQuotientRule(unittest.TestCase):
     def test_compute_polynomial_derivative_str_empty(self):
         self.assertEqual(compute_polynomial_derivative_str_quotient([], []), "0")
 
+def test_format_polynomial_integration_multiple_terms():
+    result = format_polynomial_integration([2.0, 3.5, 1.0], [2.0, 1.0, 0.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "2.0x^2" in terms
+    assert "3.5x" in terms
+    assert "1.0" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_single_term_power_zero():
+    result = format_polynomial_integration([5.0], [0.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "5.0" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_single_term_power_one():
+    result = format_polynomial_integration([2.5], [1.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "2.5x" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_single_term_power_gt_one():
+    result = format_polynomial_integration([4.0], [3.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "4.0x^3" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_empty():
+    result = format_polynomial_integration([], [])
+    assert result.strip() == "+ C" or result.strip() == "C"
+
+def test_format_polynomial_integration_negative_coefficients():
+    result = format_polynomial_integration([-2.0, -3.5], [2.0, 1.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "-2.0x^2" in terms
+    assert "-3.5x" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_negative_powers():
+    result = format_polynomial_integration([4.0, 5.0], [-2.0, -3.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "4.0x^-2" in terms
+    assert "5.0x^-3" in terms
+    assert "C" in terms
+
+def test_format_polynomial_integration_zero_coefficients():
+    result = format_polynomial_integration([0.0, 0.0], [2.0, 1.0])
+    terms = [term.strip() for term in result.split('+')]
+    assert "0.0x^2" in terms
+    assert "0.0x" in terms
+    assert "C" in terms
 def test_format_polynomial_chain_rule_zero_coeff():
     assert format_polynomial_chain_rule([0, 2], [2, 1]) == "0x^2 + 2x^1"
 
@@ -675,6 +1075,7 @@ class TestComputePolynomialDerivative:
         expected_powers = [1]
         assert compute_polynomial_derivative(coeffs, powers) == (expected_coeffs, expected_powers)
 
+
     def test_zero_coefficients(self):
         # f(x) = 0x^2
         # f'(x) = 0x^1
@@ -789,6 +1190,75 @@ class TestCalculusDifferentiation(unittest.TestCase):
     def test_format_polynomial_product_rule_mixed_signs(self):
         self.assertEqual(format_polynomial_product_rule([-3, 4], [2, -1]), "-3x^2 + 4x^-1")
 
+class TestTrigIntegration:
+    def test_integrate_sin_basic(self):
+        """Test integral of sin(x) from 0 to pi = 2"""
+        result = integrate_sin(0, math.pi)
+        assert math.isclose(result, 2.0, rel_tol=1e-5)
+
+    def test_integrate_sin_zero(self):
+        """Test integral of sin(x) from 0 to 0 = 0"""
+        result = integrate_sin(0, 0)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_sin_full_period(self):
+        """Test integral of sin(x) from 0 to 2pi = 0"""
+        result = integrate_sin(0, 2 * math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_sin_negative_bounds(self):
+        """Test integral of sin(x) from -pi to 0 = -2"""
+        result = integrate_sin(-math.pi, 0)
+        assert math.isclose(result, -2.0, rel_tol=1e-5)
+
+    def test_integrate_sin_reversed_bounds(self):
+        """Test integral of sin(x) from pi to 0 = -2"""
+        result = integrate_sin(math.pi, 0)
+        assert math.isclose(result, -2.0, rel_tol=1e-5)
+
+    def test_integrate_sin_fractional_pi(self):
+        """Test integral of sin(x) from 0 to pi/3 = 0.5"""
+        result = integrate_sin(0, math.pi / 3)
+        assert math.isclose(result, 0.5, rel_tol=1e-5)
+
+    def test_integrate_sin_float_bounds(self):
+        """Test integral of sin(x) from 0.5 to 1.5"""
+        result = integrate_sin(0.5, 1.5)
+        expected = -math.cos(1.5) + math.cos(0.5)
+        assert math.isclose(result, expected, rel_tol=1e-5)
+
+    def test_integrate_cos_basic(self):
+        """Test integral of cos(x) from 0 to pi/2 = 1"""
+        result = integrate_cos(0, math.pi / 2)
+        assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+    def test_integrate_cos_zero(self):
+        """Test integral of cos(x) from 0 to 0 = 0"""
+        result = integrate_cos(0, 0)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_full_period(self):
+        """Test integral of cos(x) from 0 to 2pi = 0"""
+        result = integrate_cos(0, 2 * math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+
+    def test_integrate_cos_negative_bounds(self):
+        """Test integral of cos(x) from -pi/2 to 0 = 1"""
+        result = integrate_cos(-math.pi / 2, 0)
+        assert math.isclose(result, 1.0, rel_tol=1e-5)
+
+    def test_integrate_cos_half_period(self):
+        """Test integral of cos(x) from -pi/2 to pi/2 = 2"""
+        result = integrate_cos(-math.pi / 2, math.pi / 2)
+        assert math.isclose(result, 2.0, rel_tol=1e-5)
+    def test_integrate_cos_same_bounds(self):
+        """Test integral of cos(x) from a to a = 0"""
+        result = integrate_cos(math.pi, math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-9)
+    def test_integrate_cos_same_bounds(self):
+        """Test integral of cos(x) from a to a = 0"""
+        result = integrate_cos(math.pi, math.pi)
+        assert math.isclose(result, 0.0, abs_tol=1e-5)
 def test_quotient_rule_derivative_happy_path():
     # Normal polynomial differentiation: u(x) = 2x^2, v(x) = 3x^1
     # u' = 4x^1, v' = 3x^0
@@ -817,6 +1287,7 @@ def test_quotient_rule_derivative_fractional_powers_edge():
 def test_quotient_rule_derivative_zero_polynomials_edge():
     result = quotient_rule_derivative([0], [0], [1], [1])
     assert result == "((0) * (1x^1) - (0x^0) * (1x^0)) / (1x^1)^2"
+
 
 class TestFormatPolynomialChainRule(unittest.TestCase):
     def test_single_term(self):
@@ -877,8 +1348,35 @@ class TestFormatPolynomialChainRule(unittest.TestCase):
         result = integrate_cos(-math.pi / 2, math.pi / 2)
         assert math.isclose(result, 2.0, rel_tol=1e-5)
 
+
+class TestProductRuleComputePolynomialDerivativeStr(unittest.TestCase):
+    def test_compute_polynomial_derivative_str_single_term(self):
+        self.assertEqual(compute_polynomial_derivative_str([3], [2]), "6x^1")
+
+    def test_compute_polynomial_derivative_str_multiple_terms(self):
+        self.assertEqual(compute_polynomial_derivative_str([3, 4], [2, 1]), "6x^1 + 4x^0")
+
+    def test_compute_polynomial_derivative_str_constant_term(self):
+        self.assertEqual(compute_polynomial_derivative_str([5], [0]), "0")
+
+    def test_compute_polynomial_derivative_str_zero_coefficient(self):
+        self.assertEqual(compute_polynomial_derivative_str([0], [2]), "0x^1")
+
+    def test_compute_polynomial_derivative_str_float(self):
+        self.assertEqual(compute_polynomial_derivative_str([1.5, 2.5], [2, 1]), "3.0x^1 + 2.5x^0")
+
+    def test_compute_polynomial_derivative_str_negative_powers(self):
+        self.assertEqual(compute_polynomial_derivative_str([3], [-2]), "-6x^-3")
+
+    def test_compute_polynomial_derivative_str_empty(self):
+        self.assertEqual(compute_polynomial_derivative_str([], []), "0")
+
+    def test_compute_polynomial_derivative_str_mixed_terms(self):
+        # 2x^3 + 5x^0 + 1x^1 -> derivative is 6x^2 + 1x^0
+        self.assertEqual(compute_polynomial_derivative_str([2, 5, 1], [3, 0, 1]), "6x^2 + 1x^0")
 if __name__ == '__main__':
     unittest.main()
+
 
 class TestFormatPolynomialChainRule(unittest.TestCase):
     def test_basic_positive_powers(self):

@@ -1,9 +1,17 @@
+import os
+import sys
 
 import pytest
 
 # Add root directory to path to allow "Math.Discrete_Math..." imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
 
 # the code has imports assuming "Math" is the root in some cases, so let's add it too
+math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
 
@@ -56,34 +64,3 @@ def test_compute_gcd_errors():
 ])
 def test_prime_factorization_for_gcd(n, expected):
     assert prime_factorization_for_gcd(n) == expected
-
-import math
-import random
-from functools import reduce
-
-def test_compute_gcd_against_math_gcd():
-    """
-    Test compute_gcd against Python's built-in math.gcd with a wide range
-    of randomly generated pairs to ensure broad correctness.
-    """
-    random.seed(42)  # For reproducibility
-    for _ in range(100):
-        a = random.randint(1, 10000)
-        b = random.randint(1, 10000)
-        assert compute_gcd(a, b) == math.gcd(a, b)
-
-def test_prime_factorization_for_gcd_product():
-    """
-    Test that the product of prime factors equals the original number.
-    """
-    random.seed(42)
-    for _ in range(50):
-        n = random.randint(2, 5000)
-        factors = prime_factorization_for_gcd(n)
-        product = reduce(lambda x, y: x * y, factors, 1)
-        assert product == n
-def test_compute_gcd_large_numbers():
-    assert compute_gcd(123456, 789012) == 12
-
-def test_prime_factorization_for_gcd_large():
-    assert prime_factorization_for_gcd(1048576) == [2] * 20

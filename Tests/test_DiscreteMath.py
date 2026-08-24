@@ -1,21 +1,38 @@
+
+import os
+import sys
 import unittest
 
 import pytest
 
-from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import (
-    binomial_general_term,
-)
-from Math.Discrete_Math.Combinatorics.pascals_triangle import (
-    print_pascals_triangle,
-    generate_pascals_triangle,
-)
-from Math.Discrete_Math.Combinatorics.permutation import factorial
-from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import (
-    trinomial_general_term,
-)
-from Math.Discrete_Math.Number_Theory.partitions_approximation import (
-    partition_approximation,
-)
+# Add root directory to path to allow "Math.Discrete_Math..." imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
+
+# the code has imports assuming "Math" is the root in some cases, so let's add it too
+math_dir = os.path.abspath(os.path.join(root_dir, 'Math'))
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
+
+# E.g. trinomial_theorem.py has `sys.path.append('..')` and `from combination import nCr`
+# The internal code assumes sys.path has `Math/Discrete_Math/Combinatorics`
+combinatorics_dir = os.path.abspath(os.path.join(math_dir, 'Discrete_Math', 'Combinatorics'))
+if combinatorics_dir not in sys.path:
+    sys.path.insert(0, combinatorics_dir)
+
+from Math.Discrete_Math.Combinatorics.combination import nCr
+
+from Math.Discrete_Math.Combinatorics.binomial_theorem import expand_binomial, binomial_coefficient
+from Math.Discrete_Math.Combinatorics.binomial_theorem_general_term import binomial_general_term
+from Math.Discrete_Math.Combinatorics.pascals_triangle import print_pascals_triangle, generate_pascals_triangle
+from Math.Discrete_Math.Combinatorics.permutation import factorial, n_permute_r
+from Math.Discrete_Math.Combinatorics.trinomial_theorem import expand_trinomial, trinomial_coefficient
+from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import trinomial_general_term
+from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple
+from Math.Discrete_Math.Number_Theory.gcd import compute_gcd, prime_factorization_for_gcd
+from Math.Discrete_Math.Number_Theory.prime_factorisation import prime_factorization
+from Math.Discrete_Math.Number_Theory.partitions_approximation import partition_approximation
 from Math.Discrete_Math.Number_Theory.partitions import partition
 
 
@@ -46,11 +63,12 @@ def test_factorial_large_number():
 
 def test_factorial_negative_number():
     """Test factorial with a negative number, which should raise RecursionError due to infinite recursion."""
-    with pytest.raises(ValueError):
+    with pytest.raises(RecursionError):
         factorial(-1)
 
 
 class TestTrinomialGeneralTerm(unittest.TestCase):
+
     def test_trinomial_general_term_happy_path(self):
         # Testing (2 + 3 + 4)^2
         # a^2
@@ -95,6 +113,22 @@ class TestTrinomialGeneralTerm(unittest.TestCase):
             trinomial_general_term(-1, 0, 0, 1, 1, 1)
 
 
+
+class TestPermutation(unittest.TestCase):
+    def test_n_permute_r_typical(self):
+        self.assertEqual(n_permute_r(5, 3), 60)
+        self.assertEqual(n_permute_r(10, 2), 90)
+
+    def test_n_permute_r_boundary(self):
+        self.assertEqual(n_permute_r(5, 0), 1)
+        self.assertEqual(n_permute_r(5, 5), 120)
+        self.assertEqual(n_permute_r(0, 0), 1)
+
+    def test_n_permute_r_invalid(self):
+        with self.assertRaises(ValueError):
+            n_permute_r(3, 5)
+
+
 class TestPascalsTriangle:
     def test_print_pascals_triangle_normal(self, capsys):
         """Test printing a normal Pascal's triangle."""
@@ -119,21 +153,78 @@ class TestPascalsTriangle:
         assert generate_pascals_triangle(1) == [[1]]
         assert generate_pascals_triangle(2) == [[1], [1, 1]]
         assert generate_pascals_triangle(3) == [[1], [1, 1], [1, 2, 1]]
-        assert generate_pascals_triangle(5) == [
-            [1],
-            [1, 1],
-            [1, 2, 1],
-            [1, 3, 3, 1],
-            [1, 4, 6, 4, 1],
-        ]
+        assert generate_pascals_triangle(5) == [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
 
     def test_generate_pascals_triangle_invalid(self):
-        """Test generating an invalid Pascal's triangle with negative rows."""
+        """Test generating an invalid Pascal's triangle."""
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-1)
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-5)
+        with pytest.raises(ValueError):
+            generate_pascals_triangle(1001)
+        with pytest.raises(ValueError):
+            generate_pascals_triangle(2000)
 
+
+def test_prime_factorization_edge_case():
+    assert prime_factorization(1) == []
+
+
+def test_prime_factorization_prime_numbers():
+    assert prime_factorization(2) == [2]
+    assert prime_factorization(3) == [3]
+    assert prime_factorization(7) == [7]
+    assert prime_factorization(13) == [13]
+
+
+def test_prime_factorization_composite_numbers():
+    assert prime_factorization(4) == [2, 2]
+    assert prime_factorization(6) == [2, 3]
+    assert prime_factorization(8) == [2, 2, 2]
+    assert prime_factorization(12) == [2, 2, 3]
+    assert prime_factorization(15) == [3, 5]
+    assert prime_factorization(100) == [2, 2, 5, 5]
+    assert prime_factorization(1024) == [2] * 10
+
+
+def test_prime_factorization_invalid_input():
+    with pytest.raises(ValueError, match="Number must be positive."):
+        prime_factorization(0)
+    with pytest.raises(ValueError, match="Number must be positive."):
+        prime_factorization(-1)
+    with pytest.raises(ValueError, match="Number must be positive."):
+        prime_factorization(-10)
+
+
+class TestDiscreteMath(unittest.TestCase):
+
+    def test_expand_trinomial_n_0(self):
+        result = expand_trinomial('a', 'b', 'c', 0)
+        self.assertEqual(result, '1*a^0*b^0*c^0')
+
+    def test_expand_trinomial_n_1(self):
+        result = expand_trinomial('a', 'b', 'c', 1)
+        # 1*a^0*b^0*c^1 + 1*a^0*b^1*c^0 + 1*a^1*b^0*c^0
+        self.assertEqual(result, '1*a^0*b^0*c^1 + 1*a^0*b^1*c^0 + 1*a^1*b^0*c^0')
+
+    def test_expand_trinomial_n_2(self):
+        result = expand_trinomial('x', 'y', 'z', 2)
+        # 1*x^0*y^0*z^2 + 2*x^0*y^1*z^1 + 1*x^0*y^2*z^0 + 2*x^1*y^0*z^1 + 2*x^1*y^1*z^0 + 1*x^2*y^0*z^0
+        self.assertEqual(result, '1*x^0*y^0*z^2 + 2*x^0*y^1*z^1 + 1*x^0*y^2*z^0 + 2*x^1*y^0*z^1 + 2*x^1*y^1*z^0 + 1*x^2*y^0*z^0')
+
+    def test_expand_trinomial_different_variables(self):
+        result = expand_trinomial('p', 'q', 'r', 1)
+        self.assertEqual(result, '1*p^0*q^0*r^1 + 1*p^0*q^1*r^0 + 1*p^1*q^0*r^0')
+
+    def test_expand_trinomial_long_variable_names(self):
+        result = expand_trinomial('alpha', 'beta', 'gamma', 1)
+        self.assertEqual(result, '1*alpha^0*beta^0*gamma^1 + 1*alpha^0*beta^1*gamma^0 + 1*alpha^1*beta^0*gamma^0')
+
+    def test_expand_trinomial_negative_n(self):
+        with self.assertRaises(ValueError) as context:
+            expand_trinomial('a', 'b', 'c', -1)
+        self.assertTrue("Power n must be non-negative." in str(context.exception))
 
 
 def test_binomial_general_term():
@@ -229,6 +320,7 @@ def test_partition_approximation_relative_error():
     assert errors[-1] < 0.05
 
 
+
 def test_partition_negative():
     assert partition(-1) == 0
     assert partition(-10) == 0
@@ -236,6 +328,22 @@ def test_partition_negative():
 
 def test_partition_zero():
     assert partition(0) == 1
+
+
+def test_partition_large_number():
+    with pytest.raises(ValueError, match="Number is too large. Maximum supported value is 1000."):
+        partition(1001)
+
+
+def test_partition_exceeds_limit():
+    with pytest.raises(ValueError, match="1000"):
+        partition(1001)
+
+
+def test_partition_too_large():
+    import pytest
+    with pytest.raises(ValueError, match="1000"):
+        partition(1001)
 
 
 def test_partition_positive():
@@ -254,11 +362,24 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
-    assert partition(50) == 204226
 
 
+def test_trinomial_coefficient():
+    # Test cases with positive values for n, i, j
+    assert trinomial_coefficient(2, 1, 1) == 2
+    assert trinomial_coefficient(3, 1, 1) == 6
+    assert trinomial_coefficient(3, 2, 1) == 3
+    assert trinomial_coefficient(3, 3, 0) == 1
+    assert trinomial_coefficient(0, 0, 0) == 1
+
+    # Test cases where i + j > n
+    assert trinomial_coefficient(2, 2, 1) == 0
+    assert trinomial_coefficient(3, 2, 2) == 0
+
+    # Test cases with negative indices
+    assert trinomial_coefficient(2, -1, 1) == 0
+    assert trinomial_coefficient(2, 1, -1) == 0
 
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

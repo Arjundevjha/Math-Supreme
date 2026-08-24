@@ -1,6 +1,13 @@
+import sys
+import os
 import unittest
 import math
 
+# Add the project root and Math directory to sys.path to resolve imports
+if os.path.dirname(os.path.dirname(__file__)) not in sys.path:
+    sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
+if os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Math') not in sys.path:
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(__file__)), 'Math'))
 
 from Math.Geometry.Euclidean_Geometry.Volume.cylinder import volume_of_cylinder
 

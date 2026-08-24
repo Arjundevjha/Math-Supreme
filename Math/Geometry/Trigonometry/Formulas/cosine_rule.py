@@ -1,68 +1,70 @@
 # Cosine rule (Law of Cosines) for finding sides and angles of triangles
 from typing import Union
 
-from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
-from Math.utils.math_utils import PI
+
+def factorial(n: int) -> int:
+    """Calculate factorial of n."""
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers.")
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+def cosine_taylor(radians: Union[int, float]) -> float:
+    """Calculate cosine using Taylor series."""
+    cos_value = 1.0
+    term = 1.0
+    radians_sq = radians * radians
+
+    for idx in range(2, 100, 2):
+        term *= -radians_sq / (idx * (idx - 1))
+        cos_value += term
+
+    return cos_value
 
 
 def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
-    """
-    Calculate square root using Newton's method.
-
-    Parameters:
-    x (Union[int, float]): The number to find the square root of.
-    precision (float): Convergence tolerance for the square root.
-
-    Returns:
-    float: The calculated square root.
-    """
+    """Calculate square root using Newton's method."""
     if x < 0:
         raise ValueError("Cannot calculate square root of negative number.")
     if precision <= 0:
         raise ValueError("Precision must be strictly greater than zero.")
     if x == 0:
-        return 0.0
+        return 0
 
     guess = x / 2
     max_iterations = 10000
     iterations = 0
     while abs(guess * guess - x) > precision:
         if iterations >= max_iterations:
-            raise RuntimeError(
-                "Maximum iterations reached without converging to the specified precision."
-            )
+            raise RuntimeError("Maximum iterations reached without converging to the specified precision.")
         guess = (guess + x / guess) / 2
         iterations += 1
     return guess
 
 
 def arccos_series(x: Union[int, float]) -> float:
-    """
-    Calculate arccos using series approximation.
-
-    Parameters:
-    x (Union[int, float]): The value to calculate arccos for (between -1 and 1).
-
-    Returns:
-    float: The angle in radians.
-    """
+    """Calculate arccos using series approximation."""
     if x < -1 or x > 1:
         raise ValueError("arccos is only defined for values between -1 and 1.")
 
-    if x == 1:
-        return 0.0
-    if x == -1:
-        return PI
+    # Use arccos(x) = π/2 - arcsin(x) approximation
+    # For simplicity, use polynomial approximation
+    pi = 3.14159265358979323846
 
-    # Polynomial approximation for arccos: arccos(x) = π/2 - x - x³/6 - 3x⁵/40
-    result = PI / 2 - x - (x**3) / 6 - (3 * x**5) / 40
+    if x == 1:
+        return 0
+    if x == -1:
+        return pi
+
+    # Polynomial approximation for arccos
+    result = pi / 2 - x - (x**3) / 6 - (3 * x**5) / 40
     return result
 
 
-
-def cosine_rule_for_side(
-    a: Union[int, float], b: Union[int, float], angle_C_radians: Union[int, float]
-) -> float:
+def cosine_rule_for_side(a: Union[int, float], b: Union[int, float], angle_C_radians: Union[int, float]) -> float:
     """
     Calculate the length of side c using the cosine rule: c² = a² + b² - 2ab×cos(C).
 
@@ -82,9 +84,7 @@ def cosine_rule_for_side(
     return sqrt_newton(c_squared)
 
 
-def cosine_rule_for_angle(
-    a: Union[int, float], b: Union[int, float], c: Union[int, float]
-) -> float:
+def cosine_rule_for_angle(a: Union[int, float], b: Union[int, float], c: Union[int, float]) -> float:
     """
     Calculate angle C using the cosine rule: cos(C) = (a² + b² - c²) / (2ab).
 
@@ -99,9 +99,7 @@ def cosine_rule_for_angle(
     if a <= 0 or b <= 0 or c <= 0:
         raise ValueError("All side lengths must be positive.")
     if a + b <= c or a + c <= b or b + c <= a:
-        raise ValueError(
-            "Invalid triangle: the sum of any two sides must be greater than the third side."
-        )
+        raise ValueError("Invalid triangle: the sum of any two sides must be greater than the third side.")
 
     # Calculate angle using cosine rule: C = arccos((a² + b² - c²) / (2ab))
     cos_C = (a**2 + b**2 - c**2) / (2 * a * b)

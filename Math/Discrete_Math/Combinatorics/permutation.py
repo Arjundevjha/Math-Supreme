@@ -1,10 +1,25 @@
 # Permutation formula: for nPr where n and r are non-negative integers
 from typing import Union
 
-from Math.utils.math_utils import factorial
+
+def factorial(n: int) -> int:
+    """
+    Calculate factorial of n using recursion.
+
+    Parameters:
+    n (int): The number to calculate factorial for.
+
+    Returns:
+    int: The factorial of n (n!).
+    """
+    if n == 0:
+        return 1
+    else:
+        # Calculate factorial recursively
+        return n * factorial(n - 1)
 
 
-def n_permute_r(n: int, r: int) -> int:
+def n_permute_r(n: int, r: int) -> Union[int, float]:
     """
     Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.
 
@@ -13,12 +28,10 @@ def n_permute_r(n: int, r: int) -> int:
     r (int): The number of items to arrange.
 
     Returns:
-    int: The number of permutations (n permute r).
+    Union[int, float]: The number of permutations (n permute r).
     """
-    if r < 0 or n < 0 or n < r:
-        raise ValueError(
-            "n should be greater than or equal to r for permutations to be valid."
-        )
+    if n < r:
+        raise ValueError("n should be greater than or equal to r for permutations to be valid.")
 
     # Calculate permutations using factorial formula
-    return factorial(n) // factorial(n - r)
+    return factorial(n) / factorial(n - r)

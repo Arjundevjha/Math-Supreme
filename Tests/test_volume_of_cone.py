@@ -1,9 +1,19 @@
+import sys
+import os
 import math
 import pytest
 
+# Add both the project root and Math/ directory to sys.path
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+math_dir = os.path.join(parent_dir, 'Math')
 
+if parent_dir not in sys.path:
+    sys.path.insert(0, parent_dir)
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
-from Math.Geometry.Euclidean_Geometry.Volume.cone import volume_of_cone
+from Geometry.Euclidean_Geometry.Volume.cone import volume_of_cone
 
 class TestVolumeOfCone:
     def test_volume_positive_integers(self):

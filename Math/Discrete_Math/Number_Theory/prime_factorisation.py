@@ -19,20 +19,13 @@ def prime_factorization(number: int) -> List[int]:
     
     factors = []
     n = number
+    factor = 2
     
     # Find all prime factors by trial division
-
-    # Check for factor 2
-    while n % 2 == 0:
-        factors.append(2)
-        n //= 2
-
-    factor = 3
-    # Check for odd factors
     while n > 1:
         while n % factor == 0:
             factors.append(factor)
             n //= factor
-        factor += 2
+        factor += 1
     
     return factors

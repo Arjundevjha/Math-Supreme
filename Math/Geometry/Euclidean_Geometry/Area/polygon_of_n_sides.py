@@ -1,9 +1,6 @@
 # Area of a polygon with n sides
 from typing import Union
 
-from Math.Geometry.Trigonometry.Trig_Functions.tan import tangent
-from Math.utils.math_utils import PI
-
 
 def area_of_polygon(n: int, s: Union[int, float]) -> float:
     """
@@ -21,8 +18,15 @@ def area_of_polygon(n: int, s: Union[int, float]) -> float:
     if s < 0:
         raise ValueError("Side length cannot be negative.")
 
-    angle = PI / n
-    tan_value = tangent(angle)
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+
+    # Calculate tan(π/n) using Taylor series approximation
+    angle = pi / n
+
+    # Taylor series for tan(x): tan(x) ≈ x + x³/3 + 2x⁵/15 + ...
+    x = angle
+    tan_value = x + (x**3)/3 + (2*x**5)/15 + (17*x**7)/315
 
     # Calculate area using formula: A = (n × s²) / (4 × tan(π/n))
     return (n * s**2) / (4 * tan_value)

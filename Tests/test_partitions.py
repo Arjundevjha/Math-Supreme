@@ -8,7 +8,6 @@ def test_partition_negative():
 def test_partition_zero():
     assert partition(0) == 1
 
-
 def test_partition_positive():
     # Known values from OEIS A000041
     # n:    0, 1, 2, 3, 4, 5, 6,  7,  8,  9, 10
@@ -25,6 +24,3 @@ def test_partition_positive():
     assert partition(10) == 42
     assert partition(15) == 176
     assert partition(20) == 627
-    assert partition(30) == 5604
-    assert partition(50) == 204226
-

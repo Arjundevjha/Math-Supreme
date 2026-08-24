@@ -1,7 +1,12 @@
+import os
+import sys
 import math
 import pytest
 
 # Add root directory to path to allow imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
 
 from Math.Algebra.Polynomials.quadratic_formula import solve_quadratic
 

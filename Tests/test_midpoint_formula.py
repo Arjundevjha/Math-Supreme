@@ -1,6 +1,15 @@
+import os
+import sys
 import unittest
 import math
 
+# Add project root and Math directory to sys.path to avoid ModuleNotFoundError
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+math_dir = os.path.join(project_root, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
 from Math.Geometry.Analytic_Geometry.midpoint_formula import midpoint_formula
 

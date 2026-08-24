@@ -1,10 +1,14 @@
+import os
+import sys
 import math
 
 # Add root directory to path
 # Add root directory to path to allow imports
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if root_dir not in sys.path:
+    sys.path.insert(0, root_dir)
 
-from Math.Algebra.Polynomials.polynomial import evaluate_polynomial
-from Math.Algebra.Polynomials.factor_theorem import check_factor
+from Math.Algebra.Polynomials.factor_theorem import evaluate_polynomial, check_factor
 
 class TestEvaluatePolynomial:
     def test_evaluate_polynomial_basic(self):

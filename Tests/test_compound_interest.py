@@ -1,8 +1,17 @@
-import math
 import unittest
+import sys
+import os
+import math
 
-from Math.Applied_Math.Finance.Compund_intrest import compound_interest
+# Add the project root and Math directory to sys.path to resolve imports
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
+math_dir = os.path.join(project_root, 'Math')
+if math_dir not in sys.path:
+    sys.path.insert(0, math_dir)
 
+from Applied_Math.Finance.Compund_intrest import compound_interest
 
 class TestCompoundInterest(unittest.TestCase):
     def test_regular_compound_intervals(self):
@@ -44,7 +53,5 @@ class TestCompoundInterest(unittest.TestCase):
         with self.assertRaises(ValueError):
             compound_interest(1000, 5, -10, 1)
 
-
 if __name__ == '__main__':
     unittest.main()
-

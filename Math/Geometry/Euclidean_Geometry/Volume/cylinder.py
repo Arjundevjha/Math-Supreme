@@ -1,8 +1,6 @@
 # Volume of cylinder
 from typing import Union
 
-from Math.utils.math_utils import PI
-
 
 def volume_of_cylinder(radius: Union[int, float], height: Union[int, float]) -> float:
     """
@@ -18,5 +16,8 @@ def volume_of_cylinder(radius: Union[int, float], height: Union[int, float]) -> 
     if radius < 0 or height < 0:
         raise ValueError("Radius and height cannot be negative.")
 
+    # Use pi approximation: π ≈ 3.14159265358979323846
+    pi = 3.14159265358979323846
+
     # Calculate volume using formula: V = πr²h
-    return PI * (radius**2) * height
+    return pi * (radius ** 2) * height

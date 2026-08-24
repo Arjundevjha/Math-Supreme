@@ -1,10 +1,6 @@
 # Least Common Multiple (LCM) calculation
+import collections
 from typing import List
-
-from Math.Discrete_Math.Number_Theory.gcd import compute_gcd
-from Math.Discrete_Math.Number_Theory.prime_factorisation import (
-    prime_factorization,
-)
 
 
 def prime_factorization_simple(n: int) -> List[int]:
@@ -17,10 +13,16 @@ def prime_factorization_simple(n: int) -> List[int]:
     Returns:
     List[int]: List of prime factors.
     """
-    if n <= 1:
-        return []
-    return prime_factorization(n)
-
+    factors = []
+    d = 2
+    while d * d <= n:
+        while n % d == 0:
+            factors.append(d)
+            n //= d
+        d += 1
+    if n > 1:
+        factors.append(n)
+    return factors
 
 
 def compute_lcm(a: int, b: int) -> int:
@@ -37,5 +39,19 @@ def compute_lcm(a: int, b: int) -> int:
     if a <= 0 or b <= 0:
         raise ValueError("Both numbers must be positive.")
 
-    # Calculate LCM using GCD to avoid slow prime factorization and prevent DoS for large numbers
-    return (a * b) // compute_gcd(a, b)
+    # Get prime factors for both numbers
+    factors_a = prime_factorization_simple(a)
+    factors_b = prime_factorization_simple(b)
+
+    counts_a = collections.Counter(factors_a)
+    counts_b = collections.Counter(factors_b)
+
+    # Find all unique factors
+    all_factors = set(counts_a.keys()) | set(counts_b.keys())
+
+    # Calculate LCM by taking maximum power of each prime factor
+    lcm = 1
+    for factor in all_factors:
+        lcm *= factor ** max(counts_a[factor], counts_b[factor])
+
+    return lcm

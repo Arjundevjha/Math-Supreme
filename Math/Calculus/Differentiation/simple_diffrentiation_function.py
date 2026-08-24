@@ -2,9 +2,7 @@
 from typing import List, Union, Tuple
 
 
-def differentiate_polynomial(
-    coeffs: List[Union[int, float]], powers: List[Union[int, float]]
-) -> List[Tuple[float, float]]:
+def differentiate_polynomial(coeffs: List[Union[int, float]], powers: List[Union[int, float]]) -> List[Tuple[float, float]]:
     """
     Differentiate a polynomial using the power rule.
 

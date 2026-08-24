@@ -1,8 +1,6 @@
 # Machin's formula for calculating Pi
 from decimal import Decimal, getcontext
 
-from Math.Geometry.Trigonometry.Arc_Functions.arctan import calculate_arctan
-
 
 def calculate_arctan_series(x: int, precision: int) -> Decimal:
     """
@@ -15,8 +13,24 @@ def calculate_arctan_series(x: int, precision: int) -> Decimal:
     Returns:
     Decimal: The value of arctan(1/x).
     """
-    return calculate_arctan(x, precision=precision)
+    getcontext().prec = precision + 10
 
+    if x == 0:
+        return Decimal(0)
+    elif x < 0:
+        return -calculate_arctan_series(-x, precision)
+
+    arctan_value = Decimal(0)
+    # Taylor series for arctan(1/x): arctan(1/x) = Σ((-1)ⁿ / ((2n+1) × x^(2n+1)))
+    term = Decimal(1) / Decimal(x)
+    n = 0
+
+    while abs(term) > Decimal(10) ** (-precision):
+        arctan_value += term / (2 * n + 1)
+        n += 1
+        term *= -Decimal(1) / (x * x)
+
+    return arctan_value
 
 
 def calculate_pi_machin(precision: int = 50) -> Decimal:

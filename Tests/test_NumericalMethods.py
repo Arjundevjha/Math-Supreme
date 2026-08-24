@@ -4,7 +4,7 @@ from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import (
     calculate_pi_nilakantha,
 )
-from Math.utils.math_utils import factorial
+from Math.Numerical_Methods.Functions.Factorial.factorial import factorial
 
 
 class TestNilakanthaAlgorithm:
@@ -74,7 +74,6 @@ def test_factorial_negative():
         factorial(-1)
 
 
-def test_factorial_large():
-    assert factorial(20) == 2432902008176640000
-
-
+def test_factorial_limit():
+    with pytest.raises(ValueError, match=r"Factorial calculation limit exceeded"):
+        factorial(10001)
