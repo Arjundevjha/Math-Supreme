@@ -1,9 +1,13 @@
 import cmath
 import pytest
 
-# Add root directory to path
-
-from Math.Algebra.Polynomials.quartic_formula import quartic_formula  # noqa: E402
+from Math.Algebra.Polynomials.quartic_formula import (
+    _compute_base_u,
+    _compute_branch_roots,
+    _compute_invariants,
+    _evaluate_residual_error,
+    quartic_formula,
+)
 
 
 def verify_roots(expected_roots, actual_roots, tol=1e-7):
@@ -121,6 +125,22 @@ def test_quartic_formula_mixed_roots():
     expected_roots = [2, -2, 1j, -1j]
     verify_roots(expected_roots, roots)
     assert_evaluates_to_zero(1, 0, -3, 0, -4, roots)
+
+
+def test_quartic_formula_helpers():
+    # Test _compute_invariants for x^4 = 0
+    p1, p2 = _compute_invariants(1, 0, 0, 0, 0)
+    assert p1 == 0
+    assert p2 == 0
+
+    # Test _compute_base_u
+    u = _compute_base_u(p1, p2)
+    assert u == 0
+
+    # Test _evaluate_residual_error
+    roots = (complex(1), complex(-1), complex(1j), complex(-1j))
+    err = _evaluate_residual_error(1, 0, 0, 0, -1, roots)
+    assert abs(err) < 1e-12
 
 
 if __name__ == "__main__":

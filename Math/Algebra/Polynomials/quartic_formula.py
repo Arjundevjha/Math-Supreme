@@ -2,6 +2,95 @@
 from typing import Tuple, Union
 
 
+def _compute_invariants(
+    ca: complex, cb: complex, cc: complex, cd: complex, ce: complex
+) -> Tuple[complex, complex]:
+    """Compute base invariants p1 and p2 for Landesman's quartic formula."""
+    p1 = cc**2 - 3.0 * cb * cd + 12.0 * ca * ce
+    p2 = (
+        2.0 * (cc**3)
+        - 9.0 * cb * cc * cd
+        - 72.0 * ca * cc * ce
+        + 27.0 * ca * (cd**2)
+        + 27.0 * (cb**2) * ce
+    )
+    return p1, p2
+
+
+def _compute_base_u(p1: complex, p2: complex) -> complex:
+    """Compute core cube-root term base_U from invariants p1 and p2."""
+    inner = p2**2 - 4.0 * (p1**3)
+    return (p2 + inner**0.5) ** (1.0 / 3.0)
+
+
+def _compute_branch_roots(
+    ca: complex,
+    cb: complex,
+    cc: complex,
+    cd: complex,
+    U: complex,
+    p1: complex,
+    cube_root_2: float,
+    shift: complex,
+) -> Tuple[complex, complex, complex, complex]:
+    """Compute candidate quartic roots for a given cube root branch U."""
+    term_U = U / (3.0 * cube_root_2 * ca)
+    term_p1 = (
+        (cube_root_2 * p1) / (3.0 * ca * U) if abs(U) > 1e-15 else 0.0
+    )
+
+    R_inner = (
+        (cb**2) / (4.0 * (ca**2))
+        - (2.0 * cc) / (3.0 * ca)
+        + term_U
+        + term_p1
+    )
+    R = R_inner**0.5
+
+    if abs(R) > 1e-15:
+        v_num = (
+            -((cb**3) / (ca**3))
+            + (4.0 * cb * cc) / (ca**2)
+            - (8.0 * cd) / ca
+        )
+        V = v_num / (4.0 * R)
+    else:
+        V = 0.0
+
+    Q = (
+        (cb**2) / (2.0 * (ca**2))
+        - (4.0 * cc) / (3.0 * ca)
+        - term_U
+        - term_p1
+    )
+
+    half_R = 0.5 * R
+    sqrt_Q_minus_V = (Q - V) ** 0.5
+    sqrt_Q_plus_V = (Q + V) ** 0.5
+
+    x1 = shift - half_R - 0.5 * sqrt_Q_minus_V
+    x2 = shift - half_R + 0.5 * sqrt_Q_minus_V
+    x3 = shift + half_R - 0.5 * sqrt_Q_plus_V
+    x4 = shift + half_R + 0.5 * sqrt_Q_plus_V
+
+    return (x1, x2, x3, x4)
+
+
+def _evaluate_residual_error(
+    ca: complex,
+    cb: complex,
+    cc: complex,
+    cd: complex,
+    ce: complex,
+    roots: Tuple[complex, complex, complex, complex],
+) -> float:
+    """Calculate residual error by evaluating polynomial at roots."""
+    return sum(
+        abs(ca * (r**4) + cb * (r**3) + cc * (r**2) + cd * r + ce)
+        for r in roots
+    )
+
+
 def quartic_formula(
     a: Union[float, int],
     b: Union[float, int],
@@ -38,24 +127,11 @@ def quartic_formula(
     cd = complex(d)
     ce = complex(e)
 
-    # Step 1: Base & Invariant Terms
-    p1 = cc**2 - 3.0 * cb * cd + 12.0 * ca * ce
-    p2 = (
-        2.0 * (cc**3)
-        - 9.0 * cb * cc * cd
-        - 72.0 * ca * cc * ce
-        + 27.0 * ca * (cd**2)
-        + 27.0 * (cb**2) * ce
-    )
+    p1, p2 = _compute_invariants(ca, cb, cc, cd, ce)
+    base_U = _compute_base_u(p1, p2)
 
-    # Step 2: Core Cube-Root Term (U)
-    inner = p2**2 - 4.0 * (p1**3)
-    base_U = (p2 + inner**0.5) ** (1.0 / 3.0)
-
-    # Pre-calculate constant 2^(1/3) and primitive cube root of unity omega
     cube_root_2 = 2.0 ** (1.0 / 3.0)
     omega = complex(-0.5, 0.8660254037844386)
-
     shift = -cb / (4.0 * ca)
 
     best_roots = None
@@ -64,64 +140,13 @@ def quartic_formula(
     # Evaluate all 3 cube root branches of U to find the optimal branch
     for k in range(3):
         U = base_U * (omega**k)
-
-        # Partial terms for R and Q
-        term_U = U / (3.0 * cube_root_2 * ca)
-        term_p1 = (
-            (cube_root_2 * p1) / (3.0 * ca * U) if abs(U) > 1e-15 else 0.0
+        roots = _compute_branch_roots(
+            ca, cb, cc, cd, U, p1, cube_root_2, shift
         )
-
-        # Step 3: Resolvent Radical (R)
-        R_inner = (
-            (cb**2) / (4.0 * (ca**2))
-            - (2.0 * cc) / (3.0 * ca)
-            + term_U
-            + term_p1
-        )
-        R = R_inner**0.5
-
-        # Step 4: Core Polynomial Shift & Cross-Term (V) and Base Expression (Q)
-        if abs(R) > 1e-15:
-            v_num = (
-                -((cb**3) / (ca**3))
-                + (4.0 * cb * cc) / (ca**2)
-                - (8.0 * cd) / ca
-            )
-            V = v_num / (4.0 * R)
-        else:
-            V = 0.0
-
-        Q = (
-            (cb**2) / (2.0 * (ca**2))
-            - (4.0 * cc) / (3.0 * ca)
-            - term_U
-            - term_p1
-        )
-
-        # Step 5: Compact Quartic Roots
-        half_R = 0.5 * R
-        sqrt_Q_minus_V = (Q - V) ** 0.5
-        sqrt_Q_plus_V = (Q + V) ** 0.5
-
-        x1 = shift - half_R - 0.5 * sqrt_Q_minus_V
-        x2 = shift - half_R + 0.5 * sqrt_Q_minus_V
-        x3 = shift + half_R - 0.5 * sqrt_Q_plus_V
-        x4 = shift + half_R + 0.5 * sqrt_Q_plus_V
-
-        roots = (x1, x2, x3, x4)
-
-        # Calculate residual error by evaluating polynomial at roots
-        err = sum(
-            abs(ca * (r**4) + cb * (r**3) + cc * (r**2) + cd * r + ce)
-            for r in roots
-        )
+        err = _evaluate_residual_error(ca, cb, cc, cd, ce, roots)
 
         if err < best_error:
             best_error = err
             best_roots = roots
 
     return best_roots
-
-
-
- 
