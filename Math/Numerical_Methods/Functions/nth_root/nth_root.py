@@ -79,12 +79,13 @@ def nth_root(
             y_dec = x_dec / n_dec if x_dec > 1 else Decimal("1")
 
         # Newton-Raphson loop for Decimal
+        n_minus_one_dec = n_dec - 1
         for _ in range(100):
             try:
-                power_term = y_dec ** (n_dec - 1)
+                power_term = y_dec ** n_minus_one_dec
                 if power_term == 0:
                     break
-                next_y = ((n_dec - 1) * y_dec + x_dec / power_term) / n_dec
+                next_y = (n_minus_one_dec * y_dec + x_dec / power_term) / n_dec
                 if next_y == y_dec:
                     break
                 y_dec = next_y
@@ -93,15 +94,18 @@ def nth_root(
         return y_dec
     else:
         # Float path
-        y = float(x) ** (1.0 / float(n))
+        x_float = float(x)
+        n_float = float(n)
+        n_minus_one = n_float - 1.0
+        y = x_float ** (1.0 / n_float)
         for _ in range(100):
             try:
-                power_term = y ** (float(n) - 1.0)
+                power_term = y ** n_minus_one
                 if power_term == 0:
                     break
                 next_y = (
-                    (float(n) - 1.0) * y + float(x) / power_term
-                ) / float(n)
+                    n_minus_one * y + x_float / power_term
+                ) / n_float
                 if next_y == y or abs(next_y - y) <= abs(y) * 1e-16:
                     y = next_y
                     break
