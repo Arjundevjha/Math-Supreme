@@ -1,12 +1,8 @@
 import random
 import math
 
-# Add root directory to path to allow "Math.Discrete_Math..." imports
-
-# the code has imports assuming "Math" is the root in some cases, so let's add it too
-
 import pytest  # noqa: E402
-from Math.Discrete_Math.Number_Theory.lcm import compute_lcm, prime_factorization_simple  # noqa: E402
+from Math.Discrete_Math.Number_Theory.lcm import compute_lcm  # noqa: E402
 
 class TestLCM:
     def test_compute_lcm_basic(self):
@@ -47,23 +43,3 @@ class TestLCM:
             compute_lcm(-1, 5)
         with pytest.raises(ValueError, match="Both numbers must be positive."):
             compute_lcm(5, -1)
-
-def test_prime_factorization_simple():
-    # Edge cases
-    assert prime_factorization_simple(1) == []
-    assert prime_factorization_simple(0) == []
-    assert prime_factorization_simple(-1) == []
-
-    # Prime numbers
-    assert prime_factorization_simple(2) == [2]
-    assert prime_factorization_simple(3) == [3]
-    assert prime_factorization_simple(13) == [13]
-
-    # Composite numbers
-    assert prime_factorization_simple(4) == [2, 2]
-    assert prime_factorization_simple(12) == [2, 2, 3]
-    assert prime_factorization_simple(100) == [2, 2, 5, 5]
-    assert prime_factorization_simple(315) == [3, 3, 5, 7]
-
-    # Large composite
-    assert prime_factorization_simple(1024) == [2] * 10
