@@ -1,25 +1,4 @@
 # Greatest Common Divisor (GCD) calculation
-from typing import List
-
-from Math.Discrete_Math.Number_Theory.prime_factorisation import (
-    prime_factorization,
-)
-
-
-def prime_factorization_for_gcd(n: int) -> List[int]:
-    """
-    Get prime factors of a number for GCD calculation.
-
-    Parameters:
-    n (int): The number to factorize.
-
-    Returns:
-    List[int]: List of prime factors.
-    """
-    if n <= 1:
-        return []
-    return prime_factorization(n)
-
 
 
 def compute_gcd(a: int, b: int) -> int:
