@@ -1,7 +1,8 @@
 # Product rule for differentiation
 from typing import List, Union
 
-from .utils import format_polynomial, compute_polynomial_derivative_str
+from Math.utils.math_utils import format_polynomial
+from .utils import compute_polynomial_derivative_str
 
 
 def product_rule_derivative(
