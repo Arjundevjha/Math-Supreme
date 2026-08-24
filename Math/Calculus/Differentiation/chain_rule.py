@@ -1,7 +1,8 @@
 # Chain rule for differentiation of composite functions
 from typing import List, Union
 
-from .utils import format_polynomial, compute_polynomial_derivative
+from Math.utils.math_utils import format_polynomial
+from .utils import compute_polynomial_derivative
 
 
 def chain_rule_derivative(
