@@ -1,4 +1,5 @@
 # Mathematical utilities and shared constants
+import math
 from decimal import Decimal
 
 # Mathematical constants
@@ -17,15 +18,8 @@ def factorial(n: int) -> int:
     """
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
-    if n == 0 or n == 1:
-        return 1
 
-    # Calculate factorial using iterative approach
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-
-    return result
+    return math.factorial(n)
 
 
 def factorial_decimal(n: int) -> Decimal:
