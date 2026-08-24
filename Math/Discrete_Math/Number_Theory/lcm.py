@@ -1,26 +1,5 @@
 # Least Common Multiple (LCM) calculation
-from typing import List
-
 from Math.Discrete_Math.Number_Theory.gcd import compute_gcd
-from Math.Discrete_Math.Number_Theory.prime_factorisation import (
-    prime_factorization,
-)
-
-
-def prime_factorization_simple(n: int) -> List[int]:
-    """
-    Get prime factors of a number.
-
-    Parameters:
-    n (int): The number to factorize.
-
-    Returns:
-    List[int]: List of prime factors.
-    """
-    if n <= 1:
-        return []
-    return prime_factorization(n)
-
 
 
 def compute_lcm(a: int, b: int) -> int:
