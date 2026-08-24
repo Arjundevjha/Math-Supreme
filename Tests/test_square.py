@@ -1,7 +1,7 @@
 import unittest
-import math
 
 from Math.Geometry.Euclidean_Geometry.Area.square import area_of_square
+
 
 class TestAreaOfSquare(unittest.TestCase):
     def test_positive_integer(self):
@@ -10,7 +10,7 @@ class TestAreaOfSquare(unittest.TestCase):
 
     def test_positive_float(self):
         # Area of square with side length 2.5 is 6.25
-        self.assertTrue(math.isclose(area_of_square(2.5), 6.25, rel_tol=1e-9))
+        self.assertAlmostEqual(area_of_square(2.5), 6.25, delta=1e-9)
 
     def test_zero(self):
         # Area of square with side length 0 is 0
@@ -25,6 +25,7 @@ class TestAreaOfSquare(unittest.TestCase):
         # Negative side lengths should raise ValueError
         with self.assertRaises(ValueError):
             area_of_square(-3.14)
+
 
 if __name__ == '__main__':
     unittest.main()
