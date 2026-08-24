@@ -1,7 +1,6 @@
 # Permutation formula: for nPr where n and r are non-negative integers
+import math
 from typing import Union
-
-from Math.utils.math_utils import factorial
 
 
 def n_permute_r(n: int, r: int) -> int:
@@ -20,5 +19,5 @@ def n_permute_r(n: int, r: int) -> int:
             "n should be greater than or equal to r for permutations to be valid."
         )
 
-    # Calculate permutations using factorial formula
-    return factorial(n) // factorial(n - r)
+    # Calculate permutations using math.perm
+    return math.perm(n, r)

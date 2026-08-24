@@ -9,7 +9,7 @@ from Math.Discrete_Math.Combinatorics.pascals_triangle import (
     print_pascals_triangle,
     generate_pascals_triangle,
 )
-from Math.Discrete_Math.Combinatorics.permutation import factorial
+from Math.utils.math_utils import factorial
 from Math.Discrete_Math.Combinatorics.trinomial_theorem_general_term import (
     trinomial_general_term,
 )
