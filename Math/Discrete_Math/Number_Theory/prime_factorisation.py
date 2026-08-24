@@ -28,11 +28,14 @@ def prime_factorization(number: int) -> List[int]:
         n //= 2
 
     factor = 3
-    # Check for odd factors
-    while n > 1:
+    # Check for odd factors up to sqrt(n)
+    while factor * factor <= n:
         while n % factor == 0:
             factors.append(factor)
             n //= factor
         factor += 2
+
+    if n > 1:
+        factors.append(n)
     
     return factors

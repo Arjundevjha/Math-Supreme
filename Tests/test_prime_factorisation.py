@@ -9,6 +9,9 @@ def test_prime_factorization_prime_numbers():
     assert prime_factorization(3) == [3]
     assert prime_factorization(7) == [7]
     assert prime_factorization(13) == [13]
+    assert prime_factorization(10000019) == [10000019]
+    assert prime_factorization(1000000007) == [1000000007]
+    assert prime_factorization(2147483647) == [2147483647]
 
 def test_prime_factorization_composite_numbers():
     assert prime_factorization(4) == [2, 2]
@@ -21,6 +24,7 @@ def test_prime_factorization_composite_numbers():
     assert prime_factorization(315) == [3, 3, 5, 7]
     assert prime_factorization(97) == [97]
     assert prime_factorization(1048576) == [2] * 20
+    assert prime_factorization(999999999) == [3, 3, 3, 3, 37, 333667]
 
 def test_prime_factorization_invalid_input():
     with pytest.raises(ValueError, match="Number must be positive."):
