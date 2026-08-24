@@ -1,7 +1,7 @@
-import math
 import unittest
 
 from Math.Calculus.Differentiation.simple_diffrentiation_function import differentiate_polynomial
+
 
 class TestDifferentiatePolynomial(unittest.TestCase):
     def test_basic_polynomial(self):
@@ -52,8 +52,8 @@ class TestDifferentiatePolynomial(unittest.TestCase):
         expected = [(5.0, 1.0), (0.75, -0.5)]
         self.assertEqual(len(result), len(expected))
         for (res_c, res_p), (exp_c, exp_p) in zip(result, expected):
-            self.assertTrue(math.isclose(res_c, exp_c, rel_tol=1e-9))
-            self.assertTrue(math.isclose(res_p, exp_p, rel_tol=1e-9))
+            self.assertTrue(abs(res_c - exp_c) < 1e-9)
+            self.assertTrue(abs(res_p - exp_p) < 1e-9)
 
     def test_negative_coefficients(self):
         # d/dx(-3x^2 - 2x) = -6x - 2
@@ -77,6 +77,6 @@ class TestDifferentiatePolynomial(unittest.TestCase):
             [(6, 1)]
         )
 
+
 if __name__ == '__main__':
     unittest.main()
-# Cleaned up sys.path imports
