@@ -1,9 +1,13 @@
 import cmath
 import pytest
 
-# Add root directory to path
-
-from Math.Algebra.Polynomials.quartic_formula import quartic_formula  # noqa: E402
+from Math.Algebra.Polynomials.quartic_formula import (
+    _compute_base_u,
+    _compute_branch_roots,
+    _compute_invariants,
+    _compute_residual_error,
+    quartic_formula,
+)
 
 
 def verify_roots(expected_roots, actual_roots, tol=1e-7):
@@ -121,6 +125,26 @@ def test_quartic_formula_mixed_roots():
     expected_roots = [2, -2, 1j, -1j]
     verify_roots(expected_roots, roots)
     assert_evaluates_to_zero(1, 0, -3, 0, -4, roots)
+
+
+def test_quartic_formula_helpers():
+    # Test helper functions directly for (x-1)(x-2)(x-3)(x-4) = x^4 - 10x^3 + 35x^2 - 50x + 24
+    ca, cb, cc, cd, ce = complex(1), complex(-10), complex(35), complex(-50), complex(24)
+    p1, p2 = _compute_invariants(ca, cb, cc, cd, ce)
+    assert isinstance(p1, complex)
+    assert isinstance(p2, complex)
+
+    base_u = _compute_base_u(p1, p2)
+    assert isinstance(base_u, complex)
+
+    cube_root_2 = 2.0 ** (1.0 / 3.0)
+    shift = -cb / (4.0 * ca)
+    roots = _compute_branch_roots(ca, cb, cc, cd, base_u, p1, cube_root_2, shift)
+    assert len(roots) == 4
+
+    err = _compute_residual_error(ca, cb, cc, cd, ce, roots)
+    assert isinstance(err, float)
+    assert err >= 0.0
 
 
 if __name__ == "__main__":
