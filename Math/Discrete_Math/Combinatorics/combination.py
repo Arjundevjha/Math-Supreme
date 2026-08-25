@@ -1,6 +1,5 @@
 # Combination formula: for nCr where n and r are non-negative integers
 
-from Math.utils.math_utils import factorial
 
 def nCr(n: int, r: int) -> int:
     """
@@ -13,8 +12,20 @@ def nCr(n: int, r: int) -> int:
     Returns:
     int: The number of combinations (n choose r).
     """
-    if r < 0 or r > n:
+    if not (isinstance(n, int) and isinstance(r, int)) or isinstance(n, bool) or isinstance(r, bool):
+        raise TypeError("n and r must be integers.")
+
+    if r < 0 or r > n or n < 0:
         raise ValueError("Invalid values for n and r.")
-    
-    # Calculate combinations using factorial formula
-    return factorial(n) // (factorial(r) * factorial(n - r))
+
+    # Performance Optimization: Avoid calculating full factorials (3x expensive factorial calls).
+    # Use symmetry property nCr(n, r) == nCr(n, n - r) to minimize loop iterations.
+    r = min(r, n - r)
+
+    numerator = 1
+    denominator = 1
+    for i in range(1, r + 1):
+        numerator *= (n - i + 1)
+        denominator *= i
+
+    return numerator // denominator
