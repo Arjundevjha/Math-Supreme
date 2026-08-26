@@ -23,5 +23,16 @@ class TestArcTanSecurity(unittest.TestCase):
         self.assertIsNotNone(calculate_arctan(2.0))
         self.assertIsNotNone(calculate_arctan(Decimal('2')))
 
+    def test_invalid_precision_bounds(self):
+        # Precision <= 0 or > 10000 or non-int should raise ValueError
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, precision=0)
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, precision=-10)
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, precision=10001)
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, precision=True)
+
 if __name__ == '__main__':
     unittest.main()
