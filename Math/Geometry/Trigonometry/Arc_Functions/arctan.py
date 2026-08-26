@@ -19,6 +19,12 @@ def calculate_arctan(
     Returns:
     Decimal: The arctangent value in radians.
     """
+    # Enforce bounds on precision to prevent DoS via excessive memory/CPU allocation
+    if precision <= 0:
+        raise ValueError("precision must be a positive integer")
+    if precision > 10000:
+        raise ValueError("precision exceeds maximum allowed limit (10000)")
+
     # Set precision for Decimal calculations
     getcontext().prec = precision + 2
 

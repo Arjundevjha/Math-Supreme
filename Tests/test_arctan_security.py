@@ -23,5 +23,16 @@ class TestArcTanSecurity(unittest.TestCase):
         self.assertIsNotNone(calculate_arctan(2.0))
         self.assertIsNotNone(calculate_arctan(Decimal('2')))
 
+    def test_precision_bounds(self):
+        # Test non-positive precision
+        with self.assertRaisesRegex(ValueError, "precision must be a positive integer"):
+            calculate_arctan(2, precision=0)
+        with self.assertRaisesRegex(ValueError, "precision must be a positive integer"):
+            calculate_arctan(2, precision=-10)
+
+        # Test precision exceeding maximum limit
+        with self.assertRaisesRegex(ValueError, "precision exceeds maximum allowed limit"):
+            calculate_arctan(2, precision=10001)
+
 if __name__ == '__main__':
     unittest.main()
