@@ -19,12 +19,18 @@ def generate_pascals_triangle(num_rows: int) -> List[List[int]]:
 
     
     triangle = []
-    # Generate each row of Pascal's triangle
+    # Generate each row of Pascal's triangle.
+    # Optimization: Leverage bilateral symmetry of Pascal's triangle (row[j] == row[i - j]).
+    # We only compute values up to the midpoint (i // 2) and assign symmetrical entries,
+    # reducing additions by ~50%.
     for i in range(num_rows):
         row = [1] * (i + 1)
-        for j in range(1, i):
-            # Each element is the sum of the two elements above it
-            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
+        if i > 1:
+            prev = triangle[-1]
+            for j in range(1, (i // 2) + 1):
+                val = prev[j - 1] + prev[j]
+                row[j] = val
+                row[i - j] = val
         triangle.append(row)
     
     return triangle
