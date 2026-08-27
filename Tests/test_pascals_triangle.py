@@ -37,3 +37,13 @@ class TestPascalsTriangle:
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-5)
 
+    def test_generate_pascals_triangle_security_bounds_and_types(self):
+        """Test security input validation (type checking and upper bound limit for DoS protection)."""
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle(True)
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle(5.5)
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle("10")
+        with pytest.raises(ValueError, match="exceeds maximum limit"):
+            generate_pascals_triangle(1001)
