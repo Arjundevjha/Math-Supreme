@@ -37,3 +37,16 @@ class TestPascalsTriangle:
         with pytest.raises(ValueError, match="Number of rows cannot be negative."):
             generate_pascals_triangle(-5)
 
+    def test_generate_pascals_triangle_type_and_bounds(self):
+        """Test type validation and upper bound limit for Pascal's triangle generation."""
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle(True)
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle(False)
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle(4.5)
+        with pytest.raises(TypeError, match="Number of rows must be an integer."):
+            generate_pascals_triangle("5")
+        with pytest.raises(ValueError, match="exceeds maximum limit"):
+            generate_pascals_triangle(1001)
+

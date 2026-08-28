@@ -12,8 +12,12 @@ def generate_pascals_triangle(num_rows: int) -> List[List[int]]:
     Returns:
     List[List[int]]: A list of lists representing Pascal's triangle.
     """
+    if not isinstance(num_rows, int) or isinstance(num_rows, bool):
+        raise TypeError("Number of rows must be an integer.")
     if num_rows < 0:
         raise ValueError("Number of rows cannot be negative.")
+    if num_rows > 1000:
+        raise ValueError("Number of rows exceeds maximum limit of 1000.")
     if num_rows == 0:
         return []
 
