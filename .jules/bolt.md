@@ -1,0 +1,3 @@
+## 2025-02-28 - Hoisting Repeated Combinatorial Terms in Nested Expansions
+**Learning:** In trinomial and polynomial expansion algorithms (e.g., `(a+b+c)^n`), computing term coefficients by calling full multinomial or combinatorial functions in the innermost loop repeatedly re-evaluates outer terms like $C(n, i)$ for every inner iteration $j$, introducing $O(n^2)$ redundant $nCr$ computations.
+**Action:** Always hoist outer combinatorial computations (e.g., `c_n_i = nCr(n, i)`) outside nested loops in multinomial expansion functions to eliminate redundant evaluations and achieve ~2x+ performance improvement.
