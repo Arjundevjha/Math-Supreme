@@ -24,3 +24,10 @@ class TestChudnovskyAlgorithm:
 
         # Check if it starts with the 50 digits
         assert str(pi_val).startswith(pi_50_digits)
+
+    def test_calculate_pi_chudnovsky_invalid_precision_bounds(self):
+        """Test that invalid precision values raise ValueError."""
+        import pytest
+        for invalid_precision in [0, -10, 10001, True, "50", 50.5]:
+            with pytest.raises(ValueError, match=r"Precision must be an integer between 1 and 10000\."):
+                calculate_pi_chudnovsky(invalid_precision)

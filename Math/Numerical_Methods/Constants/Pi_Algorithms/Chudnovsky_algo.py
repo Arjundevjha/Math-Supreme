@@ -14,6 +14,10 @@ def calculate_pi_chudnovsky(precision: int = 50) -> Decimal:
     Returns:
     Decimal: The value of Pi to the specified precision.
     """
+    # Security: Validate precision to prevent Denial of Service (DoS) and memory exhaustion
+    if not isinstance(precision, int) or isinstance(precision, bool) or precision < 1 or precision > 10000:
+        raise ValueError("Precision must be an integer between 1 and 10000.")
+
     # Set precision for Decimal calculations
     getcontext().prec = precision + 20
     
