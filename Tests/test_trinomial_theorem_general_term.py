@@ -38,6 +38,34 @@ class TestTrinomialGeneralTerm(unittest.TestCase):
         # When exponent is 0: (2 + 3 + 4)^0 = 1
         self.assertEqual(trinomial_general_term(0, 0, 0, 2, 3, 4), 1)
 
+    def test_trinomial_general_term_boundary_cases(self):
+        # Corner terms where one power equals n and others are 0
+        a, b, c, n = 3, 4, 5, 4
+        # i = n (i=4, j=0, k=0) -> 1 * 3^4 = 81
+        self.assertEqual(trinomial_general_term(n, 4, 0, a, b, c), 81)
+        # j = n (i=0, j=4, k=0) -> 1 * 4^4 = 256
+        self.assertEqual(trinomial_general_term(n, 0, 4, a, b, c), 256)
+        # k = n (i=0, j=0, k=4) -> 1 * 5^4 = 625
+        self.assertEqual(trinomial_general_term(n, 0, 0, a, b, c), 625)
+
+    def test_trinomial_general_term_expansion_sum_property(self):
+        # The sum of all trinomial_general_term(n, i, j, a, b, c) for 0<=i<=n and 0<=j<=n-i
+        # must equal (a + b + c)^n.
+        a, b, c, n = 2, 3, 5, 4
+        expected_total = (a + b + c) ** n
+        actual_total = 0
+        for i in range(n + 1):
+            for j in range(n - i + 1):
+                actual_total += trinomial_general_term(n, i, j, a, b, c)
+        self.assertEqual(actual_total, expected_total)
+
+    def test_trinomial_general_term_zero_bases(self):
+        # When a base is zero, terms with power > 0 for that base are 0
+        # n=3, i=1, j=1, k=1, a=0, b=2, c=3 -> 6 * 0^1 * 2^1 * 3^1 = 0
+        self.assertEqual(trinomial_general_term(3, 1, 1, 0, 2, 3), 0)
+        # n=3, i=0, j=1, k=2, a=0, b=2, c=3 -> 3 * 0^0 * 2^1 * 3^2 = 54
+        self.assertEqual(trinomial_general_term(3, 0, 1, 0, 2, 3), 54)
+
     def test_trinomial_general_term_invalid_values(self):
         # i < 0
         with self.assertRaisesRegex(ValueError, "Invalid values for n, i, and j."):
