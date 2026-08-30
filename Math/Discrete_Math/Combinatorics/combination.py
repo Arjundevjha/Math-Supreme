@@ -1,4 +1,6 @@
 # Combination formula: for nCr where n and r are non-negative integers
+import math
+
 
 def nCr(n: int, r: int) -> int:
     """
@@ -16,17 +18,4 @@ def nCr(n: int, r: int) -> int:
     if n < 0 or r < 0 or r > n:
         raise ValueError("Invalid values for n and r.")
 
-    # Optimization: Compute product iteratively over r terms instead of calculating 3 full factorials.
-    # Symmetry property nCr(n, r) == nCr(n, n - r) reduces iterations to min(r, n - r).
-    # This reduces time complexity from O(n) large integer multiplications to O(min(r, n - r)).
-    r = min(r, n - r)
-    if r == 0:
-        return 1
-
-    num = 1
-    den = 1
-    for i in range(1, r + 1):
-        num *= (n - r + i)
-        den *= i
-
-    return num // den
+    return math.comb(n, r)
