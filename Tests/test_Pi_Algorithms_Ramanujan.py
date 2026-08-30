@@ -31,11 +31,23 @@ class TestRamanujanAlgorithm:
         assert isinstance(pi_high_prec, Decimal)
 
     def test_calculate_pi_ramanujan_invalid_args(self):
-        with pytest.raises(ValueError, match="Number of decimal places cannot be negative."):
+        with pytest.raises(ValueError, match="num_decimal_places must be an integer between 0 and 10000."):
             calculate_pi_ramanujan(-1, 10)
 
-        with pytest.raises(ValueError, match="Number of terms must be at least 1."):
+        with pytest.raises(ValueError, match="num_decimal_places must be an integer between 0 and 10000."):
+            calculate_pi_ramanujan(10001, 10)
+
+        with pytest.raises(ValueError, match="num_decimal_places must be an integer between 0 and 10000."):
+            calculate_pi_ramanujan(True, 10)
+
+        with pytest.raises(ValueError, match="num_terms must be an integer between 1 and 10000."):
             calculate_pi_ramanujan(50, 0)
+
+        with pytest.raises(ValueError, match="num_terms must be an integer between 1 and 10000."):
+            calculate_pi_ramanujan(50, 10001)
+
+        with pytest.raises(ValueError, match="num_terms must be an integer between 1 and 10000."):
+            calculate_pi_ramanujan(50, True)
 
 def test_factorial_decimal_basic():
     assert factorial_decimal(0) == Decimal(1)

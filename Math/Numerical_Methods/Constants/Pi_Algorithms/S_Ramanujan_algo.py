@@ -18,10 +18,11 @@ def calculate_pi_ramanujan(num_decimal_places: int = 50, num_terms: int = 10) ->
     Returns:
     Decimal: The calculated value of pi.
     """
-    if num_decimal_places < 0:
-        raise ValueError("Number of decimal places cannot be negative.")
-    if num_terms < 1:
-        raise ValueError("Number of terms must be at least 1.")
+    # Validate parameters to prevent Denial of Service (DoS) via excessive precision or iterations
+    if not isinstance(num_decimal_places, int) or isinstance(num_decimal_places, bool) or num_decimal_places < 0 or num_decimal_places > 10000:
+        raise ValueError("num_decimal_places must be an integer between 0 and 10000.")
+    if not isinstance(num_terms, int) or isinstance(num_terms, bool) or num_terms < 1 or num_terms > 10000:
+        raise ValueError("num_terms must be an integer between 1 and 10000.")
 
     # Set precision for Decimal calculations with extra buffer
     getcontext().prec = num_decimal_places + 20
