@@ -39,6 +39,14 @@ class TestTrinomialTheorem(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Power n must be non-negative."):
             expand_trinomial("a", "b", "c", -1)
 
+    def test_expand_trinomial_invalid_types(self):
+        with self.assertRaises(TypeError):
+            expand_trinomial("a", "b", "c", True)
+        with self.assertRaises(TypeError):
+            expand_trinomial("a", "b", "c", 2.5)
+        with self.assertRaises(TypeError):
+            expand_trinomial("a", "b", "c", "3")
+
     def test_trinomial_coefficient_positive_values(self):
         self.assertEqual(trinomial_coefficient(2, 1, 1), 2)
         self.assertEqual(trinomial_coefficient(3, 1, 1), 6)

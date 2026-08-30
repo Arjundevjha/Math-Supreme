@@ -35,15 +35,20 @@ def expand_trinomial(a: str, b: str, c: str, n: int) -> str:
     Returns:
     str: The expanded form of the trinomial.
     """
+    if not isinstance(n, int) or isinstance(n, bool):
+        raise TypeError("Power n must be an integer.")
     if n < 0:
         raise ValueError("Power n must be non-negative.")
     
     result = []
     # Expand using trinomial theorem: (a+b+c)ⁿ = Σ C(n,i)×C(n-i,j) × aⁱ × bʲ × cᵏ
+    # Optimization: Precompute c_n_i = nCr(n, i) in the outer loop to avoid redundant inner nCr calls
     for i in range(n + 1):
-        for j in range(n - i + 1):
-            k = n - i - j
-            coeff = trinomial_coefficient(n, i, j)
+        c_n_i = nCr(n, i)
+        rem = n - i
+        for j in range(rem + 1):
+            k = rem - j
+            coeff = c_n_i * nCr(rem, j)
             term = f"{coeff}*{a}^{i}*{b}^{j}*{c}^{k}"
             result.append(term)
     
