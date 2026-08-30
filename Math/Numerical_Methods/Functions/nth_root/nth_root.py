@@ -20,9 +20,10 @@ def nth_root(
     Returns:
     Union[float, Decimal]: The n-th root of x.
     """
+    # Security: Validate precision to prevent Denial of Service (DoS) and invalid context errors
     if precision is not None:
-        if precision <= 0:
-            raise ValueError("precision must be a positive integer")
+        if not isinstance(precision, int) or isinstance(precision, bool) or precision < 1 or precision > 10000:
+            raise ValueError("precision must be an integer between 1 and 10000.")
         getcontext().prec = precision
 
 

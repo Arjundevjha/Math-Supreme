@@ -60,12 +60,24 @@ def test_nth_root_invalid_degree():
 
 
 def test_nth_root_decimal_precision_bounds():
-    # Test that precision <= 0 raises ValueError
-    with pytest.raises(ValueError, match="precision must be a positive integer"):
+    # Test precision bounds and type security validation
+    with pytest.raises(ValueError, match="precision must be an integer between 1 and 10000"):
         nth_root(2, 3, precision=0)
 
-    with pytest.raises(ValueError, match="precision must be a positive integer"):
+    with pytest.raises(ValueError, match="precision must be an integer between 1 and 10000"):
         nth_root(2, 3, precision=-5)
+
+    with pytest.raises(ValueError, match="precision must be an integer between 1 and 10000"):
+        nth_root(2, 3, precision=10001)
+
+    with pytest.raises(ValueError, match="precision must be an integer between 1 and 10000"):
+        nth_root(2, 3, precision=True)
+
+    with pytest.raises(ValueError, match="precision must be an integer between 1 and 10000"):
+        nth_root(2, 3, precision=5.5)
+
+    with pytest.raises(ValueError, match="precision must be an integer between 1 and 10000"):
+        nth_root(2, 3, precision="50")
 
 
 
