@@ -76,5 +76,9 @@ def test_factorial_negative():
 
 def test_factorial_large():
     assert factorial(20) == 2432902008176640000
+    assert factorial(25) == 15511210043330985984000000
+    for n in [2, 3, 4, 5, 6, 7, 8, 9, 10, 15]:
+        assert factorial(n) == n * factorial(n - 1)
+
 
 

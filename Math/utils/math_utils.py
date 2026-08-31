@@ -6,6 +6,27 @@ from typing import List, Union
 PI = 3.14159265358979323846
 
 
+def _product_tree(start: int, end: int) -> int:
+    """
+    Helper function to perform tree multiplication of range [start, end].
+
+    Parameters:
+    start (int): Start of range (inclusive).
+    end (int): End of range (inclusive).
+
+    Returns:
+    int: Product of integers from start to end.
+    """
+    if start > end:
+        return 1
+    if start == end:
+        return start
+    if start + 1 == end:
+        return start * end
+    mid = (start + end) // 2
+    return _product_tree(start, mid) * _product_tree(mid + 1, end)
+
+
 def factorial(n: int) -> int:
     """
     Calculate the factorial of a number.
@@ -21,12 +42,10 @@ def factorial(n: int) -> int:
     if n == 0 or n == 1:
         return 1
 
-    # Calculate factorial using iterative approach
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-
-    return result
+    # Optimization: Use divide-and-conquer (binary split tree multiplication).
+    # Multiplying numbers of balanced bit length leverages Python's big-int
+    # Karatsuba multiplication, significantly faster than linear iterative loops for large n.
+    return _product_tree(2, n)
 
 
 def factorial_decimal(n: int) -> Decimal:
