@@ -15,8 +15,11 @@ def calculate_pi_nilakantha(terms: int = 100, precision: int = 50) -> Decimal:
     Returns:
     Decimal: The calculated value of Pi.
     """
-    if terms <= 0:
-        raise ValueError("Number of terms must be a positive integer.")
+    # Security: Validate input parameters to prevent Denial of Service (DoS) via resource exhaustion
+    if not isinstance(terms, int) or isinstance(terms, bool) or terms < 1 or terms > 10000:
+        raise ValueError("terms must be an integer between 1 and 10000.")
+    if not isinstance(precision, int) or isinstance(precision, bool) or precision < 1 or precision > 10000:
+        raise ValueError("precision must be an integer between 1 and 10000.")
     
     # Set precision for Decimal calculations
     getcontext().prec = precision + 10

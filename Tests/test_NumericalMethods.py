@@ -44,14 +44,41 @@ class TestNilakanthaAlgorithm:
     def test_calculate_pi_nilakantha_invalid_terms(self):
         """Test that invalid number of terms raises ValueError"""
         with pytest.raises(
-            ValueError, match="Number of terms must be a positive integer."
+            ValueError, match="terms must be an integer between 1 and 10000."
         ):
             calculate_pi_nilakantha(0)
 
         with pytest.raises(
-            ValueError, match="Number of terms must be a positive integer."
+            ValueError, match="terms must be an integer between 1 and 10000."
         ):
             calculate_pi_nilakantha(-5)
+
+        with pytest.raises(
+            ValueError, match="terms must be an integer between 1 and 10000."
+        ):
+            calculate_pi_nilakantha(10001)
+
+        with pytest.raises(
+            ValueError, match="terms must be an integer between 1 and 10000."
+        ):
+            calculate_pi_nilakantha(True)
+
+    def test_calculate_pi_nilakantha_invalid_precision(self):
+        """Test that invalid precision raises ValueError"""
+        with pytest.raises(
+            ValueError, match="precision must be an integer between 1 and 10000."
+        ):
+            calculate_pi_nilakantha(precision=0)
+
+        with pytest.raises(
+            ValueError, match="precision must be an integer between 1 and 10000."
+        ):
+            calculate_pi_nilakantha(precision=10001)
+
+        with pytest.raises(
+            ValueError, match="precision must be an integer between 1 and 10000."
+        ):
+            calculate_pi_nilakantha(precision=True)
 
 
 def test_factorial_zero():
