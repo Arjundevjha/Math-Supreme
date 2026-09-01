@@ -1,16 +1,16 @@
-# Graph Report - Math-Supreme  (2026-09-01)
+# Graph Report - Math-Supreme  (2026-08-25)
 
 ## Corpus Check
-- 185 files · ~35,659 words
+- 185 files · ~34,081 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1359 nodes · 2124 edges · 130 communities (110 shown, 20 thin omitted)
+- 1344 nodes · 2100 edges · 130 communities (110 shown, 20 thin omitted)
 - Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `51f62c20`
+- Built from commit: `a7e5bb62`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -142,11 +142,11 @@ Cohesion: 0.11
 Nodes (10): integrate_cos(), Calculate the definite integral of cos(x) from a to b.      Parameters:     a (U, Test integral of cos(x) from pi/2 to 0 = -1, Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2), Test integral of cos(x) from pi to pi = 0, Test integral of cos(x) from 0 to pi = 0, Test integral of cos(x) over multiple periods, Test integral of cos(x) from 0 to 2*pi = 0 (+2 more)
 
 ### Community 5 - "Factor Theorem Testing"
-Cohesion: 0.09
+Cohesion: 0.08
 Nodes (20): check_factor(), Check if (x - a) is a factor of a polynomial using the Factor Theorem.      Para, test_check_factor_empty(), test_check_factor_float(), test_check_factor_irrational(), test_check_factor_negative_powers(), test_check_factor_precision(), test_check_factor_true() (+12 more)
 
 ### Community 6 - "Linear Equation Solvers"
-Cohesion: 0.11
+Cohesion: 0.12
 Nodes (27): linear_eqn(), Calculate the equation of a line given two points (x1, y1) and (x2, y2)., format_polynomial(), Format a polynomial as a string.      Parameters:     coefficients (List[Union[i, test_evaluate_polynomial_empty(), test_evaluate_polynomial_negative_powers(), test_evaluate_polynomial_negative_x(), test_evaluate_polynomial_poly_precision() (+19 more)
 
 ### Community 7 - "Factor Theorem Testing"
@@ -174,8 +174,8 @@ Cohesion: 0.15
 Nodes (4): differentiate_polynomial(), Differentiate a polynomial using the power rule.      Parameters:     coeffs (Li, TestDifferentiatePolynomial, TestDifferentiatePolynomial
 
 ### Community 14 - "Pascal's Triangle Combinatorics"
-Cohesion: 0.11
-Nodes (15): generate_pascals_triangle(), print_pascals_triangle(), Print Pascal's triangle in a formatted way.      Parameters:     triangle (List[, Generate Pascal's triangle with num_rows rows.      Parameters:     num_rows (in, Test printing a normal Pascal's triangle., Test printing an empty Pascal's triangle., Test generating a valid Pascal's triangle., Test generating an invalid Pascal's triangle with negative rows. (+7 more)
+Cohesion: 0.12
+Nodes (14): generate_pascals_triangle(), print_pascals_triangle(), Print Pascal's triangle in a formatted way.      Parameters:     triangle (List[, Generate Pascal's triangle with num_rows rows.      Parameters:     num_rows (in, Test printing a normal Pascal's triangle., Test printing an empty Pascal's triangle., Test generating a valid Pascal's triangle., Test generating an invalid Pascal's triangle with negative rows. (+6 more)
 
 ### Community 15 - "Trigonometric Tangent Functions"
 Cohesion: 0.11
@@ -318,8 +318,8 @@ Cohesion: 0.27
 Nodes (3): product_rule_derivative(), Apply the product rule to find the derivative of u(x) * v(x).      Parameters:, TestProductRuleDerivative
 
 ### Community 53 - "Trigonometric Tangent Functions"
-Cohesion: 0.18
-Nodes (9): calculate_pi_nilakantha(), Decimal, Calculate Pi using Nilakantha's algorithm.          Formula: π = 3 + 4/(2×3×4) -, Test with small number of terms to check exact values, Test that the algorithm converges towards math.pi as terms increase, Test the precision parameter, Test that invalid number of terms raises ValueError, Test that invalid precision raises ValueError (+1 more)
+Cohesion: 0.21
+Nodes (8): calculate_pi_nilakantha(), Decimal, Calculate Pi using Nilakantha's algorithm.          Formula: π = 3 + 4/(2×3×4) -, Test with small number of terms to check exact values, Test that the algorithm converges towards math.pi as terms increase, Test the precision parameter, Test that invalid number of terms raises ValueError, TestNilakanthaAlgorithm
 
 ### Community 54 - "Compound Interest Math"
 Cohesion: 0.39
@@ -330,16 +330,16 @@ Cohesion: 0.32
 Nodes (3): herons_area_of_triangle(), Calculate the area of a triangle using Heron's formula.      Parameters:     a (, TestHeronsAreaOfTriangle
 
 ### Community 57 - "Trigonometric Sine Functions"
-Cohesion: 0.27
-Nodes (5): n_permute_r(), Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.      Parame, _product_tree(), Helper function to perform tree multiplication of range [start, end].      Param, TestPermutation
+Cohesion: 0.39
+Nodes (3): n_permute_r(), Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.      Parame, TestPermutation
 
 ### Community 58 - "Trigonometric Sine Functions"
 Cohesion: 0.40
 Nodes (4): 1. Codebase Audit & Roadmap Alignment, 2. Test Verification Requirement, 3. Sandboxed Git Remote Operations (Fetch / Pull / Push), Repository Sync & Sandbox Git Workflow
 
 ### Community 64 - "Trigonometric Tangent Functions"
-Cohesion: 0.21
-Nodes (8): calculate_pi_chudnovsky(), Decimal, Calculate Pi using the Chudnovsky algorithm.          This is one of the fastest, Test that the function returns a Decimal object., Test against the first 50 known digits of Pi to verify arbitrary precision., Test that invalid precision values raise ValueError., Test that the algorithm returns a value very close to math.pi., TestChudnovskyAlgorithm
+Cohesion: 0.24
+Nodes (7): calculate_pi_chudnovsky(), Decimal, Calculate Pi using the Chudnovsky algorithm.          This is one of the fastest, Test that the function returns a Decimal object., Test against the first 50 known digits of Pi to verify arbitrary precision., Test that the algorithm returns a value very close to math.pi., TestChudnovskyAlgorithm
 
 ### Community 66 - "Trigonometric Tangent Functions"
 Cohesion: 0.67
@@ -358,16 +358,16 @@ Nodes (11): Calculate the volume of a prism given its base area and height.     
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `TestFormatPolynomialChainRule` connect `Test Calculus Testformatpolynomialchainrule Module` to `Differentiation Chain & Second Derivative Rules`, `Trigonometric Integration`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
-- **Why does `nCr()` connect `Binomial Theorem` to `Approximation Partition Module`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
+  _High betweenness centrality (0.056) - this node is a cross-community bridge._
+- **Why does `nCr()` connect `Binomial Theorem` to `Approximation Partition Module`, `Factorial Discrete Module`?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
 - **Why does `integrate_cos()` connect `Trigonometric Integration` to `Trigonometric Integration`, `Trigonometry Cosine Rule`, `Trigonometric Tangent Functions`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
 - **What connects `Polynomial Closed-Form Solvers Skill`, `1. Codebase Audit & Roadmap Alignment`, `2. Test Verification Requirement` to the rest of the system?**
   _12 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Newton-Raphson & Root Finding` be split into smaller, more focused modules?**
   _Cohesion score 0.08585858585858586 - nodes in this community are weakly interconnected._
 - **Should `Binomial Theorem` be split into smaller, more focused modules?**
-  _Cohesion score 0.055288461538461536 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.058469945355191254 - nodes in this community are weakly interconnected._
 - **Should `Differentiation Chain & Second Derivative Rules` be split into smaller, more focused modules?**
   _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._

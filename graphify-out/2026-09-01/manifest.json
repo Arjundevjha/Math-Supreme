@@ -90,23 +90,23 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/combination.py": {
-    "mtime": 1787788472.681493,
-    "ast_hash": "0b40673b53e783580da77992c92bee2b",
+    "mtime": 1785729244.9418967,
+    "ast_hash": "96146a07dc332ba2f70fcb08b01a1e57",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/pascals_triangle.py": {
-    "mtime": 1787896138.14563,
-    "ast_hash": "af0fc5e166e01141ede23c23cea12354",
+    "mtime": 1787030105.910574,
+    "ast_hash": "c3024be3e7c128bb9195a8a474f6b966",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/permutation.py": {
-    "mtime": 1788245199.907585,
-    "ast_hash": "36bcdd3d002ccb49816c6ef5c32748e7",
+    "mtime": 1787022239.8495393,
+    "ast_hash": "55a9a42a77b3d329b33d0dc2b9a36492",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem.py": {
-    "mtime": 1788052416.1704955,
-    "ast_hash": "ad1020d257cf0b559f021fcf1298185c",
+    "mtime": 1787018584.9313865,
+    "ast_hash": "519645eab1afc92162611710b603d5cd",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem_general_term.py": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Arc_Functions/arctan.py": {
-    "mtime": 1787788472.6817482,
-    "ast_hash": "d9f8be251f21cf7d32c46c1b65d5da1a",
+    "mtime": 1787542876.9099936,
+    "ast_hash": "0ba4cfce6e3eb8b0d9f518d0cf8cb421",
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Formulas/cosine_rule.py": {
@@ -270,9 +270,9 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Chudnovsky_algo.py": {
-    "mtime": 1788052420.7298152,
-    "ast_hash": "b0896899002fcd7ea667d877c6955833",
-    "semantic_hash": ""
+    "mtime": 1783937229.8454366,
+    "ast_hash": "9e2dc2859c9c260b9c44b3be26835fb1",
+    "semantic_hash": "9e2dc2859c9c260b9c44b3be26835fb1"
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Machin_algo.py": {
     "mtime": 1787022255.4907084,
@@ -280,13 +280,13 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Nilakanths_algo.py": {
-    "mtime": 1788245167.0099902,
-    "ast_hash": "9e3b5a26ee644d2f8e05be233f32caed",
-    "semantic_hash": ""
+    "mtime": 1783937229.8455632,
+    "ast_hash": "fb7b12246c4448c41baf67a8b2ce9b7f",
+    "semantic_hash": "fb7b12246c4448c41baf67a8b2ce9b7f"
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/S_Ramanujan_algo.py": {
-    "mtime": 1788142199.3658009,
-    "ast_hash": "5578ac91bbe736020346584b18872fda",
+    "mtime": 1787022215.8754458,
+    "ast_hash": "b6261aa7a81742bb9d011862f64a04ea",
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/William_Shanks.py": {
@@ -295,8 +295,8 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Functions/nth_root/nth_root.py": {
-    "mtime": 1788052408.4155543,
-    "ast_hash": "fde6ce263b4f3aab53a19457d4595228",
+    "mtime": 1787542876.9103887,
+    "ast_hash": "de3148fe7d6668ca0261ce7b95051b2c",
     "semantic_hash": ""
   },
   "Math/Probability_and_Statistics/Descriptive_Statistics/mean.py": {
@@ -355,14 +355,14 @@
     "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
   },
   "Tests/test_NumericalMethods.py": {
-    "mtime": 1788245167.0101373,
-    "ast_hash": "d515d8885a9ab51268134c5f839e23ce",
+    "mtime": 1787030145.1822476,
+    "ast_hash": "45c82e448651403b3b3d2f28ef643235",
     "semantic_hash": ""
   },
   "Tests/test_Pi_Algorithms_Ramanujan.py": {
-    "mtime": 1788142199.3662245,
-    "ast_hash": "c3079da36487388c3a8cb73e07a4547d",
-    "semantic_hash": ""
+    "mtime": 1784156312.356371,
+    "ast_hash": "7257a7492c0ee2ad28602d843c27fef7",
+    "semantic_hash": "7257a7492c0ee2ad28602d843c27fef7"
   },
   "Tests/test_ProbabilityandStatistics.py": {
     "mtime": 1787101372.2722652,
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "Tests/test_arctan_security.py": {
-    "mtime": 1787788472.6818671,
-    "ast_hash": "ed10733bbbee38d24d60d5da51b22185",
+    "mtime": 1787542876.9111004,
+    "ast_hash": "15a112e788003e91033bce8ee6d25c59",
     "semantic_hash": ""
   },
   "Tests/test_binomial_theorem.py": {
@@ -460,8 +460,8 @@
     "semantic_hash": ""
   },
   "Tests/test_pascals_triangle.py": {
-    "mtime": 1787896140.072636,
-    "ast_hash": "f7395452af20d85c8313c93fb0c671e7",
+    "mtime": 1787102874.6771781,
+    "ast_hash": "798846a2e74306137b8a2eea49f59ac3",
     "semantic_hash": ""
   },
   "Tests/test_pythagoras_theorem.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1788142287.8169374,
-    "ast_hash": "2037b887886ed082550340cd1d5c1c7f",
+    "mtime": 1787542985.786687,
+    "ast_hash": "7f5d361288379223a3889c3a1f573371",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -805,13 +805,13 @@
     "semantic_hash": ""
   },
   "Math/utils/math_utils.py": {
-    "mtime": 1788142252.057826,
-    "ast_hash": "ca18c138dcb25b4674a9c1c361adfc22",
+    "mtime": 1787542876.9105208,
+    "ast_hash": "a4a348c0583a270bf298b13ab97728dd",
     "semantic_hash": ""
   },
   "Tests/test_Chudnovsky_algo.py": {
-    "mtime": 1788052422.9123955,
-    "ast_hash": "6231f4d9ad026296722b424969220128",
+    "mtime": 1787101372.30363,
+    "ast_hash": "48e03623ca279aad6b19b31c701023ca",
     "semantic_hash": ""
   },
   "Tests/test_Machin_algo.py": {
@@ -845,13 +845,13 @@
     "semantic_hash": ""
   },
   "Tests/test_nth_root.py": {
-    "mtime": 1788052408.4160194,
-    "ast_hash": "a90cc9c3eb431c378e88a7b2c788cc73",
+    "mtime": 1787102862.8740602,
+    "ast_hash": "3b302721877d97cabfc964f1ac1a5118",
     "semantic_hash": ""
   },
   "Tests/test_permutation.py": {
-    "mtime": 1788245184.8142335,
-    "ast_hash": "7a7ca89879b3316c2451455ae42523b8",
+    "mtime": 1785982351.4057846,
+    "ast_hash": "96243c26a9f400912bcaad181ed37ef5",
     "semantic_hash": ""
   },
   "Tests/test_polygon_of_n_sides.py": {
@@ -895,13 +895,13 @@
     "semantic_hash": ""
   },
   "Tests/test_trinomial_theorem.py": {
-    "mtime": 1788052419.1216125,
-    "ast_hash": "9ddc2193790dc4830a29a0d5feb51979",
+    "mtime": 1787018584.932916,
+    "ast_hash": "11d36d0fb8239d555fce456ca4e889d6",
     "semantic_hash": ""
   },
   "Tests/test_trinomial_theorem_general_term.py": {
-    "mtime": 1788052408.4161777,
-    "ast_hash": "5f406477438c46fefaed6aea43accbb3",
+    "mtime": 1787542876.912235,
+    "ast_hash": "165bee741106528ee77e6f98606a2cbf",
     "semantic_hash": ""
   },
   "Tests/test_volume_of_prism.py": {
