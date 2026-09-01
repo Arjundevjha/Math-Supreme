@@ -29,11 +29,19 @@ def calculate_pi_chudnovsky(precision: int = 50) -> Decimal:
     X = Decimal(1)
     S = L
 
+    # Optimization: Each Chudnovsky series term yields ~14.18 digits of precision.
+    # Computing `precision` terms is unnecessary and results in O(precision) extra
+    # high-precision Decimal divisions. Calculating max(1, (precision + 13) // 14) terms
+    # achieves the exact required target precision while executing ~14x faster.
+    num_terms = max(1, (precision + 13) // 14)
+    c_L = 545140134
+    c_X = Decimal(-262537412640768000)
+
     # Apply Chudnovsky series
-    for n in range(1, precision):
-        M *= (K**3 - 16*K) / (n**3)
-        L += 545140134
-        X *= -262537412640768000
+    for n in range(1, num_terms):
+        M *= (K**3 - 16*K) / Decimal(n**3)
+        L += c_L
+        X *= c_X
         S += M * L / X
         K += 12
 
