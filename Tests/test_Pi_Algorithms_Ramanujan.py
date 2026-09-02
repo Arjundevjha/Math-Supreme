@@ -1,7 +1,8 @@
 import pytest
 import math
 from decimal import Decimal
-from Math.Numerical_Methods.Constants.Pi_Algorithms.S_Ramanujan_algo import calculate_pi_ramanujan, factorial_decimal
+from Math.Numerical_Methods.Constants.Pi_Algorithms.S_Ramanujan_algo import calculate_pi_ramanujan
+from Math.utils.math_utils import factorial_decimal
 
 class TestRamanujanAlgorithm:
     def test_calculate_pi_ramanujan_basic(self):
