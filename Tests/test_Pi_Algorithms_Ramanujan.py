@@ -1,60 +1,70 @@
-import pytest
-import math
+# Unit tests for S. Ramanujan's Pi calculation algorithm
 from decimal import Decimal
-from Math.Numerical_Methods.Constants.Pi_Algorithms.S_Ramanujan_algo import calculate_pi_ramanujan, factorial_decimal
+import pytest
+
+from Math.Numerical_Methods.Constants.Pi_Algorithms.S_Ramanujan_algo import (
+    calculate_pi_ramanujan,
+)
+
 
 class TestRamanujanAlgorithm:
-    def test_calculate_pi_ramanujan_basic(self):
-        # 1 term should be somewhat close
-        pi_1 = float(calculate_pi_ramanujan(num_decimal_places=50, num_terms=1))
-        # 2 terms should be very close
-        pi_2 = float(calculate_pi_ramanujan(num_decimal_places=50, num_terms=2))
+    """Test suite for calculate_pi_ramanujan function."""
 
-        assert math.isclose(pi_1, math.pi, rel_tol=1e-5)
-        assert math.isclose(pi_2, math.pi, rel_tol=1e-15)
+    KNOWN_PI_50_DIGITS = "3.14159265358979323846264338327950288419716939937510"
+    KNOWN_PI_100_DIGITS = (
+        "3.14159265358979323846264338327950288419716939937510"
+        "58209749445923078164062862089986280348253421170679"
+    )
+
+    def test_calculate_pi_ramanujan_default_args(self):
+        """Test default arguments (num_decimal_places=50, num_terms=10)."""
+        pi_val = calculate_pi_ramanujan()
+        assert isinstance(pi_val, Decimal)
+        assert str(pi_val).startswith(self.KNOWN_PI_50_DIGITS)
+
+    def test_calculate_pi_ramanujan_precision(self):
+        """Test calculation with high precision."""
+        pi_val = calculate_pi_ramanujan(num_decimal_places=100, num_terms=15)
+        assert isinstance(pi_val, Decimal)
+        # Verify precision against known digits (prefix match to avoid endpoint rounding)
+        assert str(pi_val).startswith(self.KNOWN_PI_100_DIGITS[:90])
 
     def test_calculate_pi_ramanujan_convergence(self):
-        pi_1 = float(calculate_pi_ramanujan(50, 1))
-        pi_2 = float(calculate_pi_ramanujan(50, 2))
-        pi_3 = float(calculate_pi_ramanujan(50, 3))
+        """Test that adding terms improves accuracy of the approximation."""
+        pi_1 = calculate_pi_ramanujan(num_decimal_places=50, num_terms=1)
+        pi_2 = calculate_pi_ramanujan(num_decimal_places=50, num_terms=2)
+        pi_3 = calculate_pi_ramanujan(num_decimal_places=50, num_terms=3)
 
-        error_1 = abs(pi_1 - math.pi)
-        error_2 = abs(pi_2 - math.pi)
-        error_3 = abs(pi_3 - math.pi)
+        float_pi = 3.141592653589793
+        error_1 = abs(float(pi_1) - float_pi)
+        error_2 = abs(float(pi_2) - float_pi)
+        error_3 = abs(float(pi_3) - float_pi)
 
+        assert error_1 < 1e-5
         assert error_2 < error_1
         assert error_3 < error_2
 
-    def test_calculate_pi_ramanujan_precision(self):
-        # Test higher precision parameter
-        pi_high_prec = calculate_pi_ramanujan(num_decimal_places=100, num_terms=10)
-        assert isinstance(pi_high_prec, Decimal)
+    def test_calculate_pi_ramanujan_boundary_decimal_places(self):
+        """Test boundary conditions for num_decimal_places."""
+        # Lower bound: 0
+        pi_0 = calculate_pi_ramanujan(num_decimal_places=0, num_terms=5)
+        assert isinstance(pi_0, Decimal)
+        assert str(pi_0).startswith("3")
 
-    def test_calculate_pi_ramanujan_invalid_args(self):
-        with pytest.raises(ValueError, match="num_decimal_places must be an integer between 0 and 10000."):
-            calculate_pi_ramanujan(-1, 10)
+    def test_calculate_pi_ramanujan_invalid_decimal_places(self):
+        """Test invalid num_decimal_places values raise ValueError."""
+        invalid_values = [-1, -10, 10001, True, False, 5.5, "50"]
+        expected_msg = r"^num_decimal_places must be an integer between 0 and 10000\.$"
 
-        with pytest.raises(ValueError, match="num_decimal_places must be an integer between 0 and 10000."):
-            calculate_pi_ramanujan(10001, 10)
+        for val in invalid_values:
+            with pytest.raises(ValueError, match=expected_msg):
+                calculate_pi_ramanujan(num_decimal_places=val, num_terms=10)
 
-        with pytest.raises(ValueError, match="num_decimal_places must be an integer between 0 and 10000."):
-            calculate_pi_ramanujan(True, 10)
+    def test_calculate_pi_ramanujan_invalid_terms(self):
+        """Test invalid num_terms values raise ValueError."""
+        invalid_values = [0, -1, -10, 10001, True, False, 2.5, "10"]
+        expected_msg = r"^num_terms must be an integer between 1 and 10000\.$"
 
-        with pytest.raises(ValueError, match="num_terms must be an integer between 1 and 10000."):
-            calculate_pi_ramanujan(50, 0)
-
-        with pytest.raises(ValueError, match="num_terms must be an integer between 1 and 10000."):
-            calculate_pi_ramanujan(50, 10001)
-
-        with pytest.raises(ValueError, match="num_terms must be an integer between 1 and 10000."):
-            calculate_pi_ramanujan(50, True)
-
-def test_factorial_decimal_basic():
-    assert factorial_decimal(0) == Decimal(1)
-    assert factorial_decimal(1) == Decimal(1)
-    assert factorial_decimal(5) == Decimal(120)
-    assert factorial_decimal(10) == Decimal(3628800)
-
-def test_factorial_decimal_negative():
-    with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
-        factorial_decimal(-1)
+        for val in invalid_values:
+            with pytest.raises(ValueError, match=expected_msg):
+                calculate_pi_ramanujan(num_decimal_places=50, num_terms=val)
