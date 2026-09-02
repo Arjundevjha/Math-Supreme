@@ -69,22 +69,34 @@ class TestComputeEulersNumber:
 
     def test_compute_eulers_number_invalid_iterations(self):
         """Test that invalid number of iterations raises ValueError."""
-        with pytest.raises(ValueError, match=r"Iterations must be between 1 and 10000\."):
+        with pytest.raises(ValueError, match=r"Iterations must be an integer between 1 and 10000\."):
             compute_eulers_number(iterations=0)
 
-        with pytest.raises(ValueError, match=r"Iterations must be between 1 and 10000\."):
+        with pytest.raises(ValueError, match=r"Iterations must be an integer between 1 and 10000\."):
             compute_eulers_number(iterations=-5)
 
-        with pytest.raises(ValueError, match=r"Iterations must be between 1 and 10000\."):
+        with pytest.raises(ValueError, match=r"Iterations must be an integer between 1 and 10000\."):
             compute_eulers_number(iterations=10001)
+
+        with pytest.raises(ValueError, match=r"Iterations must be an integer between 1 and 10000\."):
+            compute_eulers_number(iterations=True)
+
+        with pytest.raises(ValueError, match=r"Iterations must be an integer between 1 and 10000\."):
+            compute_eulers_number(iterations=10.5)
 
     def test_compute_eulers_number_invalid_decimal_places(self):
         """Test that invalid decimal places input raises ValueError."""
-        with pytest.raises(ValueError, match=r"Decimal places must be between 1 and 10000\."):
+        with pytest.raises(ValueError, match=r"Decimal places must be an integer between 1 and 10000\."):
             compute_eulers_number(decimal_places=0)
 
-        with pytest.raises(ValueError, match=r"Decimal places must be between 1 and 10000\."):
+        with pytest.raises(ValueError, match=r"Decimal places must be an integer between 1 and 10000\."):
             compute_eulers_number(decimal_places=-10)
 
-        with pytest.raises(ValueError, match=r"Decimal places must be between 1 and 10000\."):
+        with pytest.raises(ValueError, match=r"Decimal places must be an integer between 1 and 10000\."):
             compute_eulers_number(decimal_places=10001)
+
+        with pytest.raises(ValueError, match=r"Decimal places must be an integer between 1 and 10000\."):
+            compute_eulers_number(decimal_places=True)
+
+        with pytest.raises(ValueError, match=r"Decimal places must be an integer between 1 and 10000\."):
+            compute_eulers_number(decimal_places="50")
