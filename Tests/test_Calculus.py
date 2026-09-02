@@ -9,10 +9,10 @@ from Math.Calculus.Differentiation.quotient_rule import quotient_rule_derivative
 from Math.Calculus.Differentiation.simple_diffrentiation_function import (
     differentiate_polynomial,
 )
+from Math.utils.math_utils import format_polynomial
 from Math.Calculus.Differentiation.utils import (
     compute_polynomial_derivative,
     compute_polynomial_derivative_str,
-    format_polynomial,
 )
 
 format_polynomial_product_rule = format_polynomial

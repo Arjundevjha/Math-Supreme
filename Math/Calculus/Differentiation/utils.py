@@ -1,8 +1,6 @@
 # Polynomial differentiation and formatting utilities
 from typing import List, Union, Tuple
 
-from Math.utils.math_utils import format_polynomial
-
 
 def compute_polynomial_derivative_str(
     coefficients: List[Union[int, float]], powers: List[Union[int, float]]
