@@ -1,6 +1,4 @@
-import math
 import unittest
-
 from Math.Geometry.Euclidean_Geometry.Volume.cuboid import volume_of_cuboid
 
 
@@ -9,10 +7,10 @@ class TestVolumeOfCuboid(unittest.TestCase):
         self.assertEqual(volume_of_cuboid(2, 3, 4), 24)
 
     def test_positive_floats(self):
-        self.assertTrue(math.isclose(volume_of_cuboid(2.5, 3.5, 4.5), 39.375, rel_tol=1e-9))
+        self.assertAlmostEqual(volume_of_cuboid(2.5, 3.5, 4.5), 39.375, places=9)
 
     def test_mixed_types(self):
-        self.assertTrue(math.isclose(volume_of_cuboid(2, 3.5, 4), 28.0, rel_tol=1e-9))
+        self.assertAlmostEqual(volume_of_cuboid(2, 3.5, 4), 28.0, places=9)
 
     def test_zero_dimensions(self):
         self.assertEqual(volume_of_cuboid(0, 5, 5), 0)
