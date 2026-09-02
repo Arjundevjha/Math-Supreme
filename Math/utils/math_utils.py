@@ -1,5 +1,6 @@
 # Mathematical utilities and shared constants
 from decimal import Decimal
+from functools import lru_cache
 from typing import List, Union
 
 # Mathematical constants
@@ -27,6 +28,7 @@ def _product_tree(start: int, end: int) -> int:
     return _product_tree(start, mid) * _product_tree(mid + 1, end)
 
 
+@lru_cache(maxsize=128)
 def factorial(n: int) -> int:
     """
     Calculate the factorial of a number.
