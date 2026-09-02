@@ -37,8 +37,12 @@ def factorial(n: int) -> int:
     Returns:
     int: The factorial of n (n!).
     """
+    if not isinstance(n, int) or isinstance(n, bool):
+        raise ValueError("n must be an integer.")
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
+    if n > 10000:
+        raise ValueError("n exceeds maximum allowed value of 10000.")
     if n == 0 or n == 1:
         return 1
 
@@ -58,8 +62,12 @@ def factorial_decimal(n: int) -> Decimal:
     Returns:
     Decimal: The factorial of n as a Decimal.
     """
+    if not isinstance(n, int) or isinstance(n, bool):
+        raise ValueError("n must be an integer.")
     if n < 0:
         raise ValueError("Factorial is not defined for negative numbers.")
+    if n > 10000:
+        raise ValueError("n exceeds maximum allowed value of 10000.")
 
     result = Decimal(1)
     for i in range(1, n + 1):

@@ -4,7 +4,7 @@ from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.Nilakanths_algo import (
     calculate_pi_nilakantha,
 )
-from Math.utils.math_utils import factorial
+from Math.utils.math_utils import factorial, factorial_decimal
 
 
 class TestNilakanthaAlgorithm:
@@ -108,4 +108,36 @@ def test_factorial_large():
         assert factorial(n) == n * factorial(n - 1)
 
 
+def test_factorial_validation():
+    with pytest.raises(ValueError, match="n exceeds maximum allowed value of 10000."):
+        factorial(10001)
+
+    with pytest.raises(ValueError, match="n must be an integer."):
+        factorial(3.5)
+
+    with pytest.raises(ValueError, match="n must be an integer."):
+        factorial(True)
+
+    with pytest.raises(ValueError, match="n must be an integer."):
+        factorial("10")
+
+
+def test_factorial_decimal_validation():
+    assert factorial_decimal(0) == Decimal(1)
+    assert factorial_decimal(5) == Decimal(120)
+
+    with pytest.raises(ValueError, match="Factorial is not defined for negative numbers."):
+        factorial_decimal(-1)
+
+    with pytest.raises(ValueError, match="n exceeds maximum allowed value of 10000."):
+        factorial_decimal(10001)
+
+    with pytest.raises(ValueError, match="n must be an integer."):
+        factorial_decimal(4.2)
+
+    with pytest.raises(ValueError, match="n must be an integer."):
+        factorial_decimal(False)
+
+    with pytest.raises(ValueError, match="n must be an integer."):
+        factorial_decimal("5")
 
