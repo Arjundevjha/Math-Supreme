@@ -139,8 +139,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_algebra_polynomials_factor_theorem",
-      "community": 6,
-      "community_name": "Linear Equation Solvers",
+      "community": 5,
+      "community_name": "Factor Theorem Testing",
       "norm_label": "factor_theorem.py"
     },
     {
@@ -172,8 +172,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_algebra_polynomials_polynomial",
-      "community": 6,
-      "community_name": "Linear Equation Solvers",
+      "community": 5,
+      "community_name": "Factor Theorem Testing",
       "norm_label": "polynomial.py"
     },
     {
@@ -6714,7 +6714,7 @@
       "label": ".test_compute_eulers_number_invalid_decimal_places()",
       "file_type": "code",
       "source_file": "Tests/test_Eulers_number.py",
-      "source_location": "L81",
+      "source_location": "L87",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testcomputeeulersnumber_test_compute_eulers_number_invalid_decimal_places",
       "community": 11,
@@ -6824,9 +6824,9 @@
       "label": "Test that invalid decimal places input raises ValueError.",
       "file_type": "rationale",
       "source_file": "Tests/test_Eulers_number.py",
-      "source_location": "L82",
+      "source_location": "L88",
       "_origin": "ast",
-      "id": "tests_test_eulers_number_rationale_82",
+      "id": "tests_test_eulers_number_rationale_88",
       "community": 11,
       "community_name": "Euler's Number Constants",
       "norm_label": "test that invalid decimal places input raises valueerror."
@@ -7718,8 +7718,8 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_half_period",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": ".test_integrate_cos_half_period()"
     },
     {
@@ -7740,8 +7740,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_fractional_bounds",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": ".test_integrate_cos_fractional_bounds()"
     },
     {
@@ -7894,8 +7894,8 @@
       "source_location": "L68",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_68",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": "test integral of cos(x) from -pi/2 to pi/2 = 2"
     },
     {
@@ -7916,8 +7916,8 @@
       "source_location": "L78",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_78",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": "test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2)"
     },
     {
@@ -26396,7 +26396,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "Tests/test_Eulers_number.py",
-      "source_location": "L84",
+      "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_test_eulers_number_testcomputeeulersnumber_test_compute_eulers_number_invalid_decimal_places",
@@ -31690,7 +31690,7 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "Tests/test_Eulers_number.py",
-      "source_location": "L81",
+      "source_location": "L87",
       "weight": 1.0,
       "_origin": "ast",
       "source": "tests_test_eulers_number_testcomputeeulersnumber",
@@ -31767,10 +31767,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Tests/test_Eulers_number.py",
-      "source_location": "L82",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "tests_test_eulers_number_rationale_82",
+      "source": "tests_test_eulers_number_rationale_88",
       "target": "tests_test_eulers_number_testcomputeeulersnumber_test_compute_eulers_number_invalid_decimal_places",
       "confidence_score": 1.0
     },
@@ -39410,5 +39410,5 @@
       "source_file": "handoff.md"
     }
   ],
-  "built_at_commit": "51f62c203ed46c6380b60b0dcca5bc1399482d8e"
+  "built_at_commit": "dedc112e306e594c81fa8ef3039c59838273ca52"
 }

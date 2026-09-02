@@ -1,23 +1,22 @@
 # Graph Report - Math-Supreme  (2026-09-02)
 
 ## Corpus Check
-- 185 files · ~35,937 words
+- 193 files · ~38,049 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1359 nodes · 2124 edges · 130 communities (110 shown, 20 thin omitted)
-- Extraction: 98% EXTRACTED · 2% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.81)
+- 1441 nodes · 2280 edges · 130 communities (114 shown, 16 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 30 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `dedc112e`
+- Built from commit: `ed4366fa`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Newton-Raphson & Root Finding
 - Binomial Theorem
-- Differentiation Chain & Second Derivative Rules
 - Test Algebra Testevaluatepolynomial Module
 - Trigonometric Integration
 - Factor Theorem Testing
@@ -99,10 +98,10 @@
 4. `TestQuotientRule` - 33 edges
 5. `chain_rule_derivative()` - 32 edges
 6. `TestFormatPolynomialChainRule` - 30 edges
-7. `compute_polynomial_derivative_str()` - 28 edges
-8. `nth_root()` - 25 edges
-9. `TestEvaluatePolynomial` - 25 edges
-10. `second_derivative()` - 24 edges
+7. `compute_polynomial_derivative()` - 29 edges
+8. `compute_polynomial_derivative_str()` - 28 edges
+9. `nth_root()` - 25 edges
+10. `TestEvaluatePolynomial` - 25 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `cubic_formula()` --implements--> `Dependency Elimination`  [EXTRACTED]
@@ -123,7 +122,7 @@
 - **Coding Restrictions and Dependency Policies** — agents_no_standard_math_module_usage, agents_internal_imports_first, style_guide_number_one_principle [EXTRACTED 1.00]
 - **Standard Math Dependency Elimination** — math_numerical_methods_functions_nth_root_nth_root_nth_root, math_algebra_polynomials_cubic_formula_cubic_formula, math_algebra_polynomials_factor_theorem_factor_theorem, handoff_dependency_elimination [EXTRACTED 1.00]
 
-## Communities (130 total, 20 thin omitted)
+## Communities (130 total, 16 thin omitted)
 
 ### Community 0 - "Newton-Raphson & Root Finding"
 Cohesion: 0.09
@@ -135,19 +134,19 @@ Nodes (38): binomial_coefficient(), expand_binomial(), Expand the binomial (a + 
 
 ### Community 3 - "Test Algebra Testevaluatepolynomial Module"
 Cohesion: 0.04
-Nodes (42): evaluate_polynomial(), Evaluate a polynomial at a given value of x.      Parameters:     coefficients (, Test evaluating at x=0 with negative powers, expecting ZeroDivisionError, Test that zip handles mismatched list lengths by truncating to the shortest, Test with floating point values that might cause precision issues, Test with a simple quadratic polynomial: x^2 + 2x + 1 at x=2, Test polynomial at x=0, Test polynomial at x=-1 (+34 more)
+Nodes (27): Test evaluating at x=0 with negative powers, expecting ZeroDivisionError, Test that zip handles mismatched list lengths by truncating to the shortest, Test with floating point values that might cause precision issues, Test with a simple quadratic polynomial: x^2 + 2x + 1 at x=2, Test polynomial at x=0, Test polynomial at x=-1, Test with fractional powers (square root), Test with float coefficients and float x (+19 more)
 
 ### Community 4 - "Trigonometric Integration"
 Cohesion: 0.11
-Nodes (10): integrate_cos(), Calculate the definite integral of cos(x) from a to b.      Parameters:     a (U, Test integral of cos(x) from pi/2 to 0 = -1, Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2), Test integral of cos(x) from pi to pi = 0, Test integral of cos(x) from 0 to pi = 0, Test integral of cos(x) over multiple periods, Test integral of cos(x) from 0 to 2*pi = 0 (+2 more)
+Nodes (10): integrate_cos(), Calculate the definite integral of cos(x) from a to b.      Parameters:     a (U, Test integral of cos(x) from pi/2 to 0 = -1, Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2), Test integral of cos(x) from 0 to pi = 0, Test integral of cos(x) over multiple periods, Test integral of cos(x) from 0 to 2*pi = 0, Test integral of cos(x) from -pi/2 to pi/2 = 2 (+2 more)
 
 ### Community 5 - "Factor Theorem Testing"
-Cohesion: 0.08
+Cohesion: 0.09
 Nodes (20): check_factor(), Check if (x - a) is a factor of a polynomial using the Factor Theorem.      Para, test_check_factor_empty(), test_check_factor_float(), test_check_factor_irrational(), test_check_factor_negative_powers(), test_check_factor_precision(), test_check_factor_true() (+12 more)
 
 ### Community 6 - "Linear Equation Solvers"
 Cohesion: 0.12
-Nodes (27): linear_eqn(), Calculate the equation of a line given two points (x1, y1) and (x2, y2)., format_polynomial(), Format a polynomial as a string.      Parameters:     coefficients (List[Union[i, test_evaluate_polynomial_empty(), test_evaluate_polynomial_negative_powers(), test_evaluate_polynomial_negative_x(), test_evaluate_polynomial_poly_precision() (+19 more)
+Nodes (30): evaluate_polynomial(), format_polynomial(), Format a polynomial as a string.      Parameters:     coefficients (List[Union[i, Evaluate a polynomial at a given value of x.      Parameters:     coefficients (, test_evaluate_polynomial_all_zero_coeffs(), test_evaluate_polynomial_basic(), test_evaluate_polynomial_empty(), test_evaluate_polynomial_floating_point() (+22 more)
 
 ### Community 7 - "Factor Theorem Testing"
 Cohesion: 0.09
@@ -158,12 +157,12 @@ Cohesion: 0.06
 Nodes (20): quotient_rule_derivative(), Apply the quotient rule to find the derivative of u(x) / v(x).      Parameters:, test_quotient_rule_derivative_basic(), test_quotient_rule_derivative_both_empty_edge(), test_quotient_rule_derivative_constant_denominator(), test_quotient_rule_derivative_constant_numerator(), test_quotient_rule_derivative_empty_denominator_edge(), test_quotient_rule_derivative_empty_lists() (+12 more)
 
 ### Community 10 - "Trigonometry Cosine Rule"
-Cohesion: 0.06
-Nodes (44): area_of_polygon(), Calculate the area of a regular polygon with n sides.      Parameters:     n (in, arcsin_numerical(), Calculate arcsine using numerical approximation by finding angle where sin(angle, arccos_series(), cosine_rule_for_angle(), cosine_rule_for_side(), Calculate arccos using series approximation.      Parameters:     x (Union[int, (+36 more)
+Cohesion: 0.07
+Nodes (36): area_of_polygon(), Calculate the area of a regular polygon with n sides.      Parameters:     n (in, arcsin_numerical(), Calculate arcsine using numerical approximation by finding angle where sin(angle, cosine_taylor(), Calculate cosine using Taylor series expansion iteratively.      Parameters:, Calculate sine using Taylor series expansion iteratively.      Parameters:     r, sine_taylor() (+28 more)
 
 ### Community 11 - "Euler's Number Constants"
-Cohesion: 0.07
-Nodes (24): compute_eulers_number(), Decimal, Compute Euler's number (e) using the series expansion: e = Σ(1/n!) for n=0 to in, calculate_pi_ramanujan(), Decimal, Calculate Pi using S. Ramanujan's formula.          Formula: 1/π = (2√2/9801) ×, factorial_decimal(), Decimal (+16 more)
+Cohesion: 0.09
+Nodes (20): compute_eulers_number(), Decimal, Compute Euler's number (e) using the series expansion: e = Σ(1/n!) for n=0 to in, factorial_decimal(), Decimal, Calculate factorial as a Decimal for high precision.      Parameters:     n (int, Test factorial of zero is 1., Test factorial of one is 1. (+12 more)
 
 ### Community 12 - "Remainder Theorem Algebra"
 Cohesion: 0.13
@@ -174,8 +173,8 @@ Cohesion: 0.15
 Nodes (4): differentiate_polynomial(), Differentiate a polynomial using the power rule.      Parameters:     coeffs (Li, TestDifferentiatePolynomial, TestDifferentiatePolynomial
 
 ### Community 14 - "Pascal's Triangle Combinatorics"
-Cohesion: 0.11
-Nodes (15): generate_pascals_triangle(), print_pascals_triangle(), Print Pascal's triangle in a formatted way.      Parameters:     triangle (List[, Generate Pascal's triangle with num_rows rows.      Parameters:     num_rows (in, Test printing a normal Pascal's triangle., Test printing an empty Pascal's triangle., Test generating a valid Pascal's triangle., Test generating an invalid Pascal's triangle with negative rows. (+7 more)
+Cohesion: 0.17
+Nodes (10): generate_pascals_triangle(), print_pascals_triangle(), Print Pascal's triangle in a formatted way.      Parameters:     triangle (List[, Generate Pascal's triangle with num_rows rows.      Parameters:     num_rows (in, Test printing an empty Pascal's triangle., Test generating a valid Pascal's triangle., Test generating an invalid Pascal's triangle., Test type validation and upper bound limit for Pascal's triangle generation. (+2 more)
 
 ### Community 15 - "Trigonometric Tangent Functions"
 Cohesion: 0.11
@@ -191,39 +190,39 @@ Nodes (10): Return the real roots of ax² + bx + c = 0.      Parameters:     a (
 
 ### Community 18 - "Factorial Discrete Module"
 Cohesion: 0.13
-Nodes (18): factorial(), Calculate the factorial of a number.      Parameters:     n (int): The number to, test_factorial(), Test that factorial of 0 is 1., Test that factorial of 1 is 1., Test factorial calculation for positive integers., Test factorial calculation for a slightly larger number., Test factorial with a negative number, which should raise RecursionError due to (+10 more)
+Nodes (20): factorial(), Calculate the factorial of a number.      Parameters:     n (int): The number to, test_factorial(), Test that factorial of 0 is 1., Test that factorial of 1 is 1., Test factorial calculation for positive integers., Test factorial calculation for a slightly larger number., Test factorial with a negative number, which should raise RecursionError due to (+12 more)
 
 ### Community 19 - "Greatest Common Divisor (GCD)"
 Cohesion: 0.19
 Nodes (24): _compute_base_u(), _compute_branch_roots(), _compute_invariants(), _compute_residual_error(), quartic_formula(), Calculate residual sum of absolute evaluation errors for candidate roots.      P, Solve quartic equations of the form ax⁴ + bx³ + cx² + dx + e = 0     using Lande, Compute the base core cube-root term U before branch selection.      Parameters: (+16 more)
 
 ### Community 20 - "Calculus Chain Rule"
-Cohesion: 0.10
-Nodes (16): chain_rule_derivative(), Apply the chain rule to find the derivative of [g(x)]^n.      Parameters:     in, test_chain_rule_derivative_basic(), test_chain_rule_derivative_constant_inner(), test_chain_rule_derivative_empty(), test_chain_rule_derivative_empty_inner(), test_chain_rule_derivative_exponent_one(), test_chain_rule_derivative_float_coefficients() (+8 more)
+Cohesion: 0.08
+Nodes (18): chain_rule_derivative(), Apply the chain rule to find the derivative of [g(x)]^n.      Parameters:     in, test_chain_rule_derivative_basic(), test_chain_rule_derivative_constant_inner(), test_chain_rule_derivative_empty(), test_chain_rule_derivative_empty_inner(), test_chain_rule_derivative_exponent_one(), test_chain_rule_derivative_float_coefficients() (+10 more)
 
 ### Community 21 - "Least Common Multiple (LCM)"
 Cohesion: 0.14
 Nodes (14): compute_gcd(), Compute the Greatest Common Divisor (GCD) of two numbers using the Euclidean alg, compute_lcm(), Compute the Least Common Multiple (LCM) of two numbers.      Parameters:     a (, Test compute_gcd against Python's built-in math.gcd with a wide range     of ran, test_compute_gcd_against_math_gcd(), test_compute_gcd_common_factors(), test_compute_gcd_coprime() (+6 more)
 
 ### Community 22 - "Descriptive Statistics (Mode)"
-Cohesion: 0.17
-Nodes (9): mode(), Calculate the mode of a list of numbers.      Parameters:     data (List[Union[i, Test mode with an empty list., Test mode with a single mode., Test mode with multiple modes., Test mode when all elements have the same frequency., Test mode with float values., Test mode with mixed int and float values. (+1 more)
+Cohesion: 0.08
+Nodes (19): mode(), Calculate the mode of a list of numbers.      Parameters:     data (List[Union[i, Test mode with a single element list., Test mode with a single mode., Test mode with multiple modes., Test mode when all elements have the same frequency., Test mode with float values., Test mode with negative numbers. (+11 more)
 
 ### Community 23 - "Descriptive Statistics (Mean)"
 Cohesion: 0.24
 Nodes (3): mean(), Calculate the mean (average) of a list of numbers.      Parameters:     data (Li, TestMean
 
 ### Community 24 - "Calculus Chain Rule"
-Cohesion: 0.10
-Nodes (25): Calculate the second derivative of a polynomial.      Parameters:     coeffs (Li, second_derivative(), compute_polynomial_derivative(), Compute the derivative of a polynomial.      Parameters:     coefficients (List[, TestComputePolynomialDerivative, test_second_derivative_constant(), test_second_derivative_cubic(), test_second_derivative_empty() (+17 more)
+Cohesion: 0.07
+Nodes (35): Calculate the second derivative of a polynomial.      Parameters:     coeffs (Li, second_derivative(), compute_polynomial_derivative(), Compute the derivative of a polynomial.      Parameters:     coefficients (List[, TestComputePolynomialDerivative, test_basic_polynomial(), test_empty_inputs(), test_fractional_and_float_inputs() (+27 more)
 
 ### Community 25 - "Partition Test Discretetest Module"
 Cohesion: 0.29
 Nodes (8): partition(), Calculate the number of partitions of a positive integer n.      Parameters:, test_partition_negative(), test_partition_positive(), test_partition_zero(), test_partition_negative(), test_partition_positive(), test_partition_zero()
 
 ### Community 26 - "Trigonometric Tangent Functions"
-Cohesion: 0.12
-Nodes (9): Test integral of sin(x) from -pi/2 to 0 = -1, Test integral of sin(x) from 0 to pi = 2, Test integral of sin(x) from pi to 0 = -2, Test integral of cos(x) from 0 to pi/2 = 1, Test integral of cos(x) from -pi/2 to 0 = 1, Test integral of cos(x) from pi/2 to 0 = -1, Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2), Test integral of cos(x) over multiple periods (+1 more)
+Cohesion: 0.10
+Nodes (11): Test integral of sin(x) from -pi/2 to 0 = -1, Test integral of sin(x) from a to a = 0, Test integral of sin(x) from pi to 0 = -2, Test integral of sin(x) from 0 to pi/3 = 0.5, Test integral of sin(x) from 0.5 to 1.5, Test integral of cos(x) from 0 to pi/2 = 1, Test integral of cos(x) from -pi/2 to 0 = 1, Test integral of cos(x) from a to a = 0 (+3 more)
 
 ### Community 27 - "Binomial Theorem"
 Cohesion: 0.43
@@ -238,16 +237,20 @@ Cohesion: 0.27
 Nodes (3): area_of_triangle(), Calculate the area of a triangle given its base and height.      Parameters:, TestAreaOfTriangle
 
 ### Community 30 - "Euclidean Volume (Cone)"
-Cohesion: 0.27
-Nodes (3): Calculate the volume of a cone given its radius and height.      Parameters:, volume_of_cone(), TestVolumeOfCone
+Cohesion: 0.07
+Nodes (14): n_permute_r(), Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.      Parame, area_of_circle(), Calculate the area of a circle given its radius.      Parameters:     radius (Un, Calculate the volume of a cone given its radius and height.      Parameters:, volume_of_cone(), Calculate the volume of a cylinder given its radius and height.      Parameters:, volume_of_cylinder() (+6 more)
 
 ### Community 31 - "Euclidean Volume (Cylinder)"
-Cohesion: 0.27
-Nodes (3): Calculate the volume of a cylinder given its radius and height.      Parameters:, volume_of_cylinder(), TestVolumeOfCylinder
+Cohesion: 0.12
+Nodes (22): linear_eqn(), Calculate the equation of a line given two points (x1, y1) and (x2, y2)., test_linear_eqn_all_negative(), test_linear_eqn_floats(), test_linear_eqn_fractional_slope(), test_linear_eqn_identical_points(), test_linear_eqn_large_coordinates(), test_linear_eqn_negative_slope() (+14 more)
+
+### Community 32 - "Calculus Quotient Rule"
+Cohesion: 0.13
+Nodes (7): format_polynomial(), Format a polynomial as a string.      Parameters:     coefficients (List[Union[i, test_format_polynomial_basic(), test_format_polynomial_empty(), test_format_polynomial_floats(), test_format_polynomial_negative_powers_and_coeffs(), TestQuotientRule
 
 ### Community 33 - "Simple Interest Math"
-Cohesion: 0.30
-Nodes (10): Calculate the total amount after applying simple interest.      Parameters:, simple_interest(), test_simple_interest_basic(), test_simple_interest_floats(), test_simple_interest_negative_principal(), test_simple_interest_negative_rate(), test_simple_interest_negative_time(), test_simple_interest_zero_principal() (+2 more)
+Cohesion: 0.36
+Nodes (8): Calculate the total amount after applying simple interest.      Parameters:, simple_interest(), test_simple_interest_basic(), test_simple_interest_floats(), test_simple_interest_negative_principal(), test_simple_interest_negative_rate(), test_simple_interest_negative_time(), test_simple_interest_zero_values()
 
 ### Community 34 - "Integration Format Module"
 Cohesion: 0.13
@@ -270,11 +273,11 @@ Cohesion: 0.16
 Nodes (21): format_polynomial_integration(), integrate_polynomial(), Format an integrated polynomial as a string.      Parameters:     coefficients (, Integrate a polynomial term by term.      Parameters:     coefficients (List[Uni, test_format_polynomial_integration_basic(), test_format_polynomial_integration_empty(), test_format_polynomial_integration_multiple_terms(), test_format_polynomial_integration_negative_coefficients() (+13 more)
 
 ### Community 40 - "Trigonometric Integration"
-Cohesion: 0.14
-Nodes (9): integrate_sin(), Calculate the definite integral of sin(x) from a to b.      Parameters:     a (U, cosine(), Calculate the cosine of an angle using Taylor series expansion.      Parameters:, Test integral of sin(x) from 0 to 2*pi = 0, Test integral of sin(x) from a to a = 0, Test integral of sin(x) from 0 to pi/3 = 0.5, Test integral of sin(x) from 0.5 to 1.5 (+1 more)
+Cohesion: 0.20
+Nodes (9): integrate_sin(), Calculate the definite integral of sin(x) from a to b.      Parameters:     a (U, cosine(), Calculate the cosine of an angle using Taylor series expansion.      Parameters:, test_cosine_large_angles(), test_cosine_negative_angles(), test_cosine_standard_angles(), Test integral of sin(x) from 0 to 2*pi = 0 (+1 more)
 
 ### Community 41 - "Approximation Partition Module"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (15): binomial_general_term(), Calculate the general term in the binomial expansion of (a + b)^n.      Paramete, partition_approximation(), Calculate an approximation of the number of partitions p(n) using Ramanujan's fo, Test edge cases for partition approximation., Test small values to ensure the formula computes successfully., Test larger values to ensure the formula produces expected output., Test that the approximation improves relative to the exact partition function. (+7 more)
 
 ### Community 42 - "Trigonometric Tangent Functions"
@@ -294,8 +297,8 @@ Cohesion: 0.31
 Nodes (3): midpoint_formula(), Calculate the midpoint of a line segment in a 2D plane.      Parameters:     x1, TestMidpointFormula
 
 ### Community 47 - "Euclidean Area (Circle)"
-Cohesion: 0.31
-Nodes (3): area_of_circle(), Calculate the area of a circle given its radius.      Parameters:     radius (Un, TestAreaOfCircle
+Cohesion: 0.18
+Nodes (19): arccos_series(), cosine_rule_for_angle(), cosine_rule_for_side(), Calculate arccos using series approximation.      Parameters:     x (Union[int,, Calculate the length of side c using the cosine rule: c² = a² + b² - 2ab×cos(C)., Calculate angle C using the cosine rule: cos(C) = (a² + b² - c²) / (2ab).      P, Calculate square root using Newton's method.      Parameters:     x (Union[int,, sqrt_newton() (+11 more)
 
 ### Community 48 - "Euclidean Area (Square)"
 Cohesion: 0.33
@@ -314,7 +317,7 @@ Cohesion: 0.08
 Nodes (17): calculate_arctan(), Decimal, Calculate the arctangent of (1/x) in radians with specified precision using Tayl, calculate_arctan_series(), calculate_pi_machin(), Decimal, Calculate Pi using Machin's formula: π/4 = 4×arctan(1/5) - arctan(1/239).      P, Calculate arctan(1/x) using Taylor series expansion.      Parameters:     x (int (+9 more)
 
 ### Community 52 - "Trigonometric Sine Functions"
-Cohesion: 0.27
+Cohesion: 0.25
 Nodes (3): product_rule_derivative(), Apply the product rule to find the derivative of u(x) * v(x).      Parameters:, TestProductRuleDerivative
 
 ### Community 53 - "Trigonometric Tangent Functions"
@@ -322,20 +325,28 @@ Cohesion: 0.18
 Nodes (9): calculate_pi_nilakantha(), Decimal, Calculate Pi using Nilakantha's algorithm.          Formula: π = 3 + 4/(2×3×4) -, Test with small number of terms to check exact values, Test that the algorithm converges towards math.pi as terms increase, Test the precision parameter, Test that invalid number of terms raises ValueError, Test that invalid precision raises ValueError (+1 more)
 
 ### Community 54 - "Compound Interest Math"
-Cohesion: 0.39
-Nodes (3): compound_interest(), Calculate the total amount after applying compound interest.      Parameters:, TestCompoundInterest
+Cohesion: 0.33
+Nodes (9): compound_interest(), Calculate the total amount after applying compound interest.      Parameters:, test_compound_interest_float_inputs(), test_compound_interest_invalid_frequency(), test_compound_interest_negative_principal(), test_compound_interest_negative_rate(), test_compound_interest_negative_time(), test_compound_interest_regular_intervals() (+1 more)
+
+### Community 55 - "Trinomial General Module"
+Cohesion: 0.15
+Nodes (11): calculate_pi_ramanujan(), Decimal, Calculate Pi using S. Ramanujan's formula.          Formula: 1/π = (2√2/9801) ×, Test suite for calculate_pi_ramanujan function., Test default arguments (num_decimal_places=50, num_terms=10)., Test calculation with high precision., Test that adding terms improves accuracy of the approximation., Test boundary conditions for num_decimal_places. (+3 more)
 
 ### Community 56 - "Euclidean Area (Triangle)"
-Cohesion: 0.32
+Cohesion: 0.26
 Nodes (3): herons_area_of_triangle(), Calculate the area of a triangle using Heron's formula.      Parameters:     a (, TestHeronsAreaOfTriangle
 
 ### Community 57 - "Trigonometric Sine Functions"
-Cohesion: 0.27
-Nodes (5): n_permute_r(), Calculate permutations (nPr) using the formula: nPr = n! / (n - r)!.      Parame, _product_tree(), Helper function to perform tree multiplication of range [start, end].      Param, TestPermutation
+Cohesion: 0.22
+Nodes (5): Test printing a normal Pascal's triangle., Test printing an empty Pascal's triangle., Test generating a valid Pascal's triangle., Test generating an invalid Pascal's triangle with negative rows., TestPascalsTriangle
 
 ### Community 58 - "Trigonometric Sine Functions"
 Cohesion: 0.40
 Nodes (4): 1. Codebase Audit & Roadmap Alignment, 2. Test Verification Requirement, 3. Sandboxed Git Remote Operations (Fetch / Pull / Push), Repository Sync & Sandbox Git Workflow
+
+### Community 60 - "Inverse Trigonometry (Arctan)"
+Cohesion: 0.48
+Nodes (5): Calculate the sine of an angle using Taylor series expansion.      Parameters:, sine(), test_sine_large_angles(), test_sine_negative_angles(), test_sine_standard_angles()
 
 ### Community 64 - "Trigonometric Tangent Functions"
 Cohesion: 0.21
@@ -352,22 +363,22 @@ Nodes (11): Calculate the volume of a prism given its base area and height.     
 ## Knowledge Gaps
 - **12 isolated node(s):** `Polynomial Closed-Form Solvers Skill`, `1. Codebase Audit & Roadmap Alignment`, `2. Test Verification Requirement`, `3. Sandboxed Git Remote Operations (Fetch / Pull / Push)`, `linear_eqn (Example Template)` (+7 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **20 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `TestFormatPolynomialChainRule` connect `Test Calculus Testformatpolynomialchainrule Module` to `Differentiation Chain & Second Derivative Rules`, `Trigonometric Integration`?**
-  _High betweenness centrality (0.050) - this node is a cross-community bridge._
-- **Why does `nCr()` connect `Binomial Theorem` to `Approximation Partition Module`?**
-  _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `integrate_cos()` connect `Trigonometric Integration` to `Trigonometric Integration`, `Trigonometry Cosine Rule`, `Trigonometric Tangent Functions`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _High betweenness centrality (0.053) - this node is a cross-community bridge._
+- **Why does `compute_polynomial_derivative()` connect `Calculus Chain Rule` to `Differentiation Chain & Second Derivative Rules`, `Calculus Chain Rule`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `integrate_cos()` connect `Trigonometric Integration` to `Trigonometric Integration`, `Test Calculus Testformatpolynomialchainrule Module`, `Trigonometric Tangent Functions`, `Inverse Trigonometry (Arctan)`?**
+  _High betweenness centrality (0.023) - this node is a cross-community bridge._
 - **What connects `Polynomial Closed-Form Solvers Skill`, `1. Codebase Audit & Roadmap Alignment`, `2. Test Verification Requirement` to the rest of the system?**
   _12 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Newton-Raphson & Root Finding` be split into smaller, more focused modules?**
   _Cohesion score 0.08585858585858586 - nodes in this community are weakly interconnected._
 - **Should `Binomial Theorem` be split into smaller, more focused modules?**
-  _Cohesion score 0.055288461538461536 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.056051587301587304 - nodes in this community are weakly interconnected._
 - **Should `Differentiation Chain & Second Derivative Rules` be split into smaller, more focused modules?**
-  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09090909090909091 - nodes in this community are weakly interconnected._
