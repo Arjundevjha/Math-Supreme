@@ -1,9 +1,6 @@
 # S. Ramanujan's formula for calculating Pi
 from decimal import Decimal, getcontext
 
-from Math.utils.math_utils import factorial_decimal
-
-
 
 def calculate_pi_ramanujan(num_decimal_places: int = 50, num_terms: int = 10) -> Decimal:
     """
