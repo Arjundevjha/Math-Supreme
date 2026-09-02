@@ -1,9 +1,6 @@
 # Euler's number calculation
 from decimal import Decimal, getcontext
 
-from Math.utils.math_utils import factorial_decimal
-
-
 
 def compute_eulers_number(iterations: int = 100, decimal_places: int = 50) -> Decimal:
     """
