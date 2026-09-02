@@ -6,7 +6,6 @@ from Math.Numerical_Methods.Constants.Pi_Algorithms.S_Ramanujan_algo import (
     calculate_pi_ramanujan,
 )
 
-
 class TestRamanujanAlgorithm:
     """Test suite for calculate_pi_ramanujan function."""
 

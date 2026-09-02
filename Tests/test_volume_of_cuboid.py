@@ -1,8 +1,8 @@
-import unittest
 import math
-
+import unittest
 
 from Math.Geometry.Euclidean_Geometry.Volume.cuboid import volume_of_cuboid
+
 
 class TestVolumeOfCuboid(unittest.TestCase):
     def test_positive_integers(self):
@@ -21,14 +21,15 @@ class TestVolumeOfCuboid(unittest.TestCase):
         self.assertEqual(volume_of_cuboid(0, 0, 0), 0)
 
     def test_negative_dimensions_raise_value_error(self):
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, "Length, width, and height cannot be negative."):
             volume_of_cuboid(-1, 5, 5)
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, "Length, width, and height cannot be negative."):
             volume_of_cuboid(5, -1, 5)
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, "Length, width, and height cannot be negative."):
             volume_of_cuboid(5, 5, -1)
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, "Length, width, and height cannot be negative."):
             volume_of_cuboid(-1, -1, -1)
+
 
 if __name__ == '__main__':
     unittest.main()

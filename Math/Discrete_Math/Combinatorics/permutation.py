@@ -1,5 +1,5 @@
 # Permutation formula: for nPr where n and r are non-negative integers
-from Math.utils.math_utils import _product_tree, factorial
+from Math.utils.math_utils import _product_tree
 
 
 def n_permute_r(n: int, r: int) -> int:

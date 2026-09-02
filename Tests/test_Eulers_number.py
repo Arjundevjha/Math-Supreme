@@ -2,7 +2,8 @@ import pytest
 import math
 from decimal import Decimal, getcontext
 
-from Math.Numerical_Methods.Constants.Eulers_number import factorial_decimal, compute_eulers_number
+from Math.Numerical_Methods.Constants.Eulers_number import compute_eulers_number
+from Math.utils.math_utils import factorial_decimal
 
 
 class TestFactorialDecimal:
