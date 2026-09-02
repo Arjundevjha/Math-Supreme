@@ -1,5 +1,8 @@
 # Combination formula: for nCr where n and r are non-negative integers
+from functools import lru_cache
 
+
+@lru_cache(maxsize=None)
 def nCr(n: int, r: int) -> int:
     """
     Calculate combinations (nCr) using the formula: nCr = n! / (r! * (n - r)!).
