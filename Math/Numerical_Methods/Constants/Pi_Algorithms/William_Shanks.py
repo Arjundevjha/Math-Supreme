@@ -33,6 +33,10 @@ def calculate_pi_shanks(precision: int = 50) -> Decimal:
     Returns:
     Decimal: The value of Pi to the specified precision.
     """
+    # Security: Validate precision input to prevent Denial of Service (DoS) via resource exhaustion
+    if not isinstance(precision, int) or isinstance(precision, bool) or precision < 1 or precision > 10000:
+        raise ValueError("precision must be an integer between 1 and 10000.")
+
     # Set precision for Decimal calculations
     getcontext().prec = precision + 10
     

@@ -35,3 +35,10 @@ class TestMachinAlgorithm:
         val_239 = calculate_arctan_series(239, 10)
         assert math.isclose(float(val_5), math.atan(1/5), rel_tol=1e-9)
         assert math.isclose(float(val_239), math.atan(1/239), rel_tol=1e-9)
+
+    def test_calculate_pi_machin_invalid_precision(self):
+        import pytest
+        invalid_precisions = [0, -5, 10001, 3.14, "50", True, False]
+        for prec in invalid_precisions:
+            with pytest.raises(ValueError, match=r"precision must be an integer between 1 and 10000\."):
+                calculate_pi_machin(precision=prec)
