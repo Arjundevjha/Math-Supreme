@@ -28,3 +28,16 @@ def test_partition_positive():
     assert partition(30) == 5604
     assert partition(50) == 204226
 
+
+def test_partition_invalid_type():
+    with pytest.raises(TypeError, match="n must be an integer."):
+        partition("5")
+    with pytest.raises(TypeError, match="n must be an integer."):
+        partition(5.5)
+    with pytest.raises(TypeError, match="n must be an integer."):
+        partition(True)
+
+
+def test_partition_exceeds_upper_bound():
+    with pytest.raises(ValueError, match="n exceeds maximum limit of 10000."):
+        partition(10001)

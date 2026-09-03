@@ -11,10 +11,15 @@ def partition(n: int) -> int:
     Returns:
     int: The number of partitions of n.
     """
+    # Security: Validate input type and upper bound to prevent DoS via excessive memory/CPU allocation
+    if not isinstance(n, int) or isinstance(n, bool):
+        raise TypeError("n must be an integer.")
     if n < 0:
         return 0
     if n == 0:
         return 1
+    if n > 10000:
+        raise ValueError("n exceeds maximum limit of 10000.")
 
 
     # Optimization: Use Euler's pentagonal number theorem to calculate
