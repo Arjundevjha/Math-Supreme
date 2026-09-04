@@ -1,4 +1,5 @@
 import math
+import pytest
 from decimal import Decimal
 from Math.Numerical_Methods.Constants.Pi_Algorithms.William_Shanks import (
     calculate_arctan_series_shanks,
@@ -37,3 +38,9 @@ class TestWilliamShanksAlgorithm:
         )
         # Check first 90 characters to avoid rounding on last digit
         assert str(pi_val).startswith(pi_100_digits[:90])
+
+    def test_calculate_pi_shanks_invalid_precision(self):
+        invalid_precisions = [0, -5, 10001, 3.14, "50", True, False]
+        for prec in invalid_precisions:
+            with pytest.raises(ValueError, match=r"precision must be an integer between 1 and 10000\."):
+                calculate_pi_shanks(precision=prec)
