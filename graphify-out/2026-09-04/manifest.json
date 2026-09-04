@@ -1,0 +1,967 @@
+{
+  "Math/Algebra/Linear_Equations/linear_eqn.py": {
+    "mtime": 1783937229.8410544,
+    "ast_hash": "ebff2084b091f70cfb43873decbbe009",
+    "semantic_hash": "ebff2084b091f70cfb43873decbbe009"
+  },
+  "Math/Algebra/Polynomials/cubic_formula.py": {
+    "mtime": 1784778418.5339,
+    "ast_hash": "cbc0e57b3f8548da2902bc99114e070d",
+    "semantic_hash": "cbc0e57b3f8548da2902bc99114e070d"
+  },
+  "Math/Algebra/Polynomials/factor_theorem.py": {
+    "mtime": 1784777908.1884873,
+    "ast_hash": "1154582031c5d5eb8bc935c6c8504c36",
+    "semantic_hash": "1154582031c5d5eb8bc935c6c8504c36"
+  },
+  "Math/Algebra/Polynomials/polynomial.py": {
+    "mtime": 1787030098.0344372,
+    "ast_hash": "b6acb8af2100cec300a07697f9b2af9f",
+    "semantic_hash": ""
+  },
+  "Math/Algebra/Polynomials/quadratic_formula.py": {
+    "mtime": 1783937229.8413882,
+    "ast_hash": "6aaf600480c4ae25cc81abcdce62ff01",
+    "semantic_hash": "6aaf600480c4ae25cc81abcdce62ff01"
+  },
+  "Math/Algebra/Polynomials/quartic_formula.py": {
+    "mtime": 1787542876.9085565,
+    "ast_hash": "e16e529d17278aecd44edf2b87186503",
+    "semantic_hash": ""
+  },
+  "Math/Algebra/Polynomials/remainnder_theorem.py": {
+    "mtime": 1784156256.1491563,
+    "ast_hash": "f929054990ee7ece55fc44d53006c3ea",
+    "semantic_hash": "f929054990ee7ece55fc44d53006c3ea"
+  },
+  "Math/Applied_Math/Finance/Compund_intrest.py": {
+    "mtime": 1787030102.2195208,
+    "ast_hash": "239a339b8a8b80cab90d1ce4b6802bbd",
+    "semantic_hash": ""
+  },
+  "Math/Applied_Math/Finance/Simple_Intrest.py": {
+    "mtime": 1783937229.841565,
+    "ast_hash": "eb38263bf77bbeae64179a918414b600",
+    "semantic_hash": "eb38263bf77bbeae64179a918414b600"
+  },
+  "Math/Calculus/Differentiation/chain_rule.py": {
+    "mtime": 1787542876.9088132,
+    "ast_hash": "cb4e8748853c293182bc6c975d013e2d",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Differentiation/product_rule.py": {
+    "mtime": 1787542876.9089446,
+    "ast_hash": "e5911dc8d6d1fbb7acd798cb9ef30840",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Differentiation/quotient_rule.py": {
+    "mtime": 1787542876.9090798,
+    "ast_hash": "54aafea691472435f5486ab4501cfd67",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Differentiation/second_derivatives.py": {
+    "mtime": 1785982384.3148446,
+    "ast_hash": "637168cb590599e2bdbf06aa58559a0b",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Differentiation/simple_diffrentiation_function.py": {
+    "mtime": 1785729238.593529,
+    "ast_hash": "782486631d23d328b9ffa9931688ca9e",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Integration/NumIntegration.py": {
+    "mtime": 1784156312.3538005,
+    "ast_hash": "1927359d723ac2d2366cdbc1498b6fe1",
+    "semantic_hash": "1927359d723ac2d2366cdbc1498b6fe1"
+  },
+  "Math/Calculus/Integration/TrigIntegration.py": {
+    "mtime": 1784156258.5360513,
+    "ast_hash": "330c0909592756e3620afdd913ffc396",
+    "semantic_hash": "330c0909592756e3620afdd913ffc396"
+  },
+  "Math/Discrete_Math/Combinatorics/binomial_theorem.py": {
+    "mtime": 1787022243.939164,
+    "ast_hash": "740276d42746e5700cb9beedb3071738",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/binomial_theorem_general_term.py": {
+    "mtime": 1787022248.2411082,
+    "ast_hash": "1e606fe39805f8e612791ed4a8e53db5",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/combination.py": {
+    "mtime": 1787788472.681493,
+    "ast_hash": "0b40673b53e783580da77992c92bee2b",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/pascals_triangle.py": {
+    "mtime": 1787896138.14563,
+    "ast_hash": "af0fc5e166e01141ede23c23cea12354",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/permutation.py": {
+    "mtime": 1788319477.0129175,
+    "ast_hash": "bb02534c9b7827474ca2e5b3ed3efe3d",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/trinomial_theorem.py": {
+    "mtime": 1788052416.1704955,
+    "ast_hash": "ad1020d257cf0b559f021fcf1298185c",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/trinomial_theorem_general_term.py": {
+    "mtime": 1787022235.0277631,
+    "ast_hash": "dbe52f80c284ce8fcaff8493f79c97bd",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Number_Theory/gcd.py": {
+    "mtime": 1787542876.90942,
+    "ast_hash": "aa66876b43ed9a70ee89ec1924f24de5",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Number_Theory/lcm.py": {
+    "mtime": 1787542876.9095616,
+    "ast_hash": "460ebed311e453d042affa9b79b4d6f9",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Number_Theory/partitions.py": {
+    "mtime": 1788394503.5251215,
+    "ast_hash": "02dbe9973957af027c09703b6de995f1",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Number_Theory/partitions_approximation.py": {
+    "mtime": 1783937229.8438375,
+    "ast_hash": "5d9602e0ae4cf6714632cf0c071fa8fd",
+    "semantic_hash": "5d9602e0ae4cf6714632cf0c071fa8fd"
+  },
+  "Math/Discrete_Math/Number_Theory/prime_factorisation.py": {
+    "mtime": 1787542876.9097254,
+    "ast_hash": "db46f5c22fc534bed25a384acbad87b8",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Analytic_Geometry/distance_formula.py": {
+    "mtime": 1783937229.8439324,
+    "ast_hash": "9e93f153891be6df85bec4a14379e4c1",
+    "semantic_hash": "9e93f153891be6df85bec4a14379e4c1"
+  },
+  "Math/Geometry/Analytic_Geometry/line_equations/intersection.py": {
+    "mtime": 1783937229.8440187,
+    "ast_hash": "ddb479bba1f275221c03ebff3b7be510",
+    "semantic_hash": "ddb479bba1f275221c03ebff3b7be510"
+  },
+  "Math/Geometry/Analytic_Geometry/line_equations/line_from_points.py": {
+    "mtime": 1783937229.8441038,
+    "ast_hash": "66984dc5ee100586556eb9c3c4ffc48b",
+    "semantic_hash": "66984dc5ee100586556eb9c3c4ffc48b"
+  },
+  "Math/Geometry/Analytic_Geometry/line_equations/slope.py": {
+    "mtime": 1783937229.8441918,
+    "ast_hash": "2653b49535b8ab439d173078b353a62c",
+    "semantic_hash": "2653b49535b8ab439d173078b353a62c"
+  },
+  "Math/Geometry/Analytic_Geometry/midpoint_formula.py": {
+    "mtime": 1783937229.8442817,
+    "ast_hash": "9ac99892da29f5e1f488cf516bdf1c94",
+    "semantic_hash": "9ac99892da29f5e1f488cf516bdf1c94"
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/circle.py": {
+    "mtime": 1787022280.2932003,
+    "ast_hash": "620253ece124bfaabf4fc537f4279980",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py": {
+    "mtime": 1783937229.8443348,
+    "ast_hash": "eaccc767453ec53026f849711d32abad",
+    "semantic_hash": "eaccc767453ec53026f849711d32abad"
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/polygon_of_n_sides.py": {
+    "mtime": 1787022284.0443823,
+    "ast_hash": "330d8284e05165859b12bd36b1eae29e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/rectangle.py": {
+    "mtime": 1783937229.8444052,
+    "ast_hash": "498e65a67ad4739d24374bef9a52be07",
+    "semantic_hash": "498e65a67ad4739d24374bef9a52be07"
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/square.py": {
+    "mtime": 1781232547.6358523,
+    "ast_hash": "c13f874a7c5684318484a69614eca9df",
+    "semantic_hash": "c13f874a7c5684318484a69614eca9df"
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/triangle.py": {
+    "mtime": 1783937229.8444757,
+    "ast_hash": "f520b6d230afc4881be447c6cccbb975",
+    "semantic_hash": "f520b6d230afc4881be447c6cccbb975"
+  },
+  "Math/Geometry/Euclidean_Geometry/Volume/cone.py": {
+    "mtime": 1787022288.0898752,
+    "ast_hash": "13a3cc3302835f730ea4d76d9f4de72c",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/Volume/cuboid.py": {
+    "mtime": 1783937229.8446283,
+    "ast_hash": "eb0b987df931da9465ce64fe9dd9e783",
+    "semantic_hash": "eb0b987df931da9465ce64fe9dd9e783"
+  },
+  "Math/Geometry/Euclidean_Geometry/Volume/cylinder.py": {
+    "mtime": 1787022292.6387308,
+    "ast_hash": "acc928913eeb8e06954cffdb521f4405",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/Volume/prism.py": {
+    "mtime": 1783937229.8447707,
+    "ast_hash": "875fffa14199d2f253202e831c3d972a",
+    "semantic_hash": "875fffa14199d2f253202e831c3d972a"
+  },
+  "Math/Geometry/Euclidean_Geometry/Volume/sphere.py": {
+    "mtime": 1787030046.7552736,
+    "ast_hash": "cf2683c6a11125630cbae704f4d902cd",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/pythagoras_theorem.py": {
+    "mtime": 1783937229.8449128,
+    "ast_hash": "44353c4b5086ad1859f1c2b2810bdaae",
+    "semantic_hash": "44353c4b5086ad1859f1c2b2810bdaae"
+  },
+  "Math/Geometry/Trigonometry/Arc_Functions/arcsin.py": {
+    "mtime": 1788319818.5128424,
+    "ast_hash": "92d6424014b6a034fdc1c10b6a287aac",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Arc_Functions/arctan.py": {
+    "mtime": 1787788472.6817482,
+    "ast_hash": "d9f8be251f21cf7d32c46c1b65d5da1a",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Formulas/cosine_rule.py": {
+    "mtime": 1787030053.1659756,
+    "ast_hash": "c13f861abef95ab72446a2c269cffa3a",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Trig_Functions/cosecant.py": {
+    "mtime": 1787030082.7503183,
+    "ast_hash": "04b6d26082669633759dfc408eb54f77",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Trig_Functions/cosine.py": {
+    "mtime": 1787030068.5913754,
+    "ast_hash": "0fd8cd0af3dbe298b00fdc6672628d61",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Trig_Functions/secant.py": {
+    "mtime": 1787030077.1585808,
+    "ast_hash": "7a914ced83f468c23c40be5542bb6114",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Trig_Functions/sine.py": {
+    "mtime": 1787030063.4830122,
+    "ast_hash": "9731ed82a14de42bf693d700f157ab5f",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Trig_Functions/tan.py": {
+    "mtime": 1787030073.51516,
+    "ast_hash": "412cb18445aa6db25f03aba2cfc1a949",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Eulers_number.py": {
+    "mtime": 1788319477.0130594,
+    "ast_hash": "a85e8074b22b2fc4e272c1d3f252e2b0",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Pi_Algorithms/Chudnovsky_algo.py": {
+    "mtime": 1788310635.4423213,
+    "ast_hash": "6a583523475c80a2c97f4e4f30a0ae6b",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Pi_Algorithms/Machin_algo.py": {
+    "mtime": 1787022255.4907084,
+    "ast_hash": "491dc74150b3ccd0eb0cbea937360c35",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Pi_Algorithms/Nilakanths_algo.py": {
+    "mtime": 1788245167.0099902,
+    "ast_hash": "9e3b5a26ee644d2f8e05be233f32caed",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Pi_Algorithms/S_Ramanujan_algo.py": {
+    "mtime": 1788319477.0131903,
+    "ast_hash": "ff58f94e90fbf8a9ad05307ae9b97456",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Pi_Algorithms/William_Shanks.py": {
+    "mtime": 1787542876.9102147,
+    "ast_hash": "9719166eeab0c6d4818ffd5dc42a652b",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Functions/nth_root/nth_root.py": {
+    "mtime": 1788052408.4155543,
+    "ast_hash": "fde6ce263b4f3aab53a19457d4595228",
+    "semantic_hash": ""
+  },
+  "Math/Probability_and_Statistics/Descriptive_Statistics/mean.py": {
+    "mtime": 1783937229.8459184,
+    "ast_hash": "76f71ae793f6f58981e40b8f02737065",
+    "semantic_hash": "76f71ae793f6f58981e40b8f02737065"
+  },
+  "Math/Probability_and_Statistics/Descriptive_Statistics/median.py": {
+    "mtime": 1783937229.8459847,
+    "ast_hash": "1011f1b598c89d254df6a92684088af2",
+    "semantic_hash": "1011f1b598c89d254df6a92684088af2"
+  },
+  "Math/Probability_and_Statistics/Descriptive_Statistics/mode.py": {
+    "mtime": 1787018584.9319835,
+    "ast_hash": "0e76cdc4f9ad722e16f4d0a03ceb3e3b",
+    "semantic_hash": ""
+  },
+  "Math/__init__.py": {
+    "mtime": 1781232547.6392703,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Tests/test_Algebra.py": {
+    "mtime": 1787030128.306259,
+    "ast_hash": "59d33fb453c8ab0c84e0564ea52c8748",
+    "semantic_hash": ""
+  },
+  "Tests/test_AppliedMath.py": {
+    "mtime": 1783937229.8466685,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Tests/test_Calculus.py": {
+    "mtime": 1788319477.0133858,
+    "ast_hash": "37f7c9f708c4bb61b0e9b94ed89d5d54",
+    "semantic_hash": ""
+  },
+  "Tests/test_DiscreteMath.py": {
+    "mtime": 1788319477.0135815,
+    "ast_hash": "3cf589b436ae099886b748787c173b8d",
+    "semantic_hash": ""
+  },
+  "Tests/test_Eulers_number.py": {
+    "mtime": 1788319477.0137277,
+    "ast_hash": "7057d154540630e7136370faa9ffc745",
+    "semantic_hash": ""
+  },
+  "Tests/test_Geometry.py": {
+    "mtime": 1783937229.8471582,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Tests/test_LinearAlgebra.py": {
+    "mtime": 1783937229.8472466,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "Tests/test_NumericalMethods.py": {
+    "mtime": 1788319782.016337,
+    "ast_hash": "1a7c8a291a8eee879b23c5e7caed1fa8",
+    "semantic_hash": ""
+  },
+  "Tests/test_Pi_Algorithms_Ramanujan.py": {
+    "mtime": 1788319713.682848,
+    "ast_hash": "9e50304fd3969816dccb1d17bd880b51",
+    "semantic_hash": ""
+  },
+  "Tests/test_ProbabilityandStatistics.py": {
+    "mtime": 1787101372.2722652,
+    "ast_hash": "7bf874b414755f17a64e2f658dff4e85",
+    "semantic_hash": ""
+  },
+  "Tests/test_arctan_security.py": {
+    "mtime": 1787788472.6818671,
+    "ast_hash": "ed10733bbbee38d24d60d5da51b22185",
+    "semantic_hash": ""
+  },
+  "Tests/test_binomial_theorem.py": {
+    "mtime": 1787101372.2906425,
+    "ast_hash": "14219117d9d5ee54473a505f5ad71c2a",
+    "semantic_hash": ""
+  },
+  "Tests/test_circle.py": {
+    "mtime": 1784156312.357103,
+    "ast_hash": "a57cc457540575c33a549b3109737b55",
+    "semantic_hash": "a57cc457540575c33a549b3109737b55"
+  },
+  "Tests/test_combination.py": {
+    "mtime": 1787101372.2997277,
+    "ast_hash": "6d4d66bf76344804387f07009a75e245",
+    "semantic_hash": ""
+  },
+  "Tests/test_compound_interest.py": {
+    "mtime": 1788319782.0167627,
+    "ast_hash": "fb92810f393f2ecb1646fddd51c1c281",
+    "semantic_hash": ""
+  },
+  "Tests/test_cosine_rule.py": {
+    "mtime": 1787101372.2805705,
+    "ast_hash": "54ed8cb14cf0bb24d74c8a3ba975fdfb",
+    "semantic_hash": ""
+  },
+  "Tests/test_cubic_formula.py": {
+    "mtime": 1787101372.2854886,
+    "ast_hash": "d58b9d3197a702ddb0692e085769f793",
+    "semantic_hash": ""
+  },
+  "Tests/test_distance_formula.py": {
+    "mtime": 1787101372.292509,
+    "ast_hash": "314480853a2190f7714cfc26969558c3",
+    "semantic_hash": ""
+  },
+  "Tests/test_factor_theorem.py": {
+    "mtime": 1787101372.270954,
+    "ast_hash": "9be05fa45d5c4f7f3557f0be2afb47ef",
+    "semantic_hash": ""
+  },
+  "Tests/test_gcd.py": {
+    "mtime": 1787542876.9112947,
+    "ast_hash": "b82cbf0ac1c4a6c4b33d5455053b1d3d",
+    "semantic_hash": ""
+  },
+  "Tests/test_herons_area_of_triangle_formula.py": {
+    "mtime": 1788319782.017381,
+    "ast_hash": "4e960d189fca258b8f16a87aded53bdf",
+    "semantic_hash": ""
+  },
+  "Tests/test_intersection.py": {
+    "mtime": 1784156312.3583262,
+    "ast_hash": "78937f67b5f26ceab2cd6c8254a17df9",
+    "semantic_hash": "78937f67b5f26ceab2cd6c8254a17df9"
+  },
+  "Tests/test_lcm.py": {
+    "mtime": 1787542876.9113946,
+    "ast_hash": "b2aa826c2806c9161381de781fec8a15",
+    "semantic_hash": ""
+  },
+  "Tests/test_line_from_points.py": {
+    "mtime": 1787101372.295362,
+    "ast_hash": "dc9e5f16f3a1041ab0db289e7cf92d72",
+    "semantic_hash": ""
+  },
+  "Tests/test_mean.py": {
+    "mtime": 1785729254.6217196,
+    "ast_hash": "418a7846f892fbdcff2519836a81092c",
+    "semantic_hash": ""
+  },
+  "Tests/test_median.py": {
+    "mtime": 1784156312.3588767,
+    "ast_hash": "e37a8b808d7a5d5bce729961b8e7c018",
+    "semantic_hash": "e37a8b808d7a5d5bce729961b8e7c018"
+  },
+  "Tests/test_midpoint_formula.py": {
+    "mtime": 1787101372.2817147,
+    "ast_hash": "4fa486f779e37cf17f57bd46d667f120",
+    "semantic_hash": ""
+  },
+  "Tests/test_partitions.py": {
+    "mtime": 1788394503.52557,
+    "ast_hash": "5befb260c1d075b150bf27a5a653e144",
+    "semantic_hash": ""
+  },
+  "Tests/test_pascals_triangle.py": {
+    "mtime": 1787896140.072636,
+    "ast_hash": "f7395452af20d85c8313c93fb0c671e7",
+    "semantic_hash": ""
+  },
+  "Tests/test_pythagoras_theorem.py": {
+    "mtime": 1787101372.303923,
+    "ast_hash": "1e3fa1a21d1da9f9c5cbd5ad85b813f2",
+    "semantic_hash": ""
+  },
+  "Tests/test_quadratic_formula.py": {
+    "mtime": 1787101372.294983,
+    "ast_hash": "d5e03b885e73117f6a638cac0644888b",
+    "semantic_hash": ""
+  },
+  "Tests/test_rectangle.py": {
+    "mtime": 1787101372.267251,
+    "ast_hash": "2945191033fc74db60d578214705b746",
+    "semantic_hash": ""
+  },
+  "Tests/test_remainnder_theorem.py": {
+    "mtime": 1787101372.2743797,
+    "ast_hash": "cd355d931ea08f74a0701ec5fa161d2c",
+    "semantic_hash": ""
+  },
+  "Tests/test_simple_diffrentiation_function.py": {
+    "mtime": 1787542876.9118762,
+    "ast_hash": "4c5a7c3e16ee21f82e386d33fd145a48",
+    "semantic_hash": ""
+  },
+  "Tests/test_simple_interest.py": {
+    "mtime": 1788319477.0142195,
+    "ast_hash": "dd7fbe531f55698286fe1afb0456eefb",
+    "semantic_hash": ""
+  },
+  "Tests/test_slope.py": {
+    "mtime": 1787101372.3005753,
+    "ast_hash": "3e66a6a3d4be405649a6022c6c7f9372",
+    "semantic_hash": ""
+  },
+  "Tests/test_square.py": {
+    "mtime": 1787542876.9121277,
+    "ast_hash": "364857e6d59ec5d6a6a79bf6fd4a6156",
+    "semantic_hash": ""
+  },
+  "Tests/test_triangle.py": {
+    "mtime": 1784156312.3601964,
+    "ast_hash": "e2ecec7262c88179be6208f42606de80",
+    "semantic_hash": "e2ecec7262c88179be6208f42606de80"
+  },
+  "Tests/test_volume_of_cone.py": {
+    "mtime": 1787101372.273227,
+    "ast_hash": "ae6a7b7d11394ca0cd5183dff572fb8f",
+    "semantic_hash": ""
+  },
+  "Tests/test_volume_of_cuboid.py": {
+    "mtime": 1788319821.0955749,
+    "ast_hash": "8553aa78b11c03fb2fad5d6d36437559",
+    "semantic_hash": ""
+  },
+  "Tests/test_volume_of_cylinder.py": {
+    "mtime": 1788319782.017965,
+    "ast_hash": "40dd0dcef29b258f648b6699417a8e83",
+    "semantic_hash": ""
+  },
+  "Tests/test_volume_of_sphere.py": {
+    "mtime": 1787101372.3031638,
+    "ast_hash": "2d5de86838962f17cabadb77c1773d32",
+    "semantic_hash": ""
+  },
+  "setup.py": {
+    "mtime": 1784156256.6560574,
+    "ast_hash": "669e387a0fbd3e10c8a678093c2dc09f",
+    "semantic_hash": "669e387a0fbd3e10c8a678093c2dc09f"
+  },
+  "AGENTS.md": {
+    "mtime": 1784530873.6182673,
+    "ast_hash": "44151fabe4bad6a7d929bb565e8b4e95",
+    "semantic_hash": "44151fabe4bad6a7d929bb565e8b4e95"
+  },
+  "README.md": {
+    "mtime": 1786052159.6962216,
+    "ast_hash": "be84a0c01ded7c89bb25942bbb5ec790",
+    "semantic_hash": ""
+  },
+  "Style_Guide.MD": {
+    "mtime": 1783937229.8463786,
+    "ast_hash": "d33dae1a5fac1a831b68109d276c05a4",
+    "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
+  },
+  "handoff.md": {
+    "mtime": 1788320005.6080692,
+    "ast_hash": "849ce9cbc890bbb809a6380ec762e918",
+    "semantic_hash": ""
+  },
+  "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
+    "mtime": 1785729238.5919676,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Algebra/Linear_Equations/__init__.py": {
+    "mtime": 1785729238.5920556,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Algebra/Polynomials/__init__.py": {
+    "mtime": 1785729238.5921292,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Algebra/__init__.py": {
+    "mtime": 1785729238.5922964,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Applied_Math/Computer_Science/__init__.py": {
+    "mtime": 1785729238.5923553,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Applied_Math/Engineering/__init__.py": {
+    "mtime": 1785729238.5924127,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Applied_Math/Finance/__init__.py": {
+    "mtime": 1785729238.592602,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Applied_Math/Physics/__init__.py": {
+    "mtime": 1785729238.592649,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Applied_Math/__init__.py": {
+    "mtime": 1785729238.5929048,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Differentiation/__init__.py": {
+    "mtime": 1785729238.592966,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Differentiation/utils.py": {
+    "mtime": 1788319477.0127761,
+    "ast_hash": "75e47342b6bfb4c13c128c8b827b00bd",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Integration/__init__.py": {
+    "mtime": 1785729238.5936222,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Limits/__init__.py": {
+    "mtime": 1785729238.593675,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/Multivariable_Calculus/__init__.py": {
+    "mtime": 1785729238.5937538,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Calculus/__init__.py": {
+    "mtime": 1785729238.593802,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Combinatorics/__init__.py": {
+    "mtime": 1785729238.5938535,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Graph_Theory/__init__.py": {
+    "mtime": 1785729238.5943518,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Logic/__init__.py": {
+    "mtime": 1785729238.5943978,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Number_Theory/__init__.py": {
+    "mtime": 1785729238.594447,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/Set_Theory/__init__.py": {
+    "mtime": 1785729238.5946212,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Discrete_Math/__init__.py": {
+    "mtime": 1785729238.5946882,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Analytic_Geometry/__init__.py": {
+    "mtime": 1785729238.5947492,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Analytic_Geometry/line_equations/__init__.py": {
+    "mtime": 1785729238.5948064,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/Area/__init__.py": {
+    "mtime": 1785729238.5948575,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/Volume/__init__.py": {
+    "mtime": 1785729238.5949006,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Euclidean_Geometry/__init__.py": {
+    "mtime": 1785729238.594941,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Arc_Functions/__init__.py": {
+    "mtime": 1785729238.5949874,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Formulas/__init__.py": {
+    "mtime": 1785729238.595133,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/Trig_Functions/__init__.py": {
+    "mtime": 1785729238.595281,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/__init__.py": {
+    "mtime": 1785729238.5959358,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/Trigonometry/taylor_series.py": {
+    "mtime": 1787030114.4002435,
+    "ast_hash": "44dec3d3f2c38c2c317709e3b0821f6d",
+    "semantic_hash": ""
+  },
+  "Math/Geometry/__init__.py": {
+    "mtime": 1785729238.5959764,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Linear_Algebra/Matrices/__init__.py": {
+    "mtime": 1785729238.596019,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Linear_Algebra/Transformations/__init__.py": {
+    "mtime": 1785729238.5960608,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Linear_Algebra/Vectors/__init__.py": {
+    "mtime": 1785729238.5961003,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Linear_Algebra/__init__.py": {
+    "mtime": 1785729238.5961359,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/Pi_Algorithms/__init__.py": {
+    "mtime": 1785729238.5962615,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Constants/__init__.py": {
+    "mtime": 1785729238.5962973,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Functions/Factorial/__init__.py": {
+    "mtime": 1785729238.5963366,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Functions/__init__.py": {
+    "mtime": 1785729238.5963705,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Functions/nth_root/__init__.py": {
+    "mtime": 1785729238.5964148,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Integration/__init__.py": {
+    "mtime": 1785729238.596545,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Optimisation/__init__.py": {
+    "mtime": 1785729238.59661,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/Root_Finding/__init__.py": {
+    "mtime": 1785729238.5966492,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Numerical_Methods/__init__.py": {
+    "mtime": 1785729238.5967524,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Probability_and_Statistics/Descriptive_Statistics/__init__.py": {
+    "mtime": 1785729238.5968008,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Probability_and_Statistics/Distributions/__init__.py": {
+    "mtime": 1785729238.5968418,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Probability_and_Statistics/Probability_Axioms/__init__.py": {
+    "mtime": 1785729238.5968826,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/Probability_and_Statistics/__init__.py": {
+    "mtime": 1785729238.5969255,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/utils/__init__.py": {
+    "mtime": 1785729238.5969632,
+    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
+    "semantic_hash": ""
+  },
+  "Math/utils/math_utils.py": {
+    "mtime": 1788319782.0161524,
+    "ast_hash": "00e85750cd10431e809d4dfcf4b471a2",
+    "semantic_hash": ""
+  },
+  "Tests/test_Chudnovsky_algo.py": {
+    "mtime": 1788052422.9123955,
+    "ast_hash": "6231f4d9ad026296722b424969220128",
+    "semantic_hash": ""
+  },
+  "Tests/test_Machin_algo.py": {
+    "mtime": 1787101372.2896645,
+    "ast_hash": "641f5909d3684e2ad4cd97290d7bb7ac",
+    "semantic_hash": ""
+  },
+  "Tests/test_NumIntegration.py": {
+    "mtime": 1785729238.5978055,
+    "ast_hash": "be7c90d19c93db5c404995df23286079",
+    "semantic_hash": ""
+  },
+  "Tests/test_TrigIntegration.py": {
+    "mtime": 1785982351.405424,
+    "ast_hash": "6438cbd88e748578826c9cb44913aac2",
+    "semantic_hash": ""
+  },
+  "Tests/test_William_Shanks.py": {
+    "mtime": 1787542876.9108844,
+    "ast_hash": "d11058bbd00766406540f33243fe60a4",
+    "semantic_hash": ""
+  },
+  "Tests/test_arctan.py": {
+    "mtime": 1785982351.4055226,
+    "ast_hash": "af3b187d2a5ea638f4e56aaaa8a14bb3",
+    "semantic_hash": ""
+  },
+  "Tests/test_chain_rule.py": {
+    "mtime": 1787542876.9111865,
+    "ast_hash": "8c40d81777930c595feaead6af8e1f8b",
+    "semantic_hash": ""
+  },
+  "Tests/test_nth_root.py": {
+    "mtime": 1788052408.4160194,
+    "ast_hash": "a90cc9c3eb431c378e88a7b2c788cc73",
+    "semantic_hash": ""
+  },
+  "Tests/test_permutation.py": {
+    "mtime": 1788245184.8142335,
+    "ast_hash": "7a7ca89879b3316c2451455ae42523b8",
+    "semantic_hash": ""
+  },
+  "Tests/test_polygon_of_n_sides.py": {
+    "mtime": 1785982351.4058707,
+    "ast_hash": "54302b2ca3f6df8e59c303a023497a3f",
+    "semantic_hash": ""
+  },
+  "Tests/test_prime_factorisation.py": {
+    "mtime": 1787542876.9115276,
+    "ast_hash": "2054119cfbfa9812cf5cbbf04c1e7b01",
+    "semantic_hash": ""
+  },
+  "Tests/test_product_rule.py": {
+    "mtime": 1785982377.1365848,
+    "ast_hash": "296d165a683369fb45bd9bb72f176685",
+    "semantic_hash": ""
+  },
+  "Tests/test_quartic_formula.py": {
+    "mtime": 1787542876.911753,
+    "ast_hash": "c0da83aade3357d92cad1c7017286fff",
+    "semantic_hash": ""
+  },
+  "Tests/test_quotient_rule.py": {
+    "mtime": 1785729238.598695,
+    "ast_hash": "290fcacdbbee59f4efa3b5810d64f9c8",
+    "semantic_hash": ""
+  },
+  "Tests/test_second_derivatives.py": {
+    "mtime": 1785982384.3151457,
+    "ast_hash": "ddbbcd762a123c97dde6beb2a44529c9",
+    "semantic_hash": ""
+  },
+  "Tests/test_sine.py": {
+    "mtime": 1787101372.2838922,
+    "ast_hash": "41b3fb0f3a43c94159bd1f7e7fd3d0e1",
+    "semantic_hash": ""
+  },
+  "Tests/test_taylor_series.py": {
+    "mtime": 1787030160.7880101,
+    "ast_hash": "f132165c36b8b10387428b219a1443d4",
+    "semantic_hash": ""
+  },
+  "Tests/test_trinomial_theorem.py": {
+    "mtime": 1788052419.1216125,
+    "ast_hash": "9ddc2193790dc4830a29a0d5feb51979",
+    "semantic_hash": ""
+  },
+  "Tests/test_trinomial_theorem_general_term.py": {
+    "mtime": 1788052408.4161777,
+    "ast_hash": "5f406477438c46fefaed6aea43accbb3",
+    "semantic_hash": ""
+  },
+  "Tests/test_volume_of_prism.py": {
+    "mtime": 1785982351.4060407,
+    "ast_hash": "9d5200bcd2056ec341711675ba6784f0",
+    "semantic_hash": ""
+  },
+  "pyproject.toml": {
+    "mtime": 1785729254.6235604,
+    "ast_hash": "293bd5ad4078032f2df00324c5e52467",
+    "semantic_hash": ""
+  },
+  ".gemini/skills/polynomial-closed-forms/SKILL.md": {
+    "mtime": 1785125670.2645104,
+    "ast_hash": "beb899d0b382155a39525c5f4a27457f",
+    "semantic_hash": ""
+  },
+  ".gemini/skills/repo-sync-workflow/SKILL.md": {
+    "mtime": 1786014763.233271,
+    "ast_hash": "9d0b490a4276634da8c92179c164ec67",
+    "semantic_hash": ""
+  },
+  "Tests/test_arcsin.py": {
+    "mtime": 1788319782.01644,
+    "ast_hash": "23f7d5109653401539775e4eea8dba90",
+    "semantic_hash": ""
+  },
+  "Tests/test_compute_polynomial_derivative.py": {
+    "mtime": 1788319782.0168638,
+    "ast_hash": "833f2fdb4ec10db8ccda236bcb4fcdd8",
+    "semantic_hash": ""
+  },
+  "Tests/test_cosecant.py": {
+    "mtime": 1788319782.0170505,
+    "ast_hash": "38a3451e274431e6ae6aa5b238af6996",
+    "semantic_hash": ""
+  },
+  "Tests/test_cosine.py": {
+    "mtime": 1788319782.0171359,
+    "ast_hash": "559e7da31725490db516f9290dda3cb7",
+    "semantic_hash": ""
+  },
+  "Tests/test_linear_eqn.py": {
+    "mtime": 1788319477.0139544,
+    "ast_hash": "00fcba5d7f55aced168ef8047e4b4922",
+    "semantic_hash": ""
+  },
+  "Tests/test_mode.py": {
+    "mtime": 1788319477.014075,
+    "ast_hash": "1bb8404b2a26d36578b2dca5d4118277",
+    "semantic_hash": ""
+  },
+  "Tests/test_secant.py": {
+    "mtime": 1788319782.017586,
+    "ast_hash": "03df8b7ee51dbd507e4cff890c353be1",
+    "semantic_hash": ""
+  },
+  "Tests/test_tan.py": {
+    "mtime": 1788319782.0177042,
+    "ast_hash": "84854b9cfd22c28f7f81d4693d43e577",
+    "semantic_hash": ""
+  }
+}
