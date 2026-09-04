@@ -265,8 +265,8 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Eulers_number.py": {
-    "mtime": 1788319477.0130594,
-    "ast_hash": "a85e8074b22b2fc4e272c1d3f252e2b0",
+    "mtime": 1788482041.756565,
+    "ast_hash": "c8cc6de27397be79927b59bc82e8c62c",
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Chudnovsky_algo.py": {
@@ -275,8 +275,8 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Machin_algo.py": {
-    "mtime": 1787022255.4907084,
-    "ast_hash": "491dc74150b3ccd0eb0cbea937360c35",
+    "mtime": 1788482087.9450197,
+    "ast_hash": "680c7df6da5ff539eae15edd96a8dc01",
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Nilakanths_algo.py": {
@@ -290,8 +290,8 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/William_Shanks.py": {
-    "mtime": 1787542876.9102147,
-    "ast_hash": "9719166eeab0c6d4818ffd5dc42a652b",
+    "mtime": 1788482094.5448186,
+    "ast_hash": "32b176c78baf28d928b1d3867d458dc9",
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Functions/nth_root/nth_root.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1788320005.6080692,
-    "ast_hash": "849ce9cbc890bbb809a6380ec762e918",
+    "mtime": 1788394539.4793282,
+    "ast_hash": "cc5cb3a0cf7a9bc1494374684e41a3b0",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -815,8 +815,8 @@
     "semantic_hash": ""
   },
   "Tests/test_Machin_algo.py": {
-    "mtime": 1787101372.2896645,
-    "ast_hash": "641f5909d3684e2ad4cd97290d7bb7ac",
+    "mtime": 1788482105.7038116,
+    "ast_hash": "ec3c6961674d24811faf67fee8a4f073",
     "semantic_hash": ""
   },
   "Tests/test_NumIntegration.py": {
@@ -830,8 +830,8 @@
     "semantic_hash": ""
   },
   "Tests/test_William_Shanks.py": {
-    "mtime": 1787542876.9108844,
-    "ast_hash": "d11058bbd00766406540f33243fe60a4",
+    "mtime": 1788482112.6870334,
+    "ast_hash": "1ce0a60525d49389472e697354e8513d",
     "semantic_hash": ""
   },
   "Tests/test_arctan.py": {
