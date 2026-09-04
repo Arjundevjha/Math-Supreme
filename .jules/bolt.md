@@ -1,0 +1,3 @@
+## 2025-05-20 - Binary Search for Monotonic Inverse Function Approximations
+**Learning:** Linear incremental stepping ($O(1/\text{step})$) for numerical root-finding or inverse function approximation (e.g. finding $x$ where $f(x) = y$ on a monotonic domain like $[0, \pi/2]$) causes severe performance bottlenecks due to tens of thousands of function evaluations. Binary search (bisection method) converges logarithmically in ~30 iterations with machine precision.
+**Action:** Always replace linear stepping with binary search or Newton-Raphson bisection when solving numerical equations over monotonic intervals.
