@@ -33,3 +33,13 @@ def test_prime_factorization_invalid_input():
         prime_factorization(-1)
     with pytest.raises(ValueError, match="Number must be positive."):
         prime_factorization(-10)
+
+def test_prime_factorization_invalid_type():
+    with pytest.raises(TypeError, match="number must be an integer."):
+        prime_factorization(True)
+    with pytest.raises(TypeError, match="number must be an integer."):
+        prime_factorization(False)
+    with pytest.raises(TypeError, match="number must be an integer."):
+        prime_factorization(3.14)
+    with pytest.raises(TypeError, match="number must be an integer."):
+        prime_factorization("10")

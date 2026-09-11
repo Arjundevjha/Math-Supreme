@@ -12,6 +12,8 @@ def prime_factorization(number: int) -> List[int]:
     Returns:
     List[int]: A list of prime factors.
     """
+    if not isinstance(number, int) or isinstance(number, bool):
+        raise TypeError("number must be an integer.")
     if number <= 0:
         raise ValueError("Number must be positive.")
     if number == 1:
