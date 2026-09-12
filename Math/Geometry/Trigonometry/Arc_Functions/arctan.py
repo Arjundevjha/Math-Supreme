@@ -19,9 +19,13 @@ def calculate_arctan(
     Returns:
     Decimal: The arctangent value in radians.
     """
-    # Security: Validate precision to prevent Denial of Service (DoS) and invalid context errors
+    # Security: Validate precision and number_of_terms to prevent Denial of Service (DoS) and invalid context errors
     if not isinstance(precision, int) or isinstance(precision, bool) or precision < 1 or precision > 10000:
         raise ValueError("Precision must be an integer between 1 and 10000.")
+
+    if number_of_terms is not None:
+        if not isinstance(number_of_terms, int) or isinstance(number_of_terms, bool) or number_of_terms < 1 or number_of_terms > 100000:
+            raise ValueError("number_of_terms must be an integer between 1 and 100000.")
 
     # Set precision for Decimal calculations
     getcontext().prec = precision + 2
