@@ -135,7 +135,5 @@
   "133": "partition_approximation",
   "134": "calculate_pi_nilakantha",
   "135": "partition",
-  "136": "n_permute_r",
-  "137": "TestChainRuleFormatPolynomial",
-  "138": "test_math_utils.py"
+  "136": "n_permute_r"
 }
