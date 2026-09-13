@@ -131,9 +131,5 @@
   "129": "utils/__init__.py",
   "130": "area_of_circle",
   "131": "TestChainRuleFormatPolynomial",
-  "132": "partition_approximation",
-  "133": "partition_approximation",
-  "134": "calculate_pi_nilakantha",
-  "135": "partition",
-  "136": "n_permute_r"
+  "132": "partition_approximation"
 }

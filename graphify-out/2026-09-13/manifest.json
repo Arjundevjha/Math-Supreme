@@ -85,8 +85,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/binomial_theorem_general_term.py": {
-    "mtime": 1789294825.4052768,
-    "ast_hash": "b8f4d5ebc78eb6d867a14af1c40a4c0d",
+    "mtime": 1787022248.2411082,
+    "ast_hash": "1e606fe39805f8e612791ed4a8e53db5",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/combination.py": {
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Number_Theory/prime_factorisation.py": {
-    "mtime": 1789294828.0733333,
-    "ast_hash": "a36cc308e50a62ea826fba46edc9857f",
+    "mtime": 1787542876.9097254,
+    "ast_hash": "db46f5c22fc534bed25a384acbad87b8",
     "semantic_hash": ""
   },
   "Math/Geometry/Analytic_Geometry/distance_formula.py": {
@@ -230,8 +230,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Arc_Functions/arctan.py": {
-    "mtime": 1789294842.9200583,
-    "ast_hash": "6625cff7e818d082a4645e2ce81c5c92",
+    "mtime": 1788847230.0100486,
+    "ast_hash": "a5ae769165beabaafa8a474e8bf21628",
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Formulas/cosine_rule.py": {
@@ -270,8 +270,8 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Chudnovsky_algo.py": {
-    "mtime": 1789294861.9040344,
-    "ast_hash": "1dc498a754fd0577c71b76475952b069",
+    "mtime": 1788310635.4423213,
+    "ast_hash": "6a583523475c80a2c97f4e4f30a0ae6b",
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Pi_Algorithms/Machin_algo.py": {
@@ -335,8 +335,8 @@
     "semantic_hash": ""
   },
   "Tests/test_DiscreteMath.py": {
-    "mtime": 1789294825.4059093,
-    "ast_hash": "e7cbc4a933f297b248d395768f3caa30",
+    "mtime": 1788319477.0135815,
+    "ast_hash": "3cf589b436ae099886b748787c173b8d",
     "semantic_hash": ""
   },
   "Tests/test_Eulers_number.py": {
@@ -370,8 +370,8 @@
     "semantic_hash": ""
   },
   "Tests/test_arctan_security.py": {
-    "mtime": 1789294842.9203165,
-    "ast_hash": "b279950bbd62c283a9a665d82c3d0e2b",
+    "mtime": 1787788472.6818671,
+    "ast_hash": "ed10733bbbee38d24d60d5da51b22185",
     "semantic_hash": ""
   },
   "Tests/test_binomial_theorem.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1788960876.7571452,
-    "ast_hash": "32370def8ac68ad639112dd970d685fc",
+    "mtime": 1788861633.840092,
+    "ast_hash": "5726b0e5ced3e4bbcce59863ab1f95f7",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -705,8 +705,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/taylor_series.py": {
-    "mtime": 1789294852.1007073,
-    "ast_hash": "8fa7e1073036a72825e6dd29f28b20b3",
+    "mtime": 1788960829.9407868,
+    "ast_hash": "c366c75f00cf6ab764c4a15e2bc70de9",
     "semantic_hash": ""
   },
   "Math/Geometry/__init__.py": {
@@ -860,8 +860,8 @@
     "semantic_hash": ""
   },
   "Tests/test_prime_factorisation.py": {
-    "mtime": 1789294828.0735402,
-    "ast_hash": "1d30e987aaede444d921975a11828ca1",
+    "mtime": 1787542876.9115276,
+    "ast_hash": "2054119cfbfa9812cf5cbbf04c1e7b01",
     "semantic_hash": ""
   },
   "Tests/test_product_rule.py": {
@@ -890,8 +890,8 @@
     "semantic_hash": ""
   },
   "Tests/test_taylor_series.py": {
-    "mtime": 1789294852.1009543,
-    "ast_hash": "42552b8f87ac98aface97ea7a080d718",
+    "mtime": 1788847116.7286327,
+    "ast_hash": "399c22d7e73ac82a7ba143df25e6950a",
     "semantic_hash": ""
   },
   "Tests/test_trinomial_theorem.py": {
