@@ -34,5 +34,16 @@ class TestArcTanSecurity(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculate_arctan(2, precision=True)
 
+    def test_invalid_number_of_terms(self):
+        # number_of_terms <= 0, > 100000, or non-int (like bool) should raise ValueError
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, number_of_terms=0)
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, number_of_terms=-5)
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, number_of_terms=100001)
+        with self.assertRaises(ValueError):
+            calculate_arctan(2, number_of_terms=True)
+
 if __name__ == '__main__':
     unittest.main()
