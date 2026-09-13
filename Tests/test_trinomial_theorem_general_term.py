@@ -80,6 +80,22 @@ class TestTrinomialGeneralTerm(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "Invalid values for n, i, and j."):
             trinomial_general_term(-1, 0, 0, 1, 1, 1)
 
+    def test_trinomial_general_term_security_validation(self):
+        # Type error checks for bools and non-numeric types
+        with self.assertRaises(TypeError):
+            trinomial_general_term(True, 1, 1, 2, 3, 4)
+        with self.assertRaises(TypeError):
+            trinomial_general_term(2, False, 1, 2, 3, 4)
+        with self.assertRaises(TypeError):
+            trinomial_general_term(2, 1, True, 2, 3, 4)
+        with self.assertRaises(TypeError):
+            trinomial_general_term(2, 1, 0, True, 3, 4)
+        with self.assertRaises(TypeError):
+            trinomial_general_term(2, 1, 0, 2, "3", 4)
+        # Upper bound limit check
+        with self.assertRaisesRegex(ValueError, "Power n exceeds maximum limit of 1000."):
+            trinomial_general_term(1001, 1, 1, 2, 3, 4)
+
 
 if __name__ == "__main__":
     unittest.main()

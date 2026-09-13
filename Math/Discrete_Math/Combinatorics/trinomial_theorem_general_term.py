@@ -28,8 +28,32 @@ def trinomial_general_term(
     Returns:
     Union[int, float]: The term T_(i,j,k) in the expansion where k = n - i - j.
     """
-    if i < 0 or j < 0 or i + j > n or n < 0:
+    # Security: Validate input parameter types and upper bound limit to prevent DoS via CPU/memory resource exhaustion
+    if (
+        not isinstance(n, int)
+        or isinstance(n, bool)
+        or not isinstance(i, int)
+        or isinstance(i, bool)
+        or not isinstance(j, int)
+        or isinstance(j, bool)
+    ):
+        raise TypeError("Power n, i, and j must be integers.")
+
+    if (
+        not isinstance(a, (int, float))
+        or isinstance(a, bool)
+        or not isinstance(b, (int, float))
+        or isinstance(b, bool)
+        or not isinstance(c, (int, float))
+        or isinstance(c, bool)
+    ):
+        raise TypeError("Terms a, b, and c must be numeric (int or float).")
+
+    if n < 0 or i < 0 or j < 0 or i + j > n:
         raise ValueError("Invalid values for n, i, and j.")
+
+    if n > 1000:
+        raise ValueError("Power n exceeds maximum limit of 1000.")
 
     k = n - i - j
 
