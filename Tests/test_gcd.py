@@ -36,6 +36,24 @@ def test_compute_gcd_errors():
         compute_gcd(-5, 5)
 
 
+def test_compute_gcd_type_errors():
+    with pytest.raises(TypeError, match="Both a and b must be integers."):
+        compute_gcd(5.5, 10)
+    with pytest.raises(TypeError, match="Both a and b must be integers."):
+        compute_gcd(10, "5")
+    with pytest.raises(TypeError, match="Both a and b must be integers."):
+        compute_gcd(True, 10)
+    with pytest.raises(TypeError, match="Both a and b must be integers."):
+        compute_gcd(10, False)
+
+
+def test_compute_gcd_upper_bound():
+    with pytest.raises(ValueError, match="Inputs exceed maximum limit of 10\\^100."):
+        compute_gcd(10**101, 5)
+    with pytest.raises(ValueError, match="Inputs exceed maximum limit of 10\\^100."):
+        compute_gcd(5, 10**101)
+
+
 def test_compute_gcd_against_math_gcd():
     """
     Test compute_gcd against Python's built-in math.gcd with a wide range
