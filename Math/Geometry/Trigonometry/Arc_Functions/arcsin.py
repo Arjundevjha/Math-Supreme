@@ -18,6 +18,17 @@ def arcsin_numerical(
     Returns:
     Union[float, None]: The angle in radians, or None if not found.
     """
+    # Security: Validate parameter types and bounds to prevent unexpected behavior and DoS risks
+    if isinstance(sin_value, bool) or not isinstance(sin_value, (int, float)):
+        raise TypeError("sin_value must be a numeric integer or float.")
+    if sin_value != sin_value or sin_value in (float('inf'), float('-inf')):
+        raise ValueError("Sine value must be between -1 and 1.")
+
+    if isinstance(precision, bool) or not isinstance(precision, (int, float)):
+        raise TypeError("precision must be a numeric integer or float.")
+    if precision != precision or precision <= 0 or precision in (float('inf'), float('-inf')):
+        raise ValueError("precision must be a positive finite number.")
+
     if sin_value < -1 or sin_value > 1:
         raise ValueError("Sine value must be between -1 and 1.")
 

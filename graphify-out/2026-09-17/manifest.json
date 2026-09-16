@@ -15,8 +15,8 @@
     "semantic_hash": "1154582031c5d5eb8bc935c6c8504c36"
   },
   "Math/Algebra/Polynomials/polynomial.py": {
-    "mtime": 1789603108.4090474,
-    "ast_hash": "b9f14c9202456c5e9190d8da421d32c5",
+    "mtime": 1787030098.0344372,
+    "ast_hash": "b6acb8af2100cec300a07697f9b2af9f",
     "semantic_hash": ""
   },
   "Math/Algebra/Polynomials/quadratic_formula.py": {
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/pascals_triangle.py": {
-    "mtime": 1789603127.3679786,
-    "ast_hash": "95d837c9763bde4ec7e515baae4e74e0",
+    "mtime": 1787896138.14563,
+    "ast_hash": "af0fc5e166e01141ede23c23cea12354",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/permutation.py": {
@@ -115,8 +115,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Number_Theory/gcd.py": {
-    "mtime": 1789603098.567922,
-    "ast_hash": "93e0f1d37451f0b7f437d472c26c0024",
+    "mtime": 1787542876.90942,
+    "ast_hash": "aa66876b43ed9a70ee89ec1924f24de5",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Number_Theory/lcm.py": {
@@ -225,8 +225,8 @@
     "semantic_hash": "44353c4b5086ad1859f1c2b2810bdaae"
   },
   "Math/Geometry/Trigonometry/Arc_Functions/arcsin.py": {
-    "mtime": 1789603119.282221,
-    "ast_hash": "33d2bd80bfd3e81ebe0d1ec68f4f6ccd",
+    "mtime": 1788652984.92507,
+    "ast_hash": "1567ab563fb2955dc10504e8e076bc75",
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Arc_Functions/arctan.py": {
@@ -415,8 +415,8 @@
     "semantic_hash": ""
   },
   "Tests/test_gcd.py": {
-    "mtime": 1789603101.5136566,
-    "ast_hash": "51af288d999fc03b3cca886a9c0202a4",
+    "mtime": 1787542876.9112947,
+    "ast_hash": "b82cbf0ac1c4a6c4b33d5455053b1d3d",
     "semantic_hash": ""
   },
   "Tests/test_herons_area_of_triangle_formula.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1789343882.2791407,
-    "ast_hash": "88df2a471dc845557d078bb29e624ff8",
+    "mtime": 1789294993.944499,
+    "ast_hash": "a93ecafcd6dd243f9b0af4102efa6d41",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -977,16 +977,6 @@
   "Tests/test_polynomial.py": {
     "mtime": 1788847308.5701578,
     "ast_hash": "73af9640baf8d5cb4f4d972ab31d637e",
-    "semantic_hash": ""
-  },
-  "Tests/test_arcsin_security.py": {
-    "mtime": 1789603121.2624493,
-    "ast_hash": "ad633b02741ad44151777a0159f8a404",
-    "semantic_hash": ""
-  },
-  "Tests/test_polynomial_security.py": {
-    "mtime": 1789603110.9242675,
-    "ast_hash": "05bf3157794cfad0d74af025726f872b",
     "semantic_hash": ""
   }
 }
