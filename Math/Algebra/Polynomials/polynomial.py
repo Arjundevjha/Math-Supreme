@@ -14,10 +14,25 @@ def evaluate_polynomial(coefficients: List[Union[int, float]], powers: List[Unio
     Returns:
     float: The value of the polynomial at x.
     """
+    # Security: Validate inputs to prevent Denial of Service (DoS) and unexpected behavior
+    if not isinstance(coefficients, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
+        raise TypeError("x must be a numeric value (int or float).")
+
+    for coeff in coefficients:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
+
+    for power in powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+        if abs(power) > 10000:
+            raise ValueError("Power exceeds maximum limit of 10000.")
+
     # Calculate polynomial value: P(x) = Σ(coefficient × x^power)
     result = sum(coeff * (x**power) for coeff, power in zip(coefficients, powers))
     return result
-
 
 
 def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> str:
@@ -31,6 +46,18 @@ def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[
     Returns:
     str: String representation of the polynomial.
     """
+    # Security: Validate inputs
+    if not isinstance(coefficients, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+
+    for coeff in coefficients:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
+
+    for power in powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+
     terms = []
     for coeff, power in zip(coefficients, powers):
         if power == 0:
@@ -39,5 +66,5 @@ def format_polynomial(coefficients: List[Union[int, float]], powers: List[Union[
             terms.append(f"{coeff}x")
         else:
             terms.append(f"{coeff}x^{power}")
-    
+
     return " + ".join(terms)
