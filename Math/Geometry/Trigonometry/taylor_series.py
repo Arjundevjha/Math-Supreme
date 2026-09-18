@@ -28,12 +28,13 @@ def sine_taylor(radians: Union[int, float], terms: int = 50) -> float:
 
     sine_value = x
     term = x
-    radians_sq = x * x
+    # Optimization: Precompute negative squared radians outside loop to avoid per-iteration unary negation
+    neg_radians_sq = -x * x
 
     # Optimization: Terminate early when floating-point precision limit is reached
     # (i.e. term becomes smaller than double-precision float resolution relative to accumulated sum).
     for idx in range(3, terms * 2, 2):
-        term *= -radians_sq / ((idx - 1) * idx)
+        term *= neg_radians_sq / ((idx - 1) * idx)
         new_val = sine_value + term
         if new_val == sine_value:
             break
@@ -67,12 +68,13 @@ def cosine_taylor(radians: Union[int, float], terms: int = 50) -> float:
 
     cos_value = 1.0
     term = 1.0
-    radians_sq = x * x
+    # Optimization: Precompute negative squared radians outside loop to avoid per-iteration unary negation
+    neg_radians_sq = -x * x
 
     # Optimization: Terminate early when floating-point precision limit is reached
     # (i.e. term becomes smaller than double-precision float resolution relative to accumulated sum).
     for idx in range(2, terms * 2, 2):
-        term *= -radians_sq / (idx * (idx - 1))
+        term *= neg_radians_sq / (idx * (idx - 1))
         new_val = cos_value + term
         if new_val == cos_value:
             break
