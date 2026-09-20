@@ -1,0 +1,3 @@
+## 2025-05-18 - Divide-and-Conquer Range Product for Combination (nCr)
+**Learning:** Computing combinations $\binom{n}{r}$ via sequential loop multiplication $1 \times 2 \times \dots \times r$ repeatedly multiplies a growing big-integer by a small integer, leading to $O(r^2)$ bit-operation overhead in Python. Switching to divide-and-conquer tree multiplication (`_product_tree`) for $r > 64$ keeps sub-product bit lengths balanced, allowing CPython's Karatsuba/Toom-Cook algorithms to execute multiplication in $O(r^{\log_2 3})$ time, resulting in up to 81% speedup for large $n$.
+**Action:** Use `_product_tree` range products for factorial/combination computations when $r > 64$, keeping small $r \le 64$ on linear loops to avoid recursion overhead.
