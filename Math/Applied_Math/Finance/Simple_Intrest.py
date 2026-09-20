@@ -14,8 +14,20 @@ def simple_interest(principal_amount: Union[int, float], interest_rate: Union[in
     Returns:
     Union[int, float]: The total amount after interest.
     """
+    # Security: Validate input parameter types and upper bound limits to prevent DoS via OverflowError or resource exhaustion
+    for param_name, param_val in [
+        ("principal_amount", principal_amount),
+        ("interest_rate", interest_rate),
+        ("time", time),
+    ]:
+        if isinstance(param_val, bool) or not isinstance(param_val, (int, float)):
+            raise TypeError(f"{param_name} must be a numeric int or float.")
+
     if principal_amount < 0 or interest_rate < 0 or time < 0:
         raise ValueError("Principal amount, interest rate, and time must be non-negative.")
+
+    if principal_amount > 1e12 or interest_rate > 10000 or time > 10000:
+        raise ValueError("Parameter values exceed maximum allowed limits.")
 
     # Calculate simple interest using formula: I = (P × R × T) / 100
     interest = (principal_amount * interest_rate * time) / 100

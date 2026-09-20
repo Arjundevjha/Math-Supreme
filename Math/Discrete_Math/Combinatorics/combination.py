@@ -15,6 +15,8 @@ def nCr(n: int, r: int) -> int:
         raise TypeError("Inputs must be integers.")
     if n < 0 or r < 0 or r > n:
         raise ValueError("Invalid values for n and r.")
+    if n > 100000:
+        raise ValueError("n exceeds maximum limit of 100000.")
 
     # Optimization: Compute product iteratively over r terms instead of calculating 3 full factorials.
     # Symmetry property nCr(n, r) == nCr(n, n - r) reduces iterations to min(r, n - r).
