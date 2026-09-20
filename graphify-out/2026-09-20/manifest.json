@@ -15,8 +15,8 @@
     "semantic_hash": "1154582031c5d5eb8bc935c6c8504c36"
   },
   "Math/Algebra/Polynomials/polynomial.py": {
-    "mtime": 1789908819.5165908,
-    "ast_hash": "2fee92b21ec7bd7c85ea4e7391b4cf15",
+    "mtime": 1789603108.4090474,
+    "ast_hash": "b9f14c9202456c5e9190d8da421d32c5",
     "semantic_hash": ""
   },
   "Math/Algebra/Polynomials/quadratic_formula.py": {
@@ -35,14 +35,14 @@
     "semantic_hash": "f929054990ee7ece55fc44d53006c3ea"
   },
   "Math/Applied_Math/Finance/Compund_intrest.py": {
-    "mtime": 1789908815.5605953,
-    "ast_hash": "03cfeb563b4a0b19e820f183acd13a96",
+    "mtime": 1787030102.2195208,
+    "ast_hash": "239a339b8a8b80cab90d1ce4b6802bbd",
     "semantic_hash": ""
   },
   "Math/Applied_Math/Finance/Simple_Intrest.py": {
-    "mtime": 1789908815.560899,
-    "ast_hash": "6d1a6bc15e08d10333d61890e8433230",
-    "semantic_hash": ""
+    "mtime": 1783937229.841565,
+    "ast_hash": "eb38263bf77bbeae64179a918414b600",
+    "semantic_hash": "eb38263bf77bbeae64179a918414b600"
   },
   "Math/Calculus/Differentiation/chain_rule.py": {
     "mtime": 1787542876.9088132,
@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/combination.py": {
-    "mtime": 1789908815.536078,
-    "ast_hash": "c3d815109b35765ccff3fdb82bd98cfb",
+    "mtime": 1787788472.681493,
+    "ast_hash": "0b40673b53e783580da77992c92bee2b",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/pascals_triangle.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1789603176.1136372,
-    "ast_hash": "5a6f4d11398cdbe10bf30e52e0f8b8a1",
+    "mtime": 1789343882.2791407,
+    "ast_hash": "88df2a471dc845557d078bb29e624ff8",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -705,8 +705,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/taylor_series.py": {
-    "mtime": 1789908815.5124226,
-    "ast_hash": "f0df01c4eaa7ed3cc203b1652999e2b6",
+    "mtime": 1789294852.1007073,
+    "ast_hash": "8fa7e1073036a72825e6dd29f28b20b3",
     "semantic_hash": ""
   },
   "Math/Geometry/__init__.py": {
@@ -987,16 +987,6 @@
   "Tests/test_polynomial_security.py": {
     "mtime": 1789603110.9242675,
     "ast_hash": "05bf3157794cfad0d74af025726f872b",
-    "semantic_hash": ""
-  },
-  "Tests/test_combination_security.py": {
-    "mtime": 1789908815.538289,
-    "ast_hash": "446bda9a02ad8c8085ce014465363bfc",
-    "semantic_hash": ""
-  },
-  "Tests/test_finance_security.py": {
-    "mtime": 1789908815.5610204,
-    "ast_hash": "6cc3a6e6a15803adc1b82e506cec5101",
     "semantic_hash": ""
   }
 }

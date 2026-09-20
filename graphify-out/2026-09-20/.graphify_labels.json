@@ -58,6 +58,8 @@
   "56": "Euclidean Area (Triangle)",
   "57": "volume_of_cone",
   "58": "Trigonometric Sine Functions",
+  "59": "n_permute_r",
+  "60": "Inverse Trigonometry (Arctan)",
   "61": "Inverse Trigonometry (Arctan)",
   "62": "Inverse Trigonometry (Arcsin)",
   "63": "Project Documentation & Guidelines",
@@ -127,5 +129,9 @@
   "127": "Probability_and_Statistics/__init__.py",
   "128": "Probability_Axioms/__init__.py",
   "129": "utils/__init__.py",
-  "130": "area_of_circle"
+  "130": "area_of_circle",
+  "132": "partition_approximation",
+  "133": "partition_approximation",
+  "135": "partition",
+  "138": "test_math_utils.py"
 }
