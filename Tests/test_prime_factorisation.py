@@ -44,6 +44,12 @@ def test_prime_factorization_invalid_input():
     with pytest.raises(ValueError, match="Number must be positive."):
         prime_factorization(-10)
 
+def test_prime_factorization_upper_bound_limit():
+    with pytest.raises(ValueError, match="number exceeds maximum limit of 10\\^12\\."):
+        prime_factorization(10**12 + 1)
+    # Boundary value 10**12 should pass without raising
+    assert prime_factorization(10**12) == [2] * 12 + [5] * 12
+
 def test_prime_factorization_invalid_type():
     with pytest.raises(TypeError, match="number must be an integer."):
         prime_factorization(True)

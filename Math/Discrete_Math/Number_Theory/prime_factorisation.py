@@ -16,6 +16,9 @@ def prime_factorization(number: int) -> List[int]:
         raise TypeError("number must be an integer.")
     if number <= 0:
         raise ValueError("Number must be positive.")
+    # Security: Enforce upper bound limit to prevent CPU Denial of Service (DoS) via trial division loop
+    if number > 10**12:
+        raise ValueError("number exceeds maximum limit of 10^12.")
     if number == 1:
         return []
     
