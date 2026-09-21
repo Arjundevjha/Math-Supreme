@@ -90,8 +90,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/combination.py": {
-    "mtime": 1789950595.1146488,
-    "ast_hash": "7bd94ce0da49d286ccb5c436b48cad4f",
+    "mtime": 1789908815.536078,
+    "ast_hash": "c3d815109b35765ccff3fdb82bd98cfb",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/pascals_triangle.py": {
@@ -100,8 +100,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/permutation.py": {
-    "mtime": 1789950590.6785436,
-    "ast_hash": "53cb6d0582cc42acc745308b6c9822ea",
+    "mtime": 1788319477.0129175,
+    "ast_hash": "bb02534c9b7827474ca2e5b3ed3efe3d",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1789908925.7307472,
-    "ast_hash": "21502f9c7fcce73ce102df038b7f83fd",
+    "mtime": 1789603176.1136372,
+    "ast_hash": "5a6f4d11398cdbe10bf30e52e0f8b8a1",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -997,11 +997,6 @@
   "Tests/test_finance_security.py": {
     "mtime": 1789908815.5610204,
     "ast_hash": "6cc3a6e6a15803adc1b82e506cec5101",
-    "semantic_hash": ""
-  },
-  "Tests/test_permutation_security.py": {
-    "mtime": 1789950590.6789038,
-    "ast_hash": "7de9c8c06ec28a322eab3d0159832295",
     "semantic_hash": ""
   }
 }
