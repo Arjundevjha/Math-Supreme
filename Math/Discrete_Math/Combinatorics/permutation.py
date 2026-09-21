@@ -23,6 +23,8 @@ def n_permute_r(n: int, r: int) -> int:
         raise ValueError(
             "n should be greater than or equal to r for permutations to be valid."
         )
+    if n > 100000:
+        raise ValueError("n exceeds maximum limit of 100000.")
 
     if r == 0:
         return 1
