@@ -1,0 +1,3 @@
+## 2025-05-18 - Base Case Threshold in Divide-and-Conquer Range Products
+**Learning:** Recursing all the way down to pairs (`start + 1 == end`) or singles in divide-and-conquer range multiplication functions like `_product_tree` creates excessive Python function call stack frame overhead. Stopping recursion at small range sizes (e.g., `end - start <= 16`) and computing the base product iteratively eliminates thousands of recursive frames without degrading Karatsuba/Toom-Cook big-int multiplication efficiency.
+**Action:** When using divide-and-conquer tree multiplication, set a small base case threshold (e.g. 16) with an iterative loop instead of recursing down to length 1 or 2.
