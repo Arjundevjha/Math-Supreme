@@ -16,10 +16,19 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     Returns:
     float: The calculated square root.
     """
+    # Security: Validate parameter types and bounds to prevent infinite loops and DoS risks
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
+        raise TypeError("x must be a numeric integer or float.")
+    if x != x or x in (float('inf'), float('-inf')):
+        raise ValueError("x must be a finite real number.")
+
+    if isinstance(precision, bool) or not isinstance(precision, (int, float)):
+        raise TypeError("precision must be a numeric integer or float.")
+    if precision != precision or precision <= 0 or precision in (float('inf'), float('-inf')):
+        raise ValueError("Precision must be strictly greater than zero.")
+
     if x < 0:
         raise ValueError("Cannot calculate square root of negative number.")
-    if precision <= 0:
-        raise ValueError("Precision must be strictly greater than zero.")
     if x == 0:
         return 0.0
 
@@ -46,6 +55,12 @@ def arccos_series(x: Union[int, float]) -> float:
     Returns:
     float: The angle in radians.
     """
+    # Security: Validate input type and bounds to prevent unexpected errors or NaN propagation
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
+        raise TypeError("x must be a numeric integer or float.")
+    if x != x or x in (float('inf'), float('-inf')):
+        raise ValueError("arccos is only defined for values between -1 and 1.")
+
     if x < -1 or x > 1:
         raise ValueError("arccos is only defined for values between -1 and 1.")
 
