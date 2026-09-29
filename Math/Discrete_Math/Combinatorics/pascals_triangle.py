@@ -54,8 +54,12 @@ def print_pascals_triangle(triangle: List[List[int]]) -> None:
     Returns:
     None
     """
+    if not isinstance(triangle, list):
+        raise TypeError("Triangle must be a list of lists.")
     if not triangle:
         return
+    if not all(isinstance(row, list) for row in triangle):
+        raise TypeError("Triangle rows must be lists.")
     max_length = len(" ".join(map(str, triangle[-1])))
     for row in triangle:
         print(" ".join(map(str, row)).center(max_length))
