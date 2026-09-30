@@ -14,6 +14,13 @@ def solve_quadratic(a: Union[int, float], b: Union[int, float], c: Union[int, fl
     Returns:
     Tuple[Optional[float], Optional[float]]: The two roots. Returns (None, None) if discriminant is negative.
     """
+    # Security: Validate input parameter types and upper bound limits to prevent DoS via OverflowError or CPU resource exhaustion
+    for param_name, param_val in [("a", a), ("b", b), ("c", c)]:
+        if isinstance(param_val, bool) or not isinstance(param_val, (int, float)):
+            raise TypeError(f"Coefficient '{param_name}' must be a numeric int or float.")
+        if abs(param_val) > 1e300:
+            raise ValueError(f"Coefficient '{param_name}' exceeds maximum allowed limit of 1e300.")
+
     if a == 0:
         raise ValueError("Coefficient 'a' cannot be zero for a quadratic equation.")
     
