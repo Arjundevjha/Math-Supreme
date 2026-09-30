@@ -1,0 +1,3 @@
+## 2025-05-18 - Precompute Invariant String Formatting Expressions in Inner Expansion Loops
+**Learning:** In trinomial expansion (`expand_trinomial`), string formatting terms `f"{a}^{i}"`, `f"{b}^{j}"`, and `f"{c}^{k}"` are invariant for given indices across $O(n^2)$ inner loop iterations. Precomputing lists of formatted variable power terms (`a_powers`, `b_powers`, `c_powers`) outside the loops avoids $O(n^2)$ f-string interpolations and string object allocations.
+**Action:** Always look for invariant string or arithmetic expression formatting inside nested loops that generate polynomial/algebraic series representations and precompute them in $O(n)$ time.
