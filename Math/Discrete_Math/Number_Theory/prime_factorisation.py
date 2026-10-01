@@ -12,10 +12,13 @@ def prime_factorization(number: int) -> List[int]:
     Returns:
     List[int]: A list of prime factors.
     """
+    # Security: Validate input type and upper bound to prevent DoS via CPU exhaustion on large primes
     if not isinstance(number, int) or isinstance(number, bool):
         raise TypeError("number must be an integer.")
     if number <= 0:
         raise ValueError("Number must be positive.")
+    if number > 10**12:
+        raise ValueError("Number exceeds maximum limit of 10^12.")
     if number == 1:
         return []
     
