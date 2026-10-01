@@ -23,17 +23,19 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     if x == 0:
         return 0.0
 
-    guess = x / 2
-    max_iterations = 10000
-    iterations = 0
-    while abs(guess * guess - x) > precision:
-        if iterations >= max_iterations:
-            raise RuntimeError(
-                "Maximum iterations reached without converging to the specified precision."
-            )
-        guess = (guess + x / guess) / 2
-        iterations += 1
-    return guess
+    # Optimization: Use for-loop iteration count to eliminate explicit loop index increment overhead.
+    # Multiply by 0.5 instead of dividing by 2 for fast float multiplication.
+    guess = x * 0.5
+    for _ in range(10000):
+        if abs(guess * guess - x) <= precision:
+            return guess
+        guess = 0.5 * (guess + x / guess)
+
+    if abs(guess * guess - x) <= precision:
+        return guess
+    raise RuntimeError(
+        "Maximum iterations reached without converging to the specified precision."
+    )
 
 
 def arccos_series(x: Union[int, float]) -> float:
