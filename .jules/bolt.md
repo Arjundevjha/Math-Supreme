@@ -1,0 +1,3 @@
+## 2025-05-18 - LCM Calculation Order Optimization
+**Learning:** When computing least common multiples `compute_lcm(a, b)` using `(a * b) // compute_gcd(a, b)`, Python evaluates `a * b` before calling `compute_gcd`. On large inputs, this creates a temporary big-integer product in memory with up to double the bit length before type/range validation in `compute_gcd` occurs. Reordering to `(a // compute_gcd(a, b)) * b` ensures `compute_gcd` validates input types and bounds first, and reduces `a` by its common factors before multiplication, preventing large intermediate memory allocations.
+**Action:** Always structure LCM and related algebraic reductions as `(a // gcd(a, b)) * b` instead of `(a * b) // gcd(a, b)`.
