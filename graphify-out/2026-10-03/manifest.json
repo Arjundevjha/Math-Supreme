@@ -20,9 +20,9 @@
     "semantic_hash": ""
   },
   "Math/Algebra/Polynomials/quadratic_formula.py": {
-    "mtime": 1791010143.8705573,
-    "ast_hash": "e86cd2bd06ecaeff8fe68b970683f7a1",
-    "semantic_hash": ""
+    "mtime": 1783937229.8413882,
+    "ast_hash": "6aaf600480c4ae25cc81abcdce62ff01",
+    "semantic_hash": "6aaf600480c4ae25cc81abcdce62ff01"
   },
   "Math/Algebra/Polynomials/quartic_formula.py": {
     "mtime": 1788847136.0929615,
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/pascals_triangle.py": {
-    "mtime": 1791010159.819339,
-    "ast_hash": "4542c99080ea5799f32c73505cdefbdb",
+    "mtime": 1789603127.3679786,
+    "ast_hash": "95d837c9763bde4ec7e515baae4e74e0",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/permutation.py": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem.py": {
-    "mtime": 1791010101.6845539,
-    "ast_hash": "4dfa5c7d3b2a4608b1d531c88e553645",
+    "mtime": 1788847281.5154257,
+    "ast_hash": "eed4c2efd439fa64132baa26ff888378",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem_general_term.py": {
@@ -120,8 +120,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Number_Theory/lcm.py": {
-    "mtime": 1791010033.438151,
-    "ast_hash": "519f634aeb4524a566168a25379ba655",
+    "mtime": 1787542876.9095616,
+    "ast_hash": "460ebed311e453d042affa9b79b4d6f9",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Number_Theory/partitions.py": {
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Number_Theory/prime_factorisation.py": {
-    "mtime": 1791010074.3010676,
-    "ast_hash": "1ded9382a359c6347d6087b0a8cd142f",
+    "mtime": 1789343797.3655457,
+    "ast_hash": "8361c56aeeaac9e8009cb6d3b42e5f87",
     "semantic_hash": ""
   },
   "Math/Geometry/Analytic_Geometry/distance_formula.py": {
@@ -235,8 +235,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Formulas/cosine_rule.py": {
-    "mtime": 1791010119.70602,
-    "ast_hash": "a022daeb4bc1701e0915ccdad915d439",
+    "mtime": 1787030053.1659756,
+    "ast_hash": "c13f861abef95ab72446a2c269cffa3a",
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Trig_Functions/cosecant.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1789950640.9683332,
-    "ast_hash": "9cf164fe6dae0bf294361cec0ecee776",
+    "mtime": 1789908925.7307472,
+    "ast_hash": "21502f9c7fcce73ce102df038b7f83fd",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -805,8 +805,8 @@
     "semantic_hash": ""
   },
   "Math/utils/math_utils.py": {
-    "mtime": 1791010089.1172345,
-    "ast_hash": "3c4d1dde3da87e3b071c00acc96c283f",
+    "mtime": 1788319782.0161524,
+    "ast_hash": "00e85750cd10431e809d4dfcf4b471a2",
     "semantic_hash": ""
   },
   "Tests/test_Chudnovsky_algo.py": {
@@ -970,8 +970,8 @@
     "semantic_hash": ""
   },
   "Tests/test_math_utils.py": {
-    "mtime": 1791009952.0345545,
-    "ast_hash": "55a7e3b8b07f5277940b5e7e43d51d6c",
+    "mtime": 1788847127.835311,
+    "ast_hash": "8d6b93e96b2d999d4f57661522908875",
     "semantic_hash": ""
   },
   "Tests/test_polynomial.py": {
@@ -1002,31 +1002,6 @@
   "Tests/test_permutation_security.py": {
     "mtime": 1789950590.6789038,
     "ast_hash": "7de9c8c06ec28a322eab3d0159832295",
-    "semantic_hash": ""
-  },
-  "Tests/test_cosine_rule_security.py": {
-    "mtime": 1791009970.7642577,
-    "ast_hash": "2c6ff3f362bfd0d99b96fb5c816b8ca1",
-    "semantic_hash": ""
-  },
-  "Tests/test_lcm_security.py": {
-    "mtime": 1791009926.006966,
-    "ast_hash": "f0f93995be397e271231edd4e36049c5",
-    "semantic_hash": ""
-  },
-  "Tests/test_pascals_triangle_security.py": {
-    "mtime": 1791009998.4214396,
-    "ast_hash": "26e4ee5f6a5cfc0733f09eb984526a9e",
-    "semantic_hash": ""
-  },
-  "Tests/test_prime_factorisation_security.py": {
-    "mtime": 1791009934.8930736,
-    "ast_hash": "fa4d0ea2e222e49b02766b1ef6908a76",
-    "semantic_hash": ""
-  },
-  "Tests/test_quadratic_security.py": {
-    "mtime": 1791009982.1313877,
-    "ast_hash": "8fe81f712a17efa020dfee63316d51b1",
     "semantic_hash": ""
   }
 }
