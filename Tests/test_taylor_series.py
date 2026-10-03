@@ -16,6 +16,16 @@ def test_cosine_taylor_valid():
     assert abs(cosine_taylor(pi / 3) - 0.5) < 1e-5
     assert abs(cosine_taylor(pi / 4) - 0.70710678118) < 1e-5
 
+def test_sine_taylor_invalid_radians_type():
+    for invalid in ["0", [0], None, True, False, (1, 2)]:
+        with pytest.raises(TypeError, match="radians must be a numeric value \\(int or float\\)\\."):
+            sine_taylor(invalid)
+
+def test_cosine_taylor_invalid_radians_type():
+    for invalid in ["0", [0], None, True, False, (1, 2)]:
+        with pytest.raises(TypeError, match="radians must be a numeric value \\(int or float\\)\\."):
+            cosine_taylor(invalid)
+
 def test_sine_taylor_invalid_terms():
     for invalid in [0, -1, 10001, True, False, 5.5, "10"]:
         with pytest.raises(ValueError, match="terms must be an integer between 1 and 10000."):

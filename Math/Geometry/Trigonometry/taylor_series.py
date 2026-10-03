@@ -14,6 +14,10 @@ def sine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The sine of the angle.
     """
+    # Security: Validate radians parameter type to prevent unexpected type coercion or errors
+    if isinstance(radians, bool) or not isinstance(radians, (int, float)):
+        raise TypeError("radians must be a numeric value (int or float).")
+
     # Security: Validate terms parameter to prevent Denial of Service (DoS) via resource exhaustion or invalid types
     if not isinstance(terms, int) or isinstance(terms, bool) or terms < 1 or terms > 10000:
         raise ValueError("terms must be an integer between 1 and 10000.")
@@ -54,6 +58,10 @@ def cosine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The cosine of the angle.
     """
+    # Security: Validate radians parameter type to prevent unexpected type coercion or errors
+    if isinstance(radians, bool) or not isinstance(radians, (int, float)):
+        raise TypeError("radians must be a numeric value (int or float).")
+
     # Security: Validate terms parameter to prevent Denial of Service (DoS) via resource exhaustion or invalid types
     if not isinstance(terms, int) or isinstance(terms, bool) or terms < 1 or terms > 10000:
         raise ValueError("terms must be an integer between 1 and 10000.")
