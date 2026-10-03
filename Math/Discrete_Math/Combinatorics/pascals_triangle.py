@@ -1,4 +1,4 @@
-# Pascal's triangle generator
+"""Module for generating and printing Pascal's triangle."""
 from typing import List
 
 
@@ -21,7 +21,6 @@ def generate_pascals_triangle(num_rows: int) -> List[List[int]]:
     if num_rows == 0:
         return []
 
-    
     triangle = []
     # Generate each row of Pascal's triangle.
     # Optimization: Combine bilateral symmetry (row[j] == row[i - j]) with fast list comprehension
@@ -54,8 +53,12 @@ def print_pascals_triangle(triangle: List[List[int]]) -> None:
     Returns:
     None
     """
+    if not isinstance(triangle, list):
+        raise TypeError("Triangle must be a list of lists.")
     if not triangle:
         return
+    if not all(isinstance(row, list) for row in triangle):
+        raise TypeError("Triangle rows must be lists.")
     max_length = len(" ".join(map(str, triangle[-1])))
     for row in triangle:
         print(" ".join(map(str, row)).center(max_length))

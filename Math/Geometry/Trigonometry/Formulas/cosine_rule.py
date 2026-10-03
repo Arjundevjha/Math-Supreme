@@ -1,4 +1,5 @@
-# Cosine rule (Law of Cosines) for finding sides and angles of triangles
+"""Cosine rule (Law of Cosines) for finding sides and angles of triangles."""
+# pylint: disable=invalid-name
 from typing import Union
 
 from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
@@ -16,24 +17,41 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     Returns:
     float: The calculated square root.
     """
+    # Security: Validate parameter types and bounds to prevent infinite loops and DoS risks
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
+        raise TypeError("x must be a numeric integer or float.")
+    # pylint: disable=comparison-with-itself
+    if x != x or x in (float('inf'), float('-inf')):
+        raise ValueError("x must be a finite real number.")
+
+    if isinstance(precision, bool) or not isinstance(precision, (int, float)):
+        raise TypeError("precision must be a numeric integer or float.")
+    # pylint: disable=comparison-with-itself
+    if (
+        precision != precision
+        or precision <= 0
+        or precision in (float('inf'), float('-inf'))
+    ):
+        raise ValueError("Precision must be strictly greater than zero.")
+
     if x < 0:
         raise ValueError("Cannot calculate square root of negative number.")
-    if precision <= 0:
-        raise ValueError("Precision must be strictly greater than zero.")
     if x == 0:
         return 0.0
 
-    guess = x / 2
-    max_iterations = 10000
-    iterations = 0
-    while abs(guess * guess - x) > precision:
-        if iterations >= max_iterations:
-            raise RuntimeError(
-                "Maximum iterations reached without converging to the specified precision."
-            )
-        guess = (guess + x / guess) / 2
-        iterations += 1
-    return guess
+    # Optimization: Use for-loop iteration count to eliminate loop index increment overhead.
+    # Multiply by 0.5 instead of dividing by 2 for fast float multiplication.
+    guess = x * 0.5
+    for _ in range(10000):
+        if abs(guess * guess - x) <= precision:
+            return guess
+        guess = 0.5 * (guess + x / guess)
+
+    if abs(guess * guess - x) <= precision:
+        return guess
+    raise RuntimeError(
+        "Maximum iterations reached without converging to the specified precision."
+    )
 
 
 def arccos_series(x: Union[int, float]) -> float:
@@ -46,6 +64,13 @@ def arccos_series(x: Union[int, float]) -> float:
     Returns:
     float: The angle in radians.
     """
+    # Security: Validate input type and bounds to prevent unexpected errors or NaN propagation
+    if isinstance(x, bool) or not isinstance(x, (int, float)):
+        raise TypeError("x must be a numeric integer or float.")
+    # pylint: disable=comparison-with-itself
+    if x != x or x in (float('inf'), float('-inf')):
+        raise ValueError("arccos is only defined for values between -1 and 1.")
+
     if x < -1 or x > 1:
         raise ValueError("arccos is only defined for values between -1 and 1.")
 
@@ -57,7 +82,6 @@ def arccos_series(x: Union[int, float]) -> float:
     # Polynomial approximation for arccos: arccos(x) = π/2 - x - x³/6 - 3x⁵/40
     result = PI / 2 - x - (x**3) / 6 - (3 * x**5) / 40
     return result
-
 
 
 def cosine_rule_for_side(

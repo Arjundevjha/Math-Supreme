@@ -1,4 +1,4 @@
-# Prime factorization of a number
+"""Module for prime factorization of positive integers."""
 from typing import List
 
 
@@ -16,12 +16,15 @@ def prime_factorization(number: int) -> List[int]:
         raise TypeError("number must be an integer.")
     if number <= 0:
         raise ValueError("Number must be positive.")
+    # Security: Validate input upper bound limit to prevent DoS via CPU resource exhaustion
+    if number > 10**12:
+        raise ValueError("Number exceeds maximum limit of 10^12.")
     if number == 1:
         return []
-    
+
     factors = []
     n = number
-    
+
     # Optimization: 2,3-wheel trial division factorization.
     # By trial-dividing by 2 and 3 first, all remaining candidate factors must be of the
     # form 6k ± 1 (5, 7, 11, 13, 17, 19, ...).
@@ -47,5 +50,5 @@ def prime_factorization(number: int) -> List[int]:
 
     if n > 1:
         factors.append(n)
-    
+
     return factors

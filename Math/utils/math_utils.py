@@ -1,4 +1,4 @@
-# Mathematical utilities and shared constants
+"""Mathematical utilities and shared constants."""
 from decimal import Decimal
 from typing import List, Union
 
@@ -19,10 +19,14 @@ def _product_tree(start: int, end: int) -> int:
     """
     if start > end:
         return 1
-    if start == end:
-        return start
-    if start + 1 == end:
-        return start * end
+    # Optimization: Base case threshold end - start <= 16 uses an iterative loop
+    # to avoid thousands of recursive call stack frames while preserving divide-and-conquer
+    # tree multiplication for larger ranges.
+    if end - start <= 16:
+        product = 1
+        for i in range(start, end + 1):
+            product *= i
+        return product
     mid = (start + end) // 2
     return _product_tree(start, mid) * _product_tree(mid + 1, end)
 
@@ -43,7 +47,7 @@ def factorial(n: int) -> int:
         raise ValueError("Factorial is not defined for negative numbers.")
     if n > 100000:
         raise ValueError("Input exceeds maximum allowed limit of 100000.")
-    if n == 0 or n == 1:
+    if n in (0, 1):
         return 1
 
     # Optimization: Use divide-and-conquer (binary split tree multiplication).

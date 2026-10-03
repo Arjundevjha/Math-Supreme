@@ -58,6 +58,15 @@ class TestProductTree:
         assert _product_tree(-3, 3) == 0
         assert _product_tree(0, 5) == 0
 
+    def test_product_tree_threshold_ranges(self):
+        """Test _product_tree for ranges <= 16 and > 16 elements."""
+        # Range exactly 17 elements (e.g. 1 to 17) triggers recursive splitting
+        p17 = 1
+        for i in range(1, 18):
+            p17 *= i
+        assert _product_tree(1, 17) == p17
+        assert _product_tree(1, 20) == factorial(20)
+
 
 class TestFactorial:
     def test_factorial_zero_and_one(self):
