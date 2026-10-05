@@ -1,0 +1,3 @@
+## 2025-02-18 - Horner's Method & Invariant Precomputation for Polynomial Root Solvers
+**Learning:** Evaluating high-degree polynomial expressions (e.g. quartic residual error evaluation) using direct power exponentiations (`r**4 + r**3 + ...`) incurs heavy complex exponentiation overhead. Using Horner's nested form `(((ca*r + cb)*r + cc)*r + cd)*r + ce` reduces work to linear complex multiplications. Additionally, precomputing branch-invariant factors outside iteration loops eliminates redundant exponentiations and divisions across candidate root evaluation branches.
+**Action:** Always refactor explicit polynomial power summations in numerical evaluation loops to Horner's method and hoist branch-invariant division constants outside loops.
