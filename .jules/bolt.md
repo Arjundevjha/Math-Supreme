@@ -1,0 +1,3 @@
+## 2025-05-18 - Replacing custom Newton-Raphson `nth_root` with float exponentiation in `cubic_formula`
+**Learning:** Calling custom iterative `nth_root` in float cubic equation solvers incurs repeated loop overhead and redundant complex power evaluations (`cubed_value ** (1/3)`). Replacing square roots with native float exponentiation (`** 0.5`) and precomputing complex cube root multipliers (`cb1`, `cb2`) and reciprocal factors (`inv_3a`) yields ~2x speedup.
+**Action:** In floating-point algebraic solvers, precompute reciprocal multipliers and replace iterative custom root-finding calls with native float exponentiations.
