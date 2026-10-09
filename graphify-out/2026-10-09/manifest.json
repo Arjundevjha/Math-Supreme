@@ -5,9 +5,9 @@
     "semantic_hash": "ebff2084b091f70cfb43873decbbe009"
   },
   "Math/Algebra/Polynomials/cubic_formula.py": {
-    "mtime": 1791508172.555227,
-    "ast_hash": "6f7d908dc208a08c0d96f09bd0f9c433",
-    "semantic_hash": ""
+    "mtime": 1784778418.5339,
+    "ast_hash": "cbc0e57b3f8548da2902bc99114e070d",
+    "semantic_hash": "cbc0e57b3f8548da2902bc99114e070d"
   },
   "Math/Algebra/Polynomials/factor_theorem.py": {
     "mtime": 1784777908.1884873,
@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "Math/Algebra/Polynomials/quartic_formula.py": {
-    "mtime": 1791508183.7262983,
-    "ast_hash": "836c126a614baa0f04566dbded796039",
+    "mtime": 1788847136.0929615,
+    "ast_hash": "893bd93742ab25e222c20d99e77138b9",
     "semantic_hash": ""
   },
   "Math/Algebra/Polynomials/remainnder_theorem.py": {
@@ -140,9 +140,9 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Analytic_Geometry/distance_formula.py": {
-    "mtime": 1791508196.3135386,
-    "ast_hash": "53b3f1f942416b0c114264ffaf027c68",
-    "semantic_hash": ""
+    "mtime": 1783937229.8439324,
+    "ast_hash": "9e93f153891be6df85bec4a14379e4c1",
+    "semantic_hash": "9e93f153891be6df85bec4a14379e4c1"
   },
   "Math/Geometry/Analytic_Geometry/line_equations/intersection.py": {
     "mtime": 1783937229.8440187,
@@ -175,8 +175,8 @@
     "semantic_hash": "eaccc767453ec53026f849711d32abad"
   },
   "Math/Geometry/Euclidean_Geometry/Area/polygon_of_n_sides.py": {
-    "mtime": 1791508214.6446257,
-    "ast_hash": "68c340d86fc6c0bcad26bd8727a43c3f",
+    "mtime": 1787022284.0443823,
+    "ast_hash": "330d8284e05165859b12bd36b1eae29e",
     "semantic_hash": ""
   },
   "Math/Geometry/Euclidean_Geometry/Area/rectangle.py": {
@@ -260,8 +260,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Trig_Functions/tan.py": {
-    "mtime": 1791508224.6878245,
-    "ast_hash": "807919e49638aeab55aaa2ed43ea0943",
+    "mtime": 1787030073.51516,
+    "ast_hash": "412cb18445aa6db25f03aba2cfc1a949",
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Constants/Eulers_number.py": {
@@ -295,23 +295,23 @@
     "semantic_hash": ""
   },
   "Math/Numerical_Methods/Functions/nth_root/nth_root.py": {
-    "mtime": 1791508290.451958,
-    "ast_hash": "3eb8c6145734ce657a086b2af220ca84",
+    "mtime": 1788052408.4155543,
+    "ast_hash": "fde6ce263b4f3aab53a19457d4595228",
     "semantic_hash": ""
   },
   "Math/Probability_and_Statistics/Descriptive_Statistics/mean.py": {
-    "mtime": 1791508313.0519083,
-    "ast_hash": "e0f332f0acc94229cda447061f281980",
-    "semantic_hash": ""
+    "mtime": 1783937229.8459184,
+    "ast_hash": "76f71ae793f6f58981e40b8f02737065",
+    "semantic_hash": "76f71ae793f6f58981e40b8f02737065"
   },
   "Math/Probability_and_Statistics/Descriptive_Statistics/median.py": {
-    "mtime": 1791508345.8195312,
-    "ast_hash": "19171b75a5f55e1368ac07df06584c80",
-    "semantic_hash": ""
+    "mtime": 1783937229.8459847,
+    "ast_hash": "1011f1b598c89d254df6a92684088af2",
+    "semantic_hash": "1011f1b598c89d254df6a92684088af2"
   },
   "Math/Probability_and_Statistics/Descriptive_Statistics/mode.py": {
-    "mtime": 1791508362.8441875,
-    "ast_hash": "586eb99868edef3a38f99d908c730416",
+    "mtime": 1787018584.9319835,
+    "ast_hash": "0e76cdc4f9ad722e16f4d0a03ceb3e3b",
     "semantic_hash": ""
   },
   "Math/__init__.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1791010755.5508175,
-    "ast_hash": "07f885ef2d07dedcc2d0ec2a3f6d0ede",
+    "mtime": 1789950640.9683332,
+    "ast_hash": "9cf164fe6dae0bf294361cec0ecee776",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -705,8 +705,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/taylor_series.py": {
-    "mtime": 1791508259.086681,
-    "ast_hash": "d1786eca90c3b1c1b73cd19a4bb4e58f",
+    "mtime": 1789908815.5124226,
+    "ast_hash": "f0df01c4eaa7ed3cc203b1652999e2b6",
     "semantic_hash": ""
   },
   "Math/Geometry/__init__.py": {
@@ -890,8 +890,8 @@
     "semantic_hash": ""
   },
   "Tests/test_taylor_series.py": {
-    "mtime": 1791508065.7219772,
-    "ast_hash": "505dce8f751de07f70bba72d5d770424",
+    "mtime": 1789294852.1009543,
+    "ast_hash": "42552b8f87ac98aface97ea7a080d718",
     "semantic_hash": ""
   },
   "Tests/test_trinomial_theorem.py": {
@@ -1027,26 +1027,6 @@
   "Tests/test_quadratic_security.py": {
     "mtime": 1791009982.1313877,
     "ast_hash": "8fe81f712a17efa020dfee63316d51b1",
-    "semantic_hash": ""
-  },
-  "Tests/test_descriptive_stats_security.py": {
-    "mtime": 1791508042.6889994,
-    "ast_hash": "1a28e2882201cb0a1ce8c017ea7cbabc",
-    "semantic_hash": ""
-  },
-  "Tests/test_distance_formula_security.py": {
-    "mtime": 1791508032.6419568,
-    "ast_hash": "4d7b884753e82671c24b95f2690ed3d5",
-    "semantic_hash": ""
-  },
-  "Tests/test_polygon_of_n_sides_security.py": {
-    "mtime": 1791508062.1613529,
-    "ast_hash": "73cbab65898e8d42e465f5d758c972b2",
-    "semantic_hash": ""
-  },
-  "Tests/test_tan_security.py": {
-    "mtime": 1791508046.8795428,
-    "ast_hash": "c72eea7b8f75e7f19682fd74509b6699",
     "semantic_hash": ""
   }
 }

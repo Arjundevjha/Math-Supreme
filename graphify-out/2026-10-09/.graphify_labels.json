@@ -137,5 +137,13 @@
   "135": "volume_of_cylinder",
   "136": "volume_of_sphere",
   "137": "TestQuotientRule",
-  "139": "area_of_circle"
+  "138": "TestPascalsTriangle",
+  "139": "area_of_circle",
+  "140": "TestPascalsTriangle",
+  "141": "test_polynomial_security.py",
+  "142": ".test_evaluate_polynomial_zero_division",
+  "143": ".test_evaluate_polynomial_negative_powers",
+  "144": ".test_evaluate_polynomial_multiple_terms_same_power",
+  "145": ".test_evaluate_polynomial_large_power",
+  "146": ".test_evaluate_polynomial_precision"
 }
