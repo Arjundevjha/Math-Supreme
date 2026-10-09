@@ -1,4 +1,4 @@
-# Area of a polygon with n sides
+"""Module for calculating the area of a regular polygon with n sides."""
 from typing import Union
 
 from Math.Geometry.Trigonometry.Trig_Functions.tan import tangent
@@ -16,6 +16,12 @@ def area_of_polygon(n: int, s: Union[int, float]) -> float:
     Returns:
     float: The area of the polygon.
     """
+    # Security: Validate input parameter types to prevent unexpected behavior and type confusion
+    if not isinstance(n, int) or isinstance(n, bool):
+        raise TypeError("Number of sides n must be an integer.")
+    if not isinstance(s, (int, float)) or isinstance(s, bool):
+        raise TypeError("Side length s must be numeric (int or float).")
+
     if n < 3:
         raise ValueError("A polygon must have at least 3 sides.")
     if s < 0:

@@ -1,4 +1,5 @@
-# Quartic formula solver for equations of the form ax⁴ + bx³ + cx² + dx + e = 0
+"""Quartic formula solver for equations of the form ax⁴ + bx³ + cx² + dx + e = 0."""
+# pylint: disable=too-many-arguments,too-many-positional-arguments,too-many-locals,invalid-name
 from typing import Tuple, Union
 
 
@@ -62,15 +63,19 @@ def _compute_branch_roots(
     Returns:
     Tuple[complex, complex, complex, complex]: Four candidate roots.
     """
-    term_U = U / (3.0 * cube_root_2 * ca)
+    three_ca = 3.0 * ca
+    term_U = U / (three_ca * cube_root_2)
     term_p1 = (
-        (cube_root_2 * p1) / (3.0 * ca * U) if abs(U) > 1e-15 else 0.0
+        (cube_root_2 * p1) / (three_ca * U) if abs(U) > 1e-15 else 0.0
     )
+
+    ca_inv = 1.0 / ca
+    cb_over_ca = cb * ca_inv
 
     # Resolvent Radical (R)
     R_inner = (
-        (cb**2) / (4.0 * (ca**2))
-        - (2.0 * cc) / (3.0 * ca)
+        0.25 * (cb_over_ca**2)
+        - (2.0 * cc) / three_ca
         + term_U
         + term_p1
     )
@@ -79,17 +84,17 @@ def _compute_branch_roots(
     # Core Polynomial Shift & Cross-Term (V) and Base Expression (Q)
     if abs(R) > 1e-15:
         v_num = (
-            -((cb**3) / (ca**3))
-            + (4.0 * cb * cc) / (ca**2)
-            - (8.0 * cd) / ca
+            -(cb_over_ca**3)
+            + 4.0 * cb_over_ca * (cc * ca_inv)
+            - 8.0 * (cd * ca_inv)
         )
         V = v_num / (4.0 * R)
     else:
         V = 0.0
 
     Q = (
-        (cb**2) / (2.0 * (ca**2))
-        - (4.0 * cc) / (3.0 * ca)
+        0.5 * (cb_over_ca**2)
+        - (4.0 * cc) / three_ca
         - term_U
         - term_p1
     )
@@ -125,8 +130,11 @@ def _compute_residual_error(
     Returns:
     float: Total residual error across all four roots.
     """
+    # Optimization: Use Horner's method (((ca*r + cb)*r + cc)*r + cd)*r + ce
+    # to evaluate polynomial terms with 4 complex multiplications instead of 10
+    # complex multiplications and exponentiations (r**4, r**3, r**2) per root.
     return sum(
-        abs(ca * (r**4) + cb * (r**3) + cc * (r**2) + cd * r + ce)
+        abs((((ca * r + cb) * r + cc) * r + cd) * r + ce)
         for r in roots
     )
 
@@ -157,6 +165,10 @@ def _select_best_branch(
     cube_root_2 = 2.0 ** (1.0 / 3.0)
     omega = complex(-0.5, 0.8660254037844386)
 
+    # Optimization: Precompute branch multipliers omegas = (1.0, omega, omega * omega)
+    # to avoid redundant complex power operations (omega**k) across iterations.
+    omegas = (1.0, omega, omega * omega)
+
     best_roots: Tuple[complex, complex, complex, complex] = (
         0j,
         0j,
@@ -166,8 +178,8 @@ def _select_best_branch(
     best_error = float("inf")
 
     # Evaluate all 3 cube root branches of U to find the optimal branch
-    for k in range(3):
-        U = base_U * (omega**k)
+    for w in omegas:
+        U = base_U * w
         roots = _compute_branch_roots(
             ca, cb, cc, cd, U, p1, cube_root_2, shift
         )

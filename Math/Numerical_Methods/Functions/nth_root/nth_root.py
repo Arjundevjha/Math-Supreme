@@ -1,4 +1,5 @@
-# Calculating the n-th root of a number
+"""Module for calculating the n-th root using Newton-Raphson method."""
+# pylint: disable=too-many-locals,too-many-branches,too-many-statements,no-else-return
 from typing import Union, Optional
 from decimal import Decimal, getcontext
 
@@ -15,14 +16,20 @@ def nth_root(
     x (Union[int, float, Decimal]): The number to find the root of.
     n (Union[int, float, Decimal]): The degree of the root.
     precision (Optional[int]): If specified, sets the Decimal calculation
-                               precision and returns a Decimal result.
+                                precision and returns a Decimal result.
 
     Returns:
     Union[float, Decimal]: The n-th root of x.
     """
-    # Security: Validate precision to prevent Denial of Service (DoS) and invalid context errors
+    # Security: Validate precision to prevent Denial of Service (DoS)
+    # and invalid context errors
     if precision is not None:
-        if not isinstance(precision, int) or isinstance(precision, bool) or precision < 1 or precision > 10000:
+        if (
+            not isinstance(precision, int)
+            or isinstance(precision, bool)
+            or precision < 1
+            or precision > 10000
+        ):
             raise ValueError("precision must be an integer between 1 and 10000.")
         getcontext().prec = precision
 
@@ -99,6 +106,10 @@ def nth_root(
         n_float = float(n)
         n_minus_one = n_float - 1.0
         y = x_float ** (1.0 / n_float)
+        # Optimization: Initial guess y = x ** (1/n) is already accurate to
+        # double precision (~15-17 digits). Checking relative difference
+        # threshold <= 1e-15 prevents oscillation between adjacent float values
+        # that caused non-exact root computations to run all 100 loop iterations.
         for _ in range(100):
             try:
                 power_term = y ** n_minus_one
@@ -107,7 +118,7 @@ def nth_root(
                 next_y = (
                     n_minus_one * y + x_float / power_term
                 ) / n_float
-                if next_y == y or abs(next_y - y) <= abs(y) * 1e-16:
+                if next_y == y or abs(next_y - y) <= abs(y) * 1e-15:
                     y = next_y
                     break
                 y = next_y

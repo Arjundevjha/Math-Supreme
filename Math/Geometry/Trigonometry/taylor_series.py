@@ -1,4 +1,4 @@
-# Taylor series approximations for trigonometric functions
+"""Taylor series approximations for trigonometric functions."""
 from typing import Union
 from Math.utils.math_utils import PI
 
@@ -14,8 +14,18 @@ def sine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The sine of the angle.
     """
-    # Security: Validate terms parameter to prevent Denial of Service (DoS) via resource exhaustion or invalid types
-    if not isinstance(terms, int) or isinstance(terms, bool) or terms < 1 or terms > 10000:
+    # Security: Validate radians parameter type to prevent unexpected type coercion or errors
+    if isinstance(radians, bool) or not isinstance(radians, (int, float)):
+        raise TypeError("radians must be a numeric value (int or float).")
+
+    # Security: Validate terms parameter to prevent Denial of Service (DoS)
+    # via resource exhaustion or invalid types
+    if (
+        not isinstance(terms, int)
+        or isinstance(terms, bool)
+        or terms < 1
+        or terms > 10000
+    ):
         raise ValueError("terms must be an integer between 1 and 10000.")
 
     # Range reduction: reduce angle to [-π, π] modulo 2π
@@ -30,9 +40,9 @@ def sine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     term = x
     neg_radians_sq = -x * x
 
-    # Optimization: Precompute neg_radians_sq = -x * x outside loop to avoid unary negation on each iteration.
-    # Terminate early when floating-point precision limit is reached
-    # (i.e. term becomes smaller than double-precision float resolution relative to accumulated sum).
+    # Optimization: Precompute neg_radians_sq = -x * x outside loop
+    # to avoid unary negation on each iteration. Terminate early when
+    # floating-point precision limit is reached relative to accumulated sum.
     for idx in range(3, terms * 2, 2):
         term *= neg_radians_sq / ((idx - 1) * idx)
         new_val = sine_value + term
@@ -54,8 +64,18 @@ def cosine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     Returns:
     float: The cosine of the angle.
     """
-    # Security: Validate terms parameter to prevent Denial of Service (DoS) via resource exhaustion or invalid types
-    if not isinstance(terms, int) or isinstance(terms, bool) or terms < 1 or terms > 10000:
+    # Security: Validate radians parameter type to prevent unexpected type coercion or errors
+    if isinstance(radians, bool) or not isinstance(radians, (int, float)):
+        raise TypeError("radians must be a numeric value (int or float).")
+
+    # Security: Validate terms parameter to prevent Denial of Service (DoS)
+    # via resource exhaustion or invalid types
+    if (
+        not isinstance(terms, int)
+        or isinstance(terms, bool)
+        or terms < 1
+        or terms > 10000
+    ):
         raise ValueError("terms must be an integer between 1 and 10000.")
 
     # Range reduction: reduce angle to [-π, π] modulo 2π
@@ -70,9 +90,9 @@ def cosine_taylor(radians: Union[int, float], terms: int = 50) -> float:
     term = 1.0
     neg_radians_sq = -x * x
 
-    # Optimization: Precompute neg_radians_sq = -x * x outside loop to avoid unary negation on each iteration.
-    # Terminate early when floating-point precision limit is reached
-    # (i.e. term becomes smaller than double-precision float resolution relative to accumulated sum).
+    # Optimization: Precompute neg_radians_sq = -x * x outside loop
+    # to avoid unary negation on each iteration. Terminate early when
+    # floating-point precision limit is reached relative to accumulated sum.
     for idx in range(2, terms * 2, 2):
         term *= neg_radians_sq / (idx * (idx - 1))
         new_val = cos_value + term

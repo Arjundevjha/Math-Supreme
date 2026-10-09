@@ -1,9 +1,12 @@
-# Calculate the mode (most frequent value) of a list of numbers
+"""Module for calculating the mode of a list or tuple of numbers."""
+# pylint: disable=duplicate-code,no-else-return
 from collections import Counter
 from typing import List, Union
 
 
-def mode(data: List[Union[int, float]]) -> Union[int, float, List[Union[int, float]]]:
+def mode(
+    data: List[Union[int, float]],
+) -> Union[int, float, List[Union[int, float]]]:
     """
     Calculate the mode of a list of numbers.
 
@@ -11,12 +14,20 @@ def mode(data: List[Union[int, float]]) -> Union[int, float, List[Union[int, flo
     data (List[Union[int, float]]): A list of numerical values (integers or floats).
 
     Returns:
-    Union[int, float, List[Union[int, float]]]: The mode of the provided numbers. 
+    Union[int, float, List[Union[int, float]]]: The mode of the provided numbers.
     If there are multiple modes, a list of modes is returned.
     """
+    if not isinstance(data, (list, tuple)):
+        raise TypeError("Input data must be a list or tuple.")
+    if len(data) > 1000000:
+        raise ValueError("Input data length exceeds maximum limit of 1,000,000.")
+    for x in data:
+        if isinstance(x, bool) or not isinstance(x, (int, float)):
+            raise TypeError("All elements in data must be integers or floats.")
+
     if not data:
         return 0.0
-    
+
     # Count frequency of each number
     frequency = Counter(data)
 
