@@ -217,6 +217,14 @@ def quartic_formula(
     >>> quartic_formula(1, -10, 35, -50, 24)
     ((1+0j), (2+0j), (3+0j), (4+0j))
     """
+    # Security: Validate input parameter types and upper bound limits
+    # to prevent DoS via OverflowError or unexpected behavior
+    for param_name, param_val in [("a", a), ("b", b), ("c", c), ("d", d), ("e", e)]:
+        if isinstance(param_val, bool) or not isinstance(param_val, (int, float)):
+            raise TypeError(f"Coefficient '{param_name}' must be a numeric int or float.")
+        if abs(param_val) > 1e300:
+            raise ValueError(f"Coefficient '{param_name}' exceeds maximum allowed limit of 1e300.")
+
     if a == 0:
         raise ValueError(
             "Coefficient 'a' cannot be zero for a quartic equation."

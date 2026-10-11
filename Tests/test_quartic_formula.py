@@ -121,6 +121,42 @@ def test_quartic_formula_value_error():
         quartic_formula(0, 1, 1, 1, 1)
 
 
+def test_quartic_formula_invalid_types():
+    # Invalid types (booleans, strings, lists) should raise TypeError
+    with pytest.raises(
+        TypeError, match="Coefficient 'a' must be a numeric int or float."
+    ):
+        quartic_formula(True, 1, 1, 1, 1)
+    with pytest.raises(
+        TypeError, match="Coefficient 'b' must be a numeric int or float."
+    ):
+        quartic_formula(1, "invalid", 1, 1, 1)
+    with pytest.raises(
+        TypeError, match="Coefficient 'c' must be a numeric int or float."
+    ):
+        quartic_formula(1, 1, [1], 1, 1)
+    with pytest.raises(
+        TypeError, match="Coefficient 'd' must be a numeric int or float."
+    ):
+        quartic_formula(1, 1, 1, False, 1)
+    with pytest.raises(
+        TypeError, match="Coefficient 'e' must be a numeric int or float."
+    ):
+        quartic_formula(1, 1, 1, 1, "bad")
+
+
+def test_quartic_formula_magnitude_limit():
+    # Coefficients exceeding 1e300 should raise ValueError
+    with pytest.raises(
+        ValueError, match="exceeds maximum allowed limit of 1e300."
+    ):
+        quartic_formula(1e301, 1, 1, 1, 1)
+    with pytest.raises(
+        ValueError, match="exceeds maximum allowed limit of 1e300."
+    ):
+        quartic_formula(1, -1e301, 1, 1, 1)
+
+
 def test_quartic_formula_mixed_roots():
     # Equation: (x^2 + 1)(x^2 - 4) = x^4 - 3x^2 - 4 = 0
     # Roots: 2, -2, i, -i

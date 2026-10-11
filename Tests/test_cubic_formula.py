@@ -72,6 +72,26 @@ def test_cubic_formula_value_error():
         cubic_formula(0, 1, 1, 1)
 
 
+def test_cubic_formula_invalid_types():
+    # Invalid types (booleans, strings, lists) should raise TypeError
+    with pytest.raises(TypeError, match="Coefficient 'a' must be a numeric int or float."):
+        cubic_formula(True, 1, 1, 1)
+    with pytest.raises(TypeError, match="Coefficient 'b' must be a numeric int or float."):
+        cubic_formula(1, "invalid", 1, 1)
+    with pytest.raises(TypeError, match="Coefficient 'c' must be a numeric int or float."):
+        cubic_formula(1, 1, [1], 1)
+    with pytest.raises(TypeError, match="Coefficient 'd' must be a numeric int or float."):
+        cubic_formula(1, 1, 1, False)
+
+
+def test_cubic_formula_magnitude_limit():
+    # Coefficients exceeding 1e300 should raise ValueError
+    with pytest.raises(ValueError, match="exceeds maximum allowed limit of 1e300."):
+        cubic_formula(1e301, 1, 1, 1)
+    with pytest.raises(ValueError, match="exceeds maximum allowed limit of 1e300."):
+        cubic_formula(1, -1e301, 1, 1)
+
+
 def test_cubic_formula_floats():
     # Equation: 2.5x^3 - 7.5x^2 + 2.5x + 2.5 = 0
     # Equivalent to x^3 - 3x^2 + x + 1 = 0
