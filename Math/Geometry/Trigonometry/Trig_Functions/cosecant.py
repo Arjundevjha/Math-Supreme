@@ -15,6 +15,10 @@ def cosecant(radians: Union[int, float]) -> float:
     Returns:
     float: The cosecant of the angle.
     """
+    # Security: Validate input type to prevent type confusion / unexpected behavior
+    if isinstance(radians, bool) or not isinstance(radians, (int, float)):
+        raise TypeError("radians must be a numeric int or float.")
+
     sin_value = sine_taylor(radians)
     if sin_value == 0:
         raise ValueError("Cosecant is undefined for angles where sin(x) = 0.")

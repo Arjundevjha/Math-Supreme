@@ -15,6 +15,10 @@ def secant(radians: Union[int, float]) -> float:
     Returns:
     float: The secant of the angle.
     """
+    # Security: Validate input type to prevent type confusion / unexpected behavior
+    if isinstance(radians, bool) or not isinstance(radians, (int, float)):
+        raise TypeError("radians must be a numeric int or float.")
+
     cos_value = cosine_taylor(radians)
     if cos_value == 0:
         raise ValueError("Secant is undefined for angles where cos(x) = 0.")
