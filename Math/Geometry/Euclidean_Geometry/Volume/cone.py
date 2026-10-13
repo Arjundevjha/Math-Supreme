@@ -15,6 +15,12 @@ def volume_of_cone(radius: Union[int, float], height: Union[int, float]) -> floa
     Returns:
     float: The volume of the cone.
     """
+    # Security: Validate input parameter types to prevent unexpected behavior and type confusion
+    if not isinstance(radius, (int, float)) or isinstance(radius, bool):
+        raise TypeError("Radius must be numeric (int or float).")
+    if not isinstance(height, (int, float)) or isinstance(height, bool):
+        raise TypeError("Height must be numeric (int or float).")
+
     if radius < 0 or height < 0:
         raise ValueError("Radius and height cannot be negative.")
 
