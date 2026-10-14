@@ -25,6 +25,16 @@ def cubic_formula(
     Returns:
     Tuple[complex, complex, complex]: The three roots of the cubic equation.
     """
+    # Security: Validate input parameter types and upper bound limits
+    # to prevent DoS via OverflowError or CPU resource exhaustion.
+    # Note: Intermediate cubic calculations raise b^2 to 3rd power (b^6),
+    # so limiting input coefficients to 1e100 prevents IEEE 754 float overflow (>1.79e308).
+    for param_name, param_val in [("a", a), ("b", b), ("c", c), ("d", d)]:
+        if isinstance(param_val, bool) or not isinstance(param_val, (int, float)):
+            raise TypeError(f"Coefficient '{param_name}' must be a numeric int or float.")
+        if abs(param_val) > 1e100:
+            raise ValueError(f"Coefficient '{param_name}' exceeds maximum allowed limit of 1e100.")
+
     if a == 0:
         raise ValueError("Coefficient 'a' cannot be zero for a cubic equation.")
 
