@@ -13,6 +13,20 @@ def integrate_polynomial(coefficients: List[Union[int, float]], powers: List[Uni
     Returns:
     Tuple[List[float], List[float]]: Lists of integrated coefficients and powers.
     """
+    # Security: Validate inputs
+    if not isinstance(coefficients, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+
+    for coeff in coefficients:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
+
+    for power in powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+        if abs(power) > 10000:
+            raise ValueError("Power exceeds maximum limit of 10000.")
+
     n = min(len(coefficients), len(powers))
     sub_powers = powers[:n]
     if -1 in sub_powers:
@@ -40,6 +54,18 @@ def format_polynomial_integration(coefficients: List[float], powers: List[float]
     Returns:
     str: String representation of the integrated polynomial.
     """
+    # Security: Validate inputs
+    if not isinstance(coefficients, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+
+    for coeff in coefficients:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
+
+    for power in powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+
     terms = []
     for coeff, power in zip(coefficients, powers):
         if power == 0:
