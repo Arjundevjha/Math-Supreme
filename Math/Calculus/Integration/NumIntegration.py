@@ -13,6 +13,22 @@ def integrate_polynomial(coefficients: List[Union[int, float]], powers: List[Uni
     Returns:
     Tuple[List[float], List[float]]: Lists of integrated coefficients and powers.
     """
+    # Security: Validate input container types to prevent unexpected behaviors or type confusion vulnerabilities
+    if not isinstance(coefficients, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+
+    # Security: Validate array size limits to prevent Denial of Service (DoS) via excessive memory allocation
+    if len(coefficients) > 1000000 or len(powers) > 1000000:
+        raise ValueError("Input sequence length exceeds maximum limit of 1,000,000.")
+
+    # Security: Validate element types to prevent unexpected calculations or boolean coercion
+    for c in coefficients:
+        if isinstance(c, bool) or not isinstance(c, (int, float)):
+            raise TypeError("All coefficients must be integers or floats.")
+    for p in powers:
+        if isinstance(p, bool) or not isinstance(p, (int, float)):
+            raise TypeError("All powers must be integers or floats.")
+
     n = min(len(coefficients), len(powers))
     sub_powers = powers[:n]
     if -1 in sub_powers:
