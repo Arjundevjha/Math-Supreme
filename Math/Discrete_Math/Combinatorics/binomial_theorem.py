@@ -29,6 +29,8 @@ def expand_binomial(a: str, b: str, n: int) -> str:
     str: The expanded form of the binomial.
     """
     # Security: Validate type and enforce upper bound limit to prevent DoS via CPU/memory exhaustion
+    if not isinstance(a, str) or not isinstance(b, str):
+        raise TypeError("Terms a and b must be strings.")
     if not isinstance(n, int) or isinstance(n, bool):
         raise TypeError("Power n must be an integer.")
     if n < 0:
