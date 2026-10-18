@@ -14,6 +14,10 @@ def area_of_circle(radius: Union[int, float]) -> float:
     Returns:
     float: The area of the circle.
     """
+    # Security: Validate input parameter types to prevent unexpected behavior and type confusion
+    if not isinstance(radius, (int, float)) or isinstance(radius, bool):
+        raise TypeError("Radius must be numeric (int or float).")
+
     if radius < 0:
         raise ValueError("Radius cannot be negative.")
 
