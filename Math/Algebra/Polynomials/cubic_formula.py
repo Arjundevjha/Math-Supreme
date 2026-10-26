@@ -1,4 +1,5 @@
 """Cubic formula solver for equations of the form ax³ + bx² + cx + d = 0."""
+import math
 from typing import Union, Tuple
 
 # Precompute sqrt(3) constant to avoid calling 100-iteration Newton-Raphson loop
@@ -25,46 +26,64 @@ def cubic_formula(
     Returns:
     Tuple[complex, complex, complex]: The three roots of the cubic equation.
     """
+    # Security: Validate input parameter types
+    for param_name, param_val in [("a", a), ("b", b), ("c", c), ("d", d)]:
+        if isinstance(param_val, bool) or not isinstance(param_val, (int, float)):
+            raise TypeError(f"Coefficient '{param_name}' must be a numeric int or float.")
+
     if a == 0:
         raise ValueError("Coefficient 'a' cannot be zero for a cubic equation.")
 
-    # Optimization: Precompute reciprocal term 1 / (3a) and 1 / (6a)
-    # to avoid repeated divisions across intermediate and multiplier steps.
-    inv_3a = 1.0 / (3.0 * a)
-    term_1 = complex(-b * inv_3a)
+    try:
+        # Optimization: Precompute reciprocal term 1 / (3a) and 1 / (6a)
+        # to avoid repeated divisions across intermediate and multiplier steps.
+        inv_3a = 1.0 / (3.0 * a)
+        term_1 = complex(-b * inv_3a)
 
-    b2 = b * b
-    a2 = a * a
-    inner_term_1 = 2.0 * (b2 * b) - (9.0 * a * b * c) + (27.0 * a2 * d)
-    inner_term_2 = inner_term_1 * inner_term_1 - 4.0 * ((b2 - 3.0 * a * c) ** 3)
+        b2 = b * b
+        a2 = a * a
+        inner_term_1 = 2.0 * (b2 * b) - (9.0 * a * b * c) + (27.0 * a2 * d)
+        inner_term_2 = inner_term_1 * inner_term_1 - 4.0 * ((b2 - 3.0 * a * c) ** 3)
 
-    # Optimization: Direct IEEE 754 float square root (inner_term_2 ** 0.5) avoids
-    # running nth_root's 100-iteration Newton-Raphson loop, yielding a ~2x speedup.
-    if inner_term_2 >= 0:
-        sqrt_val = complex(inner_term_2 ** 0.5)
-    else:
-        sqrt_val = 1j * complex((-inner_term_2) ** 0.5)
+        # Optimization: Direct IEEE 754 float square root (inner_term_2 ** 0.5) avoids
+        # running nth_root's 100-iteration Newton-Raphson loop, yielding a ~2x speedup.
+        if inner_term_2 >= 0:
+            sqrt_val = complex(inner_term_2 ** 0.5)
+        else:
+            sqrt_val = 1j * complex((-inner_term_2) ** 0.5)
 
-    inner_term_1_cmplx = complex(inner_term_1)
+        inner_term_1_cmplx = complex(inner_term_1)
 
-    # Calculate cube roots
-    cubed_value_1 = 0.5 * (inner_term_1_cmplx + sqrt_val)
-    cubed_value_2 = 0.5 * (inner_term_1_cmplx - sqrt_val)
+        # Calculate cube roots
+        cubed_value_1 = 0.5 * (inner_term_1_cmplx + sqrt_val)
+        cubed_value_2 = 0.5 * (inner_term_1_cmplx - sqrt_val)
 
-    # Optimization: Precompute complex cube roots (cb1, cb2) once instead of
-    # recomputing complex exponentiations 3 times each across x1, x2, x3.
-    cb1 = cubed_value_1 ** (1.0 / 3.0)
-    cb2 = cubed_value_2 ** (1.0 / 3.0)
+        # Optimization: Precompute complex cube roots (cb1, cb2) once instead of
+        # recomputing complex exponentiations 3 times each across x1, x2, x3.
+        cb1 = cubed_value_1 ** (1.0 / 3.0)
+        cb2 = cubed_value_2 ** (1.0 / 3.0)
 
-    # Calculate multipliers
-    normal_multiplier = complex(-inv_3a)
-    inv_6a = 0.5 * inv_3a
-    complex_multiplier_1 = complex((1.0 + (1j * SQRT_3)) * inv_6a)
-    complex_multiplier_2 = complex((1.0 + (-1j * SQRT_3)) * inv_6a)
+        # Calculate multipliers
+        normal_multiplier = complex(-inv_3a)
+        inv_6a = 0.5 * inv_3a
+        complex_multiplier_1 = complex((1.0 + (1j * SQRT_3)) * inv_6a)
+        complex_multiplier_2 = complex((1.0 + (-1j * SQRT_3)) * inv_6a)
 
-    # Calculate the three roots using the cubic formula
-    x1 = term_1 + (cb1 * normal_multiplier) + (cb2 * normal_multiplier)
-    x2 = term_1 + (cb1 * complex_multiplier_1) + (cb2 * complex_multiplier_2)
-    x3 = term_1 + (cb1 * complex_multiplier_2) + (cb2 * complex_multiplier_1)
+        # Calculate the three roots using the cubic formula
+        x1 = term_1 + (cb1 * normal_multiplier) + (cb2 * normal_multiplier)
+        x2 = term_1 + (cb1 * complex_multiplier_1) + (cb2 * complex_multiplier_2)
+        x3 = term_1 + (cb1 * complex_multiplier_2) + (cb2 * complex_multiplier_1)
 
-    return (x1, x2, x3)
+        if any(
+            math.isnan(r.real) or math.isnan(r.imag) or math.isinf(r.real) or math.isinf(r.imag)
+            for r in (x1, x2, x3)
+        ):
+            raise ValueError(
+                "Input coefficients cause numerical overflow in cubic formula calculation."
+            )
+
+        return (x1, x2, x3)
+    except OverflowError as err:
+        raise ValueError(
+            "Input coefficients cause numerical overflow in cubic formula calculation."
+        ) from err
