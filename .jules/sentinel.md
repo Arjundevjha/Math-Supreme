@@ -1,0 +1,4 @@
+## 2026-10-27 - Input Validation and DoS Prevention in Polynomial Differentiation
+**Vulnerability:** `differentiate_polynomial` accepted unchecked input types (strings, None, booleans) and unconstrained numeric exponents (`abs(power) > 10000`), opening potential Denial-of-Service (DoS) risks via float/int power overflow and unexpected runtime exceptions.
+**Learning:** Functions accepting sequence parameters in Python default to duck typing without enforcing container type or element type checks, allowing boolean inputs (which inherit from `int`) to bypass standard numeric checks.
+**Prevention:** Enforce strict sequence container validation (`isinstance(x, (list, tuple))`), explicit boolean rejection (`isinstance(val, bool)`), numeric element type validation, and realistic upper/lower bound limits on input powers.
