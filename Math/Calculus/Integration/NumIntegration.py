@@ -2,7 +2,31 @@
 from typing import List, Union, Tuple
 
 
-def integrate_polynomial(coefficients: List[Union[int, float]], powers: List[Union[int, float]]) -> Tuple[List[float], List[float]]:
+def _validate_polynomial_inputs(
+    coefficients: List[Union[int, float]], powers: List[Union[int, float]]
+) -> None:
+    """Validate coefficients and powers input lists/tuples to prevent DoS and type confusion."""
+    if not isinstance(coefficients, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+
+    for coeff in coefficients:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
+        if coeff != coeff or coeff in (float("inf"), float("-inf")):
+            raise ValueError("Coefficients must be finite real numbers.")
+
+    for power in powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+        if power != power or power in (float("inf"), float("-inf")):
+            raise ValueError("Powers must be finite real numbers.")
+        if abs(power) > 10000:
+            raise ValueError("Power exceeds maximum limit of 10000.")
+
+
+def integrate_polynomial(
+    coefficients: List[Union[int, float]], powers: List[Union[int, float]]
+) -> Tuple[List[float], List[float]]:
     """
     Integrate a polynomial term by term.
 
@@ -13,6 +37,9 @@ def integrate_polynomial(coefficients: List[Union[int, float]], powers: List[Uni
     Returns:
     Tuple[List[float], List[float]]: Lists of integrated coefficients and powers.
     """
+    # Security: Validate inputs to prevent DoS, type confusion, and invalid state
+    _validate_polynomial_inputs(coefficients, powers)
+
     n = min(len(coefficients), len(powers))
     sub_powers = powers[:n]
     if -1 in sub_powers:
@@ -40,6 +67,9 @@ def format_polynomial_integration(coefficients: List[float], powers: List[float]
     Returns:
     str: String representation of the integrated polynomial.
     """
+    # Security: Validate inputs to prevent DoS, type confusion, and invalid state
+    _validate_polynomial_inputs(coefficients, powers)
+
     terms = []
     for coeff, power in zip(coefficients, powers):
         if power == 0:
@@ -48,6 +78,6 @@ def format_polynomial_integration(coefficients: List[float], powers: List[float]
             terms.append(f"{coeff}x")
         else:
             terms.append(f"{coeff}x^{int(power)}")
-    
+
     result = " + ".join(terms)
     return result + " + C"
