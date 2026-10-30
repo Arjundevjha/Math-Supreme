@@ -14,6 +14,18 @@ def trinomial_coefficient(n: int, i: int, j: int) -> int:
     Returns:
     int: The coefficient for the term.
     """
+    # Security: Validate input parameter types and upper bound limit
+    # to prevent DoS via CPU/memory resource exhaustion
+    for param in (n, i, j):
+        if not isinstance(param, int) or isinstance(param, bool):
+            raise TypeError("Power n, i, and j must be integers.")
+
+    if n < 0:
+        raise ValueError("Power n must be non-negative.")
+
+    if n > 1000:
+        raise ValueError("Power n exceeds maximum limit of 1000.")
+
     if i < 0 or j < 0 or i + j > n:
         return 0
 

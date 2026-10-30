@@ -1,4 +1,4 @@
-# Simple differentiation function
+"""Module for differentiating polynomials using the power rule."""
 from typing import List, Union, Tuple
 
 
@@ -15,13 +15,24 @@ def differentiate_polynomial(
     Returns:
     List[Tuple[float, float]]: List of tuples (coefficient, power) for the derivative.
     """
-    derivative = []
+    # Security: Validate input types and power bounds to prevent DoS and unexpected behavior
+    if not isinstance(coeffs, (list, tuple)) or not isinstance(powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
 
-    # Apply power rule: d/dx(ax^n) = n×a×x^(n-1)
-    for coeff, power in zip(coeffs, powers):
-        if power > 0:
-            new_coeff = coeff * power
-            new_power = power - 1
-            derivative.append((new_coeff, new_power))
+    for coeff in coeffs:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
 
-    return derivative
+    for power in powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+        if abs(power) > 10000:
+            raise ValueError("Power exceeds maximum limit of 10000.")
+
+    # Optimization: Use list comprehension to eliminate loop method lookup
+    # and dynamic list allocations
+    return [
+        (coeff * power, power - 1)
+        for coeff, power in zip(coeffs, powers)
+        if power > 0
+    ]
