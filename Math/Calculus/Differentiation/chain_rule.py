@@ -21,8 +21,27 @@ def chain_rule_derivative(
     Returns:
     str: A string representation of the derivative.
     """
+    # Security: Input validation & DoS prevention
+    if not isinstance(inner_coeffs, (list, tuple)) or not isinstance(inner_powers, (list, tuple)):
+        raise TypeError("Coefficients and powers must be lists or tuples.")
+
+    for coeff in inner_coeffs:
+        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
+            raise TypeError("Coefficients must be numeric values (int or float).")
+
+    for power in inner_powers:
+        if isinstance(power, bool) or not isinstance(power, (int, float)):
+            raise TypeError("Powers must be numeric values (int or float).")
+        if abs(power) > 10000:
+            raise ValueError("Power exceeds maximum limit of 10000.")
+
+    if isinstance(exponent, bool) or not isinstance(exponent, int):
+        raise TypeError("Exponent must be an integer.")
+
     if exponent < 0:
         raise ValueError("Exponent must be non-negative.")
+    if exponent > 10000:
+        raise ValueError("Exponent exceeds maximum limit of 10000.")
 
     # Format inner polynomial g(x)
     g_x = format_polynomial(inner_coeffs, inner_powers)
