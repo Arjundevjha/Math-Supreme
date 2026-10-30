@@ -137,5 +137,13 @@
   "135": "volume_of_cylinder",
   "136": "volume_of_sphere",
   "137": "TestQuotientRule",
-  "139": "area_of_circle"
+  "138": "n_permute_r",
+  "139": "area_of_circle",
+  "140": "cosecant",
+  "141": "secant",
+  "142": "TestQuotientRule",
+  "143": "test_DiscreteMath.py",
+  "144": "TestPascalsTriangle",
+  "145": "tangent",
+  "146": "TestPascalsTriangle"
 }

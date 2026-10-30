@@ -5,8 +5,8 @@
     "semantic_hash": "ebff2084b091f70cfb43873decbbe009"
   },
   "Math/Algebra/Polynomials/cubic_formula.py": {
-    "mtime": 1791508172.555227,
-    "ast_hash": "6f7d908dc208a08c0d96f09bd0f9c433",
+    "mtime": 1793318977.7879446,
+    "ast_hash": "64f2a419471b98f5eb5380da356990fb",
     "semantic_hash": ""
   },
   "Math/Algebra/Polynomials/factor_theorem.py": {
@@ -60,18 +60,18 @@
     "semantic_hash": ""
   },
   "Math/Calculus/Differentiation/second_derivatives.py": {
-    "mtime": 1785982384.3148446,
-    "ast_hash": "637168cb590599e2bdbf06aa58559a0b",
+    "mtime": 1793319056.381318,
+    "ast_hash": "b3712caa51d2af9329888e0c6592dd06",
     "semantic_hash": ""
   },
   "Math/Calculus/Differentiation/simple_diffrentiation_function.py": {
-    "mtime": 1785729238.593529,
-    "ast_hash": "782486631d23d328b9ffa9931688ca9e",
+    "mtime": 1793319072.7638474,
+    "ast_hash": "dbb0046a615f6877e6af372f47472876",
     "semantic_hash": ""
   },
   "Math/Calculus/Integration/NumIntegration.py": {
-    "mtime": 1788847238.313157,
-    "ast_hash": "a3289f8cd7f005d672ef0305b5ab5864",
+    "mtime": 1793319095.7060754,
+    "ast_hash": "47bec16bb13fb5ac5e241136580988cb",
     "semantic_hash": ""
   },
   "Math/Calculus/Integration/TrigIntegration.py": {
@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem.py": {
-    "mtime": 1791010101.6845539,
-    "ast_hash": "4dfa5c7d3b2a4608b1d531c88e553645",
+    "mtime": 1793319105.0866616,
+    "ast_hash": "8b15e6f2a4e013b0eeb652e9bb2ab6be",
     "semantic_hash": ""
   },
   "Math/Discrete_Math/Combinatorics/trinomial_theorem_general_term.py": {
@@ -170,9 +170,9 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py": {
-    "mtime": 1783937229.8443348,
-    "ast_hash": "eaccc767453ec53026f849711d32abad",
-    "semantic_hash": "eaccc767453ec53026f849711d32abad"
+    "mtime": 1793319125.910933,
+    "ast_hash": "9e1bde8af24560515ac3590c98c06e92",
+    "semantic_hash": ""
   },
   "Math/Geometry/Euclidean_Geometry/Area/polygon_of_n_sides.py": {
     "mtime": 1791508214.6446257,
@@ -240,8 +240,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Trig_Functions/cosecant.py": {
-    "mtime": 1787030082.7503183,
-    "ast_hash": "04b6d26082669633759dfc408eb54f77",
+    "mtime": 1793318984.5447469,
+    "ast_hash": "452afe7aa042776f36e3896fb4c3d219",
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Trig_Functions/cosine.py": {
@@ -250,8 +250,8 @@
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Trig_Functions/secant.py": {
-    "mtime": 1787030077.1585808,
-    "ast_hash": "7a914ced83f468c23c40be5542bb6114",
+    "mtime": 1793318984.5451005,
+    "ast_hash": "051ba9c0a2a5e43a93829ff3c30a66a8",
     "semantic_hash": ""
   },
   "Math/Geometry/Trigonometry/Trig_Functions/sine.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1791010755.5508175,
-    "ast_hash": "07f885ef2d07dedcc2d0ec2a3f6d0ede",
+    "mtime": 1791508587.6056747,
+    "ast_hash": "d9562d37d8a6089188c101f16205f97a",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -1047,6 +1047,41 @@
   "Tests/test_tan_security.py": {
     "mtime": 1791508046.8795428,
     "ast_hash": "c72eea7b8f75e7f19682fd74509b6699",
+    "semantic_hash": ""
+  },
+  "Tests/test_cosecant_security.py": {
+    "mtime": 1793318984.5452132,
+    "ast_hash": "d84630947495b5d1fb9c4beedb06bb74",
+    "semantic_hash": ""
+  },
+  "Tests/test_cubic_security.py": {
+    "mtime": 1793318977.7880745,
+    "ast_hash": "09edaebbbba0e6ad61c064af0de0a24d",
+    "semantic_hash": ""
+  },
+  "Tests/test_herons_area_security.py": {
+    "mtime": 1793318974.8951795,
+    "ast_hash": "27fcbb84bb2156c405d6e6dfd7a2606c",
+    "semantic_hash": ""
+  },
+  "Tests/test_num_integration_security.py": {
+    "mtime": 1793318988.1303658,
+    "ast_hash": "c703df2885db716a066c61f66718ad16",
+    "semantic_hash": ""
+  },
+  "Tests/test_secant_security.py": {
+    "mtime": 1793318984.545315,
+    "ast_hash": "eb845c315c38910e24cd2801e71ffd0f",
+    "semantic_hash": ""
+  },
+  "Tests/test_simple_differentiation_security.py": {
+    "mtime": 1793318991.0043817,
+    "ast_hash": "21d2918658b5170e9f8b4b4c076e1108",
+    "semantic_hash": ""
+  },
+  "Tests/test_trinomial_coefficient_security.py": {
+    "mtime": 1793318971.6527972,
+    "ast_hash": "822e6969b89f462d1cfb6258e006832d",
     "semantic_hash": ""
   }
 }
