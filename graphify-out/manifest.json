@@ -45,8 +45,8 @@
     "semantic_hash": ""
   },
   "Math/Calculus/Differentiation/chain_rule.py": {
-    "mtime": 1787542876.9088132,
-    "ast_hash": "cb4e8748853c293182bc6c975d013e2d",
+    "mtime": 1793712962.0446904,
+    "ast_hash": "7a0071adca40806965464d9d36c87ace",
     "semantic_hash": ""
   },
   "Math/Calculus/Differentiation/product_rule.py": {
@@ -70,8 +70,8 @@
     "semantic_hash": ""
   },
   "Math/Calculus/Integration/NumIntegration.py": {
-    "mtime": 1793319095.7060754,
-    "ast_hash": "47bec16bb13fb5ac5e241136580988cb",
+    "mtime": 1793712917.658716,
+    "ast_hash": "dab8425f1b0d20f274d15c123328959b",
     "semantic_hash": ""
   },
   "Math/Calculus/Integration/TrigIntegration.py": {
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1791508587.6056747,
-    "ast_hash": "d9562d37d8a6089188c101f16205f97a",
+    "mtime": 1793319353.1324718,
+    "ast_hash": "17d3c4e2838d443cdd3f6a1c218bb492",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {
@@ -1082,6 +1082,11 @@
   "Tests/test_trinomial_coefficient_security.py": {
     "mtime": 1793318971.6527972,
     "ast_hash": "822e6969b89f462d1cfb6258e006832d",
+    "semantic_hash": ""
+  },
+  "Tests/test_chain_rule_security.py": {
+    "mtime": 1793712984.3945873,
+    "ast_hash": "bcd2ebfb06dcb31a040e003c9b33bce7",
     "semantic_hash": ""
   }
 }

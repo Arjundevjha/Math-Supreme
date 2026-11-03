@@ -145,5 +145,7 @@
   "143": "test_DiscreteMath.py",
   "144": "TestPascalsTriangle",
   "145": "tangent",
-  "146": "TestPascalsTriangle"
+  "146": "TestPascalsTriangle",
+  "147": "TestFactorialDecimal",
+  "148": "area_of_circle"
 }

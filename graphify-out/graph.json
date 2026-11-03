@@ -612,7 +612,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_calculus_differentiation_chain_rule",
-      "community": 24,
+      "community": 20,
       "community_name": "Calculus Chain Rule",
       "norm_label": "chain_rule.py"
     },
@@ -626,6 +626,17 @@
       "community": 20,
       "community_name": "Calculus Chain Rule",
       "norm_label": "chain_rule_derivative()"
+    },
+    {
+      "label": "Chain rule for differentiation of composite functions.",
+      "file_type": "rationale",
+      "source_file": "Math/Calculus/Differentiation/chain_rule.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "math_calculus_differentiation_chain_rule_rationale_1",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": "chain rule for differentiation of composite functions."
     },
     {
       "label": "Apply the chain rule to find the derivative of [g(x)]^n.      Parameters:     in",
@@ -862,7 +873,7 @@
       "label": "_validate_polynomial_inputs()",
       "file_type": "code",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L6",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "math_calculus_integration_numintegration_validate_polynomial_inputs",
       "community": 39,
@@ -873,7 +884,7 @@
       "label": "integrate_polynomial()",
       "file_type": "code",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L28",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "math_calculus_integration_numintegration_integrate_polynomial",
       "community": 39,
@@ -884,7 +895,7 @@
       "label": "format_polynomial_integration()",
       "file_type": "code",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L61",
+      "source_location": "L69",
       "_origin": "ast",
       "id": "math_calculus_integration_numintegration_format_polynomial_integration",
       "community": 39,
@@ -906,9 +917,9 @@
       "label": "Validate coefficients and powers input lists/tuples to prevent DoS and type conf",
       "file_type": "rationale",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L9",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "math_calculus_integration_numintegration_rationale_9",
+      "id": "math_calculus_integration_numintegration_rationale_14",
       "community": 39,
       "community_name": "Integrate Polynomial Module",
       "norm_label": "validate coefficients and powers input lists/tuples to prevent dos and type conf"
@@ -917,9 +928,9 @@
       "label": "Integrate a polynomial term by term.      Parameters:     coefficients (List[Uni",
       "file_type": "rationale",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L31",
+      "source_location": "L39",
       "_origin": "ast",
-      "id": "math_calculus_integration_numintegration_rationale_31",
+      "id": "math_calculus_integration_numintegration_rationale_39",
       "community": 39,
       "community_name": "Integrate Polynomial Module",
       "norm_label": "integrate a polynomial term by term.      parameters:     coefficients (list[uni"
@@ -928,9 +939,9 @@
       "label": "Format an integrated polynomial as a string.      Parameters:     coefficients (",
       "file_type": "rationale",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L62",
+      "source_location": "L70",
       "_origin": "ast",
-      "id": "math_calculus_integration_numintegration_rationale_62",
+      "id": "math_calculus_integration_numintegration_rationale_70",
       "community": 39,
       "community_name": "Integrate Polynomial Module",
       "norm_label": "format an integrated polynomial as a string.      parameters:     coefficients ("
@@ -1822,8 +1833,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": "circle.py"
     },
     {
@@ -1833,8 +1844,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle_area_of_circle",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": "area_of_circle()"
     },
     {
@@ -1844,8 +1855,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle_rationale_8",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": "calculate the area of a circle given its radius.      parameters:     radius (un"
     },
     {
@@ -2053,8 +2064,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_cone",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": "cone.py"
     },
     {
@@ -2064,8 +2075,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_cone_volume_of_cone",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": "volume_of_cone()"
     },
     {
@@ -2075,8 +2086,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_cone_rationale_8",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": "calculate the volume of a cone given its radius and height.      parameters:"
     },
     {
@@ -2185,8 +2196,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_sphere",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "sphere.py"
     },
     {
@@ -2196,8 +2207,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_sphere_volume_of_sphere",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "volume_of_sphere()"
     },
     {
@@ -2207,8 +2218,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_sphere_rationale_8",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "calculate the volume of a sphere given its radius.      parameters:     radius ("
     },
     {
@@ -2636,8 +2647,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_trigonometry_trig_functions_tan",
-      "community": 136,
-      "community_name": "volume_of_sphere",
+      "community": 145,
+      "community_name": "tangent",
       "norm_label": "tan.py"
     },
     {
@@ -2658,8 +2669,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_trigonometry_trig_functions_tan_rationale_1",
-      "community": 136,
-      "community_name": "volume_of_sphere",
+      "community": 145,
+      "community_name": "tangent",
       "norm_label": "module for calculating the tangent trigonometric function."
     },
     {
@@ -3516,8 +3527,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "math_utils_math_utils_py_decimal",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "decimal"
     },
     {
@@ -4935,8 +4946,8 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "tests_test_calculus_test_chain_rule_derivative_empty",
-      "community": 20,
-      "community_name": "Calculus Chain Rule",
+      "community": 135,
+      "community_name": "volume_of_cylinder",
       "norm_label": "test_chain_rule_derivative_empty()"
     },
     {
@@ -4990,8 +5001,8 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "tests_test_calculus_test_chain_rule_derivative_negative_coeffs_powers",
-      "community": 20,
-      "community_name": "Calculus Chain Rule",
+      "community": 135,
+      "community_name": "volume_of_cylinder",
       "norm_label": "test_chain_rule_derivative_negative_coeffs_powers()"
     },
     {
@@ -5012,8 +5023,8 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "tests_test_calculus_test_chain_rule_derivative_empty_inner",
-      "community": 20,
-      "community_name": "Calculus Chain Rule",
+      "community": 135,
+      "community_name": "volume_of_cylinder",
       "norm_label": "test_chain_rule_derivative_empty_inner()"
     },
     {
@@ -5529,8 +5540,8 @@
       "source_location": "L443",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": "testquotientrule"
     },
     {
@@ -5551,8 +5562,8 @@
       "source_location": "L447",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_format_polynomial_quotient_rule_multiple_terms",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_format_polynomial_quotient_rule_multiple_terms()"
     },
     {
@@ -5562,8 +5573,8 @@
       "source_location": "L450",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_format_polynomial_quotient_rule_floats",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_format_polynomial_quotient_rule_floats()"
     },
     {
@@ -5573,8 +5584,8 @@
       "source_location": "L453",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_format_polynomial_quotient_rule_negative_powers",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_format_polynomial_quotient_rule_negative_powers()"
     },
     {
@@ -5584,8 +5595,8 @@
       "source_location": "L456",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_format_polynomial_quotient_rule_empty",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_format_polynomial_quotient_rule_empty()"
     },
     {
@@ -5595,8 +5606,8 @@
       "source_location": "L459",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_basic",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_basic()"
     },
     {
@@ -5606,8 +5617,8 @@
       "source_location": "L465",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_multiple_terms",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_multiple_terms()"
     },
     {
@@ -5617,8 +5628,8 @@
       "source_location": "L472",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_constant",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_constant()"
     },
     {
@@ -5628,8 +5639,8 @@
       "source_location": "L475",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_zero_coefficient",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_zero_coefficient()"
     },
     {
@@ -5639,8 +5650,8 @@
       "source_location": "L481",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_float",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_float()"
     },
     {
@@ -5650,8 +5661,8 @@
       "source_location": "L488",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_negative_powers",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_negative_powers()"
     },
     {
@@ -5661,8 +5672,8 @@
       "source_location": "L494",
       "_origin": "ast",
       "id": "tests_test_calculus_testquotientrule_test_compute_polynomial_derivative_str_empty",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 25,
+      "community_name": "Partition Test Discretetest Module",
       "norm_label": ".test_compute_polynomial_derivative_str_empty()"
     },
     {
@@ -6277,8 +6288,8 @@
       "source_location": "L872",
       "_origin": "ast",
       "id": "tests_test_calculus_testformatpolynomialchainrule_test_integrate_cos_multiple_periods",
-      "community": 8,
-      "community_name": "Test Calculus Testformatpolynomialchainrule Module",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": ".test_integrate_cos_multiple_periods()"
     },
     {
@@ -6387,8 +6398,8 @@
       "source_location": "L873",
       "_origin": "ast",
       "id": "tests_test_calculus_rationale_873",
-      "community": 8,
-      "community_name": "Test Calculus Testformatpolynomialchainrule Module",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": "test integral of cos(x) over multiple periods"
     },
     {
@@ -6541,8 +6552,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_discretemath_test_factorial_positive_integers",
-      "community": 18,
-      "community_name": "Factorial Discrete Module",
+      "community": 143,
+      "community_name": "test_DiscreteMath.py",
       "norm_label": "test_factorial_positive_integers()"
     },
     {
@@ -6552,8 +6563,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "tests_test_discretemath_test_factorial_large_number",
-      "community": 18,
-      "community_name": "Factorial Discrete Module",
+      "community": 143,
+      "community_name": "test_DiscreteMath.py",
       "norm_label": "test_factorial_large_number()"
     },
     {
@@ -6673,8 +6684,8 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "tests_test_discretemath_test_partition_approximation_edge_cases",
-      "community": 143,
-      "community_name": "test_DiscreteMath.py",
+      "community": 14,
+      "community_name": "Pascal's Triangle Combinatorics",
       "norm_label": "test_partition_approximation_edge_cases()"
     },
     {
@@ -6772,8 +6783,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "tests_test_discretemath_rationale_30",
-      "community": 18,
-      "community_name": "Factorial Discrete Module",
+      "community": 143,
+      "community_name": "test_DiscreteMath.py",
       "norm_label": "test factorial calculation for positive integers."
     },
     {
@@ -6783,8 +6794,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "tests_test_discretemath_rationale_39",
-      "community": 18,
-      "community_name": "Factorial Discrete Module",
+      "community": 143,
+      "community_name": "test_DiscreteMath.py",
       "norm_label": "test factorial calculation for a slightly larger number."
     },
     {
@@ -6860,8 +6871,8 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "tests_test_discretemath_rationale_146",
-      "community": 143,
-      "community_name": "test_DiscreteMath.py",
+      "community": 14,
+      "community_name": "Pascal's Triangle Combinatorics",
       "norm_label": "test edge cases for partition approximation."
     },
     {
@@ -6915,8 +6926,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testfactorialdecimal",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": "testfactorialdecimal"
     },
     {
@@ -6926,8 +6937,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testfactorialdecimal_test_factorial_zero",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": ".test_factorial_zero()"
     },
     {
@@ -6937,8 +6948,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testfactorialdecimal_test_factorial_one",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": ".test_factorial_one()"
     },
     {
@@ -6948,8 +6959,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testfactorialdecimal_test_factorial_positive",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": ".test_factorial_positive()"
     },
     {
@@ -6959,8 +6970,8 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testfactorialdecimal_test_factorial_negative",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": ".test_factorial_negative()"
     },
     {
@@ -6970,8 +6981,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_eulers_number_testfactorialdecimal_test_factorial_type",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": ".test_factorial_type()"
     },
     {
@@ -7047,8 +7058,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "tests_test_eulers_number_rationale_11",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": "test factorial of zero is 1."
     },
     {
@@ -7058,8 +7069,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tests_test_eulers_number_rationale_15",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": "test factorial of one is 1."
     },
     {
@@ -7069,8 +7080,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tests_test_eulers_number_rationale_19",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": "test factorial for positive integers."
     },
     {
@@ -7080,8 +7091,8 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "tests_test_eulers_number_rationale_24",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": "test that negative numbers raise valueerror."
     },
     {
@@ -7091,8 +7102,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_eulers_number_rationale_29",
-      "community": 41,
-      "community_name": "Approximation Partition Module",
+      "community": 147,
+      "community_name": "TestFactorialDecimal",
       "norm_label": "test that the result is of type decimal."
     },
     {
@@ -8136,8 +8147,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_full_period",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": ".test_integrate_cos_full_period()"
     },
     {
@@ -8202,8 +8213,8 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_multiple_periods",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": ".test_integrate_cos_multiple_periods()"
     },
     {
@@ -8312,8 +8323,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_53",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": "test integral of cos(x) from 0 to 2*pi = 0"
     },
     {
@@ -8378,8 +8389,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_84",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": "test integral of cos(x) over multiple periods"
     },
     {
@@ -8972,8 +8983,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_chain_rule",
-      "community": 130,
-      "community_name": "area_of_circle",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": "test_chain_rule.py"
     },
     {
@@ -9175,14 +9186,80 @@
       "norm_label": ".test_format_polynomial_negative_powers()"
     },
     {
+      "label": "test_chain_rule_security.py",
+      "file_type": "code",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_chain_rule_security",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": "test_chain_rule_security.py"
+    },
+    {
+      "label": "TestChainRuleSecurity",
+      "file_type": "code",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "tests_test_chain_rule_security_testchainrulesecurity",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": "testchainrulesecurity"
+    },
+    {
+      "label": ".test_chain_rule_derivative_invalid_container_types()",
+      "file_type": "code",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_container_types",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": ".test_chain_rule_derivative_invalid_container_types()"
+    },
+    {
+      "label": ".test_chain_rule_derivative_invalid_element_types()",
+      "file_type": "code",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_element_types",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": ".test_chain_rule_derivative_invalid_element_types()"
+    },
+    {
+      "label": ".test_chain_rule_derivative_invalid_exponent_type()",
+      "file_type": "code",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_exponent_type",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": ".test_chain_rule_derivative_invalid_exponent_type()"
+    },
+    {
+      "label": ".test_chain_rule_derivative_bounds()",
+      "file_type": "code",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_bounds",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
+      "norm_label": ".test_chain_rule_derivative_bounds()"
+    },
+    {
       "label": "test_circle.py",
       "file_type": "code",
       "source_file": "Tests/test_circle.py",
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_circle",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": "test_circle.py"
     },
     {
@@ -9192,8 +9269,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": "testareaofcircle"
     },
     {
@@ -9203,8 +9280,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_setup",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": ".setup()"
     },
     {
@@ -9214,8 +9291,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_positive_integer_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": ".test_positive_integer_radius()"
     },
     {
@@ -9225,8 +9302,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_positive_float_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": ".test_positive_float_radius()"
     },
     {
@@ -9236,8 +9313,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_zero_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": ".test_zero_radius()"
     },
     {
@@ -9247,8 +9324,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_negative_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 148,
+      "community_name": "area_of_circle",
       "norm_label": ".test_negative_radius()"
     },
     {
@@ -17871,8 +17948,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": "test_volume_of_cone.py"
     },
     {
@@ -17882,8 +17959,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": "testvolumeofcone"
     },
     {
@@ -17893,8 +17970,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_positive_integers",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_volume_positive_integers()"
     },
     {
@@ -17904,8 +17981,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_positive_floats",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_volume_positive_floats()"
     },
     {
@@ -17915,8 +17992,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_zero_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_volume_zero_radius()"
     },
     {
@@ -17926,8 +18003,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_zero_height",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_volume_zero_height()"
     },
     {
@@ -17937,8 +18014,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_zero_both",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_volume_zero_both()"
     },
     {
@@ -17948,8 +18025,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_negative_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_negative_radius()"
     },
     {
@@ -17959,8 +18036,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_negative_height",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_negative_height()"
     },
     {
@@ -17970,8 +18047,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_negative_both",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 142,
+      "community_name": "TestQuotientRule",
       "norm_label": ".test_negative_both()"
     },
     {
@@ -18366,8 +18443,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "test_volume_of_sphere.py"
     },
     {
@@ -18377,8 +18454,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "testvolumeofsphere"
     },
     {
@@ -18388,8 +18465,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_zero_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": ".test_volume_zero_radius()"
     },
     {
@@ -18399,8 +18476,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_positive_integer_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": ".test_volume_positive_integer_radius()"
     },
     {
@@ -18410,8 +18487,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_positive_float_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": ".test_volume_positive_float_radius()"
     },
     {
@@ -18421,8 +18498,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_negative_radius",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": ".test_volume_negative_radius()"
     },
     {
@@ -18432,8 +18509,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_10",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "test volume with zero radius."
     },
     {
@@ -18443,8 +18520,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_15",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "test volume with a positive integer radius."
     },
     {
@@ -18454,8 +18531,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_22",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "test volume with a positive float radius."
     },
     {
@@ -18465,8 +18542,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_29",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 47,
+      "community_name": "Euclidean Area (Circle)",
       "norm_label": "test that negative radius raises valueerror."
     },
     {
@@ -22634,6 +22711,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Math/Calculus/Differentiation/chain_rule.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "math_calculus_differentiation_chain_rule_rationale_1",
+      "target": "math_calculus_differentiation_chain_rule",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -22658,11 +22746,23 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security",
+      "target": "math_calculus_differentiation_chain_rule",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Differentiation/chain_rule.py",
-      "source_location": "L31",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_differentiation_chain_rule_chain_rule_derivative",
@@ -22674,7 +22774,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Differentiation/chain_rule.py",
-      "source_location": "L28",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_differentiation_chain_rule_chain_rule_derivative",
@@ -22883,6 +22983,66 @@
       "source": "tests_test_chain_rule",
       "target": "math_calculus_differentiation_chain_rule_chain_rule_derivative",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security",
+      "target": "math_calculus_differentiation_chain_rule_chain_rule_derivative",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_bounds",
+      "target": "math_calculus_differentiation_chain_rule_chain_rule_derivative"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_container_types",
+      "target": "math_calculus_differentiation_chain_rule_chain_rule_derivative"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_element_types",
+      "target": "math_calculus_differentiation_chain_rule_chain_rule_derivative"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_exponent_type",
+      "target": "math_calculus_differentiation_chain_rule_chain_rule_derivative"
     },
     {
       "relation": "calls",
@@ -25118,7 +25278,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L61",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_integration_numintegration",
@@ -25129,7 +25289,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L28",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_integration_numintegration",
@@ -25140,7 +25300,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L6",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_integration_numintegration",
@@ -25187,7 +25347,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L73",
+      "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_integration_numintegration_format_polynomial_integration",
@@ -25199,7 +25359,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L42",
+      "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_integration_numintegration_integrate_polynomial",
@@ -25210,10 +25370,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L9",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_calculus_integration_numintegration_rationale_9",
+      "source": "math_calculus_integration_numintegration_rationale_14",
       "target": "math_calculus_integration_numintegration_validate_polynomial_inputs",
       "confidence_score": 1.0
     },
@@ -25221,10 +25381,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L31",
+      "source_location": "L39",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_calculus_integration_numintegration_rationale_31",
+      "source": "math_calculus_integration_numintegration_rationale_39",
       "target": "math_calculus_integration_numintegration_integrate_polynomial",
       "confidence_score": 1.0
     },
@@ -25388,10 +25548,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Integration/NumIntegration.py",
-      "source_location": "L62",
+      "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_calculus_integration_numintegration_rationale_62",
+      "source": "math_calculus_integration_numintegration_rationale_70",
       "target": "math_calculus_integration_numintegration_format_polynomial_integration",
       "confidence_score": 1.0
     },
@@ -41382,6 +41542,61 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security",
+      "target": "tests_test_chain_rule_security_testchainrulesecurity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity",
+      "target": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_bounds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity",
+      "target": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_container_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity",
+      "target": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_element_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_chain_rule_security.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_chain_rule_security_testchainrulesecurity",
+      "target": "tests_test_chain_rule_security_testchainrulesecurity_test_chain_rule_derivative_invalid_exponent_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Tests/test_circle.py",
       "source_location": "L6",
       "weight": 1.0,
@@ -50324,5 +50539,5 @@
       "source_file": "handoff.md"
     }
   ],
-  "built_at_commit": "805cdcc4467c43f3e4df71d5f8b6daf4981f1963"
+  "built_at_commit": "0a346cd8e6b40fa7c2adaa66262f859ba543ae12"
 }
