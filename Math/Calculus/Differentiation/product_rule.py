@@ -1,4 +1,4 @@
-# Product rule for differentiation
+"""Product rule for differentiation."""
 from typing import List, Union
 
 from Math.utils.math_utils import format_polynomial

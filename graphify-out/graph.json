@@ -656,8 +656,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_calculus_differentiation_product_rule",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": "product_rule.py"
     },
     {
@@ -667,9 +667,20 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_calculus_differentiation_product_rule_product_rule_derivative",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": "product_rule_derivative()"
+    },
+    {
+      "label": "Product rule for differentiation.",
+      "file_type": "rationale",
+      "source_file": "Math/Calculus/Differentiation/product_rule.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "math_calculus_differentiation_product_rule_rationale_1",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
+      "norm_label": "product rule for differentiation."
     },
     {
       "label": "Apply the product rule to find the derivative of u(x) * v(x).      Parameters:",
@@ -678,8 +689,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "math_calculus_differentiation_product_rule_rationale_14",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": "apply the product rule to find the derivative of u(x) * v(x).      parameters:"
     },
     {
@@ -1833,8 +1844,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "circle.py"
     },
     {
@@ -1844,8 +1855,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle_area_of_circle",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "area_of_circle()"
     },
     {
@@ -1855,8 +1866,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle_rationale_8",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "calculate the area of a circle given its radius.      parameters:     radius (un"
     },
     {
@@ -1874,7 +1885,7 @@
       "label": "herons_area_of_triangle()",
       "file_type": "code",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py",
-      "source_location": "L6",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula_herons_area_of_triangle",
       "community": 56,
@@ -1896,9 +1907,9 @@
       "label": "Calculate the area of a triangle using Heron's formula.      Parameters:     a (",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py",
-      "source_location": "L9",
+      "source_location": "L14",
       "_origin": "ast",
-      "id": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula_rationale_9",
+      "id": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula_rationale_14",
       "community": 56,
       "community_name": "Euclidean Area (Triangle)",
       "norm_label": "calculate the area of a triangle using heron's formula.      parameters:     a ("
@@ -2064,8 +2075,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_cone",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "cone.py"
     },
     {
@@ -2075,8 +2086,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_cone_volume_of_cone",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "volume_of_cone()"
     },
     {
@@ -2086,8 +2097,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_cone_rationale_8",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "calculate the volume of a cone given its radius and height.      parameters:"
     },
     {
@@ -2196,8 +2207,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_sphere",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "sphere.py"
     },
     {
@@ -2207,8 +2218,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_sphere_volume_of_sphere",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "volume_of_sphere()"
     },
     {
@@ -2218,8 +2229,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_volume_sphere_rationale_8",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "calculate the volume of a sphere given its radius.      parameters:     radius ("
     },
     {
@@ -2380,7 +2391,7 @@
       "label": "sqrt_newton()",
       "file_type": "code",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L9",
+      "source_location": "L14",
       "_origin": "ast",
       "id": "math_geometry_trigonometry_formulas_cosine_rule_sqrt_newton",
       "community": 47,
@@ -2391,7 +2402,7 @@
       "label": "arccos_series()",
       "file_type": "code",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L57",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "math_geometry_trigonometry_formulas_cosine_rule_arccos_series",
       "community": 47,
@@ -2402,7 +2413,7 @@
       "label": "cosine_rule_for_side()",
       "file_type": "code",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L87",
+      "source_location": "L93",
       "_origin": "ast",
       "id": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_side",
       "community": 47,
@@ -2413,7 +2424,7 @@
       "label": "cosine_rule_for_angle()",
       "file_type": "code",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L109",
+      "source_location": "L116",
       "_origin": "ast",
       "id": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_angle",
       "community": 47,
@@ -2435,9 +2446,9 @@
       "label": "Calculate square root using Newton's method.      Parameters:     x (Union[int,",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L10",
+      "source_location": "L15",
       "_origin": "ast",
-      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_10",
+      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_15",
       "community": 47,
       "community_name": "Euclidean Area (Circle)",
       "norm_label": "calculate square root using newton's method.      parameters:     x (union[int,"
@@ -2446,9 +2457,9 @@
       "label": "Calculate arccos using series approximation.      Parameters:     x (Union[int,",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L58",
+      "source_location": "L64",
       "_origin": "ast",
-      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_58",
+      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_64",
       "community": 47,
       "community_name": "Euclidean Area (Circle)",
       "norm_label": "calculate arccos using series approximation.      parameters:     x (union[int,"
@@ -2457,9 +2468,9 @@
       "label": "Calculate the length of side c using the cosine rule: c\u00b2 = a\u00b2 + b\u00b2 - 2ab\u00d7cos(C).",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L90",
+      "source_location": "L96",
       "_origin": "ast",
-      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_90",
+      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_96",
       "community": 47,
       "community_name": "Euclidean Area (Circle)",
       "norm_label": "calculate the length of side c using the cosine rule: c2 = a2 + b2 - 2ab\u00d7cos(c)."
@@ -2468,9 +2479,9 @@
       "label": "Calculate angle C using the cosine rule: cos(C) = (a\u00b2 + b\u00b2 - c\u00b2) / (2ab).      P",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L112",
+      "source_location": "L119",
       "_origin": "ast",
-      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_112",
+      "id": "math_geometry_trigonometry_formulas_cosine_rule_rationale_119",
       "community": 47,
       "community_name": "Euclidean Area (Circle)",
       "norm_label": "calculate angle c using the cosine rule: cos(c) = (a2 + b2 - c2) / (2ab).      p"
@@ -3494,8 +3505,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "math_utils_math_utils_product_tree",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "_product_tree()"
     },
     {
@@ -3527,8 +3538,8 @@
       "source_location": "",
       "_origin": "ast",
       "id": "math_utils_math_utils_py_decimal",
-      "community": 30,
-      "community_name": "Euclidean Volume (Cone)",
+      "community": 41,
+      "community_name": "Approximation Partition Module",
       "norm_label": "decimal"
     },
     {
@@ -3560,8 +3571,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "math_utils_math_utils_rationale_10",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "helper function to perform tree multiplication of range [start, end].      param"
     },
     {
@@ -4946,8 +4957,8 @@
       "source_location": "L114",
       "_origin": "ast",
       "id": "tests_test_calculus_test_chain_rule_derivative_empty",
-      "community": 135,
-      "community_name": "volume_of_cylinder",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": "test_chain_rule_derivative_empty()"
     },
     {
@@ -5001,8 +5012,8 @@
       "source_location": "L160",
       "_origin": "ast",
       "id": "tests_test_calculus_test_chain_rule_derivative_negative_coeffs_powers",
-      "community": 135,
-      "community_name": "volume_of_cylinder",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": "test_chain_rule_derivative_negative_coeffs_powers()"
     },
     {
@@ -5023,8 +5034,8 @@
       "source_location": "L185",
       "_origin": "ast",
       "id": "tests_test_calculus_test_chain_rule_derivative_empty_inner",
-      "community": 135,
-      "community_name": "volume_of_cylinder",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": "test_chain_rule_derivative_empty_inner()"
     },
     {
@@ -6266,8 +6277,8 @@
       "source_location": "L862",
       "_origin": "ast",
       "id": "tests_test_calculus_testformatpolynomialchainrule_test_integrate_cos_same_bounds",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 8,
+      "community_name": "Test Calculus Testformatpolynomialchainrule Module",
       "norm_label": ".test_integrate_cos_same_bounds()"
     },
     {
@@ -6376,8 +6387,8 @@
       "source_location": "L863",
       "_origin": "ast",
       "id": "tests_test_calculus_rationale_863",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 8,
+      "community_name": "Test Calculus Testformatpolynomialchainrule Module",
       "norm_label": "test integral of cos(x) from pi to pi = 0"
     },
     {
@@ -6552,8 +6563,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_discretemath_test_factorial_positive_integers",
-      "community": 143,
-      "community_name": "test_DiscreteMath.py",
+      "community": 18,
+      "community_name": "Factorial Discrete Module",
       "norm_label": "test_factorial_positive_integers()"
     },
     {
@@ -6563,8 +6574,8 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "tests_test_discretemath_test_factorial_large_number",
-      "community": 143,
-      "community_name": "test_DiscreteMath.py",
+      "community": 18,
+      "community_name": "Factorial Discrete Module",
       "norm_label": "test_factorial_large_number()"
     },
     {
@@ -6684,8 +6695,8 @@
       "source_location": "L145",
       "_origin": "ast",
       "id": "tests_test_discretemath_test_partition_approximation_edge_cases",
-      "community": 14,
-      "community_name": "Pascal's Triangle Combinatorics",
+      "community": 143,
+      "community_name": "test_DiscreteMath.py",
       "norm_label": "test_partition_approximation_edge_cases()"
     },
     {
@@ -6783,8 +6794,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "tests_test_discretemath_rationale_30",
-      "community": 143,
-      "community_name": "test_DiscreteMath.py",
+      "community": 18,
+      "community_name": "Factorial Discrete Module",
       "norm_label": "test factorial calculation for positive integers."
     },
     {
@@ -6794,8 +6805,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "tests_test_discretemath_rationale_39",
-      "community": 143,
-      "community_name": "test_DiscreteMath.py",
+      "community": 18,
+      "community_name": "Factorial Discrete Module",
       "norm_label": "test factorial calculation for a slightly larger number."
     },
     {
@@ -6871,8 +6882,8 @@
       "source_location": "L146",
       "_origin": "ast",
       "id": "tests_test_discretemath_rationale_146",
-      "community": 14,
-      "community_name": "Pascal's Triangle Combinatorics",
+      "community": 143,
+      "community_name": "test_DiscreteMath.py",
       "norm_label": "test edge cases for partition approximation."
     },
     {
@@ -8103,8 +8114,8 @@
       "source_location": "L31",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_sin_reversed_bounds",
-      "community": 40,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": ".test_integrate_sin_reversed_bounds()"
     },
     {
@@ -8147,8 +8158,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_full_period",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": ".test_integrate_cos_full_period()"
     },
     {
@@ -8279,8 +8290,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_32",
-      "community": 40,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": "test integral of sin(x) from pi to 0 = -2"
     },
     {
@@ -8323,8 +8334,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_53",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": "test integral of cos(x) from 0 to 2*pi = 0"
     },
     {
@@ -9137,8 +9148,8 @@
       "source_location": "L70",
       "_origin": "ast",
       "id": "tests_test_chain_rule_testchainruleformatpolynomial",
-      "community": 130,
-      "community_name": "area_of_circle",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": "testchainruleformatpolynomial"
     },
     {
@@ -9148,8 +9159,8 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "tests_test_chain_rule_testchainruleformatpolynomial_test_format_polynomial_basic",
-      "community": 130,
-      "community_name": "area_of_circle",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": ".test_format_polynomial_basic()"
     },
     {
@@ -9159,8 +9170,8 @@
       "source_location": "L74",
       "_origin": "ast",
       "id": "tests_test_chain_rule_testchainruleformatpolynomial_test_format_polynomial_empty",
-      "community": 130,
-      "community_name": "area_of_circle",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": ".test_format_polynomial_empty()"
     },
     {
@@ -9170,8 +9181,8 @@
       "source_location": "L77",
       "_origin": "ast",
       "id": "tests_test_chain_rule_testchainruleformatpolynomial_test_format_polynomial_floats",
-      "community": 130,
-      "community_name": "area_of_circle",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": ".test_format_polynomial_floats()"
     },
     {
@@ -9181,8 +9192,8 @@
       "source_location": "L80",
       "_origin": "ast",
       "id": "tests_test_chain_rule_testchainruleformatpolynomial_test_format_polynomial_negative_powers",
-      "community": 130,
-      "community_name": "area_of_circle",
+      "community": 20,
+      "community_name": "Calculus Chain Rule",
       "norm_label": ".test_format_polynomial_negative_powers()"
     },
     {
@@ -9258,8 +9269,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_circle",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test_circle.py"
     },
     {
@@ -9269,8 +9280,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "testareaofcircle"
     },
     {
@@ -9280,8 +9291,8 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_setup",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".setup()"
     },
     {
@@ -9291,8 +9302,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_positive_integer_radius",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_positive_integer_radius()"
     },
     {
@@ -9302,8 +9313,8 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_positive_float_radius",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_positive_float_radius()"
     },
     {
@@ -9313,8 +9324,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_zero_radius",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_zero_radius()"
     },
     {
@@ -9324,8 +9335,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_circle_testareaofcircle_test_negative_radius",
-      "community": 148,
-      "community_name": "area_of_circle",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_negative_radius()"
     },
     {
@@ -12074,8 +12085,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "testproducttree"
     },
     {
@@ -12085,8 +12096,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_start_greater_than_end",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_start_greater_than_end()"
     },
     {
@@ -12096,8 +12107,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_start_equals_end",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_start_equals_end()"
     },
     {
@@ -12107,8 +12118,8 @@
       "source_location": "L40",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_start_plus_one_equals_end",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_start_plus_one_equals_end()"
     },
     {
@@ -12118,8 +12129,8 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_product_tree_recursive_range",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_product_tree_recursive_range()"
     },
     {
@@ -12129,8 +12140,8 @@
       "source_location": "L51",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_product_tree_negative_ranges",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_product_tree_negative_ranges()"
     },
     {
@@ -12140,8 +12151,8 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_product_tree_range_including_zero",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_product_tree_range_including_zero()"
     },
     {
@@ -12151,8 +12162,8 @@
       "source_location": "L61",
       "_origin": "ast",
       "id": "tests_test_math_utils_testproducttree_test_product_tree_threshold_ranges",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": ".test_product_tree_threshold_ranges()"
     },
     {
@@ -12448,8 +12459,8 @@
       "source_location": "L30",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_30",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree returns 1 when start > end."
     },
     {
@@ -12459,8 +12470,8 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_35",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree returns start when start == end."
     },
     {
@@ -12470,8 +12481,8 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_41",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree returns start * end when start + 1 == end."
     },
     {
@@ -12481,8 +12492,8 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_47",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree for larger ranges requiring recursive splitting."
     },
     {
@@ -12492,8 +12503,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_52",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree with negative integer ranges."
     },
     {
@@ -12503,8 +12514,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_57",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree when zero is included in the range."
     },
     {
@@ -12514,8 +12525,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "tests_test_math_utils_rationale_62",
-      "community": 2,
-      "community_name": "Differentiation Chain & Second Derivative Rules",
+      "community": 1,
+      "community_name": "Binomial Theorem",
       "norm_label": "test _product_tree for ranges <= 16 and > 16 elements."
     },
     {
@@ -14681,8 +14692,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_product_rule",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": "test_product_rule.py"
     },
     {
@@ -14692,8 +14703,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": "testproductrulederivative"
     },
     {
@@ -14703,8 +14714,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_basic",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_basic()"
     },
     {
@@ -14714,8 +14725,8 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_complex",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_complex()"
     },
     {
@@ -14725,8 +14736,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_constant",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_constant()"
     },
     {
@@ -14736,8 +14747,8 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_multiple_terms",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_multiple_terms()"
     },
     {
@@ -14747,8 +14758,8 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_empty_polynomials",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_empty_polynomials()"
     },
     {
@@ -14758,8 +14769,8 @@
       "source_location": "L39",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_floating_point",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_floating_point()"
     },
     {
@@ -14769,8 +14780,8 @@
       "source_location": "L44",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_negative_powers",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_negative_powers()"
     },
     {
@@ -14780,8 +14791,8 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_zero_coefficients",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_zero_coefficients()"
     },
     {
@@ -14791,8 +14802,8 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "tests_test_product_rule_testproductrulederivative_test_product_rule_derivative_both_constants",
-      "community": 53,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
       "norm_label": ".test_product_rule_derivative_both_constants()"
     },
     {
@@ -15047,6 +15058,61 @@
       "community": 15,
       "community_name": "Trigonometric Tangent Functions",
       "norm_label": ".test_compute_polynomial_derivative_str_mixed_terms()"
+    },
+    {
+      "label": "test_product_rule_security.py",
+      "file_type": "code",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "tests_test_product_rule_security",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
+      "norm_label": "test_product_rule_security.py"
+    },
+    {
+      "label": "TestProductRuleSecurity",
+      "file_type": "code",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "tests_test_product_rule_security_testproductrulesecurity",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
+      "norm_label": "testproductrulesecurity"
+    },
+    {
+      "label": ".test_product_rule_derivative_invalid_container_types()",
+      "file_type": "code",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_invalid_container_types",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
+      "norm_label": ".test_product_rule_derivative_invalid_container_types()"
+    },
+    {
+      "label": ".test_product_rule_derivative_invalid_element_types()",
+      "file_type": "code",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_invalid_element_types",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
+      "norm_label": ".test_product_rule_derivative_invalid_element_types()"
+    },
+    {
+      "label": ".test_product_rule_derivative_bounds()",
+      "file_type": "code",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_bounds",
+      "community": 52,
+      "community_name": "TestCalculusDifferentiation",
+      "norm_label": ".test_product_rule_derivative_bounds()"
     },
     {
       "label": "test_pythagoras_theorem.py",
@@ -17948,8 +18014,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test_volume_of_cone.py"
     },
     {
@@ -17959,8 +18025,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "testvolumeofcone"
     },
     {
@@ -17970,8 +18036,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_positive_integers",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_positive_integers()"
     },
     {
@@ -17981,8 +18047,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_positive_floats",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_positive_floats()"
     },
     {
@@ -17992,8 +18058,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_zero_radius",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_zero_radius()"
     },
     {
@@ -18003,8 +18069,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_zero_height",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_zero_height()"
     },
     {
@@ -18014,8 +18080,8 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_volume_zero_both",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_zero_both()"
     },
     {
@@ -18025,8 +18091,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_negative_radius",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_negative_radius()"
     },
     {
@@ -18036,8 +18102,8 @@
       "source_location": "L32",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_negative_height",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_negative_height()"
     },
     {
@@ -18047,8 +18113,8 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "tests_test_volume_of_cone_testvolumeofcone_test_negative_both",
-      "community": 142,
-      "community_name": "TestQuotientRule",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_negative_both()"
     },
     {
@@ -18443,8 +18509,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test_volume_of_sphere.py"
     },
     {
@@ -18454,8 +18520,8 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "testvolumeofsphere"
     },
     {
@@ -18465,8 +18531,8 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_zero_radius",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_zero_radius()"
     },
     {
@@ -18476,8 +18542,8 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_positive_integer_radius",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_positive_integer_radius()"
     },
     {
@@ -18487,8 +18553,8 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_positive_float_radius",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_positive_float_radius()"
     },
     {
@@ -18498,8 +18564,8 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_testvolumeofsphere_test_volume_negative_radius",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": ".test_volume_negative_radius()"
     },
     {
@@ -18509,8 +18575,8 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_10",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test volume with zero radius."
     },
     {
@@ -18520,8 +18586,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_15",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test volume with a positive integer radius."
     },
     {
@@ -18531,8 +18597,8 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_22",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test volume with a positive float radius."
     },
     {
@@ -18542,8 +18608,8 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "tests_test_volume_of_sphere_rationale_29",
-      "community": 47,
-      "community_name": "Euclidean Area (Circle)",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
       "norm_label": "test that negative radius raises valueerror."
     },
     {
@@ -23248,6 +23314,17 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Math/Calculus/Differentiation/product_rule.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "math_calculus_differentiation_product_rule_rationale_1",
+      "target": "math_calculus_differentiation_product_rule",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -23272,11 +23349,23 @@
       "confidence_score": 1.0
     },
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security",
+      "target": "math_calculus_differentiation_product_rule",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Differentiation/product_rule.py",
-      "source_location": "L31",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_differentiation_product_rule_product_rule_derivative",
@@ -23288,7 +23377,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Calculus/Differentiation/product_rule.py",
-      "source_location": "L27",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_calculus_differentiation_product_rule_product_rule_derivative",
@@ -23329,6 +23418,54 @@
       "source": "tests_test_product_rule",
       "target": "math_calculus_differentiation_product_rule_product_rule_derivative",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security",
+      "target": "math_calculus_differentiation_product_rule_product_rule_derivative",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_bounds",
+      "target": "math_calculus_differentiation_product_rule_product_rule_derivative"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_invalid_container_types",
+      "target": "math_calculus_differentiation_product_rule_product_rule_derivative"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_invalid_element_types",
+      "target": "math_calculus_differentiation_product_rule_product_rule_derivative"
     },
     {
       "relation": "calls",
@@ -29660,7 +29797,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py",
-      "source_location": "L6",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula",
@@ -29682,10 +29819,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py",
-      "source_location": "L9",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula_rationale_9",
+      "source": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula_rationale_14",
       "target": "math_geometry_euclidean_geometry_area_heron_s_area_of_triangle_formula_herons_area_of_triangle",
       "confidence_score": 1.0
     },
@@ -31708,7 +31845,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L57",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule",
@@ -31719,7 +31856,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L109",
+      "source_location": "L116",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule",
@@ -31730,7 +31867,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L87",
+      "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule",
@@ -31741,7 +31878,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L9",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule",
@@ -31824,7 +31961,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L106",
+      "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_side",
@@ -31835,10 +31972,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L10",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_10",
+      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_15",
       "target": "math_geometry_trigonometry_formulas_cosine_rule_sqrt_newton",
       "confidence_score": 1.0
     },
@@ -31979,7 +32116,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L132",
+      "source_location": "L140",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_angle",
@@ -31990,10 +32127,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L58",
+      "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_58",
+      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_64",
       "target": "math_geometry_trigonometry_formulas_cosine_rule_arccos_series",
       "confidence_score": 1.0
     },
@@ -32062,7 +32199,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L105",
+      "source_location": "L112",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_side",
@@ -32073,10 +32210,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L90",
+      "source_location": "L96",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_90",
+      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_96",
       "target": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_side",
       "confidence_score": 1.0
     },
@@ -32120,10 +32257,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Trigonometry/Formulas/cosine_rule.py",
-      "source_location": "L112",
+      "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_112",
+      "source": "math_geometry_trigonometry_formulas_cosine_rule_rationale_119",
       "target": "math_geometry_trigonometry_formulas_cosine_rule_cosine_rule_for_angle",
       "confidence_score": 1.0
     },
@@ -46995,6 +47132,50 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security",
+      "target": "tests_test_product_rule_security_testproductrulesecurity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security_testproductrulesecurity",
+      "target": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_bounds",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security_testproductrulesecurity",
+      "target": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_invalid_container_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "Tests/test_product_rule_security.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "tests_test_product_rule_security_testproductrulesecurity",
+      "target": "tests_test_product_rule_security_testproductrulesecurity_test_product_rule_derivative_invalid_element_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "Tests/test_pythagoras_theorem.py",
       "source_location": "L8",
       "weight": 1.0,
@@ -50539,5 +50720,5 @@
       "source_file": "handoff.md"
     }
   ],
-  "built_at_commit": "0a346cd8e6b40fa7c2adaa66262f859ba543ae12"
+  "built_at_commit": "163e55bebd789801d2f968e752fbd53a050a7a84"
 }

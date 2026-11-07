@@ -108,7 +108,7 @@ def cosine_rule_for_side(
         raise ValueError("Side lengths must be positive.")
 
     # Calculate side using cosine rule: c = √(a² + b² - 2ab×cos(C))
-    # Optimization: Use direct multiplication instead of exponentiation (** 2) for faster float arithmetic.
+    # Optimization: Direct multiplication avoids pow() / exponentiation (** 2) overhead.
     c_squared = a * a + b * b - 2 * a * b * cosine_taylor(angle_C_radians)
     return sqrt_newton(c_squared)
 
@@ -135,6 +135,6 @@ def cosine_rule_for_angle(
         )
 
     # Calculate angle using cosine rule: C = arccos((a² + b² - c²) / (2ab))
-    # Optimization: Use direct multiplication instead of exponentiation (** 2) for faster float arithmetic.
+    # Optimization: Direct multiplication avoids pow() / exponentiation (** 2) overhead.
     cos_C = (a * a + b * b - c * c) / (2 * a * b)
     return arccos_series(cos_C)
