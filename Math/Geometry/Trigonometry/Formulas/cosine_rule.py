@@ -5,6 +5,11 @@ from typing import Union
 from Math.Geometry.Trigonometry.taylor_series import cosine_taylor
 from Math.utils.math_utils import PI
 
+# Optimization: Hoist positive and negative float infinity constants to module scope
+# to avoid repeated string float parsing and tuple allocations on every validation check.
+POS_INF = float("inf")
+NEG_INF = float("-inf")
+
 
 def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     """
@@ -21,7 +26,7 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     if isinstance(x, bool) or not isinstance(x, (int, float)):
         raise TypeError("x must be a numeric integer or float.")
     # pylint: disable=comparison-with-itself
-    if x != x or x in (float('inf'), float('-inf')):
+    if x != x or x == POS_INF or x == NEG_INF:
         raise ValueError("x must be a finite real number.")
 
     if isinstance(precision, bool) or not isinstance(precision, (int, float)):
@@ -30,7 +35,8 @@ def sqrt_newton(x: Union[int, float], precision: float = 0.000001) -> float:
     if (
         precision != precision
         or precision <= 0
-        or precision in (float('inf'), float('-inf'))
+        or precision == POS_INF
+        or precision == NEG_INF
     ):
         raise ValueError("Precision must be strictly greater than zero.")
 
@@ -68,7 +74,7 @@ def arccos_series(x: Union[int, float]) -> float:
     if isinstance(x, bool) or not isinstance(x, (int, float)):
         raise TypeError("x must be a numeric integer or float.")
     # pylint: disable=comparison-with-itself
-    if x != x or x in (float('inf'), float('-inf')):
+    if x != x or x == POS_INF or x == NEG_INF:
         raise ValueError("arccos is only defined for values between -1 and 1.")
 
     if x < -1 or x > 1:
@@ -102,7 +108,8 @@ def cosine_rule_for_side(
         raise ValueError("Side lengths must be positive.")
 
     # Calculate side using cosine rule: c = √(a² + b² - 2ab×cos(C))
-    c_squared = a**2 + b**2 - 2 * a * b * cosine_taylor(angle_C_radians)
+    # Optimization: Use direct multiplication instead of exponentiation (** 2) for faster float arithmetic.
+    c_squared = a * a + b * b - 2 * a * b * cosine_taylor(angle_C_radians)
     return sqrt_newton(c_squared)
 
 
@@ -128,5 +135,6 @@ def cosine_rule_for_angle(
         )
 
     # Calculate angle using cosine rule: C = arccos((a² + b² - c²) / (2ab))
-    cos_C = (a**2 + b**2 - c**2) / (2 * a * b)
+    # Optimization: Use direct multiplication instead of exponentiation (** 2) for faster float arithmetic.
+    cos_C = (a * a + b * b - c * c) / (2 * a * b)
     return arccos_series(cos_C)
