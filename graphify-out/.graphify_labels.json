@@ -1,6 +1,7 @@
 {
   "0": "Newton-Raphson & Root Finding",
   "1": "Binomial Theorem",
+  "2": "quotient_rule.py",
   "3": "Test Algebra Testevaluatepolynomial Module",
   "4": "Trigonometric Integration",
   "5": "Factor Theorem Testing",
@@ -51,6 +52,7 @@
   "50": "Euclidean Volume (Cuboid)",
   "51": "Inverse Trigonometry (Arctan)",
   "52": "TestCalculusDifferentiation",
+  "53": "volume_of_cone",
   "54": "Compound Interest Math",
   "55": "Trinomial General Module",
   "56": "Euclidean Area (Triangle)",
@@ -127,6 +129,7 @@
   "127": "Probability_and_Statistics/__init__.py",
   "128": "Probability_Axioms/__init__.py",
   "129": "utils/__init__.py",
+  "130": "volume_of_cylinder",
   "131": "evaluate_polynomial",
   "132": "generate_pascals_triangle",
   "133": "test_Algebra.py",
@@ -138,9 +141,6 @@
   "139": "area_of_circle",
   "140": "cosecant",
   "141": "secant",
-  "143": "test_DiscreteMath.py",
-  "144": "TestPascalsTriangle",
   "145": "tangent",
-  "146": "TestPascalsTriangle",
   "147": "TestFactorialDecimal"
 }
