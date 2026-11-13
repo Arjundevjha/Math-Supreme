@@ -165,8 +165,8 @@
     "semantic_hash": "9ac99892da29f5e1f488cf516bdf1c94"
   },
   "Math/Geometry/Euclidean_Geometry/Area/circle.py": {
-    "mtime": 1787022280.2932003,
-    "ast_hash": "620253ece124bfaabf4fc537f4279980",
+    "mtime": 1794358794.5609615,
+    "ast_hash": "baa4cb715093de05a2f3d1f9f3a16653",
     "semantic_hash": ""
   },
   "Math/Geometry/Euclidean_Geometry/Area/heron's_area_of_triangle_formula.py": {
@@ -185,9 +185,9 @@
     "semantic_hash": "498e65a67ad4739d24374bef9a52be07"
   },
   "Math/Geometry/Euclidean_Geometry/Area/square.py": {
-    "mtime": 1781232547.6358523,
-    "ast_hash": "c13f874a7c5684318484a69614eca9df",
-    "semantic_hash": "c13f874a7c5684318484a69614eca9df"
+    "mtime": 1794572796.4527977,
+    "ast_hash": "3c5b5e3b85ec48c955dbe7de1de818c8",
+    "semantic_hash": ""
   },
   "Math/Geometry/Euclidean_Geometry/Area/triangle.py": {
     "mtime": 1783937229.8444757,
@@ -550,8 +550,8 @@
     "semantic_hash": "d33dae1a5fac1a831b68109d276c05a4"
   },
   "handoff.md": {
-    "mtime": 1794056573.0485158,
-    "ast_hash": "8ca5e93e5fa899bceec7c8c1e5e55b9a",
+    "mtime": 1794572843.6337893,
+    "ast_hash": "81a8a83331de85c7f3887d67924c02a5",
     "semantic_hash": ""
   },
   "Math/Algebra/Abstract_Algebra_Intro/__init__.py": {

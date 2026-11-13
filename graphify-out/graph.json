@@ -1885,7 +1885,7 @@
       "label": "area_of_circle()",
       "file_type": "code",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
-      "source_location": "L7",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_circle_area_of_circle",
       "community": 30,
@@ -1893,12 +1893,23 @@
       "norm_label": "area_of_circle()"
     },
     {
+      "label": "Module for calculating the area of a circle.",
+      "file_type": "rationale",
+      "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "math_geometry_euclidean_geometry_area_circle_rationale_1",
+      "community": 30,
+      "community_name": "Euclidean Volume (Cone)",
+      "norm_label": "module for calculating the area of a circle."
+    },
+    {
       "label": "Calculate the area of a circle given its radius.      Parameters:     radius (Un",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
-      "id": "math_geometry_euclidean_geometry_area_circle_rationale_8",
+      "id": "math_geometry_euclidean_geometry_area_circle_rationale_9",
       "community": 30,
       "community_name": "Euclidean Volume (Cone)",
       "norm_label": "calculate the area of a circle given its radius.      parameters:     radius (un"
@@ -2039,7 +2050,7 @@
       "label": "area_of_square()",
       "file_type": "code",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/square.py",
-      "source_location": "L5",
+      "source_location": "L6",
       "_origin": "ast",
       "id": "math_geometry_euclidean_geometry_area_square_area_of_square",
       "community": 48,
@@ -2047,12 +2058,23 @@
       "norm_label": "area_of_square()"
     },
     {
+      "label": "Module for calculating the area of a square.",
+      "file_type": "rationale",
+      "source_file": "Math/Geometry/Euclidean_Geometry/Area/square.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "math_geometry_euclidean_geometry_area_square_rationale_1",
+      "community": 48,
+      "community_name": "Euclidean Area (Square)",
+      "norm_label": "module for calculating the area of a square."
+    },
+    {
       "label": "Calculate the area of a square given the length of its side.      Parameters:",
       "file_type": "rationale",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/square.py",
-      "source_location": "L6",
+      "source_location": "L7",
       "_origin": "ast",
-      "id": "math_geometry_euclidean_geometry_area_square_rationale_6",
+      "id": "math_geometry_euclidean_geometry_area_square_rationale_7",
       "community": 48,
       "community_name": "Euclidean Area (Square)",
       "norm_label": "calculate the area of a square given the length of its side.      parameters:"
@@ -8202,8 +8224,8 @@
       "source_location": "L52",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_full_period",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": ".test_integrate_cos_full_period()"
     },
     {
@@ -8213,8 +8235,8 @@
       "source_location": "L57",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_negative_bounds",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": ".test_integrate_cos_negative_bounds()"
     },
     {
@@ -8224,8 +8246,8 @@
       "source_location": "L62",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_same_bounds",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": ".test_integrate_cos_same_bounds()"
     },
     {
@@ -8268,8 +8290,8 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "tests_test_trigintegration_testtrigintegration_test_integrate_cos_multiple_periods",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": ".test_integrate_cos_multiple_periods()"
     },
     {
@@ -8378,8 +8400,8 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_53",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": "test integral of cos(x) from 0 to 2*pi = 0"
     },
     {
@@ -8389,8 +8411,8 @@
       "source_location": "L58",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_58",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": "test integral of cos(x) from -pi/2 to 0 = 1"
     },
     {
@@ -8400,8 +8422,8 @@
       "source_location": "L63",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_63",
-      "community": 4,
-      "community_name": "Trigonometric Integration",
+      "community": 26,
+      "community_name": "Trigonometric Tangent Functions",
       "norm_label": "test integral of cos(x) from a to a = 0"
     },
     {
@@ -8444,8 +8466,8 @@
       "source_location": "L84",
       "_origin": "ast",
       "id": "tests_test_trigintegration_rationale_84",
-      "community": 26,
-      "community_name": "Trigonometric Tangent Functions",
+      "community": 4,
+      "community_name": "Trigonometric Integration",
       "norm_label": "test integral of cos(x) over multiple periods"
     },
     {
@@ -29950,7 +29972,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_euclidean_geometry_area_circle",
@@ -29962,11 +29984,22 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_euclidean_geometry_area_circle",
       "target": "math_utils_math_utils",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "math_geometry_euclidean_geometry_area_circle_rationale_1",
+      "target": "math_geometry_euclidean_geometry_area_circle",
       "confidence_score": 1.0
     },
     {
@@ -29985,10 +30018,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/circle.py",
-      "source_location": "L8",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_euclidean_geometry_area_circle_rationale_8",
+      "source": "math_geometry_euclidean_geometry_area_circle_rationale_9",
       "target": "math_geometry_euclidean_geometry_area_circle_area_of_circle",
       "confidence_score": 1.0
     },
@@ -30552,11 +30585,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/square.py",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "math_geometry_euclidean_geometry_area_square",
       "target": "math_geometry_euclidean_geometry_area_square_area_of_square",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "Math/Geometry/Euclidean_Geometry/Area/square.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "math_geometry_euclidean_geometry_area_square_rationale_1",
+      "target": "math_geometry_euclidean_geometry_area_square",
       "confidence_score": 1.0
     },
     {
@@ -30575,10 +30619,10 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "Math/Geometry/Euclidean_Geometry/Area/square.py",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "math_geometry_euclidean_geometry_area_square_rationale_6",
+      "source": "math_geometry_euclidean_geometry_area_square_rationale_7",
       "target": "math_geometry_euclidean_geometry_area_square_area_of_square",
       "confidence_score": 1.0
     },
@@ -51089,5 +51133,5 @@
       "source_file": "handoff.md"
     }
   ],
-  "built_at_commit": "707aed4ce1a4223ccefaa29d7343fd9e3e1f4154"
+  "built_at_commit": "830378610b747682d547028d0e7aac5b6eeb0d0a"
 }

@@ -1,16 +1,16 @@
-# Graph Report - Math-Supreme  (2026-11-10)
+# Graph Report - Math-Supreme  (2026-11-13)
 
 ## Corpus Check
-- 220 files · ~48,017 words
+- 220 files · ~48,480 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 1735 nodes · 2781 edges · 144 communities (128 shown, 16 thin omitted)
+- 1737 nodes · 2783 edges · 144 communities (128 shown, 16 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `707aed4c`
+- Built from commit: `83037861`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -156,7 +156,7 @@ Nodes (30): evaluate_polynomial(), Evaluate a polynomial at a given value of x. 
 
 ### Community 4 - "Trigonometric Integration"
 Cohesion: 0.10
-Nodes (11): integrate_cos(), Calculate the definite integral of cos(x) from a to b.      Parameters:     a (U, Test integral of cos(x) from pi/2 to 0 = -1, Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2), Test integral of cos(x) from pi to pi = 0, Test integral of cos(x) from 0 to pi = 0, Test integral of cos(x) over multiple periods, Test integral of cos(x) from 0 to 2*pi = 0 (+3 more)
+Nodes (11): integrate_cos(), Calculate the definite integral of cos(x) from a to b.      Parameters:     a (U, Test integral of cos(x) from pi/2 to 0 = -1, Test integral of cos(x) from pi/6 to pi/3 = (sqrt(3)/2 - 1/2), Test integral of cos(x) from pi to pi = 0, Test integral of cos(x) from 0 to pi = 0, Test integral of cos(x) over multiple periods, Test integral of cos(x) from -pi/2 to 0 = 1 (+3 more)
 
 ### Community 5 - "Factor Theorem Testing"
 Cohesion: 0.08
@@ -240,7 +240,7 @@ Nodes (15): format_polynomial(), Format a polynomial as a string.      Parameter
 
 ### Community 26 - "Trigonometric Tangent Functions"
 Cohesion: 0.11
-Nodes (10): Test integral of sin(x) from 0 to 2*pi = 0, Test integral of sin(x) from a to a = 0, Test integral of sin(x) from 0 to pi/3 = 0.5, Test integral of sin(x) from 0.5 to 1.5, Test integral of cos(x) from 0 to pi/2 = 1, Test integral of cos(x) from -pi/2 to 0 = 1, Test integral of sin(x) from 0 to pi/2 = 1, Test integral of cos(x) from pi/2 to 0 = -1 (+2 more)
+Nodes (10): Test integral of sin(x) from 0 to 2*pi = 0, Test integral of sin(x) from a to a = 0, Test integral of sin(x) from 0 to pi/3 = 0.5, Test integral of sin(x) from 0.5 to 1.5, Test integral of cos(x) from 0 to pi/2 = 1, Test integral of cos(x) from 0 to 2*pi = 0, Test integral of cos(x) from a to a = 0, Test integral of sin(x) from 0 to pi/2 = 1 (+2 more)
 
 ### Community 27 - "Binomial Theorem"
 Cohesion: 0.21
@@ -256,7 +256,7 @@ Nodes (3): area_of_triangle(), Calculate the area of a triangle given its base a
 
 ### Community 30 - "Euclidean Volume (Cone)"
 Cohesion: 0.12
-Nodes (10): area_of_circle(), Calculate the area of a circle given its radius.      Parameters:     radius (Un, Calculate the volume of a sphere given its radius.      Parameters:     radius (, volume_of_sphere(), TestAreaOfCircle, Test volume with zero radius., Test volume with a positive integer radius., Test volume with a positive float radius. (+2 more)
+Nodes (11): area_of_circle(), Module for calculating the area of a circle., Calculate the area of a circle given its radius.      Parameters:     radius (Un, Calculate the volume of a sphere given its radius.      Parameters:     radius (, volume_of_sphere(), TestAreaOfCircle, Test volume with zero radius., Test volume with a positive integer radius. (+3 more)
 
 ### Community 31 - "Euclidean Volume (Cylinder)"
 Cohesion: 0.07
@@ -319,8 +319,8 @@ Cohesion: 0.12
 Nodes (22): arccos_series(), cosine_rule_for_angle(), cosine_rule_for_side(), Cosine rule (Law of Cosines) for finding sides and angles of triangles., Calculate angle C using the cosine rule: cos(C) = (a² + b² - c²) / (2ab).      P, Calculate square root using Newton's method.      Parameters:     x (Union[int,, Calculate arccos using series approximation.      Parameters:     x (Union[int,, Calculate the length of side c using the cosine rule: c² = a² + b² - 2ab×cos(C). (+14 more)
 
 ### Community 48 - "Euclidean Area (Square)"
-Cohesion: 0.33
-Nodes (3): area_of_square(), Calculate the area of a square given the length of its side.      Parameters:, TestAreaOfSquare
+Cohesion: 0.29
+Nodes (4): area_of_square(), Module for calculating the area of a square., Calculate the area of a square given the length of its side.      Parameters:, TestAreaOfSquare
 
 ### Community 49 - "Euclidean Area (Square)"
 Cohesion: 0.29
@@ -438,12 +438,12 @@ Nodes (6): Test factorial of zero is 1., Test factorial of one is 1., Test facto
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `TestFormatPolynomialChainRule` connect `Test Calculus Testformatpolynomialchainrule Module` to `Trigonometric Integration`, `volume_of_cylinder`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
 - **Why does `quotient_rule_derivative()` connect `Calculus Quotient Rule` to `volume_of_cylinder`, `Partition Test Discretetest Module`, `quotient_rule.py`, `Trigonometric Tangent Functions`?**
-  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `TestFormatPolynomialChainRule` connect `Test Calculus Testformatpolynomialchainrule Module` to `Trigonometric Integration`, `volume_of_cylinder`?**
+  _High betweenness centrality (0.027) - this node is a cross-community bridge._
 - **Why does `format_polynomial()` connect `Partition Test Discretetest Module` to `quotient_rule.py`, `volume_of_cylinder`, `Calculus Quotient Rule`, `Calculus Chain Rule`, `TestCalculusDifferentiation`, `test_math_utils.py`?**
-  _High betweenness centrality (0.023) - this node is a cross-community bridge._
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
 - **What connects `Polynomial Closed-Form Solvers Skill`, `1. Codebase Audit & Roadmap Alignment`, `2. Test Verification Requirement` to the rest of the system?**
   _12 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Newton-Raphson & Root Finding` be split into smaller, more focused modules?**
