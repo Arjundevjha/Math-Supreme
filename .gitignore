@@ -9,3 +9,6 @@ __pycache__/
 # Packaging artifacts
 Math_Supreme.egg-info/
 .pytest_cache/
+
+# Graphify knowledge graph artifacts
+graphify-out/

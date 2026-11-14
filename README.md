@@ -329,7 +329,7 @@ the repository.
 ## Applied Math
 
 - [ ] `Physics/`
-  - [ ] `kinematics_solver.py`
+  - [x] `kinematics_solver.py`
   - [ ] `newton_laws_force.py`
   - [ ] `work_energy_power.py`
   - [ ] `harmonic_oscillator.py`
@@ -342,13 +342,13 @@ the repository.
   - [ ] `floating_point_representation.py`
   - [ ] `huffman_coding.py`
   - [ ] `fast_fourier_transform_fft.py`
-- [ ] `Finance/`
+- [x] `Finance/`
   - [x] `Simple_Intrest.py`
   - [x] `Compund_intrest.py`
-  - [ ] `annuities.py`
-  - [ ] `black_scholes_option_pricing.py`
-  - [ ] `mortgage_calculator.py`
-  - [ ] `sharpe_ratio.py`
+  - [x] `annuities.py`
+  - [x] `black_scholes_option_pricing.py`
+  - [x] `mortgage_calculator.py`
+  - [x] `sharpe_ratio.py`
 - [ ] `Engineering/`
   - [ ] `stress_strain_curve.tex`
   - [ ] `basic_circuits.py`
