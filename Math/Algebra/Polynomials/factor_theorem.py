@@ -1,22 +1,21 @@
-# Factor theorem: check if (x - a) is a factor of a polynomial
-from typing import List, Union
+"""Factor theorem: check if (x - a) is a factor of a polynomial."""
+from typing import Sequence, Union
+
 from .polynomial import evaluate_polynomial
 
 
-def check_factor(coefficients: List[Union[int, float]], powers: List[Union[int, float]], x: Union[int, float]) -> bool:
+def check_factor(
+    poly: Sequence[Union[int, float]], x: Union[int, float]
+) -> bool:
     """
     Check if (x - a) is a factor of a polynomial using the Factor Theorem.
 
     Parameters:
-    coefficients (List[Union[int, float]]): List of coefficients for each term.
-    powers (List[Union[int, float]]): List of powers for each term.
-    x (Union[int, float]): The value to check if (x - value) is a factor.
+    poly (Sequence[Union[int, float]]): Dense coefficient list [c0, c1, ...].
+    x (Union[int, float]): The value a to test whether (x - a) is a factor.
 
     Returns:
-    bool: True if (x - value) is a factor, False otherwise.
+    bool: True if (x - a) is a factor, False otherwise.
     """
-    # According to Factor Theorem: (x - a) is a factor if P(a) = 0
-    result = evaluate_polynomial(coefficients, powers, x)
-    
-    # Check absolute difference to account for floating-point precision issues
+    result = evaluate_polynomial(poly, x)
     return abs(result) <= 1e-9

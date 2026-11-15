@@ -1,62 +1,47 @@
-"""Chain rule for differentiation of composite functions."""
-from typing import List, Union
+"""Chain rule for differentiation of [g(x)]^n using dense lists."""
+from typing import List, Sequence, Union
 
-from Math.utils.math_utils import format_polynomial
-from .utils import compute_polynomial_derivative
+from Math.Algebra.Polynomials.polynomial import (
+    multiply_polynomials,
+    power_polynomial,
+    trim_polynomial,
+    validate_polynomial,
+)
+from .simple_diffrentiation_function import differentiate_polynomial
 
 
 def chain_rule_derivative(
-    inner_coeffs: List[Union[int, float]],
-    inner_powers: List[Union[int, float]],
+    inner: Sequence[Union[int, float]],
     exponent: int,
-) -> str:
+) -> List[Union[int, float]]:
     """
-    Apply the chain rule to find the derivative of [g(x)]^n.
+    Apply the chain rule to compute d/dx [g(x)]^n as a dense polynomial list.
 
     Parameters:
-    inner_coeffs (List[Union[int, float]]): Coefficients of the inner function g(x).
-    inner_powers (List[Union[int, float]]): Powers of the inner function g(x).
-    exponent (int): The power n to which g(x) is raised.
+    inner (Sequence[Union[int, float]]): Inner polynomial g(x) [c0, c1, ...].
+    exponent (int): Non-negative integer power n.
 
     Returns:
-    str: A string representation of the derivative.
+    List[Union[int, float]]: Dense coefficient list of n * g(x)^(n-1) * g'(x).
     """
-    # Security: Input validation & DoS prevention
-    if not isinstance(inner_coeffs, (list, tuple)) or not isinstance(inner_powers, (list, tuple)):
-        raise TypeError("Coefficients and powers must be lists or tuples.")
-
-    for coeff in inner_coeffs:
-        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
-            raise TypeError("Coefficients must be numeric values (int or float).")
-
-    for power in inner_powers:
-        if isinstance(power, bool) or not isinstance(power, (int, float)):
-            raise TypeError("Powers must be numeric values (int or float).")
-        if abs(power) > 10000:
-            raise ValueError("Power exceeds maximum limit of 10000.")
-
+    g_list = validate_polynomial(inner)
     if isinstance(exponent, bool) or not isinstance(exponent, int):
         raise TypeError("Exponent must be an integer.")
-
     if exponent < 0:
         raise ValueError("Exponent must be non-negative.")
     if exponent > 10000:
         raise ValueError("Exponent exceeds maximum limit of 10000.")
 
-    # Format inner polynomial g(x)
-    g_x = format_polynomial(inner_coeffs, inner_powers)
+    if exponent == 0:
+        return []
 
-    # Compute derivative of inner function g'(x)
-    g_prime_coeffs, g_prime_powers = compute_polynomial_derivative(
-        inner_coeffs, inner_powers
-    )
+    g_prime = differentiate_polynomial(g_list)
+    if not g_prime:
+        return []
 
-    derivative_terms = []
-    for coeff, power in zip(g_prime_coeffs, g_prime_powers):
-        derivative_terms.append(f"{coeff}x^{int(power)}")
-    g_prime = " + ".join(derivative_terms)
+    if exponent == 1:
+        return g_prime
 
-    # Apply chain rule: d/dx[g(x)]^n = n×[g(x)]^(n-1) × g'(x)
-    result = f"{exponent}({g_x})^{exponent - 1} * ({g_prime})"
-
-    return result
+    outer_part = power_polynomial(g_list, exponent - 1)
+    scaled_outer = [c * exponent for c in outer_part]
+    return trim_polynomial(multiply_polynomials(scaled_outer, g_prime))

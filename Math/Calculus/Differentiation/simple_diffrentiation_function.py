@@ -1,38 +1,26 @@
-"""Module for differentiating polynomials using the power rule."""
-from typing import List, Union, Tuple
+"""Module for differentiating dense-list polynomials using the power rule."""
+from typing import List, Sequence, Union
+
+from Math.Algebra.Polynomials.polynomial import (
+    trim_polynomial,
+    validate_polynomial,
+)
 
 
 def differentiate_polynomial(
-    coeffs: List[Union[int, float]], powers: List[Union[int, float]]
-) -> List[Tuple[float, float]]:
+    poly: Sequence[Union[int, float]],
+) -> List[Union[int, float]]:
     """
-    Differentiate a polynomial using the power rule.
+    Differentiate a polynomial [c0, c1, c2, ...] via list manipulation.
 
     Parameters:
-    coeffs (List[Union[int, float]]): Coefficients of the polynomial terms.
-    powers (List[Union[int, float]]): Powers of the polynomial terms.
+    poly (Sequence[Union[int, float]]): Dense coefficient list where
+        index i corresponds to x^i.
 
     Returns:
-    List[Tuple[float, float]]: List of tuples (coefficient, power) for the derivative.
+    List[Union[int, float]]: Dense coefficient list of the derivative.
     """
-    # Security: Validate input types and power bounds to prevent DoS and unexpected behavior
-    if not isinstance(coeffs, (list, tuple)) or not isinstance(powers, (list, tuple)):
-        raise TypeError("Coefficients and powers must be lists or tuples.")
-
-    for coeff in coeffs:
-        if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
-            raise TypeError("Coefficients must be numeric values (int or float).")
-
-    for power in powers:
-        if isinstance(power, bool) or not isinstance(power, (int, float)):
-            raise TypeError("Powers must be numeric values (int or float).")
-        if abs(power) > 10000:
-            raise ValueError("Power exceeds maximum limit of 10000.")
-
-    # Optimization: Use list comprehension to eliminate loop method lookup
-    # and dynamic list allocations
-    return [
-        (coeff * power, power - 1)
-        for coeff, power in zip(coeffs, powers)
-        if power > 0
-    ]
+    coeffs = validate_polynomial(poly)
+    if len(coeffs) <= 1:
+        return []
+    return trim_polynomial([i * c for i, c in enumerate(coeffs)][1:])

@@ -1,56 +1,34 @@
-"""Product rule for differentiation."""
-from typing import List, Union
+"""Product rule for differentiation using dense polynomial lists."""
+from typing import List, Sequence, Union
 
-from Math.utils.math_utils import format_polynomial
-from .utils import compute_polynomial_derivative_str
+from Math.Algebra.Polynomials.polynomial import (
+    add_polynomials,
+    multiply_polynomials,
+    validate_polynomial,
+)
+from .simple_diffrentiation_function import differentiate_polynomial
 
 
 def product_rule_derivative(
-    u_coeffs: List[Union[int, float]],
-    u_powers: List[Union[int, float]],
-    v_coeffs: List[Union[int, float]],
-    v_powers: List[Union[int, float]],
-) -> str:
+    u: Sequence[Union[int, float]],
+    v: Sequence[Union[int, float]],
+) -> List[Union[int, float]]:
     """
-    Apply the product rule to find the derivative of u(x) * v(x).
+    Apply the product rule (u * v)' = u' * v + u * v' on dense polynomials.
 
     Parameters:
-    u_coeffs (List[Union[int, float]]): Coefficients of the first polynomial u(x).
-    u_powers (List[Union[int, float]]): Powers of the first polynomial u(x).
-    v_coeffs (List[Union[int, float]]): Coefficients of the second polynomial v(x).
-    v_powers (List[Union[int, float]]): Powers of the second polynomial v(x).
+    u (Sequence[Union[int, float]]): First polynomial [c0, c1, ...].
+    v (Sequence[Union[int, float]]): Second polynomial [c0, c1, ...].
 
     Returns:
-    str: A string representation of the derivative using product rule.
+    List[Union[int, float]]: Dense coefficient list of (u * v)'.
     """
-    # Security: Input validation & DoS prevention
-    sequences = (u_coeffs, u_powers, v_coeffs, v_powers)
-    if not all(isinstance(seq, (list, tuple)) for seq in sequences):
-        raise TypeError("Coefficients and powers must be lists or tuples.")
+    u_list = validate_polynomial(u)
+    v_list = validate_polynomial(v)
 
-    for coeffs in (u_coeffs, v_coeffs):
-        for coeff in coeffs:
-            if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
-                raise TypeError("Coefficients must be numeric values (int or float).")
+    u_prime = differentiate_polynomial(u_list)
+    v_prime = differentiate_polynomial(v_list)
 
-    for powers in (u_powers, v_powers):
-        for power in powers:
-            if isinstance(power, bool) or not isinstance(power, (int, float)):
-                raise TypeError("Powers must be numeric values (int or float).")
-            if abs(power) > 10000:
-                raise ValueError("Power exceeds maximum limit of 10000.")
-
-    # Format polynomials
-    poly1 = format_polynomial(u_coeffs, u_powers)
-    poly2 = format_polynomial(v_coeffs, v_powers)
-
-    # Compute derivatives
-    u_prime = compute_polynomial_derivative_str(u_coeffs, u_powers)
-    v_prime = compute_polynomial_derivative_str(v_coeffs, v_powers)
-
-    # Apply product rule: (u×v)' = u'×v + u×v'
-    if not u_coeffs and not v_coeffs:
-        return "0"
-    result = f"({u_prime}) * ({poly2}) + ({poly1}) * ({v_prime})"
-
-    return result
+    term1 = multiply_polynomials(u_prime, v_list)
+    term2 = multiply_polynomials(u_list, v_prime)
+    return add_polynomials(term1, term2)

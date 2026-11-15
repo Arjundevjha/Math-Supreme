@@ -1,55 +1,54 @@
 import unittest
-from Math.Algebra.Polynomials.polynomial import evaluate_polynomial, format_polynomial
+
+from Math.Algebra.Polynomials.polynomial import (
+    MAX_DEGREE,
+    evaluate_polynomial,
+    format_polynomial,
+    power_polynomial,
+)
 
 
 class TestPolynomialSecurity(unittest.TestCase):
     def test_evaluate_polynomial_invalid_types(self):
-        # Invalid container types
         with self.assertRaises(TypeError):
-            evaluate_polynomial("invalid", [1, 0], 2)
+            evaluate_polynomial("invalid", 2)
         with self.assertRaises(TypeError):
-            evaluate_polynomial([1, 0], "invalid", 2)
+            evaluate_polynomial(None, 2)
         with self.assertRaises(TypeError):
-            evaluate_polynomial(None, [1, 0], 2)
+            evaluate_polynomial([1, 2], "2")
+        with self.assertRaises(TypeError):
+            evaluate_polynomial([1, 2], True)
+        with self.assertRaises(TypeError):
+            evaluate_polynomial(["1"], 2)
+        with self.assertRaises(TypeError):
+            evaluate_polynomial([True], 2)
 
-        # Invalid x type
-        with self.assertRaises(TypeError):
-            evaluate_polynomial([1], [1], "2")
-        with self.assertRaises(TypeError):
-            evaluate_polynomial([1], [1], True)
-
-        # Invalid coefficient or power elements
-        with self.assertRaises(TypeError):
-            evaluate_polynomial(["1"], [1], 2)
-        with self.assertRaises(TypeError):
-            evaluate_polynomial([True], [1], 2)
-        with self.assertRaises(TypeError):
-            evaluate_polynomial([1], ["1"], 2)
-        with self.assertRaises(TypeError):
-            evaluate_polynomial([1], [True], 2)
-
-    def test_evaluate_polynomial_power_bounds(self):
-        # Power exceeding 10000 or -10000 should raise ValueError
+    def test_evaluate_polynomial_bounds(self):
         with self.assertRaises(ValueError):
-            evaluate_polynomial([1], [10001], 2)
+            evaluate_polynomial([1] * (MAX_DEGREE + 2), 1)
         with self.assertRaises(ValueError):
-            evaluate_polynomial([1], [-10001], 2)
-
-        # Valid high power should pass
-        self.assertEqual(evaluate_polynomial([1], [10000], 1), 1)
+            evaluate_polynomial([float("nan")], 1)
+        with self.assertRaises(ValueError):
+            evaluate_polynomial([1], float("inf"))
+        self.assertEqual(evaluate_polynomial([1] + [0] * 9999 + [1], 1), 2.0)
 
     def test_format_polynomial_invalid_types(self):
-        # Invalid container types
         with self.assertRaises(TypeError):
-            format_polynomial("invalid", [1, 0])
+            format_polynomial("invalid")
         with self.assertRaises(TypeError):
-            format_polynomial([1, 0], None)
+            format_polynomial(None)
+        with self.assertRaises(TypeError):
+            format_polynomial(["1"])
+        with self.assertRaises(TypeError):
+            format_polynomial([True])
 
-        # Invalid element types
+    def test_power_polynomial_validation(self):
         with self.assertRaises(TypeError):
-            format_polynomial(["1"], [1])
-        with self.assertRaises(TypeError):
-            format_polynomial([1], [True])
+            power_polynomial([1, 1], True)
+        with self.assertRaises(ValueError):
+            power_polynomial([1, 1], -1)
+        with self.assertRaises(ValueError):
+            power_polynomial([1, 1], MAX_DEGREE + 1)
 
 
 if __name__ == "__main__":

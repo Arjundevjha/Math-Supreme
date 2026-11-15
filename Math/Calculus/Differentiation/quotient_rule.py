@@ -1,69 +1,41 @@
-"""Quotient rule for differentiation."""
+"""Quotient rule for differentiation using dense polynomial lists."""
+from typing import List, Sequence, Tuple, Union
 
-from typing import List, Union
-
-from Math.utils.math_utils import format_polynomial
-from .utils import compute_polynomial_derivative_str
-
-
-def _validate_polynomial_inputs(
-    u_coeffs: List[Union[int, float]],
-    u_powers: List[Union[int, float]],
-    v_coeffs: List[Union[int, float]],
-    v_powers: List[Union[int, float]],
-) -> None:
-    """Validate polynomial inputs and prevent denial of service."""
-    if not all(
-        isinstance(seq, (list, tuple))
-        for seq in (u_coeffs, u_powers, v_coeffs, v_powers)
-    ):
-        raise TypeError("Coefficients and powers must be lists or tuples.")
-
-    for coeffs in (u_coeffs, v_coeffs):
-        for coeff in coeffs:
-            if isinstance(coeff, bool) or not isinstance(coeff, (int, float)):
-                raise TypeError("Coefficients must be numeric values (int or float).")
-
-    for powers in (u_powers, v_powers):
-        for power in powers:
-            if isinstance(power, bool) or not isinstance(power, (int, float)):
-                raise TypeError("Powers must be numeric values (int or float).")
-            if abs(power) > 10000:
-                raise ValueError("Power exceeds maximum limit of 10000.")
+from Math.Algebra.Polynomials.polynomial import (
+    multiply_polynomials,
+    subtract_polynomials,
+    trim_polynomial,
+    validate_polynomial,
+)
+from .simple_diffrentiation_function import differentiate_polynomial
 
 
 def quotient_rule_derivative(
-    u_coeffs: List[Union[int, float]],
-    u_powers: List[Union[int, float]],
-    v_coeffs: List[Union[int, float]],
-    v_powers: List[Union[int, float]],
-) -> str:
+    u: Sequence[Union[int, float]],
+    v: Sequence[Union[int, float]],
+) -> Tuple[List[Union[int, float]], List[Union[int, float]]]:
     """
-    Apply the quotient rule to find the derivative of u(x) / v(x).
+    Apply the quotient rule (u / v)' = (u' * v - u * v') / v^2.
 
     Parameters:
-    u_coeffs (List[Union[int, float]]): Coefficients of the numerator polynomial u(x).
-    u_powers (List[Union[int, float]]): Powers of the numerator polynomial u(x).
-    v_coeffs (List[Union[int, float]]): Coefficients of the denominator polynomial v(x).
-    v_powers (List[Union[int, float]]): Powers of the denominator polynomial v(x).
+    u (Sequence[Union[int, float]]): Numerator polynomial [c0, c1, ...].
+    v (Sequence[Union[int, float]]): Denominator polynomial [c0, c1, ...].
 
     Returns:
-    str: A string representation of the derivative using quotient rule.
+    Tuple[List[Union[int, float]], List[Union[int, float]]]:
+        A tuple (numerator_poly, denominator_poly) as dense coefficient lists.
     """
-    # Security: Input validation & DoS prevention
-    _validate_polynomial_inputs(u_coeffs, u_powers, v_coeffs, v_powers)
+    u_list = validate_polynomial(u)
+    v_list = trim_polynomial(validate_polynomial(v))
+    if not v_list:
+        raise ValueError("Denominator polynomial v(x) cannot be zero.")
 
-    # Format polynomials
-    poly1 = format_polynomial(u_coeffs, u_powers)
-    poly2 = format_polynomial(v_coeffs, v_powers)
+    u_prime = differentiate_polynomial(u_list)
+    v_prime = differentiate_polynomial(v_list)
 
-    # Compute derivatives
-    u_prime = compute_polynomial_derivative_str(u_coeffs, u_powers)
-    v_prime = compute_polynomial_derivative_str(v_coeffs, v_powers)
-
-    # Apply quotient rule: (u/v)' = (u'×v - u×v') / v²
-    numerator = f"({u_prime}) * ({poly2}) - ({poly1}) * ({v_prime})"
-    denominator = f"({poly2})^2"
-    result = f"({numerator}) / {denominator}"
-
-    return result
+    numerator = subtract_polynomials(
+        multiply_polynomials(u_prime, v_list),
+        multiply_polynomials(u_list, v_prime),
+    )
+    denominator = multiply_polynomials(v_list, v_list)
+    return numerator, denominator
