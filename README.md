@@ -48,9 +48,9 @@ the repository.
 
 ## Calculus
 
-- [ ] `Limits/`
-  - [ ] `evaluate_limit_rational.py`
-  - [ ] `limit_infinity_cases.py`
+- [x] `Limits/`
+  - [x] `evaluate_limit_rational.py`
+  - [x] `limit_infinity_cases.py`
 - [x] `Differentiation/`
   - [x] `simple_diffrentiation_function.py`
   - [x] `product_rule.py`
@@ -59,10 +59,10 @@ the repository.
   - [x] `second_derivatives.py`
   - [x] `utils.py`
   - [ ] `implicit_differentiation.py`
-- [ ] `Applications_of_Derivatives/`
-  - [ ] `curve_sketching.py`
-  - [ ] `optimization_problems.py`
-  - [ ] `related_rates.py`
+- [x] `Applications_of_Derivatives/`
+  - [x] `curve_sketching.py`
+  - [x] `optimization_problems.py`
+  - [x] `related_rates.py`
 - [x] `Integration/`
   - [x] `NumIntegration.py`
   - [x] `TrigIntegration.py`
@@ -223,23 +223,23 @@ the repository.
 
 ## Linear Algebra
 
-- [ ] `Vectors/`
-  - [ ] `magnitude.py`
-  - [ ] `dot_product.py`
-  - [ ] `cross_product.py`
-  - [ ] `vector_projection.py`
-  - [ ] `angle_between_vectors.py`
-  - [ ] `gram_schmidt_orthogonalization.py`
-- [ ] `Matrices/`
-  - [ ] `matrix_addition.py`
-  - [ ] `matrix_multiplication.py`
-  - [ ] `matrix_inverse.py`
-  - [ ] `determinant.py`
-  - [ ] `matrix_transpose.py`
-  - [ ] `rank_nullity.py`
-  - [ ] `lu_decomposition.py`
-  - [ ] `qr_decomposition.py`
-  - [ ] `singular_value_decomposition.py`
+- [x] `Vectors/`
+  - [x] `magnitude.py`
+  - [x] `dot_product.py`
+  - [x] `cross_product.py`
+  - [x] `vector_projection.py`
+  - [x] `angle_between_vectors.py`
+  - [x] `gram_schmidt_orthogonalization.py`
+- [x] `Matrices/`
+  - [x] `matrix_addition.py`
+  - [x] `matrix_multiplication.py`
+  - [x] `matrix_inverse.py`
+  - [x] `determinant.py`
+  - [x] `matrix_transpose.py`
+  - [x] `rank_nullity.py`
+  - [x] `lu_decomposition.py`
+  - [x] `qr_decomposition.py`
+  - [x] `singular_value_decomposition.py`
 - [ ] `Linear_Systems/`
   - [ ] `gauss_jordan_elimination.py`
 - [ ] `Transformations/`
@@ -328,20 +328,20 @@ the repository.
 
 ## Applied Math
 
-- [ ] `Physics/`
+- [x] `Physics/`
   - [x] `kinematics_solver.py`
-  - [ ] `newton_laws_force.py`
-  - [ ] `work_energy_power.py`
-  - [ ] `harmonic_oscillator.py`
-  - [ ] `projectile_motion.py`
-  - [ ] `kepler_laws.py`
-- [ ] `Computer_Science/`
-  - [ ] `binary_logic.py`
-  - [ ] `truth_table_generator.py`
-  - [ ] `boolean_simplifier.py`
-  - [ ] `floating_point_representation.py`
-  - [ ] `huffman_coding.py`
-  - [ ] `fast_fourier_transform_fft.py`
+  - [x] `newton_laws_force.py`
+  - [x] `work_energy_power.py`
+  - [x] `harmonic_oscillator.py`
+  - [x] `projectile_motion.py`
+  - [x] `kepler_laws.py`
+- [x] `Computer_Science/`
+  - [x] `binary_logic.py`
+  - [x] `truth_table_generator.py`
+  - [x] `boolean_simplifier.py`
+  - [x] `floating_point_representation.py`
+  - [x] `huffman_coding.py`
+  - [x] `fast_fourier_transform_fft.py`
 - [x] `Finance/`
   - [x] `Simple_Intrest.py`
   - [x] `Compund_intrest.py`

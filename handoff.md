@@ -86,8 +86,8 @@
 ## Verification & Status
 - **Open PRs**: 0 remaining (`gh pr list` returns "no open pull requests in Arjundevjha/Math-Supreme").
 - **Active Branches**: Exactly 1 branch remaining (`main`). All feature and fix branches from closed pull requests were deleted from GitHub (`origin`), and local tracking branches were pruned (`git remote prune origin`).
-- **Test Suite**: 693 / 693 passing (100% pass rate in pytest) after refactoring Polynomials & Differentiation to dense coefficient lists `[c0, c1, c2, ...]`.
-- **Pylint Score**: 10.00/10 across all refactored `Math/Algebra/Polynomials/` and `Math/Calculus/Differentiation/` modules.
+- **Test Suite**: 737 / 737 passing (100% pass rate in pytest), covering `NumIntegration.py`, `Physics/`, `Computer_Science/`, `Linear_Algebra/Vectors/`, `Linear_Algebra/Matrices/`, `Calculus/Limits/`, and `Calculus/Applications_of_Derivatives/`.
+- **Pylint Score**: 10.00/10 across all newly added/refactored `Math/` modules.
 - **Standard Math Violations**: 0 violations in `Math/` or newly updated tests.
 - **Knowledge Graph**: `graphify-out/` ignored in [`.gitignore`](file:///Users/abc/Desktop/Math-Supreme/.gitignore); local AST graph updated via `graphify update .`.
 - **Recent Refactor (Dense Polynomial Lists `[c0, c1, c2, ...]`)**:
