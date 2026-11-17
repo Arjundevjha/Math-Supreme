@@ -32,10 +32,10 @@ the repository.
   - [ ] `descartes_rule_of_signs.py`
 - [x] `Linear_Equations/`
   - [x] `linear_eqn.py`
-  - [ ] `matrix_method_solver.py`
-- [ ] `Systems_of_Equations/`
-  - [ ] `cramers_rule.py`
-  - [ ] `gaussian_elimination.py`
+  - [x] `matrix_method_solver.py` (in `Math/Algebra/Linear_Algebra_Basics/`)
+- [x] `Systems_of_Equations/`
+  - [x] `cramers_rule.py`
+  - [x] `gaussian_elimination.py`
 - [ ] `Complex_Numbers/`
   - [ ] `complex_operations.py`
   - [ ] `polar_form.py`
@@ -240,8 +240,8 @@ the repository.
   - [x] `lu_decomposition.py`
   - [x] `qr_decomposition.py`
   - [x] `singular_value_decomposition.py`
-- [ ] `Linear_Systems/`
-  - [ ] `gauss_jordan_elimination.py`
+- [x] `Linear_Systems/`
+  - [x] `gauss_jordan_elimination.py`
 - [ ] `Transformations/`
   - [ ] `linear_transformation.tex`
   - [ ] `eigenvectors_eigenvalues.tex`
@@ -265,10 +265,10 @@ the repository.
   - [ ] `lagrange_interpolation.py`
   - [ ] `newton_divided_difference.py`
   - [ ] `cubic_spline.py`
-- [ ] `Matrix_Methods/`
-  - [ ] `jacobi_iteration.py`
-  - [ ] `gauss_seidel.py`
-  - [ ] `power_iteration_eigenvalues.py`
+- [x] `Matrix_Methods/`
+  - [x] `jacobi_iteration.py`
+  - [x] `gauss_seidel.py`
+  - [x] `power_iteration_eigenvalues.py`
 - [ ] `Integration/`
   - [ ] `trapezoidal_rule.py`
   - [ ] `simpson_rule.py`
